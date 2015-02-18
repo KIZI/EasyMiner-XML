@@ -1,0 +1,255 @@
+<?xml version="1.0"?>
+<?oxygen SCHSchema="http://sewebar.vse.cz/schemas/GUHARestr0_1.sch"?>
+<PMML version="4.0" xmlns="http://www.dmg.org/PMML-4_0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:pmml="http://www.dmg.org/PMML-4_0"
+    xsi:schemaLocation="http://www.dmg.org/PMML-4_0 http://sewebar.vse.cz/schemas/PMML4.0+GUHA0.1.xsd">
+
+ <!--vlastní header-->
+	<Header copyright="Copyright (c) KIZI UEP">
+		<Extension name="metabase" value="LM LM Barbora.mdb MB"/>
+		<Extension name="dataset" value="Loans"/>
+		<Extension name="author" value="PowerUser"/>
+		<Extension name="subsystem" value="4ft-Miner"/>
+		<Extension name="module" value="4ftResult.exe"/>
+		<Extension name="format" value="4ftMiner.Task"/>		
+		<Application name="LISp-Miner" version="15.05.00 of 14 Mar 2011"/>
+		<Annotation></Annotation>
+		<Timestamp>24.2.2005 13:49:52</Timestamp>
+	</Header>
+
+<!-- Task -->
+
+	<guha:AssociationModel  xmlns="" xsi:schemaLocation="http://keg.vse.cz/ns/GUHA0.1rev1 http://sewebar.vse.cz/schemas/GUHA0.1rev1.xsd"
+			  xmlns:guha="http://keg.vse.cz/ns/GUHA0.1rev1"
+			  modelName=" 5  Client(?)   =&gt; Loan(Bad) / Type(?) " 
+			  functionName="associationRules" 
+			  algorithmName="4ft" 
+	>
+		<TaskSetting>
+		<BBASettings>
+				<BBASetting 
+				   id="Basic_FTLiteralD_9">			   
+					<Name>Age (subset), 1 - 1</Name>
+					<FieldRef>Age</FieldRef>
+					<Coefficient>
+					    <Type>Subset</Type>
+					    <MinimalLength>1</MinimalLength>
+					    <MaximalLength>1</MaximalLength>
+					</Coefficient>
+				</BBASetting>
+				<BBASetting 
+				   id="Basic_FTLiteralD_10">			   
+					<Name>Sex (subset), 1 - 1</Name>
+					<FieldRef>Sex</FieldRef>
+					<Coefficient>
+					    <Type>Subset</Type>
+					    <MinimalLength>1</MinimalLength>
+					    <MaximalLength>1</MaximalLength>
+					</Coefficient>
+				</BBASetting>
+				<BBASetting 
+				   id="Basic_FTLiteralD_11">			   
+					<Name>Salary (subset), 1 - 1</Name>
+					<FieldRef>Salary</FieldRef>
+					<Coefficient>
+					    <Type>Subset</Type>
+					    <MinimalLength>1</MinimalLength>
+					    <MaximalLength>1</MaximalLength>
+					</Coefficient>
+				</BBASetting>
+				<BBASetting 
+				   id="Basic_FTLiteralD_12">			   
+					<Name>District (subset), 1 - 1</Name>
+					<FieldRef>District</FieldRef>
+					<Coefficient>
+					    <Type>Subset</Type>
+					    <MinimalLength>1</MinimalLength>
+					    <MaximalLength>1</MaximalLength>
+					</Coefficient>
+				</BBASetting>
+				<BBASetting 
+				   id="Basic_FTLiteralD_37">			   
+					<Name>Quality (rcut), 1 - 1</Name>
+					<FieldRef>Quality</FieldRef>
+					<Coefficient>
+					    <Type>Right cut</Type>
+					    <MinimalLength>1</MinimalLength>
+					    <MaximalLength>1</MaximalLength>
+					</Coefficient>
+				</BBASetting>
+				<BBASetting 
+				   id="Basic_FTLiteralD_13">			   
+					<Name>Amount (subset), 1 - 1</Name>
+					<FieldRef>Amount</FieldRef>
+					<Coefficient>
+					    <Type>Subset</Type>
+					    <MinimalLength>1</MinimalLength>
+					    <MaximalLength>1</MaximalLength>
+					</Coefficient>
+				</BBASetting>
+				<BBASetting 
+				   id="Basic_FTLiteralD_14">			   
+					<Name>Repayment (subset), 1 - 1</Name>
+					<FieldRef>Repayment</FieldRef>
+					<Coefficient>
+					    <Type>Subset</Type>
+					    <MinimalLength>1</MinimalLength>
+					    <MaximalLength>1</MaximalLength>
+					</Coefficient>
+				</BBASetting>
+				<BBASetting 
+				   id="Basic_FTLiteralD_15">			   
+					<Name>Duration (subset), 1 - 1</Name>
+					<FieldRef>Duration</FieldRef>
+					<Coefficient>
+					    <Type>Subset</Type>
+					    <MinimalLength>1</MinimalLength>
+					    <MaximalLength>1</MaximalLength>
+					</Coefficient>
+				</BBASetting>
+			</BBASettings>
+			<DBASettings>
+				<DBASetting id="Derived_FTLiteralD_Sign_9" 
+					type="Literal">
+					<Name>Age (subset), 1 - 1</Name>
+					<BASettingRef>Basic_FTLiteralD_9</BASettingRef>
+					<LiteralSign>Positive</LiteralSign>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>				   
+				</DBASetting>
+				<DBASetting id="Derived_FTLiteralD_Sign_10" 
+					type="Literal">
+					<Name>Sex (subset), 1 - 1</Name>
+					<BASettingRef>Basic_FTLiteralD_10</BASettingRef>
+					<LiteralSign>Positive</LiteralSign>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>				   
+				</DBASetting>
+				<DBASetting id="Derived_FTLiteralD_Sign_11" 
+					type="Literal">
+					<Name>Salary (subset), 1 - 1</Name>
+					<BASettingRef>Basic_FTLiteralD_11</BASettingRef>
+					<LiteralSign>Positive</LiteralSign>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>				   
+				</DBASetting>
+				<DBASetting id="Derived_FTLiteralD_Sign_12" 
+					type="Literal">
+					<Name>District (subset), 1 - 1</Name>
+					<BASettingRef>Basic_FTLiteralD_12</BASettingRef>
+					<LiteralSign>Positive</LiteralSign>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>				   
+				</DBASetting>
+				<DBASetting id="Derived_FTLiteralD_Sign_37" 
+					type="Literal">
+					<Name>Quality (rcut), 1 - 1</Name>
+					<BASettingRef>Basic_FTLiteralD_37</BASettingRef>
+					<LiteralSign>Positive</LiteralSign>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>				   
+				</DBASetting>
+				<DBASetting id="Derived_FTLiteralD_Sign_13" 
+					type="Literal">
+					<Name>Amount (subset), 1 - 1</Name>
+					<BASettingRef>Basic_FTLiteralD_13</BASettingRef>
+					<LiteralSign>Positive</LiteralSign>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>				   
+				</DBASetting>
+				<DBASetting id="Derived_FTLiteralD_Sign_14" 
+					type="Literal">
+					<Name>Repayment (subset), 1 - 1</Name>
+					<BASettingRef>Basic_FTLiteralD_14</BASettingRef>
+					<LiteralSign>Positive</LiteralSign>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>				   
+				</DBASetting>
+				<DBASetting id="Derived_FTLiteralD_Sign_15" 
+					type="Literal">
+					<Name>Duration (subset), 1 - 1</Name>
+					<BASettingRef>Basic_FTLiteralD_15</BASettingRef>
+					<LiteralSign>Positive</LiteralSign>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>				   
+				</DBASetting>
+
+				<DBASetting 
+					id="Derived_FTCedentD_7"
+					type="Conjunction"
+				>
+					<Name>Cedent</Name>
+					<BASettingRef>Derived_FTLiteralD_Sign_9</BASettingRef>
+					<BASettingRef>Derived_FTLiteralD_Sign_10</BASettingRef>
+					<BASettingRef>Derived_FTLiteralD_Sign_11</BASettingRef>
+					<BASettingRef>Derived_FTLiteralD_Sign_12</BASettingRef>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>4</MaximalLength>
+				</DBASetting>
+				<DBASetting 
+					id="Derived_FTCedentD_8"
+					type="Conjunction"
+				>
+					<Name>Cedent</Name>
+					<BASettingRef>Derived_FTLiteralD_Sign_37</BASettingRef>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+				<DBASetting 
+					id="Derived_FTCedentD_9"
+					type="Conjunction"
+				>
+					<Name>Cedent</Name>
+					<BASettingRef>Derived_FTLiteralD_Sign_13</BASettingRef>
+					<BASettingRef>Derived_FTLiteralD_Sign_14</BASettingRef>
+					<BASettingRef>Derived_FTLiteralD_Sign_15</BASettingRef>
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+
+				<DBASetting id="Derived_FTCedentBagD_8" type="Conjunction">
+					<Name>Antecedent</Name>
+					<BASettingRef>Derived_FTCedentD_7</BASettingRef>
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+				<DBASetting id="Derived_FTCedentBagD_9" type="Conjunction">
+					<Name>Succedent</Name>
+					<BASettingRef>Derived_FTCedentD_8</BASettingRef>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+				<DBASetting id="Derived_FTCedentBagD_7" type="Conjunction">
+					<Name>Condition</Name>
+					<BASettingRef>Derived_FTCedentD_9</BASettingRef>
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+
+			</DBASettings>
+
+			<AntecedentSetting>Derived_FTCedentBagD_8</AntecedentSetting>
+			<ConsequentSetting>Derived_FTCedentBagD_9</ConsequentSetting>
+			<ConditionSetting>Derived_FTCedentBagD_7</ConditionSetting>
+
+		<InterestMeasureSetting>
+		<InterestMeasureThreshold id="32">
+			<Extension name="ShortName">BASE</Extension>
+			<Extension name="Description">a &gt;= BASE ... at least BASE-number of objects for dependency to be statistically relevant</Extension>
+			<Extension name="Order">0</Extension>
+			<InterestMeasure>BASE</InterestMeasure>
+			<Threshold>0.003236</Threshold>
+			<CompareType>Greater than or equal</CompareType>
+		</InterestMeasureThreshold>		
+		<InterestMeasureThreshold id="3">
+			<Extension name="ShortName">FUI</Extension>
+			<Extension name="Description">a/(a+b) &gt;= p ... at least 100*p [%] of objects satisfying A satisfy also S</Extension>
+			<Extension name="Order">1</Extension>
+			<InterestMeasure>Founded Implication</InterestMeasure>
+			<Threshold>0.900000</Threshold>
+			<CompareType>Greater than or equal</CompareType>
+		</InterestMeasureThreshold>		
+		</InterestMeasureSetting>
+		</TaskSetting>
+	</guha:AssociationModel>
+</PMML>

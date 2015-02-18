@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp1 (http://www.altova.com) by Martin Ralbovsky (University of Economics) -->
+<PMML version="4.0" xmlns="http://www.dmg.org/PMML-4_0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xsi:schemaLocation="http://www.dmg.org/PMML-4_0 http://sewebar.vse.cz/schemas/PMML4.0+GUHA0.1.xsd"
+    xmlns:pmml="http://www.dmg.org/PMML-4_0">
+    <Header copyright="Copyright (c) KIZI UEP">
+        <!-- author : clovek -data miner-->		
+        <Extension name="author" value="Tomas Kliegr"/>
+        <!-- LM Specific -->
+        <Extension name="metabase" value="LM LMEmpty.mdb MB"/>
+        <Extension name="subsystem" value="4ft-Miner"/>
+        <Extension name="module" value="4ftResult.exe"/>
+        <Extension name="format" value="4ftResult.Task"/>        
+        <Extension name="Title" value="Barbora Financial Dataset"/>
+        <Extension extender="Dataset" value="Adamek460"></Extension>
+        <!-- Added by normalization transformation (CheckAndN<Category>Jihlava</Category>ormalization) -->
+        <Extension name="NormalizedBy" value="0.11" extender="CheckAndNormalization.xsl"/>        
+        <Extension name="NormalizationDictionary" value="0.1" extender="../pmml/dict/GUHAQuantifier-InterestMeasureDictionary.xml"/>
+        
+        <Application name="MockApp" version="2.6"/>                
+        <Annotation>-</Annotation>
+        <Timestamp>4.10.2009 19:38:56</Timestamp>        
+    </Header>
+    <!-- Atribut numberOfFields - pocet data fieldu v DataDictionary-->
+    <DataDictionary numberOfFields="4">
+        
+        <!-- DataField = sloupecek ve zkoumane tabulce, nad kterym se minuje
+            optype odpovida semantice sloupce ve Ferdovi 
+            categorical - nominal
+            ordinal - ordinal
+            continuous - cardinal
+        -->
+          <DataField name="status" optype="categorical" dataType="string">
+            <Value value="A">
+                <!-- Extension udava frekvenci dane hodnoty atributu (pro tvorbu histogramu). Atribut extender je zde 
+                    z duvodu komptibility s definici MapValues
+                -->
+                <Extension name="Frequency" value="1827" extender="A"/>
+            </Value>
+            <Value value="B">
+                <Extension name="Frequency" value="289" extender="B"/>
+            </Value>
+            <Value value="C">
+                <Extension name="Frequency" value="3627" extender="C"/>
+            </Value>
+            <Value value="D">
+                <Extension name="Frequency" value="438" extender="D"/>
+            </Value>
+        </DataField>
+        <DataField name="duration" optype="continuous" dataType="integer">
+            <Value value="12">
+                <Extension name="Frequency" value="1181" extender="12"/>
+            </Value>
+            <Value value="13">
+                <Extension name="Frequency" value="1" extender="13"/>
+            </Value>
+            <Value value="24">
+                <Extension name="Frequency" value="1242" extender="24"/>
+            </Value>
+            <Value value="36">
+                <Extension name="Frequency" value="1194" extender="36"/>
+            </Value>
+            <Value value="48">
+                <Extension name="Frequency" value="1252" extender="48"/>
+            </Value>
+            <Value value="60">
+                <Extension name="Frequency" value="1311" extender="60"/>
+            </Value>
+        </DataField>
+        <DataField dataType="string" optype="categorical" name="district">
+            <Value value="Brno">
+                <Extension name="Frequency" value="209" extender="Brno"/>
+            </Value>
+            <Value value="Praha">
+                <Extension name="Frequency" value="710" extender="Praha"/>
+            </Value>
+            <!-- Pro MS: pro ucely demonstrace a zkraceni ukazkoveho souboru sme si dovolili zmenit data :-) -->
+            <Value value="Other">
+                <Extension name="Frequency" value="5262" extender="Other"/>
+            </Value>
+        </DataField>
+        <!-- Vymysleny sloupec pro pohlavi, BUNO se predpoklada ze vsichni klienti Barbory jsou zeny -->
+        <DataField dataType="string" optype="categorical" name="sex">
+            <Value value="F">
+                <Extension name="Frequency" value="6181" extender="F"/>
+            </Value>
+        </DataField>
+    </DataDictionary>
+    <!-- Definuje datove transformace, faze "Data Preparation", odpovida LISP DataSource nebo
+        ve Ferdovi krabicky do tvorby atributu
+    -->
+    <TransformationDictionary>
+        <!-- Definuje vytvoreni jednoho atributu
+            atribut name je jmeno atributu
+            ATRIBUT MUSI VZDY BYT UVEDENY V TRANSFORMACI I KDYZ K ZADNE NEDOCHAZI (each value one category)
+        -->
+        <DerivedField name="duration" dataType="string" optype="continuous">
+            <Discretize field="duration">
+                <!-- Discretize dela diskretizaci domeny = prevod ciselnych hodnot na intervaly
+                    atribut binValue je nazev intervalu
+                -->
+                <DiscretizeBin binValue="Nad 2 roky vcetne">
+                    <!-- Nejdrive je frekvence teto kategorie, pote nasleduje vycet intervalu -->
+                    <Extension name="Frequency" value="4999" extender="Nad 2 roky vcetne"/>
+                    <Interval closure="closedClosed" leftMargin="24" rightMargin="60" />
+                </DiscretizeBin>
+                <DiscretizeBin binValue="13 az 23">
+                    <Extension name="Frequency" value="1243" extender="13 az 23"/>
+                    <Interval closure="closedClosed" leftMargin="13" rightMargin="23" />
+                </DiscretizeBin>
+                <DiscretizeBin binValue="Rok">
+                    <Extension name="Frequency" value="1181" extender="Rok"/>
+                    <!-- Ferda specificke chovani, vytvoreni enumeraci v ramci intervalu (krabicka Static Attribute)
+                        pro vic hodnot enumerace pouzit vicekrat extension
+                    -->
+                    <Extension name="Enumeration" value="12"/>
+                    <!-- Pro enumeraci se udavaji hranice intervalu (jsou stejna), closure je vzdy Closed-Closed
+                        Musi zde byt kvuli schematu PMML-->
+                    <Interval closure="closedClosed" leftMargin="12" rightMargin="12"/>
+                </DiscretizeBin>
+            </Discretize>
+        </DerivedField>
+        <DerivedField name="statusAgregovane" dataType="string" optype="categorical">
+            <!-- Pouzit element MapValues pro mapovani nominalniho (categorial) na nominalni
+                atribut outputColumn nazev vysledneho atributu
+            -->
+            <MapValues outputColumn="statusAgregovane">
+                <!-- Tento element rika, ktery sloupec se bude transformovat
+                    Protoze presne nevime, co znamenaji atributy, budou prozatim oba vyplneny nazvem sloupce.
+                -->
+                <FieldColumnPair column="status" field="statusAgregovane"/>
+                <InlineTable>
+                    <Extension name="Frequency" value="2116" extender="dobry"/>
+                    <Extension name="Frequency" value="4065" extender="stredni"/>
+                    <Extension name="Frequency" value="289" extender="spatny"/>
+                    <row>
+                        <column>A</column>
+                        <field>dobry</field>
+                    </row>
+                    <row>
+                        <column>B</column>
+                        <field>stredni</field>
+                    </row>
+                    <row>
+                        <column>C</column>
+                        <field>spatny</field>
+                    </row>
+                    <row>
+                        <column>D</column>
+                        <field>spatny</field>
+                    </row>
+                </InlineTable>
+            </MapValues>
+        </DerivedField>
+        <!-- Ukazka each value one category atributu -->
+        <DerivedField dataType="string" optype="categorical" name="district">
+            <MapValues outputColumn="district">
+                <FieldColumnPair column="district" field="district"/>
+                <InlineTable>
+                    <Extension name="Frequency" value="209" extender="Brno"/>
+                    <Extension name="Frequency" value="710" extender="Praha"/>
+                    <Extension name="Frequency" value="5262" extender="Other"/>
+                    <row>
+                        <column>Brno</column>
+                        <!-- Kvuli dodrzeni standardu se musi input a output column jmenuji stejne -->
+                        <field>Brno</field>
+                    </row>
+                    <row>
+                        <column>Praha</column>
+                        <field>Praha</field>
+                    </row>
+                    <row>
+                        <column>Other</column>
+                        <field>Other</field>
+                    </row>
+                </InlineTable>
+            </MapValues>
+        </DerivedField>
+        <!-- Derived field for sex is not present as it would be only copying the values from DataDictionary -->
+    </TransformationDictionary>
+    <guha:AssociationModel  xsi:schemaLocation="http://keg.vse.cz/ns/GUHA0.1rev1 http://sewebar.vse.cz/schemas/GUHA0.1rev1.xsd"
+        xmlns:guha="http://keg.vse.cz/ns/GUHA0.1rev1" xmlns=""
+        functionName="associationRules" 
+        algorithmName="4ft" 
+        numberOfTransactions="6181" 
+        numberOfCategories="110" 
+        numberOfRules="2"        
+        modelName="název modelu"         
+        >
+        <TaskSetting>
+            <!-- duration(SS[1-1]) ^ (¬district(Praha) v district(Praha)) => statusAgregovane(SS[2-2]) / sex(SS[1-1])-->
+            <!-- THIS SETTING IS DIFFERENT FROM ORIGINAL BARBORA SETTING:
+                duration(SS[1-1]) ^ ¬district(Praha) => statusAgregovane(SS[2-2]) / sex(SS[1-1])
+            THE NEW SETTING SHOWS HOW TO SOLVE GACETYPE=BOTH
+            -->
+            <!-- BBASetting setting je skoro literal s tim ze neobsahuje negaci, ta se musi vytvorit pomoci DerivedBooleanAttributeSetting s typem Sign -->
+            
+            <Extension name="LISp-Miner">
+                <!-- MetaBase was moved to Header/Timestamp <Metabase>LM LMEmpty.mdb MB</Metabase> -->                
+                <!-- Matrix was moved to Header/Extension Dataset <Matrix>Adamek460</Matrix> --> 
+                <TaskGroup>Default group of tasks</TaskGroup>
+                <NumberOfVerifications>113289546</NumberOfVerifications>
+                <!-- TaskTime was moved to Header/Timestamp <TaskTime>4.10.2009 19:38:56</TaskTime> -->
+                <TaskDuration>1h 43m 12s</TaskDuration> 
+                <FTMissingsType>Delete</FTMissingsType>
+                <FTTaskParamProlong100AFlag>Yes</FTTaskParamProlong100AFlag>
+                <FTTaskParamProlong100SFlag>Yes</FTTaskParamProlong100SFlag>
+                <FTTaskParamPrimeCheckMinLen>Yes</FTTaskParamPrimeCheckMinLen>
+                <FTTaskParamPrimeCheck>No</FTTaskParamPrimeCheck>
+                <FTTaskParamIncludeSymetricFlag>Yes</FTTaskParamIncludeSymetricFlag>
+                <!-- TaskDescription was moved to Header/Annotation <TaskDescription>-</TaskDescription> --> 
+                <TaskNotice>- vse distinct, intervaly 10 - 20, nemazat vysledky!!!</TaskNotice>                
+            </Extension>
+            
+            <BBASettings>                            
+            <BBASetting id="1"> 
+                <Name>statusAgregovane(SS[2-2])</Name>
+                <FieldRef>statusAgregovane</FieldRef>                        
+                <Coefficient>
+                    <Type>Subset</Type>
+                    <MinimalLength>2</MinimalLength>
+                    <MaximalLength>2</MaximalLength>                                
+                </Coefficient>                          
+            </BBASetting>					
+            <BBASetting id="2">
+                <Name>duration(SS[1-1])</Name>
+                <FieldRef>duration</FieldRef>
+                <Coefficient>
+                    <Type>Subset</Type>
+                    <MinimalLength>1</MinimalLength>
+                    <MaximalLength>1</MaximalLength>                    
+                </Coefficient>
+            </BBASetting>
+            <!-- u typu Fixed set nejsou maximalni a minimalni delky, ale vycet kategorii -->
+            <BBASetting id="3">
+                <Name>district(Praha)</Name>
+                <FieldRef>district</FieldRef>
+                <Coefficient>
+                    <Type>One category</Type>
+                    <Category>Praha</Category>
+                </Coefficient>              
+            </BBASetting>
+            <BBASetting id="4">
+                <Name>sex(SS[1-1])</Name>
+                <FieldRef dictionary="DataDictionary">sex</FieldRef>
+                <Coefficient>
+                    <Type>Subset</Type>
+                    <MinimalLength>1</MinimalLength>
+                    <MaximalLength>1</MaximalLength>                   
+                </Coefficient>                                 
+            </BBASetting>
+            </BBASettings>
+            
+            <!-- Expressing that GaceType =  Both -->
+            <DBASettings>
+            <DBASetting type="Literal" id="5">
+                <Name>district(Praha)</Name>            
+                <BASettingRef>3</BASettingRef>
+                <!-- Expressing that GaceType =  Both -->                
+                <LiteralSign>Both</LiteralSign> 
+                <LiteralType>Basic</LiteralType>
+                <EquivalenceClass>NULL</EquivalenceClass>                                
+                
+            </DBASetting>
+            <!-- DBA wrapper for BBA (LM cannot reference a BBA directly), Ferda can -->
+            <DBASetting type="Conjunction" id="6">
+                <Name>district(Praha)</Name>            
+                <BASettingRef>3</BASettingRef>						
+            </DBASetting>
+            <!-- DBA wrapper for BBA (LM cannot reference a BBA directly), Ferda can -->
+            <!-- In current PMML exported by LISp-Miner this looks (scehmatically )as follows:
+            <DerivedBooleanAttributeSetting 
+            name="duration (subset)"
+                id="7"
+                type="Sign" 
+                >
+                <BooleanAttributeId>2</BooleanAttributeId>
+                <Type>Positive</Type>
+            </DerivedBooleanAttributeSetting> -->
+            <DBASetting type="Literal" id="7">
+                <Name>duration(SS[1-1])</Name>            
+                <BASettingRef>2</BASettingRef>
+                <LiteralSign>Positive</LiteralSign> 
+                <LiteralType>Basic</LiteralType>
+                <EquivalenceClass>NULL</EquivalenceClass>                                                
+            </DBASetting>
+            <!-- DBA wrapper for BBA (LM cannot reference a BBA directly), Ferda can -->
+            <DBASetting type="Conjunction" id="8">
+                <Name>statusAgregovane(SS[2-2])</Name>            
+                <BASettingRef>1</BASettingRef>						
+                <LiteralSign>Both</LiteralSign> 
+                <LiteralType>Positive</LiteralType>
+                <EquivalenceClass>NULL</EquivalenceClass>                                                
+            </DBASetting>
+            <!-- DBA wrapper for BBA (LM cannot reference a BBA directly), Ferda can -->
+                
+             <!-- setting will generate DBA with literal="true", this DBA will reference exactly one BBA
+                LiteralSign expresses if the DBA will be a Negation - LiteralSign Negative, 
+                LiteralSign =Both then DBA may be 
+             -->
+            <DBASetting type="Literal" id="9">
+                <Name>sex(SS[1-1])</Name>            
+                <BASettingRef>4</BASettingRef>
+                <LiteralSign>Positive</LiteralSign>
+            </DBASetting>
+            
+            <DBASetting type="Conjunction" id="11" >
+                <Name>duration(SS[1-1]) ^ (¬district(Praha) v district(Praha))</Name>
+                <BASettingRef>7</BASettingRef> <!-- Ferda can refer directly to BBA <BASettingRef>2</BASettingRef> -->
+                <BASettingRef>5</BASettingRef> <!-- Expressing that GaceType =  Both -->
+                <MinimalLength>2</MinimalLength>
+                <MaximalLength>2</MaximalLength>
+            </DBASetting>
+            </DBASettings>
+            <AntecedentSetting>11</AntecedentSetting>
+            <ConsequentSetting>8</ConsequentSetting> <!-- Ferda can refer directly to BBA <BASettingRef>1</BASettingRef> -->
+            <ConditionSetting>9</ConditionSetting> <!-- Ferda can refer directly to BBA <BASettingRef>4</BASettingRef> -->
+            <InterestMeasureSetting>
+                <InterestMeasureThreshold id="1">
+                    <InterestMeasure>Support</InterestMeasure>
+                    <Threshold>0.1</Threshold>
+                    <CompareType>Greater than</CompareType>
+                </InterestMeasureThreshold>
+                <InterestMeasureThreshold id="2">
+                    <InterestMeasure>Above Average Implication</InterestMeasure>
+                    <Threshold>0.02</Threshold>
+                    <CompareType>Greater than</CompareType>
+                </InterestMeasureThreshold>
+                <InterestMeasureThreshold id="3">
+                    <Formula name="Kulczynski">(a/(a+b) + a/(a+c))/2</Formula>
+                    <Threshold>0.02</Threshold>
+                    <CompareType>Greater than</CompareType>
+                </InterestMeasureThreshold>                
+            </InterestMeasureSetting>    
+        </TaskSetting>
+        <pmml:MiningSchema>
+            <pmml:MiningField name="statusAgregovane"/>
+            <pmml:MiningField name="district"/>
+            <pmml:MiningField name="sex"/>
+            <pmml:MiningField name="duration"/>
+        </pmml:MiningSchema>
+        <AssociationRules>
+        <BBA id="1">
+            <Text>duration(Nad 2 roky vcetne)</Text>
+            <FieldRef>duration</FieldRef>           
+            <CatRef>Nad 2 roky vcetne</CatRef>            
+        </BBA>
+        <BBA id="2">
+            <Text>statusAgregovane(dobry,stredni)</Text>   
+            <FieldRef>statusAgregovane</FieldRef>           
+            <CatRef>dobry</CatRef>
+            <CatRef>stredni</CatRef>
+        </BBA>
+        <BBA id="3" literal="false">
+            <Text>district(Praha)</Text>
+            <FieldRef>district</FieldRef>           
+            <CatRef>Praha</CatRef>
+        </BBA>
+        <BBA id="4">
+            <Text>sex(female)</Text>
+            <FieldRef dictionary="DataDictionary">sex</FieldRef>           
+            <CatRef>female</CatRef>
+        </BBA>
+        <BBA id="5">
+            <Text>duration(rok)</Text>  
+            <FieldRef>duration</FieldRef>           
+            <CatRef>rok</CatRef>
+        </BBA>
+        <DBA id="6" connective="Negation" literal="true">
+            <BARef>3</BARef>            
+        </DBA>
+        <DBA id="7" connective="Conjunction">
+            <BARef>1</BARef>
+            <BARef>6</BARef>            
+        </DBA>            
+        <AssociationRule antecedent="7" consequent="2" condition="4">
+            <IMValue name="Support">0.55282316777220514479</IMValue>
+            <!-- IMSetRef odkazuje na ID kvantifikátoru, ke kterému tato hodnota patří -->
+            <IMValue name="Average Difference" imSettingRef="2">0.1414</IMValue>
+            <IMValue name="Kulczynski" imSettingRef="3">0.8138</IMValue>
+            <!-- IMSetRef u Confidence není, protože ke Confidence nepatří -->
+            <IMValue name="Confidence">0.66</IMValue>
+            <FourFtTable a="3586" b="874" c="768" d="953"/>
+        </AssociationRule>
+        <AssociationRule antecedent="5" consequent="2">
+            <IMValue name="Support">0.1502993043</IMValue>
+            <IMValue name="Average Difference" imSettingRef="2">1.2978</IMValue>
+            <IMValue name="Kulczynski" imSettingRef="3">0.6128</IMValue>
+            <IMValue name="Confidence">0.57</IMValue>
+            <FourFtTable a="929" b="252" c="1187" d="3813"/>
+        </AssociationRule>        
+        </AssociationRules>
+    </guha:AssociationModel>      
+</PMML>

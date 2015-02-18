@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://keg.vse.cz/ns/fieldgroupconfig0_1" 
+    xmlns="http://keg.vse.cz/ns/fieldgroupconfig0_1" elementFormDefault="unqualified"
+    xmlns:fg="http://keg.vse.cz/ns/fieldgroupconfig0_1" attributeFormDefault="unqualified" 
+    xmlns:arf="http://keg.vse.cz/ns/arfeatures_01" xmlns:fdml="http://keg.vse.cz/ns/fdml0_2"
+    xmlns:guha="http://keg.vse.cz/ns/GUHA0.1rev1"
+    >
+    
+    <!-- http://sewebar.vse.cz/schemas/ -->
+    <xs:import namespace="http://keg.vse.cz/ns/arfeatures_01" schemaLocation="GUHAARfeature.xsd"></xs:import>
+    <xs:import namespace="http://keg.vse.cz/ns/fdml0_2" schemaLocation="FDML0_2.xsd"></xs:import>
+    <xs:import namespace="http://keg.vse.cz/ns/GUHA0.1rev1" schemaLocation="GUHA0.1rev1.xsd"></xs:import>
+    
+    
+    <xs:element name="FieldGroupConfigs">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="FieldGroupConfig" minOccurs="0" maxOccurs="unbounded" type="FieldGroupConfig" />
+                
+            </xs:sequence>
+            <xs:attribute name="rootConfigID" type="xs:integer" use="required"></xs:attribute>
+        </xs:complexType>   
+        <xs:key name="FieldGroupConfigKey">
+            <xs:selector xpath="FieldGroupConfig"></xs:selector>
+            <xs:field xpath="@id"></xs:field>
+        </xs:key>
+        <xs:keyref refer="FieldGroupConfigKey" name="rootMustExist">
+            <xs:selector xpath="."></xs:selector>
+            <xs:field xpath="@rootConfigID"></xs:field>
+        </xs:keyref>
+    </xs:element>
+    <xs:complexType name="ChildFieldGroups">
+        <xs:sequence>
+            <xs:element name="FieldGroupRef" type="FieldGroupRef"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="FieldGroupRef">
+        <xs:attribute name="id" ></xs:attribute>
+    </xs:complexType>
+    
+    <xs:complexType name="FieldGroupConfig">
+        <xs:sequence>
+            <xs:element name="Name" type="xs:string" />
+            <xs:element name="LocalizedName" type="arf:LocalizedName" /> <!-- potřeboval bych vzít LocalizedName typ z GUHAARfeature.xsd -->
+            <xs:element name="Explanation" type="arf:Explanation" /> <!-- potřeboval bych vzít Explanation typ z GUHAARfeature.xsd -->
+            <xs:element name="FieldConfigs" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="FieldConfig" type="guha:BBASetting"  maxOccurs="unbounded"/> <!-- potřeboval bych vzít FieldType typ z FDML0_2.xsd a omezit výskyt elementů Category / Interval na 1 -->
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ChildFieldGroups"  minOccurs="0" maxOccurs="unbounded" type="ChildFieldGroups">
+
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:integer"/>            
+        <xs:attribute name="connective" type="ConnectiveSuggestType" /> <!-- potřeboval bych nějaký Connective typ -->
+    </xs:complexType>
+    
+    <xs:simpleType name="ConnectiveSuggestType">
+        <xs:restriction base="guha:connDBASettingType">
+            <xs:enumeration value="Conjunction"></xs:enumeration>
+            <xs:enumeration value="Disjunction"></xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp1 (http://www.altova.com) by Martin Ralbovsky (University of Economics) -->
+<PMML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.dmg.org/PMML-3_2 ../../../validation/PMML3.2+SD4ft.xsd"
+ xmlns="http://www.dmg.org/PMML-3_2"
+ version="3.0">
+    <Header copyright="Copyright (c) KIZI UEP">
+        <!-- author : clovek -data miner-->
+        <Extension name="author" value="Ralbovsky"/>
+        <!-- Ve Ferdovi verze odpovĂ­dĂˇ verzi knihovny FerdaSemanticWebBoxes.dll, nejde to jinak poradne udelat -->
+        <Application name="Ferda" version="2.6"/>
+        <Annotation>Exported to PMML using the Ferda software</Annotation>
+    </Header>
+    <!-- Atribut numberOfFields - pocet data fieldu v DataDictionary-->
+    <DataDictionary numberOfFields="4">
+        <!-- DataField = sloupecek ve zkoumane tabulce, nad kterym se minuje
+		optype odpovida semantice sloupce ve Ferdovi 
+		categorical - nominal
+		ordinal - ordinal
+		continuous - cardinal
+	-->
+        <DataField name="status" optype="categorical" dataType="string">
+            <Value value="A">
+                <!-- Extension udava frekvenci dane hodnoty atributu (pro tvorbu histogramu). Atribut extender je zde 
+				z duvodu komptibility s definici MapValues
+			-->
+                <Extension name="Frequency" value="1827" extender="A"/>
+            </Value>
+            <Value value="B">
+                <Extension name="Frequency" value="289" extender="B"/>
+            </Value>
+            <Value value="C">
+                <Extension name="Frequency" value="3627" extender="C"/>
+            </Value>
+            <Value value="D">
+                <Extension name="Frequency" value="438" extender="D"/>
+            </Value>
+        </DataField>
+        <DataField name="duration" optype="continuous" dataType="integer">
+            <Value value="12">
+                <Extension name="Frequency" value="1181" extender="12"/>
+            </Value>
+            <Value value="13">
+                <Extension name="Frequency" value="1" extender="13"/>
+            </Value>
+            <Value value="24">
+                <Extension name="Frequency" value="1242" extender="24"/>
+            </Value>
+            <Value value="36">
+                <Extension name="Frequency" value="1194" extender="36"/>
+            </Value>
+            <Value value="48">
+                <Extension name="Frequency" value="1252" extender="48"/>
+            </Value>
+            <Value value="60">
+                <Extension name="Frequency" value="1311" extender="60"/>
+            </Value>
+        </DataField>
+        <DataField dataType="string" optype="categorical" name="district">
+            <Value value="Brno">
+                <Extension name="Frequency" value="209" extender="Brno"/>
+            </Value>
+            <Value value="Praha">
+                <Extension name="Frequency" value="710" extender="Praha"/>
+            </Value>
+            <!-- Pro MS: pro ucely demonstrace a zkraceni ukazkoveho souboru sme si dovolili zmenit data :-) -->
+            <Value value="Other">
+                <Extension name="Frequency" value="5262" extender="Other"/>
+            </Value>
+        </DataField>
+        <!-- Vymysleny sloupec pro pohlavi, BUNO se predpoklada ze vsichni klienti Barbory jsou zeny -->
+        <DataField dataType="string" optype="categorical" name="sex">
+            <Value value="F">
+                <Extension name="Frequency" value="6181" extender="F"/>
+            </Value>
+        </DataField>
+    </DataDictionary>
+    <!-- Definuje datove transformace, faze "Data Preparation", odpovida LISP DataSource nebo
+	ve Ferdovi krabicky do tvorby atributu
+-->
+    <TransformationDictionary>
+        <!-- Definuje vytvoreni jednoho atributu
+		atribut name je jmeno atributu
+		ATRIBUT MUSI VZDY BYT UVEDENY V TRANSFORMACI I KDYZ K ZADNE NEDOCHAZI (each value one category)
+	-->
+        <DerivedField dataType="string" optype="continuous">
+            <Discretize field="duration">
+                <!-- Discretize dela diskretizaci domeny = prevod ciselnych hodnot na intervaly
+				atribut binValue je nazev intervalu
+			-->
+                <DiscretizeBin binValue="Nad 2 roky vcetne">
+                    <!-- Nejdrive je frekvence teto kategorie, pote nasleduje vycet intervalu -->
+                    <Extension name="Frequency" value="4999" extender="Nad 2 roky vcetne"/>
+                    <Interval closure="closedClosed" leftMargin="24" rightMargin="60"/>
+                </DiscretizeBin>
+                <DiscretizeBin binValue="13 az 23">
+                    <Extension name="Frequency" value="1243" extender="13 az 23"/>
+                    <Interval closure="closedClosed" leftMargin="13" rightMargin="23"/>
+                </DiscretizeBin>
+                <DiscretizeBin binValue="Rok">
+                    <Extension name="Frequency" value="1181" extender="Rok"/>
+                    <!-- Ferda specificke chovani, vytvoreni enumeraci v ramci intervalu (krabicka Static Attribute)
+					pro vic hodnot enumerace pouzit vicekrat extension
+					-->
+                    <Extension name="Enumeration" value="12"/>
+                    <!-- Pro enumeraci se udavaji hranice intervalu (jsou stejna), closure je vzdy Closed-Closed
+					Musi zde byt kvuli schematu PMML-->
+                    <Interval closure="closedClosed" leftMargin="12" rightMargin="12"/>
+                </DiscretizeBin>
+            </Discretize>
+        </DerivedField>
+        <DerivedField name="status" dataType="string" optype="categorical">
+            <!-- Pouzit element MapValues pro mapovani nominalniho (categorial) na nominalni
+			atribut outputColumn nazev vysledneho atributu
+		-->
+            <MapValues outputColumn="statusAgregovane">
+                <!-- Tento element rika, ktery sloupec se bude transformovat
+				Protoze presne nevime, co znamenaji atributy, budou prozatim oba vyplneny nazvem sloupce.
+			-->
+                <FieldColumnPair column="status" field="status"/>
+                <InlineTable>
+                    <Extension name="Frequency" value="2116" extender="dobry"/>
+                    <Extension name="Frequency" value="4065" extender="stredni"/>
+                    <Extension name="Frequency" value="289" extender="spatny"/>
+                    <row>
+                        <status>A</status>
+                        <statusAgregovane>dobry</statusAgregovane>
+                    </row>
+                    <row>
+                        <status>B</status>
+                        <statusAgregovane>stredni</statusAgregovane>
+                    </row>
+                    <row>
+                        <status>C</status>
+                        <statusAgregovane>spatny</statusAgregovane>
+                    </row>
+                    <row>
+                        <status>D</status>
+                        <statusAgregovane>spatny</statusAgregovane>
+                    </row>
+                </InlineTable>
+            </MapValues>
+        </DerivedField>
+        <!-- Ukazka each value one category atributu -->
+        <DerivedField dataType="string" optype="categorical" name="district">
+            <MapValues outputColumn="district">
+                <FieldColumnPair column="district" field="district"/>
+                <InlineTable>
+                    <Extension name="Frequency" value="209" extender="Brno"/>
+                    <Extension name="Frequency" value="710" extender="Praha"/>
+                    <Extension name="Frequency" value="5262" extender="Other"/>
+                    <row>
+                        <district>Brno</district>
+                        <!-- Kvuli dodrzeni standardu se musi input a output column jmenuji stejne -->
+                        <district>Brno</district>
+                    </row>
+                    <row>
+                        <district>Praha</district>
+                        <district>Praha</district>
+                    </row>
+                    <row>
+                        <district>Other</district>
+                        <district>Other</district>
+                    </row>
+                </InlineTable>
+            </MapValues>
+        </DerivedField>
+        <DerivedField dataType="string" optype="categorical" name="sex">
+            <MapValues outputColumn="sex">
+                <FieldColumnPair column="sex" field="sex"> </FieldColumnPair>
+                <InlineTable>
+                    <Extension name="Frequency" value="6181" extender="female"/>
+                    <row>
+                        <sex>F</sex>
+                        <sex>female</sex>
+                    </row>
+                </InlineTable>
+            </MapValues>
+        </DerivedField>
+    </TransformationDictionary>
+    <!-- Element se pouziva pro jeden beh procedury hledajici asociacni pravidla
+	Nas vyznam atributu:
+		modelName - GUHA Association rules procedure 4FT
+		functionName - VZDY associationRules
+		numberOfTransactions - pocet radku datove matice
+		maxNumberOfItemsPerTA - nepouzite, davame 1
+		avgNumberOfItemsPerTA - nepouzivame, davame 1
+		minimumSupport - relativni podpora (Base), pokud pouzivame (je tam takovy kvantifikator), jinak davame -1
+		minimumConfidence - konfidence (fundovana implikace ve Ferdovi, fundovana implikace parametr p v LISpu), jinak davame -1 (neni-li pouzito)
+		numberOfItems - pocet kategorii vsech atributu definovanreych v uloze 
+		numberOfRules - pocet nalezenych hypotez
+		numberOfItemsets - nepouziva se, davame 0
+
+    -->
+    
+    <SD4ftModel modelName="GUHA SD4FT" functionName="associationRules" numberOfTransactions="6181"
+        maxNumberOfItemsPerTA="1" avgNumberOfItemsPerTA="1" numberOfItems="5" numberOfItemsets="0"
+        numberOfRules="1">
+        <Extension name="TaskSetting">
+            <!-- IDcka BasicDerivedBooleanAttributeSetting  a DerivedBooleanAttributeSetting MUSI byt ruzne -->
+            <BasicBooleanAttributeSettings>
+                <!-- BasicBooleanAttributeSetting setting je skoro literal s tim ze neobsahuje negaci, ta se musi vytvorit pomoci DerivedBooleanAttributeSetting s typem Sign -->
+                <BasicBooleanAttributeSetting id="1" name="statusAgregovane(SS[2-2])">
+                    <Attribute>statusAgregovane</Attribute>
+                    <!-- Tady muze byt jeste FixedSet, Intervals, CyclicIntervals, LeftCuts, RightsCuts, Cuts -->
+                    <CoefficientType>Subset</CoefficientType>
+                    <MinimalLength>2</MinimalLength>
+                    <MaximalLength>2</MaximalLength>
+                </BasicBooleanAttributeSetting>
+                <BasicBooleanAttributeSetting id="2" name="duration(SS[1-1])">
+                    <Attribute>duration</Attribute>
+                    <CoefficientType>Subset</CoefficientType>
+                    <MinimalLength>1</MinimalLength>
+                    <MaximalLength>1</MaximalLength>
+                </BasicBooleanAttributeSetting>
+                <!-- u typu Fixed set nejsou maximalni a minimalni delky, ale vycet kategorii -->
+                <BasicBooleanAttributeSetting id="3" name="district(Praha)">
+                    <Attribute>district</Attribute>
+                    <CoefficientType>FixedSet</CoefficientType>
+                    <Category>Praha</Category>
+                </BasicBooleanAttributeSetting>
+                <BasicBooleanAttributeSetting id="4" name="sex(SS[1-1])">
+                    <Attribute>sex</Attribute>
+                    <CoefficientType>Subset</CoefficientType>
+                    <MinimalLength>1</MinimalLength>
+                    <MaximalLength>1</MaximalLength>
+                </BasicBooleanAttributeSetting>
+            </BasicBooleanAttributeSettings>
+            <DerivedBooleanAttributeSettings>
+                <!-- u type muze byt jeste conjunction a disjunction -->
+                <DerivedBooleanAttributeSetting type="Sign" id="5" name="¬district(Praha)">
+                    <!-- u sign je jenom jedno ID, u konjunkci a disjunkci vic nez 1 -->
+                    <BooleanAttributeId>3</BooleanAttributeId>
+                    <!-- Tady muze byt jeste Both a Positive-->
+                    <Type>Negative</Type>
+                </DerivedBooleanAttributeSetting>
+                <DerivedBooleanAttributeSetting type="Conjunction" id="6"
+                    name="duration(SS[1-1]) ^ ¬district(Praha)">
+                    <BooleanAttributeId>2</BooleanAttributeId>
+                    <BooleanAttributeId>5</BooleanAttributeId>
+                    <MinimalLength>2</MinimalLength>
+                    <MaximalLength>2</MaximalLength>
+                </DerivedBooleanAttributeSetting>
+            </DerivedBooleanAttributeSettings>
+            <!-- u antecedentu, consekventu a podminky je cislo v elementu identifikatorem zakladniho bool. atributu nebo spojky (connective) -->
+            <Antecedent>6</Antecedent>
+            <Consequent>1</Consequent>
+            <!-- Kdyby byla uloha bez podminky, tak je identifikator -1 -->
+            <Condition>4</Condition>
+            <FirstSet>5</FirstSet>
+            <!-- SD4ft-->
+            <SecondSet>6</SecondSet>
+            <!-- SD4ft-->
+        </Extension>
+        
+        <Extension name="QuantifierThreshold" value="AboveAverageDependence">
+            <Threshold>0.02</Threshold>
+            
+            <!-- V pripade statistickych kvantifikatoru
+                <SignificanceLevel></SignificanceLevel>
+            -->
+        </Extension>
+        <Extension name="QuantifierThreshold" value="Kulczynski">
+            <Threshold>0.1</Threshold>
+            
+            <!-- SD4ft další parametry kvantifikátoru-->
+            
+            <!-- V pripade statistickych kvantifikatoru
+                <SignificanceLevel></SignificanceLevel>
+            -->
+        </Extension>
+        <!-- Definuje sloupce (atributy), ktere se vyskytuji v nalezenych pravidlech
+        -->
+        <MiningSchema>
+            <!--
+                Jeden sloupec vyskytujici se v nalezenych pravidlech
+            -->
+            <MiningField name="status"/>
+            <MiningField name="duration"/>
+            <MiningField name="district"/>
+            <MiningField name="sex"/>
+        </MiningSchema>
+        <!-- Item reprezentuje jeden zakladni Booleovsky atribut 
+            Nazvy kategorii a atributu se prebiraji z TransformationDictionary, v pripade mapovani hodnot ...
+            Atribut Value nema zadnou semantiku, je to pouze jmeno vyskytujici se v hypotezach
+        -->
+        <Item id="1" value="duration(Nad 2 roky vcetne)">
+            <!-- Tato extension dava jmeno atributu -->
+            <Extension name="attribute" value="duration"/>
+            <!-- Techto extension muze byt vic a udavaji kategorie vyskytujiciho se v zakladnim Booleovskem atributu -->
+            <Extension name="value" value="Nad 2 roky vcetne"/>
+        </Item>
+        <Item id="2" value="statusAgregovane(dobry,stredni)">
+            <Extension name="attribute" value="statusAgregovane"/>
+            <Extension name="value" value="dobry"/>
+            <Extension name="value" value="stredni"/>
+        </Item>
+        <Item id="3" value="district(Praha)">
+            <Extension name="attribute" value="district"/>
+            <Extension name="value" value="Praha"/>
+        </Item>
+        <Item id="4" value="sex(female)">
+            <Extension name="attribute" value="sex"/>
+            <Extension name="value" value="female"/>
+        </Item>
+        <Item id="5" value="duration(rok)">
+            <Extension name="attribute" value="duration"/>
+            <Extension name="value" value="rok"/>
+        </Item>
+        <!-- Prvni itemset musi byt ocislovan cislem vyssim nez posledni item (itemsety a itemy musi mit ruzna ID) -->
+        <Itemset id="6">
+            <!-- Tato extension zde definuje znamenko Booleovskeho atributu - predpoklada se pouze 1 ItemRef
+                Mozne hodnoty u Connective jsou Negation, Conjunction a Disjunction
+            -->
+            <Extension name="Connective" value="Negation"/>
+            <ItemRef itemRef="3"/>
+        </Itemset>
+        <Itemset id="7">
+            <!-- Pro konjunkce a disjunkce je potreba vic nez jeden itemRef -->
+            <Extension name="Connective" value="Conjunction"/>
+            <ItemRef itemRef="1"/>
+            <ItemRef itemRef="6"/>
+        </Itemset>
+        <!-- Asociacni pravidlo 
+            v atributech antecedent a consequent se mohou vyskytovat jak reference itemsetu, tak itemu
+            atribut support udava skutecny support, pokud je pouzity, jinak -1 VZDY RELATIVNI
+            atribut confidence udava confidence, pokud je pouzity, jinak -1
+        -->
+        
+        <!-- SD4Ft
+        changes: 
+        1) attribute AssociationRule/role="FirstSet" changed to newly created element FirstSet
+        2) attribute AssociationRule/role="SecondSet" changed to newly created  element SecondSet
+        3) attribute set moved from AssociationRule to element FirstSet and SecondSet
+        4) function name SD4ftRules -> associationRules
+        5) překlep v uzavíracím tagu <JoinedSetFlag>No</JoinedSetFlg>
+        
+        -->
+        
+        <SD4ftRule>            
+            <Extension name="Text" value="(empty) ::: Quality(Bad) : District(Brno - mesto) � (empty)"/>
+            <Extension name="Quantifier" value="0" extender="Df-conf"/>
+            <Extension name="Quantifier" value="0.25" extender="D%-Sum"/>
+            <Extension name="Condition" value="id_itemset_condition"/>            
+            <FirstSet>
+                <AssociationRule support="0.55282316777220514479" confidence="-1"
+                    antecedent="1" consequent="3">                    
+                    <Extension name="Condition" value="4"/>
+                    <Extension name="Quantifier" value="0.1414" extender="AboveAverageDependence"/>
+                    <Extension name="Quantifier" value="0.8138" extender="Kulczynski"/>
+                    <Extension name="4ftFrequency" value="3586" extender="a"/>
+                    <Extension name="4ftFrequency" value="874" extender="b"/>
+                    <Extension name="4ftFrequency" value="768" extender="c"/>
+                    <Extension name="4ftFrequency" value="953" extender="d"/>
+                </AssociationRule>
+            </FirstSet>
+            <SecondSet>
+                <AssociationRule support="0.55282316777220514479" confidence="-1"
+                    antecedent="2" consequent="3">
+                    <Extension name="Condition" value="5"/>
+                    <Extension name="Quantifier" value="0.1414" extender="AboveAverageDependence"/>
+                    <Extension name="Quantifier" value="0.8138" extender="Kulczynski"/>
+                    <!-- udaje pro rekonstrukci 4polni tabulky -->
+                    <Extension name="4ftFrequency" value="3586" extender="a"/>
+                    <Extension name="4ftFrequency" value="874" extender="b"/>
+                    <Extension name="4ftFrequency" value="768" extender="c"/>
+                    <Extension name="4ftFrequency" value="953" extender="d"/>
+                </AssociationRule>
+            </SecondSet>
+        </SD4ftRule>
+        
+    </SD4ftModel>
+    
+    
+</PMML>

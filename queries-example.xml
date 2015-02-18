@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queries>
+	<!-- pro kazdy element query zobraz jedno tlacitko, ktere po kliknuti zavola JS funkci KbiPostArb(id, src_type, query_type, xslt) -->
+	<!-- id je parametr query_type -->
+	<query id="3">
+		<!-- popisek na tlacitko pro uzivatele -->
+		<name>Loose anywhere</name>
+		<!-- druh zdroje (urceni ikonky) -->
+		<icon>http://www.office-excel.com/i/icons/similar_icon.gif</icon>
+		<!-- id zdroje (src_type), bud ID anebo hodnota elementu -->
+		<source id="3"/>
+		<!-- v pripade, ze neni vyplnen atribut ID (cislo), tak parameter funkce bude obsah tohoto elementu -->
+		<value/>
+		<!-- posledni parametr pro funkci KbiPostArb, bud ID anebo hodnota elementu -->
+		<xslt id="2"/>
+	</query>
+	<query id="4">
+		<!-- popisek na tlacitko pro uzivatele -->
+		<name>Loose keep cedent</name>
+		<!-- druh zdroje (urceni ikonky) -->
+		<icon>http://cdn7.droidmill.com/media/market-media/ts.SpotTheDifference_icon.png</icon>
+		<!-- id zdroje (src_type), bud ID anebo hodnota elementu -->
+		<source id="3"/>
+		<!-- v pripade, ze neni vyplnen atribut ID (cislo), tak parameter funkce bude obsah tohoto elementu -->
+		<value/>
+		<!-- posledni parametr pro funkci KbiPostArb, bud ID anebo hodnota elementu -->
+		<xslt id="2"/>
+	</query>
+</queries>

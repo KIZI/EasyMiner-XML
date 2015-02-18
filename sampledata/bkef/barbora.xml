@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="bkef-styl.xsl"?>
+<bkef:BKEF version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://keg.vse.cz/bkef http://sewebar.vse.cz/schemas/BKEF1.0.xsd"
+	xmlns:bkef="http://keg.vse.cz/bkef">
+	<Header>
+		<Application name="LISpMiner" version="x"/>
+		<Title>Barbora</Title>
+	</Header>
+	<!-- Slouží pro logické seskupení atributů, vlastně takový meta-metaatribut -->
+	<MetaAttributes>
+
+		<MetaAttribute name="charakteristika úvěru charakteristika úvěru" id="1" level="1">
+			<ChildMetaAttribute id="2"/>
+			<ChildMetaAttribute id="354"/>
+		</MetaAttribute>
+
+		<MetaAttribute name="jin8 char" id="221" level="1">
+			<ChildMetaAttribute id="4"/>
+		</MetaAttribute>
+
+		<MetaAttribute name="kvalita úvěru" id="2" level="0">
+			<!-- odkaz na rodičovský metaatribut - skupinu, do které patří-->
+			<Variability>Stable</Variability>
+			<Annotation>
+				<Author>Testovací anotátor</Author>
+				<Text>Tento atribut slouží jako třída, u testovacích dat bude odhadován na základě
+					hodnot ostatních atributů.</Text>
+			</Annotation>
+
+			<!-- moznosti: Stable/Actionable-->
+
+			<Formats>
+				<!-- Formátů může být více -->
+				<Format name="Points of International Loan Quality Scale">
+					<Author>Autor tohoto formátu</Author>
+					<Annotations>
+						<Annotation>
+							<Author>Testovací anotátor</Author>
+							<Text>Tento formát je využívaný ve střední evropě.</Text>
+						</Annotation>
+					</Annotations>
+					<!--  reprezentovat jako: Integer Number, Real Number, String -->
+					<!-- Integer, Float, String -->
+					<DataType>String</DataType>
+					<!-- Cardinal, Ordinal, Nominal -->
+					<ValueType>Cardinal</ValueType>
+					<!-- Ordinality? -->
+
+					<!-- Bud Enumeration nebo Interval -->
+					<AllowedRange>
+						<Enumeration>
+							<Value>A</Value>
+							<Value>B</Value>
+							<Value>C</Value>
+							<Value>D</Value>
+							<Value>E</Value>
+						</Enumeration>
+					</AllowedRange>
+
+					<!-- type: Aplhabetical/Numerical/Enumeration -->
+					<!-- sense: Descending/Ascending -->
+					<!-- Collation lze zadat vyctem, pouze pokud je AllowedRange zadano vyctem  -->
+					<Collation type="Enumeration" sense="Descending">
+						<Value>A</Value>
+						<Value>B</Value>
+						<Value>D</Value>
+						<Value>C</Value>
+						<Value>E</Value>
+					</Collation>
+
+					<PreprocessingHints>
+						<!--  PreprocessingHint muze byt vice-->
+						<PreprocessingHint name="predpriprava pro detailni analyzu">
+							<DiscretizationHint>
+								<ExhaustiveEnumeration>
+									<!-- typy: Enumeration, IntervalEnumeration, EquifrequentInterval, EquidistantInterval-->
+									<Bin name="dobrý">
+										<Value>A</Value>
+										<Value>B</Value>
+									</Bin>
+									<Bin name="nevypadá to dobře">
+										<Value>C</Value>
+										<Value>D</Value>
+									</Bin>
+									<Bin name="průšvih">
+										<Annotation>
+											<Author>Testovací anotátor</Author>
+											<Text>Hodnota E musí být vždy v samostatné
+												kategorii.</Text>
+										</Annotation>
+										<Value>E</Value>
+
+									</Bin>
+								</ExhaustiveEnumeration>
+							</DiscretizationHint>
+						</PreprocessingHint>
+					</PreprocessingHints>
+					<ValueDescriptions>
+						<!-- type={"Similar", Outlier, Often Missing, Significant, Suspicious"} -->
+						<ValueDescription type="Similar">
+							<Annotation>
+								<Author>Testovací anotátor</Author>
+								<Text>Tyto hodnoty jsou velmi podobné.</Text>
+							</Annotation>
+							<Value>A</Value>
+							<Value>B</Value>
+
+						</ValueDescription>
+						<ValueDescription type="Often Missing">
+							<Annotation>
+								<Author>Testovací anotátor</Author>
+								<Text>Tato hodnota se v některých datových souborech vůbec
+									nevyskytuje.</Text>
+							</Annotation>
+							<Value>E</Value>
+
+						</ValueDescription>
+					</ValueDescriptions>
+				</Format>
+			</Formats>
+		</MetaAttribute>
+
+		<MetaAttribute name="trvání úvěru" id="354" level="0">
+			<Variability>Actionable</Variability>
+			<Formats>
+				<Format name="months">
+					<ValueType>Ordinal</ValueType>
+					<DataType>Integer</DataType>
+					<Collation type="Numerical" sense="Ascending"/>
+					<AllowedRange>
+						<Interval>
+							<!-- pripustne hodnoty atributu type jsou closed a open-->
+							<LeftBound type="closed" value="1">
+								<Annotation>
+									<Author>Testovací anotátor</Author>
+									<Text>Naše banka neposkytuje úvěry kratší jak 1 měsíc.</Text>
+								</Annotation>
+							</LeftBound>
+							<RightBound type="closed" value="60">
+								<Annotation>
+									<Author>Testovací anotátor</Author>
+									<Text>Naše banka neposkytuje úvěry delší než 60 měsíců.</Text>
+								</Annotation>
+							</RightBound>
+						</Interval>
+					</AllowedRange>
+
+					<PreprocessingHints>
+						<PreprocessingHint name="predpriprava pro detailni analyzu">
+							<!-- Slozitejsi navod na diskretizaci  atributu - kombinace nekolika typu-->
+							<DiscretizationHint>
+								<IntervalEnumeration>
+									<IntervalBin name="Extrémní">
+										<Interval>
+											<LeftBound type="closed" value="1"/>
+											<RightBound type="closed" value="20"/>
+										</Interval>
+										<Interval>
+											<LeftBound type="open" value="40"/>
+											<RightBound type="closed" value="60"/>
+										</Interval>
+									</IntervalBin>
+									<Equidistant>
+										<Start type="open">20</Start>
+										<End type="closed">40</End>
+										<Step>10</Step>
+									</Equidistant>
+								</IntervalEnumeration>
+							</DiscretizationHint>
+						</PreprocessingHint>
+					</PreprocessingHints>
+
+					<!-- ValueDescriptions prozatim vynechame -->
+					<ValueDescriptions>
+						<ValueDescription type="Outliers">
+							<!-- Prekryv intervalu s PreprocessingHints a Allowed range neresit -->
+							<!-- Lze kombinovat intervaly s hodnotami -->
+							<Annotation>
+								<Author>Testovací anotátor</Author>
+								<Text>Odlehlá pozorování.</Text>
+							</Annotation>
+							<Interval>
+								<LeftBound type="closed" value="1"/>
+								<RightBound type="open" value="5"/>
+							</Interval>
+							<Interval>
+								<LeftBound type="closed" value="55"/>
+								<RightBound type="closed" value="60"/>
+							</Interval>
+
+						</ValueDescription>
+					</ValueDescriptions>
+				</Format>
+			</Formats>
+		</MetaAttribute>
+
+		<MetaAttribute name="bydliště klienta" id="4" level="0">
+			<Annotation>
+				<Author>Ano</Author>
+				<Text>Tento atribut je pravděpodobně nejdůležitější pro odhad kvaliry úvěru.</Text>
+			</Annotation>
+			<Formats>
+				<Format name="sth">
+					<DataType>String</DataType>
+					<ValueType>Nominal</ValueType>
+					<ValueAnnotations>
+						<ValueAnnotation>
+							<Value>Prague</Value>
+							<Annotation>
+								<Author>Testovací anotátor</Author>
+								<Text>Ač je tato hodnota v souboru nejčastější, lze očekávat, že
+									instance s district=Praha se budou od ostatních instancí výrazně
+									lišit.</Text>
+							</Annotation>
+						</ValueAnnotation>
+						<ValueAnnotation>
+							<Value>Other</Value>
+							<Annotation>
+								<Author>Testovací anotátor</Author>
+								<Text>Pro demonstrační účely byly ostatní obměny atributu zahrnuty
+									pod tuto hodnotu.</Text>
+							</Annotation>
+						</ValueAnnotation>
+					</ValueAnnotations>
+				</Format>
+				<Format name="district">
+					<DataType>String</DataType>
+					<ValueType>Nominal</ValueType>
+					<ValueAnnotations>
+						<ValueAnnotation>
+							<Value>Prague</Value>
+							<Annotation>
+								<Author>Testovací anotátor</Author>
+								<Text>Ač je tato hodnota v souboru nejčastější, lze očekávat, že
+									instance s district=Praha se budou od ostatních instancí výrazně
+									lišit.</Text>
+							</Annotation>
+						</ValueAnnotation>
+						<ValueAnnotation>
+							<Value>Other</Value>
+							<Annotation>
+								<Author>Testovací anotátor</Author>
+								<Text>Pro demonstrační účely byly ostatní obměny atributu zahrnuty
+									pod tuto hodnotu.</Text>
+							</Annotation>
+						</ValueAnnotation>
+					</ValueAnnotations>
+				</Format>
+			</Formats>
+		</MetaAttribute>
+	</MetaAttributes>
+	<!-- Vztahy mezi metaatributy -->
+	<Patterns>
+		<AssociationRules>
+			<Influences>
+				<!--  Influence between A,B not set -->
+				<!--  Some influence between A,B -->
+				<!-- There is some influence but not examined in detail -->
+				<!--  Positive influence between A,B -->
+				<!-- If the row attribute increases then the column value increases too -->
+				<!--  Negative influence between A,B -->
+				<!-- If the row attribute increases then the column attribute decreases -->
+				<!--  Positive frequency between A,B -->
+				<!-- If the row attribute increases then the relative frequency of objects satisfying column attribute increases -->
+				<!--  Negative frequency between A,B -->
+				<!-- If the row attribute increases then the relative frequency of objects satisfying column attribute decreases -->
+				<!--  Positive boolean between A,B -->
+				<!-- If truthfulness of the row attribute increases then relative frequency of true values of column attribute increases too -->
+				<!--  Negative boolean between A,B  -->
+				<!-- If truthfulness of the row attribute increases then relative frequency of true values of column attribute decreases -->
+				<!--  Function between A,B -->
+				<!-- There is a strong function-like dependency -->
+				<!--  None between A,B -->
+				<!-- no influence -->
+
+				<!-- atribut arity je vzdy nastaven na dva vyjadruje, ze se jedna o vztah mezi dvema atributy -->
+				<Influence type="Positive-growth" id="1" arity="2">
+					<KnowledgeValidity>Proven</KnowledgeValidity>
+					<!-- Proven, Rejected, Unknown -->
+					<InfluenceScope>BackgroundKnowledge</InfluenceScope>
+					<!-- Pocet elementu MetaAttribute odpovida hodnote atributu arity  -->
+					<MetaAttribute role="A" name="bydliště klienta">
+						<RestrictedTo>
+							<Format name="district">
+								<Value format="district">Horní Dolní</Value>
+							</Format>
+						</RestrictedTo>
+					</MetaAttribute>
+					<MetaAttribute role="B" name="trvání úvěru"/>
+				</Influence>
+
+				<!-- atribut arity je vzdy nastaven na dva vyjadruje, ze se jedna o vztah mezi dvema atributy -->
+				<Influence type="Positive-growth" id="2" arity="2">
+					<KnowledgeValidity>Proven</KnowledgeValidity>
+					<!-- Proven, Rejected, Unknown -->
+					<InfluenceScope>BackgroundKnowledge</InfluenceScope>
+					<!-- Pocet elementu MetaAttribute odpovida hodnote atributu arity  -->
+					<MetaAttribute role="A" name="trvání úvěru">
+						<!-- Pokud "Restricted To" chybi pak se vztahuje na vsechny formaty metaatributu -->
+						<RestrictedTo>
+							<Format name="Points of International Loan Quality Scale"/>
+						</RestrictedTo>
+					</MetaAttribute>
+					<MetaAttribute role="B" name="kvalita úvěru"/>
+				</Influence>
+
+				<!-- atribut arity je vzdy nastaven na dva vyjadruje, ze se jedna o vztah mezi dvema atributy -->
+				<Influence type="Positive-growth" id="3" arity="2">
+					<KnowledgeValidity>Proven</KnowledgeValidity>
+					<!-- Proven, Rejected, Unknown -->
+					<InfluenceScope>BackgroundKnowledge</InfluenceScope>
+					<!-- Pocet elementu MetaAttribute odpovida hodnote atributu arity  -->
+					<MetaAttribute role="A" name="trvání úvěru">
+						<!-- Pokud "Restricted To" chybi pak se vztahuje na vsechny formaty metaatributu -->
+						<RestrictedTo>
+							<Format name="Points of International Loan Quality Scale"/>
+						</RestrictedTo>
+					</MetaAttribute>
+					<MetaAttribute role="B" name="bydliště klienta"/>
+				</Influence>
+
+				<!-- pripustne hodnoty atributu type jsou
+			"A,B increases"
+			"truthfulness of A increases relative frequency of B"
+			...                
+		-->
+				<Influence type="Functional" id="4" arity="2">
+					<!-- pripustne hodnoty atributu role jsou pismena A-Z [jedno]-->
+					<MetaAttribute role="A" name="bydliště klienta">
+						<RestrictedTo>
+							<Format name="district">
+								<Value format="district">Caslav</Value>
+								<Value format="district">Prague</Value>
+							</Format>
+						</RestrictedTo>
+					</MetaAttribute>
+					<MetaAttribute role="B" name="kvalita úvěru">
+						<!--  pokud je FormatSpecificSetting musi byt hodnota/interval v significant values -->
+						<RestrictedTo>
+							<Format name="duration">
+								<Intervals>
+									<Interval>
+										<LeftBound type="closed" value="40"/>
+										<RightBound type="closed" value="50"/>
+									</Interval>
+									<Interval>
+										<LeftBound type="closed" value="40"/>
+										<RightBound type="closed" value="50"/>
+									</Interval>
+									<Interval>
+										<LeftBound type="closed" value="40"/>
+										<RightBound type="closed" value="50"/>
+									</Interval>
+								</Intervals>
+							</Format>
+						</RestrictedTo>
+					</MetaAttribute>
+				</Influence>
+			</Influences>
+			<BackgroundAssociationRules>
+				<BBA id="1">
+					<Text>duration(Nad 2 roky vcetne)</Text>
+					<FieldRef>trvání úvěru</FieldRef>
+					<CatRef>Nad 2 roky vcetne</CatRef>
+				</BBA>
+				<BBA id="2">
+					<Text>statusAgregovane(dobry,stredni)</Text>
+					<FieldRef>statusAgregovane</FieldRef>
+					<CatRef>dobry</CatRef>
+					<CatRef>stredni</CatRef>
+				</BBA>
+				<BBA id="3">
+					<Text>district(Praha)</Text>
+					<FieldRef>district</FieldRef>
+					<CatRef>Praha</CatRef>
+				</BBA>
+				<BBA id="4">
+					<Text>sex(female)</Text>
+					<FieldRef>sex</FieldRef>
+					<CatRef>female</CatRef>
+				</BBA>
+				<BBA id="5">
+					<Text>duration(rok)</Text>
+					<FieldRef>duration</FieldRef>
+					<CatRef>rok</CatRef>
+				</BBA>
+				<DBA id="6" connective="Negation">
+					<BARef>3</BARef>
+				</DBA>
+				<DBA id="7" connective="Conjunction">
+					<BARef>1</BARef>
+					<BARef>6</BARef>
+				</DBA>
+				<AssociationRule antecedent="7" consequent="2">
+					<IMValue name="Support">0.55282316777220514479</IMValue>
+					<IMValue name="Average Difference">0.1414</IMValue>
+					<IMValue name="Kulczynski">0.8138</IMValue>
+					<FourFtTable a="3586" b="874" c="768" d="953"/>
+				</AssociationRule>
+			</BackgroundAssociationRules>
+
+		</AssociationRules>
+	</Patterns>
+</bkef:BKEF>

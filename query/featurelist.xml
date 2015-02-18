@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<arf:GUHAFeatureList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"    
+    xmlns:arf="http://keg.vse.cz/ns/arfeatures_01"
+    schemaLocation="http://keg.vse.cz/ns/arfeatures_01 http://sewebar.vse.cz/schemas/GUHAARfeature.xsd"
+     mode="TaskSetting" procedure="4ft"> 
+    <UserInterface>
+        <AllowMultipleRules>true</AllowMultipleRules>
+    </UserInterface>
+    <RulePattern>
+        <!-- Antecedent may or may not be specified. There can be any number of (basic boolean) attributes.
+        For each BBA, the user has to specify coefficient        -->
+        <Antecedent minNumberOfBBAs="1" maxNumberOfBBA="6"/>
+        <!-- Interest Measure must be specified. 
+            There can be any number of interest measures - provided that conditions in BuildingBlocks/InterestMeasures are met.
+            The user must specify the thresholds.
+        -->
+        <InterestMeasureConstraint minNumberOfInterestMeasures="0" maxNumberOfInterestMeasures="3"/>
+        <!-- Consequent may or may not be specified. There can be only one (basic boolean) attribute in negation.-->
+        <Consequent minNumberOfBBAs="0" maxNumberOfBBA="6" />
+        <!-- Condition must not be specified. 
+        -->
+        <Condition minNumberOfBBAs="0" maxNumberOfBBA="0"/>
+        <!-- The whole rule (Ant+Cons+Cond) must contain at least 1 BBA and at most 10 BBAs  -->
+        <GeneralConstraint minNumberOfBBAs="1" maxNumberOfBBA="10"/>
+    </RulePattern>
+
+    <!-- Details for each building block -->
+    <BuildingBlocks>
+        <!-- The user does not have to  specify the threshold, but he can -->
+        <InterestMeasures threshold="optional">
+            <!-- Possible values: optional/mandatory/prohibited-->
+            <Types>
+                <!-- The user needs to choose the type of the interest measure -->
+                <Type> 
+                    <!-- master name used for serialization -->
+                    <Name>Support</Name>
+                    <!-- display in GUI depending on locale -->
+                    <LocalizedName lang="en">Support</LocalizedName>
+                    <LocalizedName lang="cs">Podpora</LocalizedName>
+                    <!-- For each interest measure, there are different fields displayed-->
+                    <Field>
+                        <!-- master name used for serialization -->
+                        <Name>min value</Name>
+                        <!-- display in GUI depending on locale -->
+                        <LocalizedName lang="en">min value</LocalizedName>
+                        <LocalizedName lang="cs">min hodnota</LocalizedName>
+                        <!-- The input value must be a decimal in  (0;1) -->
+                        <Validation>
+                            <MinValue inclusive="no">0</MinValue>
+                            <MaxValue inclusive="no">1</MaxValue>
+                            <Datatype>double</Datatype>
+                        </Validation>
+                    </Field>
+                </Type>
+                <Type>
+                    <Name>Confidence</Name>
+                    <LocalizedName lang="en">Confidence</LocalizedName>
+                    <LocalizedName lang="cs">Spolehlivost</LocalizedName>
+                    <!-- For each interest measure, there are different fields displayed-->
+                    <Field>
+                        <!-- master name used for serialization -->
+                        <Name>min value</Name>
+                        <!-- display in GUI depending on locale -->
+                        <LocalizedName lang="en">min value</LocalizedName>
+                        <LocalizedName lang="cs">min hodnota</LocalizedName>
+                        <!-- The input value must be a decimal in  (0;1) -->
+                        <Validation>
+                            <MinValue inclusive="no">0</MinValue>
+                            <MaxValue inclusive="no">1</MaxValue>
+                            <Datatype>double</Datatype>
+                        </Validation>
+                    </Field>
+
+                </Type>
+                <Type>
+                    <Name>Above Average Implication</Name>
+                    <LocalizedName lang="en">Above Average Implication</LocalizedName>
+                    <LocalizedName lang="cs">Above Average Implication</LocalizedName>
+                    <!-- For each interest measure, there are different fields displayed-->
+                    <Field>
+                        <!-- master name used for serialization -->
+                        <Name>min value</Name>
+                        <!-- display in GUI depending on locale -->
+                        <LocalizedName lang="en">min value</LocalizedName>
+                        <LocalizedName lang="cs">min hodnota</LocalizedName>
+                        <!-- The input value must be a decimal in  (0;1) -->
+                        <Validation>
+                            <MinValue inclusive="no">0</MinValue>
+                            <Datatype>double</Datatype>
+                        </Validation>
+                    </Field>
+                </Type>
+            </Types>
+
+            <!-- There are two options,
+                either all the interest measures can be freely combined (SupportedInterestMeasureCombinations is empty element)
+               or the permitted combinations are enumerated
+            -->
+            <SupportedInterestMeasureCombinations>
+                <!-- The user can specify Confidence and Support -->
+                <SupportedIMCombination>
+                    <InterestMeasure>Confidence</InterestMeasure>
+                    <InterestMeasure>Support</InterestMeasure>
+                </SupportedIMCombination>
+                <SupportedIMCombination>
+                    <InterestMeasure>Support</InterestMeasure>
+                </SupportedIMCombination>
+                <!-- or  AboveAverageImplication and Support-->
+                <SupportedIMCombination>
+                    <InterestMeasure>Above Average Implication</InterestMeasure>
+                    <InterestMeasure>Support</InterestMeasure>
+                </SupportedIMCombination>
+                <!-- No other combination is permitted-->
+            </SupportedInterestMeasureCombinations>
+        </InterestMeasures>
+
+        <!-- The user may or may not specify coefficients for each BBA -->
+        <BasicBooleanAttribute coefficient="optional">
+            <!-- Possible values: optional/mandatory/prohibited-->
+            <Coefficient>
+                <Type>
+                    <Name>Interval</Name>
+                    <!-- for interval coefficient, there are two fields:-->
+                    <Field>
+                        <Name>minLength</Name>
+                        <LocalizedName lang="en">minimum length</LocalizedName>
+                        <LocalizedName lang="cs">minimální délka</LocalizedName>
+                        <!-- for minLength field, the user has to input integer greater or equal 1 -->
+                        <Validation>
+                            <MinValue>1</MinValue>
+                            <Datatype>integer</Datatype>
+                        </Validation>
+                    </Field>
+                    <Field>
+                        <Name>maxLength</Name>
+                        <LocalizedName lang="en">maximum length</LocalizedName>
+                        <LocalizedName lang="cs">maximální délka</LocalizedName>
+                        <!-- into maxLength field, the user has to input integer greater or equal 1, 
+                            entered value needs to be greater or equal to value in the previous field-->
+                        <Validation>
+                            <Required value="yes"/>
+                            <MinValue>1</MinValue>
+                            <Datatype>integer</Datatype>
+                            <Previous>isSmallerOrEqual</Previous>
+                        </Validation>
+                    </Field>
+
+                </Type>
+                <Type>
+                    <Name>Subset</Name>
+                    <Field>
+                        <Name>minLength</Name>
+                        <LocalizedName lang="en">minimum length</LocalizedName>
+                        <LocalizedName lang="cs">minimální délka</LocalizedName>
+                        <Validation>
+                            <Required value="yes"/>
+                            <MinValue>1</MinValue>
+                            <Datatype>integer</Datatype>
+                        </Validation>
+                    </Field>
+
+                    <Field>
+                        <Name>maxLength</Name>
+                        <LocalizedName lang="en">maximum length</LocalizedName>
+                        <LocalizedName lang="cs">maximální délka</LocalizedName>
+                        <Validation>
+                            <Required value="yes"/>
+                            <MinValue>1</MinValue>
+                            <Datatype>integer</Datatype>
+                            <Previous>isSmallerOrEqual</Previous>
+                        </Validation>
+                    </Field>
+                </Type>
+                <Type>
+                    <Name>Cut</Name>
+                    <Field>
+                        <Name>minLength</Name>
+                        <LocalizedName lang="en">minimum length</LocalizedName>
+                        <LocalizedName lang="cs">minimální délka</LocalizedName>
+                        <Validation>
+                            <Required value="yes"/>
+                            <MinValue>1</MinValue>
+                            <Datatype>integer</Datatype>
+                        </Validation>
+                    </Field>
+                    <Field>
+                        <Name>maxLength</Name>
+                        <LocalizedName lang="en">maximum length</LocalizedName>
+                        <LocalizedName lang="cs">maximální délka</LocalizedName>
+                        <Validation>
+                            <Required value="yes"/>
+                            <MinValue>1</MinValue>
+                            <Datatype>integer</Datatype>
+                            <Previous>isSmallerOrEqual</Previous>
+                        </Validation>
+                    </Field>
+                </Type>
+                <Type>
+                    <Name>One category</Name>
+                    <Field>
+                        <Name>category</Name>
+                        <LocalizedName lang="en">category</LocalizedName>
+                        <LocalizedName lang="cs">kategorie</LocalizedName>
+                        <Validation>
+                            <Required value="yes"/>
+                            <Datatype>string</Datatype>
+                        </Validation>
+                    </Field>
+                </Type>
+            </Coefficient>
+        </BasicBooleanAttribute>
+
+        <!-- Derived Boolean Attribute is a group of BBAs grouped by brackets -->
+        <DerivedBooleanAttribute> 
+            <NestingConstraints scope="allruleparts">
+                <MaxLevels>3</MaxLevels>
+                <NestingConstraint level="1">
+                    <Connectives>
+                        <Conjunction allowed="yes"/>
+                        <Disjunction allowed="no"/>
+                        <Negation allowed="yes"/>
+                    </Connectives>
+                </NestingConstraint>
+                <NestingConstraint level="2"> 
+                    <Connectives>
+                        <Conjunction allowed="yes"/>
+                        <Disjunction allowed="yes"/>
+                        <Negation allowed="yes"/>
+                    </Connectives>
+                </NestingConstraint>
+                <NestingConstraint level="3">
+                    <Connectives>
+                        <Conjunction allowed="no"/>
+                        <Disjunction allowed="no"/>
+                        <Negation allowed="yes"/>
+                    </Connectives>
+                </NestingConstraint>
+            </NestingConstraints>
+        </DerivedBooleanAttribute>
+    </BuildingBlocks>
+</arf:GUHAFeatureList>

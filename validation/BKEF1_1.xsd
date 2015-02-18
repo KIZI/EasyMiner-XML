@@ -1,0 +1,47 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns="http://keg.vse.cz/bkef" targetNamespace="http://keg.vse.cz/bkef"
+    elementFormDefault="unqualified" version="1.01" xmlns:guha="http://keg.vse.cz/ns/GUHA0.1rev1"
+    xmlns:dd="http://keg.vse.cz/ns/datadescription0_2" xmlns:base="http://keg.vse.cz/bkef_base" 
+    xmlns:patterns="http://keg.vse.cz/bkef_patterns" xmlns:data="http://keg.vse.cz/bkef_data">
+    <xs:annotation>
+        <xs:documentation>
+            BKEF Patterns 1.1 
+            Update to version 1.1
+            Author: Tomáš Kliegr
+            tomas.kliegr@vse.cz
+            Date:   7/2011    
+        </xs:documentation>  
+    </xs:annotation>
+    
+    <xs:import namespace="http://keg.vse.cz/bkef_base" schemaLocation="BKEF1_1_Base.xsd"/>
+    <xs:import namespace="http://keg.vse.cz/bkef_data" schemaLocation="BKEF1_1_Data.xsd"/>
+    <xs:import namespace="http://keg.vse.cz/bkef_patterns" schemaLocation="BKEF1_1_Patterns.xsd"/>
+    <xs:import namespace="http://keg.vse.cz/ns/GUHA0.1rev1"
+        schemaLocation="http://sewebar.vse.cz/schemas/GUHA0.1rev1.xsd"/>
+    <xs:import namespace="http://keg.vse.cz/ns/datadescription0_2" schemaLocation="DataDescription0_2.xsd"/>
+    
+    <xs:element name="BKEF" type="BKEF_Type">
+        <xs:annotation>            
+            <xs:documentation>The root element.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    
+    <xs:complexType name="BKEF_Type">
+        <xs:sequence>
+            <xs:element name="Header" type="base:HeaderType"/>
+            <xs:element name="MetaAttributes" type="data:MetaAttributesType">
+                <xs:annotation>
+                <xs:documentation>Metaattribute - Format/Range, Metaattribute - Discretization Hint can be edited only if a corresponding does not appear in DataDescription</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+           
+            <xs:element name="DataDescription" type="dd:DataDescription_BKEF">
+                <xs:annotation>
+                    <xs:documentation>This element should contain only fields and values that are used in the Patterns element.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Patterns" type="patterns:PatternType"/>      
+        </xs:sequence>
+    </xs:complexType>
+    
+</xs:schema>

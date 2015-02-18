@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bkef="http://keg.vse.cz/bkef_base"
+  xmlns="http://keg.vse.cz/bkef_base" targetNamespace="http://keg.vse.cz/bkef_base"
+  elementFormDefault="unqualified" version="1.1">
+
+  <xs:annotation>
+    <xs:documentation>
+      BKEF Base 1.1 
+      Author: Tomáš Kliegr
+      tomas.kliegr@vse.cz
+      Date:   7/2011    
+    </xs:documentation>  
+  </xs:annotation>
+  
+  
+  <!-- **** HEADER **** -->
+
+  <xs:complexType name="HeaderType">
+    <xs:sequence>
+      <xs:element name="Application" type="ApplicationType"/>
+      <xs:element name="Title" type="HeaderTitleAttrType"/>
+      <xs:element name="Created" type="CreatedType"/>
+      <xs:element name="LastModified" type="LastModifiedType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CreatedType">
+    <xs:sequence>
+      <xs:element name="Timestamp" type="TimestampType"/>
+      <xs:element name="Author" type="AuthorType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LastModifiedType">
+    <xs:sequence>
+      <xs:element name="Timestamp" type="TimestampType"/>
+      <xs:element name="Author" type="AuthorType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="HeaderTitleAttrType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <xs:complexType name="ApplicationType">
+    <xs:attribute name="name" use="required" type="xs:string"/>
+    <xs:attribute name="version" use="required" type="xs:string"/>
+  </xs:complexType>
+
+  <!-- **** ANNOTATION **** -->
+  
+
+  <xs:complexType name="AnnotationsType">
+    <xs:annotation>
+      <xs:documentation>Optional annotation</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Annotation" type="AnnotationType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AnnotationType">
+    <xs:sequence>      
+      <xs:element name="Created" type="CreatedType"/>
+      <xs:element name="LastModified" type="LastModifiedType"/>
+      <xs:element name="Text" type="AnnotationTextType" minOccurs="1"/>      
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="TimestampType">
+    <xs:restriction base="xs:dateTime"/>
+  </xs:simpleType>
+  <xs:simpleType name="AuthorType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="AnnotationTextType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+
+  <!-- **** PMMLDATATYPES **** -->
+  
+  <xs:simpleType name="DataTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Integer"/>
+      <xs:enumeration value="Float"/>
+      <xs:enumeration value="String"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ValueTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Cardinal"/>
+      <xs:enumeration value="Nominal"/>
+      <xs:enumeration value="Ordinal"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="IntervalType">
+    <xs:attribute name="closure" use="required" type="closureType"/>
+    <xs:attribute name="leftMargin" type="xs:float"/>
+    <xs:attribute name="rightMargin" type="xs:float"/>
+  </xs:complexType>
+  <xs:simpleType name="closureType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="openClosed"/>
+      <xs:enumeration value="openOpen"/>
+      <xs:enumeration value="closedOpen"/>
+      <xs:enumeration value="closedClosed"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="IntervalsType">
+    <xs:sequence>
+      <xs:element name="Interval" type="IntervalType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+</xs:schema>

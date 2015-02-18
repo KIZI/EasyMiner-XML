@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PMML version="4.0" xmlns="http://www.dmg.org/PMML-4_0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.dmg.org/PMML-4_0 http://sewebar.vse.cz/schemas/PMML4.0+GUHA0.1.xsd"
+    xmlns:pmml="http://www.dmg.org/PMML-4_0">
+    <Header copyright="Copyright (c) Integral Solutions Ltd., 1994 - 2005. All rights reserved.">
+        <Application name="Clementine" version="10.0"/>
+        <Annotation>Exported with PMML extensions for use with SPSS SmartScore</Annotation>
+    </Header>
+    <DataDictionary numberOfFields="2">
+        <DataField name="cardid" optype="continuous" dataType="integer">
+            <Extension name="storageType" value="numeric"/>
+        </DataField>
+        <DataField name="Product" optype="categorical" dataType="string">
+            <Extension name="storageType" value="string"/>
+            <Value value="beer" property="valid"/>
+            <Value value="cannedmeat" property="valid"/>
+            <Value value="cannedveg" property="valid"/>
+            <Value value="confectionery" property="valid"/>
+            <Value value="dairy" property="valid"/>
+            <Value value="fish" property="valid"/>
+            <Value value="freshmeat" property="valid"/>
+            <Value value="frozenmeal" property="valid"/>
+            <Value value="fruitveg" property="valid"/>
+            <Value value="softdrink" property="valid"/>
+            <Value value="wine" property="valid"/>
+        </DataField>
+    </DataDictionary>
+    <guha:AssociationModel
+        xsi:schemaLocation="http://keg.vse.cz/ns/GUHA0.1rev1 http://sewebar.vse.cz/schemas/GUHA0.1rev1.xsd"
+        xmlns:guha="http://keg.vse.cz/ns/GUHA0.1rev1" xmlns="" modelName="SHOPPING_ASSOC"
+        algorithmName="4ft" functionName="associationRules" numberOfTransactions="939"
+        numberOfCategories="7" numberOfRules="18">
+        <TaskSetting>
+            <BBASettings>
+                <BBASetting id="1">
+                    <FieldRef>Product</FieldRef>
+                    <Coefficient>
+                        <Type>Subset</Type>
+                        <MinimalLength>1</MinimalLength>
+                        <MaximalLength>1</MaximalLength>
+                    </Coefficient>
+                </BBASetting>
+            </BBASettings>
+            <DBASettings>
+                <DBASetting type="Conjunction" id="2">
+                    <BASettingRef transactional="true">1</BASettingRef>
+                </DBASetting>
+            </DBASettings>
+            <AntecedentSetting>2</AntecedentSetting>
+            <ConsequentSetting>1</ConsequentSetting>
+            <InterestMeasureSetting>
+                <InterestMeasureThreshold id="1">
+                    <InterestMeasure>Support</InterestMeasure>
+                    <Threshold>0.17</Threshold>
+                    <CompareType>Greater than</CompareType>
+                </InterestMeasureThreshold>
+                <InterestMeasureThreshold id="2">
+                    <InterestMeasure>Confidence</InterestMeasure>
+                    <Threshold>0.32</Threshold>
+                    <CompareType>Greater than</CompareType>
+                </InterestMeasureThreshold>
+            </InterestMeasureSetting>
+        </TaskSetting>
+        <pmml:MiningSchema>
+            <pmml:MiningField name="cardid" usageType="group"/>
+            <pmml:MiningField name="Product" usageType="active"/>
+        </pmml:MiningSchema>
+        <AssociationRules>
+            <BBA id="1">
+                <FieldRef>Product</FieldRef>
+                <CatRef>beer</CatRef>
+            </BBA>
+            <BBA id="2">
+                <FieldRef>Product</FieldRef>
+                <CatRef>cannedveg</CatRef>
+            </BBA>
+            <BBA id="3" literal="false">
+                <FieldRef>Product</FieldRef>
+                <CatRef>frozenmeal</CatRef>
+            </BBA>
+            <DBA id="4">
+                <BARef>1</BARef>
+                <BARef>2</BARef>
+            </DBA>
+            <AssociationRule id="1" antecedent="1" consequent="2">
+                <IMValue name="Support">0.15548456</IMValue>
+                <IMValue name="Confidence">0.874251497005988</IMValue>
+                <IMValue name="Lift">2.718285283737161</IMValue>
+            </AssociationRule>
+            <AssociationRule id="2" antecedent="3" consequent="4">
+                <IMValue name="Support">0.15548456</IMValue>
+                <IMValue name="Confidence">0.8588235294117649</IMValue>
+                <IMValue name="Lift">2.6615026208503174</IMValue>
+            </AssociationRule>
+            <AssociationRule id="3" antecedent="5" consequent="6">
+                <IMValue name="Support">0.15548456</IMValue>
+                <IMValue name="Confidence">0.84393063583815</IMValue>
+                <IMValue name="Lift">2.704610467754342</IMValue>
+            </AssociationRule>
+            <AssociationRule id="4" antecedent="6" consequent="2">
+                <IMValue name="Support">0.18104366</IMValue>
+                <IMValue name="Confidence">0.580204778156997</IMValue>
+                <IMValue name="Lift">1.8040141943358283</IMValue>
+            </AssociationRule>
+            <AssociationRule id="5" antecedent="2" consequent="4">
+                <IMValue name="Support">0.18423855</IMValue>
+                <IMValue name="Confidence">0.572847682119205</IMValue>
+                <IMValue name="Lift">1.7752606386466425</IMValue>
+            </AssociationRule>
+            <AssociationRule id="6" antecedent="4" consequent="2">
+                <IMValue name="Support">0.18423855</IMValue>
+                <IMValue name="Confidence">0.570957095709571</IMValue>
+                <IMValue name="Lift">1.775260638646646</IMValue>
+            </AssociationRule>
+            <AssociationRule id="7" antecedent="6" consequent="4">
+                <IMValue name="Support">0.17784878</IMValue>
+                <IMValue name="Confidence">0.569965870307167</IMValue>
+                <IMValue name="Lift">1.7663298753083467</IMValue>
+            </AssociationRule>
+            <AssociationRule id="8" antecedent="2" consequent="6">
+                <IMValue name="Support">0.18104366</IMValue>
+                <IMValue name="Confidence">0.562913907284768</IMValue>
+                <IMValue name="Lift">1.804014194335825</IMValue>
+            </AssociationRule>
+            <AssociationRule id="9" antecedent="4" consequent="6">
+                <IMValue name="Support">0.17784878</IMValue>
+                <IMValue name="Confidence">0.551155115511551</IMValue>
+                <IMValue name="Lift">1.7663298753083483</IMValue>
+            </AssociationRule>
+            <AssociationRule id="10" antecedent="7" consequent="8">
+                <IMValue name="Support">0.15335463</IMValue>
+                <IMValue name="Confidence">0.521739130434783</IMValue>
+                <IMValue name="Lift">1.7129826695044081</IMValue>
+            </AssociationRule>
+            <AssociationRule id="11" antecedent="8" consequent="7">
+                <IMValue name="Support">0.15335463</IMValue>
+                <IMValue name="Confidence">0.503496503496504</IMValue>
+                <IMValue name="Lift">1.7129826695044097</IMValue>
+            </AssociationRule>
+            <AssociationRule id="12" antecedent="6" consequent="5">
+                <IMValue name="Support">0.15548456</IMValue>
+                <IMValue name="Confidence">0.498293515358362</IMValue>
+                <IMValue name="Lift">2.7046104677543497</IMValue>
+            </AssociationRule>
+            <AssociationRule id="13" antecedent="9" consequent="10">
+                <IMValue name="Support">0.1544196</IMValue>
+                <IMValue name="Confidence">0.496575342465753</IMValue>
+                <IMValue name="Lift">1.5594790855362624</IMValue>
+            </AssociationRule>
+            <AssociationRule id="14" antecedent="10" consequent="9">
+                <IMValue name="Support">0.1544196</IMValue>
+                <IMValue name="Confidence">0.48494983277591996</IMValue>
+                <IMValue name="Lift">1.5594790855362641</IMValue>
+            </AssociationRule>
+            <AssociationRule id="15" antecedent="2" consequent="1">
+                <IMValue name="Support">0.15548456</IMValue>
+                <IMValue name="Confidence">0.483443708609272</IMValue>
+                <IMValue name="Lift">2.7182852837371603</IMValue>
+            </AssociationRule>
+            <AssociationRule id="16" antecedent="4" consequent="3">
+                <IMValue name="Support">0.15548456</IMValue>
+                <IMValue name="Confidence">0.481848184818482</IMValue>
+                <IMValue name="Lift">2.661502620850314</IMValue>
+            </AssociationRule>
+            <AssociationRule id="17" antecedent="8" consequent="4">
+                <IMValue name="Support">0.10330138</IMValue>
+                <IMValue name="Confidence">0.339160839160839</IMValue>
+                <IMValue name="Lift">1.051062798587549</IMValue>
+            </AssociationRule>
+            <AssociationRule id="18" antecedent="4" consequent="8">
+                <IMValue name="Support">0.10330138</IMValue>
+                <IMValue name="Confidence">0.32013201320131995</IMValue>
+                <IMValue name="Lift">1.0510627985875496</IMValue>
+            </AssociationRule>
+        </AssociationRules>
+    </guha:AssociationModel>
+
+</PMML>

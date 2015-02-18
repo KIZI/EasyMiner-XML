@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SearchResult xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://sewebar.vse.cz./schemas/SearchResult0_1.xsd">
+    <Metadata>
+        <SearchTimestamp>2002-05-30T09:00:00</SearchTimestamp>
+        <LastIndexUpdate>2002-05-30T09:00:00</LastIndexUpdate>
+        <SearchAlgorithm>tolog</SearchAlgorithm>
+        <SearchAlgorithmVersion>tolog.xsl 1/1/2011</SearchAlgorithmVersion>
+    </Metadata>
+    <Statistics>
+        <ExecutionTime>3332</ExecutionTime>
+        <DocumentsSearched>50</DocumentsSearched>
+        <RulesSearched>500</RulesSearched>
+    </Statistics>
+    <Hits>
+        <Hit docID="1">
+            <Text><![CDATA[Sex(M) & Salary(high) & DistrictR(Karvina) & Amount(<50;100)) & Age(<41;51))=>Quality(good)]]></Text>
+            <Details></Details>
+        </Hit>
+        <Hit docID="5">
+            <Text><![CDATA[Sex(M) & Salary(low) & Repayment((4;5>) & Amount(<100;250)) & Age(<41;51))=>Quality(good)]]></Text>
+            <Details></Details>
+        </Hit>        
+    </Hits>
+</SearchResult>

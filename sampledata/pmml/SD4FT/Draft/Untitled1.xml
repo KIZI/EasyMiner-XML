@@ -1,0 +1,3210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PMML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.dmg.org/PMML-3_2 ../../../validation/PMML3.2+SD4ft.xsd"
+ xmlns="http://www.dmg.org/PMML-3_2"
+ version="3.2">
+<!-- SD4ftResult.Task.PMML.Template, version of 2009-12-02 -->
+
+	<Header copyright="Copyright (c) KIZI UEP">
+		<Extension name="metabase" value="LM Data DB"/>
+		<Extension name="author" value="PowerUser"/>
+		<Extension name="subsystem" value="SD4ft-Miner"/>
+		<Extension name="module" value="SD4ftResult.exe"/>
+		<Extension name="format" value="SD4ftResult.Task"/>
+		<Application name="LISp-Miner" version="11.05.00 of 05 Dec 2009"/>
+		<Annotation>Exported to PMML using the LISp-Miner software</Annotation>
+	</Header>
+
+<!-- Matrix -->
+
+	<DataDictionary numberOfFields="4">
+		<DataField 
+			name="Age" 
+			optype="continuous" 
+			dataType="integer"
+		>
+			<Extension name="Min" value="28.000000" extender="Min"/>
+			<Extension name="Max" value="73.000000" extender="Max"/>
+			<Extension name="Avg" value="49.901760" extender="Avg"/>
+		</DataField>
+		<DataField 
+			name="District" 
+			optype="categorical" 
+			dataType="string"
+		>
+		</DataField>
+		<DataField 
+			name="Salary" 
+			optype="continuous" 
+			dataType="integer"
+		>
+			<Extension name="Min" value="8110.000000" extender="Min"/>
+			<Extension name="Max" value="12541.000000" extender="Max"/>
+			<Extension name="Avg" value="9469.230205" extender="Avg"/>
+		</DataField>
+		<DataField 
+			name="status" 
+			optype="categorical" 
+			dataType="string"
+		>
+		</DataField>
+	</DataDictionary>
+
+<!-- Attributes -->
+
+	<TransformationDictionary>
+		<DerivedField 
+			name= "Age"
+			dataType="string" 
+			optype="continuous"
+		>
+			<Discretize field="Age"
+			>
+				<DiscretizeBin binValue="&lt;20;30)">
+					<Extension name="Frequency" value="144" extender="&lt;20;30)"/>
+						<Interval 
+						  closure="closedOpen" 
+						  leftMargin="20" 
+						  rightMargin="30" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="&lt;30;40)">
+					<Extension name="Frequency" value="1323" extender="&lt;30;40)"/>
+						<Interval 
+						  closure="closedOpen" 
+						  leftMargin="30" 
+						  rightMargin="40" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="&lt;40;50)">
+					<Extension name="Frequency" value="1422" extender="&lt;40;50)"/>
+						<Interval 
+						  closure="closedOpen" 
+						  leftMargin="40" 
+						  rightMargin="50" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="&lt;50;60)">
+					<Extension name="Frequency" value="1413" extender="&lt;50;60)"/>
+						<Interval 
+						  closure="closedOpen" 
+						  leftMargin="50" 
+						  rightMargin="60" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="&lt;60;70)">
+					<Extension name="Frequency" value="1368" extender="&lt;60;70)"/>
+						<Interval 
+						  closure="closedOpen" 
+						  leftMargin="60" 
+						  rightMargin="70" 
+						/>
+				</DiscretizeBin>
+			</Discretize>
+
+		</DerivedField>
+		<DerivedField 
+			name= "District"
+			dataType="string" 
+			optype="ordinal"
+		>
+			<MapValues outputColumn="District"
+			>
+				<FieldColumnPair column="District" field="District"/>
+				<InlineTable>
+					<Extension name="Frequency" value="63" extender="Benesov"/>
+					<Extension name="Frequency" value="63" extender="Beroun"/>
+					<Extension name="Frequency" value="63" extender="Blansko"/>
+					<Extension name="Frequency" value="54" extender="Breclav"/>
+					<Extension name="Frequency" value="207" extender="Brno - mesto"/>
+					<Extension name="Frequency" value="99" extender="Brno - venkov"/>
+					<Extension name="Frequency" value="45" extender="Bruntal"/>
+					<Extension name="Frequency" value="54" extender="Ceska Lipa"/>
+					<Extension name="Frequency" value="81" extender="Ceske Budejovice"/>
+					<Extension name="Frequency" value="63" extender="Cesky Krumlov"/>
+					<Extension name="Frequency" value="45" extender="Decin"/>
+					<Extension name="Frequency" value="18" extender="Domazlice"/>
+					<Extension name="Frequency" value="135" extender="Frydek - Mistek"/>
+					<Extension name="Frequency" value="63" extender="Havlickuv Brod"/>
+					<Extension name="Frequency" value="711" extender="Hl.m. Praha"/>
+					<Extension name="Frequency" value="72" extender="Hodonin"/>
+					<Extension name="Frequency" value="54" extender="Hradec Kralove"/>
+					<Extension name="Frequency" value="36" extender="Cheb"/>
+					<Extension name="Frequency" value="72" extender="Chomutov"/>
+					<Extension name="Frequency" value="63" extender="Chrudim"/>
+					<Extension name="Frequency" value="18" extender="Jablonec n. Nisou"/>
+					<Extension name="Frequency" value="72" extender="Jesenik"/>
+					<Extension name="Frequency" value="63" extender="Jicin"/>
+					<Extension name="Frequency" value="54" extender="Jihlava"/>
+					<Extension name="Frequency" value="99" extender="Jindrichuv Hradec"/>
+					<Extension name="Frequency" value="54" extender="Karlovy Vary"/>
+					<Extension name="Frequency" value="225" extender="Karvina"/>
+					<Extension name="Frequency" value="54" extender="Kladno"/>
+					<Extension name="Frequency" value="18" extender="Klatovy"/>
+					<Extension name="Frequency" value="99" extender="Kolin"/>
+					<Extension name="Frequency" value="99" extender="Kromeriz"/>
+					<Extension name="Frequency" value="72" extender="Kutna Hora"/>
+					<Extension name="Frequency" value="63" extender="Liberec"/>
+					<Extension name="Frequency" value="63" extender="Litomerice"/>
+					<Extension name="Frequency" value="117" extender="Louny"/>
+					<Extension name="Frequency" value="45" extender="Melnik"/>
+					<Extension name="Frequency" value="45" extender="Mlada Boleslav"/>
+					<Extension name="Frequency" value="54" extender="Most"/>
+					<Extension name="Frequency" value="72" extender="Nachod"/>
+					<Extension name="Frequency" value="45" extender="Novy Jicin"/>
+					<Extension name="Frequency" value="81" extender="Nymburk"/>
+					<Extension name="Frequency" value="135" extender="Olomouc"/>
+					<Extension name="Frequency" value="72" extender="Opava"/>
+					<Extension name="Frequency" value="180" extender="Ostrava - mesto"/>
+					<Extension name="Frequency" value="90" extender="Pardubice"/>
+					<Extension name="Frequency" value="54" extender="Pelhrimov"/>
+					<Extension name="Frequency" value="27" extender="Pisek"/>
+					<Extension name="Frequency" value="81" extender="Plzen - jih"/>
+					<Extension name="Frequency" value="54" extender="Plzen - mesto"/>
+					<Extension name="Frequency" value="63" extender="Plzen - sever"/>
+					<Extension name="Frequency" value="45" extender="Praha - vychod"/>
+					<Extension name="Frequency" value="90" extender="Praha - zapad"/>
+					<Extension name="Frequency" value="108" extender="Prachatice"/>
+					<Extension name="Frequency" value="27" extender="Prerov"/>
+					<Extension name="Frequency" value="45" extender="Pribram"/>
+					<Extension name="Frequency" value="81" extender="Prostejov"/>
+					<Extension name="Frequency" value="81" extender="Rakovnik"/>
+					<Extension name="Frequency" value="72" extender="Rokycany"/>
+					<Extension name="Frequency" value="45" extender="Rychnov nad Kneznou"/>
+					<Extension name="Frequency" value="27" extender="Semily"/>
+					<Extension name="Frequency" value="9" extender="Sokolov"/>
+					<Extension name="Frequency" value="45" extender="Strakonice"/>
+					<Extension name="Frequency" value="54" extender="Sumperk"/>
+					<Extension name="Frequency" value="108" extender="Svitavy"/>
+					<Extension name="Frequency" value="72" extender="Tabor"/>
+					<Extension name="Frequency" value="99" extender="Tachov"/>
+					<Extension name="Frequency" value="45" extender="Teplice"/>
+					<Extension name="Frequency" value="54" extender="Trebic"/>
+					<Extension name="Frequency" value="63" extender="Trutnov"/>
+					<Extension name="Frequency" value="81" extender="Uherske Hradiste"/>
+					<Extension name="Frequency" value="27" extender="Usti nad Labem"/>
+					<Extension name="Frequency" value="135" extender="Usti nad Orlici"/>
+					<Extension name="Frequency" value="63" extender="Vsetin"/>
+					<Extension name="Frequency" value="72" extender="Vyskov"/>
+					<Extension name="Frequency" value="63" extender="Zdar nad Sazavou"/>
+					<Extension name="Frequency" value="144" extender="Zlin"/>
+					<Extension name="Frequency" value="54" extender="Znojmo"/>
+					<row>
+						<column>Benesov</column>
+						<field>Benesov</field>
+					</row>
+					<row>
+						<column>Beroun</column>
+						<field>Beroun</field>
+					</row>
+					<row>
+						<column>Blansko</column>
+						<field>Blansko</field>
+					</row>
+					<row>
+						<column>Breclav</column>
+						<field>Breclav</field>
+					</row>
+					<row>
+						<column>Brno - mesto</column>
+						<field>Brno - mesto</field>
+					</row>
+					<row>
+						<column>Brno - venkov</column>
+						<field>Brno - venkov</field>
+					</row>
+					<row>
+						<column>Bruntal</column>
+						<field>Bruntal</field>
+					</row>
+					<row>
+						<column>Ceska Lipa</column>
+						<field>Ceska Lipa</field>
+					</row>
+					<row>
+						<column>Ceske Budejovice</column>
+						<field>Ceske Budejovice</field>
+					</row>
+					<row>
+						<column>Cesky Krumlov</column>
+						<field>Cesky Krumlov</field>
+					</row>
+					<row>
+						<column>Decin</column>
+						<field>Decin</field>
+					</row>
+					<row>
+						<column>Domazlice</column>
+						<field>Domazlice</field>
+					</row>
+					<row>
+						<column>Frydek - Mistek</column>
+						<field>Frydek - Mistek</field>
+					</row>
+					<row>
+						<column>Havlickuv Brod</column>
+						<field>Havlickuv Brod</field>
+					</row>
+					<row>
+						<column>Hl.m. Praha</column>
+						<field>Hl.m. Praha</field>
+					</row>
+					<row>
+						<column>Hodonin</column>
+						<field>Hodonin</field>
+					</row>
+					<row>
+						<column>Hradec Kralove</column>
+						<field>Hradec Kralove</field>
+					</row>
+					<row>
+						<column>Cheb</column>
+						<field>Cheb</field>
+					</row>
+					<row>
+						<column>Chomutov</column>
+						<field>Chomutov</field>
+					</row>
+					<row>
+						<column>Chrudim</column>
+						<field>Chrudim</field>
+					</row>
+					<row>
+						<column>Jablonec n. Nisou</column>
+						<field>Jablonec n. Nisou</field>
+					</row>
+					<row>
+						<column>Jesenik</column>
+						<field>Jesenik</field>
+					</row>
+					<row>
+						<column>Jicin</column>
+						<field>Jicin</field>
+					</row>
+					<row>
+						<column>Jihlava</column>
+						<field>Jihlava</field>
+					</row>
+					<row>
+						<column>Jindrichuv Hradec</column>
+						<field>Jindrichuv Hradec</field>
+					</row>
+					<row>
+						<column>Karlovy Vary</column>
+						<field>Karlovy Vary</field>
+					</row>
+					<row>
+						<column>Karvina</column>
+						<field>Karvina</field>
+					</row>
+					<row>
+						<column>Kladno</column>
+						<field>Kladno</field>
+					</row>
+					<row>
+						<column>Klatovy</column>
+						<field>Klatovy</field>
+					</row>
+					<row>
+						<column>Kolin</column>
+						<field>Kolin</field>
+					</row>
+					<row>
+						<column>Kromeriz</column>
+						<field>Kromeriz</field>
+					</row>
+					<row>
+						<column>Kutna Hora</column>
+						<field>Kutna Hora</field>
+					</row>
+					<row>
+						<column>Liberec</column>
+						<field>Liberec</field>
+					</row>
+					<row>
+						<column>Litomerice</column>
+						<field>Litomerice</field>
+					</row>
+					<row>
+						<column>Louny</column>
+						<field>Louny</field>
+					</row>
+					<row>
+						<column>Melnik</column>
+						<field>Melnik</field>
+					</row>
+					<row>
+						<column>Mlada Boleslav</column>
+						<field>Mlada Boleslav</field>
+					</row>
+					<row>
+						<column>Most</column>
+						<field>Most</field>
+					</row>
+					<row>
+						<column>Nachod</column>
+						<field>Nachod</field>
+					</row>
+					<row>
+						<column>Novy Jicin</column>
+						<field>Novy Jicin</field>
+					</row>
+					<row>
+						<column>Nymburk</column>
+						<field>Nymburk</field>
+					</row>
+					<row>
+						<column>Olomouc</column>
+						<field>Olomouc</field>
+					</row>
+					<row>
+						<column>Opava</column>
+						<field>Opava</field>
+					</row>
+					<row>
+						<column>Ostrava - mesto</column>
+						<field>Ostrava - mesto</field>
+					</row>
+					<row>
+						<column>Pardubice</column>
+						<field>Pardubice</field>
+					</row>
+					<row>
+						<column>Pelhrimov</column>
+						<field>Pelhrimov</field>
+					</row>
+					<row>
+						<column>Pisek</column>
+						<field>Pisek</field>
+					</row>
+					<row>
+						<column>Plzen - jih</column>
+						<field>Plzen - jih</field>
+					</row>
+					<row>
+						<column>Plzen - mesto</column>
+						<field>Plzen - mesto</field>
+					</row>
+					<row>
+						<column>Plzen - sever</column>
+						<field>Plzen - sever</field>
+					</row>
+					<row>
+						<column>Praha - vychod</column>
+						<field>Praha - vychod</field>
+					</row>
+					<row>
+						<column>Praha - zapad</column>
+						<field>Praha - zapad</field>
+					</row>
+					<row>
+						<column>Prachatice</column>
+						<field>Prachatice</field>
+					</row>
+					<row>
+						<column>Prerov</column>
+						<field>Prerov</field>
+					</row>
+					<row>
+						<column>Pribram</column>
+						<field>Pribram</field>
+					</row>
+					<row>
+						<column>Prostejov</column>
+						<field>Prostejov</field>
+					</row>
+					<row>
+						<column>Rakovnik</column>
+						<field>Rakovnik</field>
+					</row>
+					<row>
+						<column>Rokycany</column>
+						<field>Rokycany</field>
+					</row>
+					<row>
+						<column>Rychnov nad Kneznou</column>
+						<field>Rychnov nad Kneznou</field>
+					</row>
+					<row>
+						<column>Semily</column>
+						<field>Semily</field>
+					</row>
+					<row>
+						<column>Sokolov</column>
+						<field>Sokolov</field>
+					</row>
+					<row>
+						<column>Strakonice</column>
+						<field>Strakonice</field>
+					</row>
+					<row>
+						<column>Sumperk</column>
+						<field>Sumperk</field>
+					</row>
+					<row>
+						<column>Svitavy</column>
+						<field>Svitavy</field>
+					</row>
+					<row>
+						<column>Tabor</column>
+						<field>Tabor</field>
+					</row>
+					<row>
+						<column>Tachov</column>
+						<field>Tachov</field>
+					</row>
+					<row>
+						<column>Teplice</column>
+						<field>Teplice</field>
+					</row>
+					<row>
+						<column>Trebic</column>
+						<field>Trebic</field>
+					</row>
+					<row>
+						<column>Trutnov</column>
+						<field>Trutnov</field>
+					</row>
+					<row>
+						<column>Uherske Hradiste</column>
+						<field>Uherske Hradiste</field>
+					</row>
+					<row>
+						<column>Usti nad Labem</column>
+						<field>Usti nad Labem</field>
+					</row>
+					<row>
+						<column>Usti nad Orlici</column>
+						<field>Usti nad Orlici</field>
+					</row>
+					<row>
+						<column>Vsetin</column>
+						<field>Vsetin</field>
+					</row>
+					<row>
+						<column>Vyskov</column>
+						<field>Vyskov</field>
+					</row>
+					<row>
+						<column>Zdar nad Sazavou</column>
+						<field>Zdar nad Sazavou</field>
+					</row>
+					<row>
+						<column>Zlin</column>
+						<field>Zlin</field>
+					</row>
+					<row>
+						<column>Znojmo</column>
+						<field>Znojmo</field>
+					</row>
+				</InlineTable>
+			</MapValues>
+
+		</DerivedField>
+		<DerivedField 
+			name= "Quality"
+			dataType="string" 
+			optype="ordinal"
+		>
+			<MapValues outputColumn="Quality"
+			>
+				<FieldColumnPair column="status" field="Quality"/>
+				<InlineTable>
+					<Extension name="Frequency" value="5454" extender="Good"/>
+					<Extension name="Frequency" value="684" extender="Bad"/>
+					<row>
+						<column>A</column>
+						<field>Good</field>
+					</row>
+					<row>
+						<column>C</column>
+						<field>Good</field>
+					</row>
+					<row>
+						<column>B</column>
+						<field>Bad</field>
+					</row>
+					<row>
+						<column>D</column>
+						<field>Bad</field>
+					</row>
+				</InlineTable>
+			</MapValues>
+
+		</DerivedField>
+		<DerivedField 
+			name= "Salary"
+			dataType="string" 
+			optype="continuous"
+		>
+			<Discretize field="Salary"
+			>
+				<DiscretizeBin binValue="Low">
+					<Extension name="Frequency" value="2016" extender="Low"/>
+						<Interval 
+						  closure="closedOpen" 
+						  leftMargin="8110" 
+						  rightMargin="8678" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="Avg">
+					<Extension name="Frequency" value="2034" extender="Avg"/>
+						<Interval 
+						  closure="closedOpen" 
+						  leftMargin="8678" 
+						  rightMargin="9624" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="High">
+					<Extension name="Frequency" value="2088" extender="High"/>
+						<Interval 
+						  closure="closedClosed" 
+						  leftMargin="9624" 
+						  rightMargin="12541" 
+						/>
+				</DiscretizeBin>
+			</Discretize>
+
+		</DerivedField>
+	</TransformationDictionary>
+
+<!-- Task -->
+
+	<SD4ftModel modelName="Prvni SD4ft-Task" 
+	    functionName="associationRules" 
+			  numberOfTransactions="6138" 
+			  numberOfItems="87" 
+			  numberOfRules="19"
+			  maxNumberOfItemsPerTA="1" avgNumberOfItemsPerTA="1" 
+			  numberOfItemsets="0" 
+	>
+		<Extension name="TaskSetting" >
+			<Metabase>LM Data DB</Metabase>
+			<Matrix>LoanDetail</Matrix>
+			<TaskGroup>01 LAQ Social status x Alcohol drinking</TaskGroup>
+			<NumberOfVerifications>7588</NumberOfVerifications>
+			<TaskTime>2.12.2009 15:49:40</TaskTime>
+			<TaskDuration>0h 0m 4s</TaskDuration>
+			<JoinedSetFlag>No</JoinedSetFlag>
+			<StrictDisjunctionFlag>No</StrictDisjunctionFlag>
+			<TaskDescription></TaskDescription>
+			<TaskNotice>-</TaskNotice>
+
+			<BasicBooleanAttributeSettings>
+				<BasicBooleanAttributeSetting 
+				   id="Basic_FTLiteralD_69"
+				   name="Age(*)">
+					<Attribute>Age</Attribute>
+					<CoefficientType>Subset</CoefficientType>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>1</MaximalLength>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>
+				</BasicBooleanAttributeSetting>
+				<BasicBooleanAttributeSetting 
+				   id="Basic_FTLiteralD_73"
+				   name="Salary(*)">
+					<Attribute>Salary</Attribute>
+					<CoefficientType>Subset</CoefficientType>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>1</MaximalLength>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>
+				</BasicBooleanAttributeSetting>
+				<BasicBooleanAttributeSetting 
+				   id="Basic_FTLiteralD_70"
+				   name="Quality( Bad)">
+					<Attribute>status</Attribute>
+					<CoefficientType>One category</CoefficientType>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>1</MaximalLength>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>
+				</BasicBooleanAttributeSetting>
+				<BasicBooleanAttributeSetting 
+				   id="Basic_FTLiteralD_71"
+				   name="District(*)">
+					<Attribute>District</Attribute>
+					<CoefficientType>Subset</CoefficientType>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>1</MaximalLength>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>
+				</BasicBooleanAttributeSetting>
+				<BasicBooleanAttributeSetting 
+				   id="Basic_FTLiteralD_72"
+				   name="District(*)">
+					<Attribute>District</Attribute>
+					<CoefficientType>Subset</CoefficientType>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>1</MaximalLength>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>
+				</BasicBooleanAttributeSetting>
+			</BasicBooleanAttributeSettings>
+
+			<DerivedBooleanAttributeSettings>
+
+				<DerivedBooleanAttributeSetting 
+					name="Age(*)"
+					id="Derived_FTLiteralD_Sign_69"
+					type="Sign" 
+				>
+					<BooleanAttributeId>Basic_FTLiteralD_69</BooleanAttributeId>
+					<Type>Positive</Type>
+				</DerivedBooleanAttributeSetting>
+				<DerivedBooleanAttributeSetting 
+					name="Salary(*)"
+					id="Derived_FTLiteralD_Sign_73"
+					type="Sign" 
+				>
+					<BooleanAttributeId>Basic_FTLiteralD_73</BooleanAttributeId>
+					<Type>Positive</Type>
+				</DerivedBooleanAttributeSetting>
+				<DerivedBooleanAttributeSetting 
+					name="Quality( Bad)"
+					id="Derived_FTLiteralD_Sign_70"
+					type="Sign" 
+				>
+					<BooleanAttributeId>Basic_FTLiteralD_70</BooleanAttributeId>
+					<Type>Positive</Type>
+				</DerivedBooleanAttributeSetting>
+				<DerivedBooleanAttributeSetting 
+					name="District(*)"
+					id="Derived_FTLiteralD_Sign_71"
+					type="Sign" 
+				>
+					<BooleanAttributeId>Basic_FTLiteralD_71</BooleanAttributeId>
+					<Type>Positive</Type>
+				</DerivedBooleanAttributeSetting>
+				<DerivedBooleanAttributeSetting 
+					name="District(*)"
+					id="Derived_FTLiteralD_Sign_72"
+					type="Sign" 
+				>
+					<BooleanAttributeId>Basic_FTLiteralD_72</BooleanAttributeId>
+					<Type>Positive</Type>
+				</DerivedBooleanAttributeSetting>
+
+				<DerivedBooleanAttributeSetting 
+					name="Condition"
+					id="Derived_FTCedentD_56"
+					type="Conjunction"
+				> 
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DerivedBooleanAttributeSetting>
+				<DerivedBooleanAttributeSetting 
+					name="Antecedent"
+					id="Derived_FTCedentD_57"
+					type="Conjunction"
+				> 
+					<BooleanAttributeId>Derived_FTLiteralD_Sign_69</BooleanAttributeId>
+					<BooleanAttributeId>Derived_FTLiteralD_Sign_73</BooleanAttributeId>
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DerivedBooleanAttributeSetting>
+				<DerivedBooleanAttributeSetting 
+					name="Succedent"
+					id="Derived_FTCedentD_58"
+					type="Conjunction"
+				> 
+					<BooleanAttributeId>Derived_FTLiteralD_Sign_70</BooleanAttributeId>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DerivedBooleanAttributeSetting>
+				<DerivedBooleanAttributeSetting 
+					name="First set"
+					id="Derived_FTCedentD_59"
+					type="Conjunction"
+				> 
+					<BooleanAttributeId>Derived_FTLiteralD_Sign_71</BooleanAttributeId>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DerivedBooleanAttributeSetting>
+				<DerivedBooleanAttributeSetting 
+					name="Second set"
+					id="Derived_FTCedentD_60"
+					type="Conjunction"
+				> 
+					<BooleanAttributeId>Derived_FTLiteralD_Sign_72</BooleanAttributeId>
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DerivedBooleanAttributeSetting>
+
+				<DerivedBooleanAttributeSetting 
+					name="Antecedent"
+					id="Derived_FTCedentBagD_53"
+					type="Conjunction"
+				>
+					<BooleanAttributeId>Derived_FTCedentD_57</BooleanAttributeId>
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DerivedBooleanAttributeSetting>
+				<DerivedBooleanAttributeSetting 
+					name="Succedent"
+					id="Derived_FTCedentBagD_54"
+					type="Conjunction"
+				>
+					<BooleanAttributeId>Derived_FTCedentD_58</BooleanAttributeId>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DerivedBooleanAttributeSetting>
+				<DerivedBooleanAttributeSetting 
+					name="Condition"
+					id="Derived_FTCedentBagD_52"
+					type="Conjunction"
+				>
+					<BooleanAttributeId>Derived_FTCedentD_56</BooleanAttributeId>
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DerivedBooleanAttributeSetting>
+				<DerivedBooleanAttributeSetting 
+					name="First set"
+					id="Derived_FTCedentBagD_55"
+					type="Conjunction"
+				>
+					<BooleanAttributeId>Derived_FTCedentD_59</BooleanAttributeId>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DerivedBooleanAttributeSetting>
+				<DerivedBooleanAttributeSetting 
+					name="Second set"
+					id="Derived_FTCedentBagD_56"
+					type="Conjunction"
+				>
+					<BooleanAttributeId>Derived_FTCedentD_60</BooleanAttributeId>
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DerivedBooleanAttributeSetting>
+
+			</DerivedBooleanAttributeSettings>
+
+
+			<Antecedent>Derived_FTCedentBagD_53</Antecedent>
+			<Consequent>Derived_FTCedentBagD_54</Consequent>
+			<FirstSet>Derived_FTCedentBagD_55</FirstSet>
+			<SecondSet>Derived_FTCedentBagD_56</SecondSet>
+			<Condition>Derived_FTCedentBagD_52</Condition>
+
+		</Extension>
+
+		<Extension name="QuantifierThreshold" value="BASE (a-freq)">
+			<DFQuantifierType>BASE (a-freq)</DFQuantifierType>
+			<DFQuantifierSourceType>First set frequencies</DFQuantifierSourceType>
+			<CompareType>Greater than or equal</CompareType>
+			<Threshold>10.000000</Threshold>
+			<ThresholdType>Absolute number</ThresholdType>
+		</Extension>		
+		<Extension name="QuantifierThreshold" value="BASE (a-freq)">
+			<DFQuantifierType>BASE (a-freq)</DFQuantifierType>
+			<DFQuantifierSourceType>Second set frequencies</DFQuantifierSourceType>
+			<CompareType>Greater than or equal</CompareType>
+			<Threshold>10.000000</Threshold>
+			<ThresholdType>Absolute number</ThresholdType>
+		</Extension>		
+		<Extension name="QuantifierThreshold" value="Founded Implication">
+			<DFQuantifierType>Founded Implication</DFQuantifierType>
+			<DFQuantifierSourceType>Absolute difference of quantifier values</DFQuantifierSourceType>
+			<CompareType>Greater than or equal</CompareType>
+			<Threshold>0.100000</Threshold>
+			<ThresholdType>Absolute number</ThresholdType>
+		</Extension>		
+		<Extension name="QuantifierThreshold" value="Sum of values">
+			<DFQuantifierType>Sum of values</DFQuantifierType>
+			<DFQuantifierSourceType>Differences of absolute frequencies</DFQuantifierSourceType>
+			<CompareType>Greater than or equal</CompareType>
+			<Threshold>0.000000</Threshold>
+			<ThresholdType>Absolute number</ThresholdType>
+		</Extension>		
+
+	<!-- MiningSchema -->
+
+		<MiningSchema>
+			<MiningField name="Age"/>
+			<MiningField name="District"/>
+			<MiningField name="Salary"/>
+			<MiningField name="status"/>
+		</MiningSchema>
+
+	<!-- Item a Itemset -->
+
+		<Item id="Item_FTLiteralI_7317" 
+		      value="Quality(Bad)"
+		>
+			<Extension name="attribute" value="Quality"/>
+			<Extension name="value" value="Bad"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7318" 
+		      value="District(Beroun)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Beroun"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7319" 
+		      value="Age(&lt;40;50))"
+		>
+			<Extension name="attribute" value="Age"/>
+			<Extension name="value" value="&lt;40;50)"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7320" 
+		      value="Quality(Bad)"
+		>
+			<Extension name="attribute" value="Quality"/>
+			<Extension name="value" value="Bad"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7321" 
+		      value="District(Beroun)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Beroun"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7322" 
+		      value="Age(&lt;40;50))"
+		>
+			<Extension name="attribute" value="Age"/>
+			<Extension name="value" value="&lt;40;50)"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7323" 
+		      value="Salary(Avg)"
+		>
+			<Extension name="attribute" value="Salary"/>
+			<Extension name="value" value="Avg"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7324" 
+		      value="Quality(Bad)"
+		>
+			<Extension name="attribute" value="Quality"/>
+			<Extension name="value" value="Bad"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7325" 
+		      value="District(Beroun)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Beroun"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7326" 
+		      value="Salary(Avg)"
+		>
+			<Extension name="attribute" value="Salary"/>
+			<Extension name="value" value="Avg"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7327" 
+		      value="Quality(Bad)"
+		>
+			<Extension name="attribute" value="Quality"/>
+			<Extension name="value" value="Bad"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7328" 
+		      value="District(Beroun)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Beroun"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7329" 
+		      value="Quality(Bad)"
+		>
+			<Extension name="attribute" value="Quality"/>
+			<Extension name="value" value="Bad"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7330" 
+		      value="District(Beroun)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Beroun"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7331" 
+		      value="District(Bruntal)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Bruntal"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7332" 
+		      value="Quality(Bad)"
+		>
+			<Extension name="attribute" value="Quality"/>
+			<Extension name="value" value="Bad"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7333" 
+		      value="District(Beroun)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Beroun"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7334" 
+		      value="District(Hl.m. Praha)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Hl.m. Praha"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7335" 
+		      value="Quality(Bad)"
+		>
+			<Extension name="attribute" value="Quality"/>
+			<Extension name="value" value="Bad"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7336" 
+		      value="District(Beroun)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Beroun"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7337" 
+		      value="District(Karvina)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Karvina"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7338" 
+		      value="Quality(Bad)"
+		>
+			<Extension name="attribute" value="Quality"/>
+			<Extension name="value" value="Bad"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7339" 
+		      value="District(Beroun)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Beroun"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7340" 
+		      value="District(Kromeriz)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Kromeriz"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7341" 
+		      value="Age(&lt;40;50))"
+		>
+			<Extension name="attribute" value="Age"/>
+			<Extension name="value" value="&lt;40;50)"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7342" 
+		      value="Quality(Bad)"
+		>
+			<Extension name="attribute" value="Quality"/>
+			<Extension name="value" value="Bad"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7343" 
+		      value="District(Beroun)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Beroun"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7344" 
+		      value="District(Olomouc)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Olomouc"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7345" 
+		      value="Age(&lt;40;50))"
+		>
+			<Extension name="attribute" value="Age"/>
+			<Extension name="value" value="&lt;40;50)"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7346" 
+		      value="Salary(Avg)"
+		>
+			<Extension name="attribute" value="Salary"/>
+			<Extension name="value" value="Avg"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7347" 
+		      value="Quality(Bad)"
+		>
+			<Extension name="attribute" value="Quality"/>
+			<Extension name="value" value="Bad"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7348" 
+		      value="District(Beroun)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Beroun"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7349" 
+		      value="District(Olomouc)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Olomouc"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7350" 
+		      value="Quality(Bad)"
+		>
+			<Extension name="attribute" value="Quality"/>
+			<Extension name="value" value="Bad"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7351" 
+		      value="District(Beroun)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Beroun"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7352" 
+		      value="District(Ostrava - mesto)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Ostrava - mesto"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7353" 
+		      value="Quality(Bad)"
+		>
+			<Extension name="attribute" value="Quality"/>
+			<Extension name="value" value="Bad"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7354" 
+		      value="District(Beroun)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Beroun"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7355" 
+		      value="District(Strakonice)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Strakonice"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7356" 
+		      value="Quality(Bad)"
+		>
+			<Extension name="attribute" value="Quality"/>
+			<Extension name="value" value="Bad"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7357" 
+		      value="District(Beroun)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Beroun"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7358" 
+		      value="District(Tachov)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Tachov"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7359" 
+		      value="Salary(Avg)"
+		>
+			<Extension name="attribute" value="Salary"/>
+			<Extension name="value" value="Avg"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7360" 
+		      value="Quality(Bad)"
+		>
+			<Extension name="attribute" value="Quality"/>
+			<Extension name="value" value="Bad"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7361" 
+		      value="District(Beroun)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Beroun"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7362" 
+		      value="District(Tachov)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Tachov"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7363" 
+		      value="Quality(Bad)"
+		>
+			<Extension name="attribute" value="Quality"/>
+			<Extension name="value" value="Bad"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7364" 
+		      value="District(Brno - mesto)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Brno - mesto"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7365" 
+		      value="Age(&lt;50;60))"
+		>
+			<Extension name="attribute" value="Age"/>
+			<Extension name="value" value="&lt;50;60)"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7366" 
+		      value="Quality(Bad)"
+		>
+			<Extension name="attribute" value="Quality"/>
+			<Extension name="value" value="Bad"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7367" 
+		      value="District(Brno - mesto)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Brno - mesto"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7368" 
+		      value="Age(&lt;50;60))"
+		>
+			<Extension name="attribute" value="Age"/>
+			<Extension name="value" value="&lt;50;60)"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7369" 
+		      value="Salary(High)"
+		>
+			<Extension name="attribute" value="Salary"/>
+			<Extension name="value" value="High"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7370" 
+		      value="Quality(Bad)"
+		>
+			<Extension name="attribute" value="Quality"/>
+			<Extension name="value" value="Bad"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7371" 
+		      value="District(Brno - mesto)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Brno - mesto"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7372" 
+		      value="Salary(High)"
+		>
+			<Extension name="attribute" value="Salary"/>
+			<Extension name="value" value="High"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7373" 
+		      value="Quality(Bad)"
+		>
+			<Extension name="attribute" value="Quality"/>
+			<Extension name="value" value="Bad"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7374" 
+		      value="District(Brno - mesto)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Brno - mesto"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7375" 
+		      value="Quality(Bad)"
+		>
+			<Extension name="attribute" value="Quality"/>
+			<Extension name="value" value="Bad"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7376" 
+		      value="District(Brno - mesto)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Brno - mesto"/>
+		</Item>
+		<Item id="Item_FTLiteralI_7377" 
+		      value="District(Bruntal)"
+		>
+			<Extension name="attribute" value="District"/>
+			<Extension name="value" value="Bruntal"/>
+		</Item>
+
+
+		<Itemset id="Itemset_FTCedentI_1921">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7317"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1922">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7318"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1923">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Age(&lt;40;50))"/>
+			<ItemRef itemRef="Item_FTLiteralI_7319"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1924">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7320"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1925">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7321"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1926">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Age(&lt;40;50)) &amp; Salary(Avg)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7322"/>
+			<ItemRef itemRef="Item_FTLiteralI_7323"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1927">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7324"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1928">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7325"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1929">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Salary(Avg)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7326"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1930">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7327"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1931">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7328"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1932">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7329"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1933">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7330"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1934">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Bruntal)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7331"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1935">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7332"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1936">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7333"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1937">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Hl.m. Praha)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7334"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1938">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7335"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1939">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7336"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1940">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Karvina)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7337"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1941">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7338"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1942">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7339"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1943">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Kromeriz)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7340"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1944">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Age(&lt;40;50))"/>
+			<ItemRef itemRef="Item_FTLiteralI_7341"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1945">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7342"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1946">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7343"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1947">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Olomouc)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7344"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1948">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Age(&lt;40;50)) &amp; Salary(Avg)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7345"/>
+			<ItemRef itemRef="Item_FTLiteralI_7346"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1949">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7347"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1950">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7348"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1951">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Olomouc)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7349"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1952">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7350"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1953">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7351"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1954">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Ostrava - mesto)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7352"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1955">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7353"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1956">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7354"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1957">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Strakonice)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7355"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1958">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7356"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1959">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7357"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1960">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Tachov)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7358"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1961">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Salary(Avg)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7359"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1962">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7360"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1963">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7361"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1964">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Tachov)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7362"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1965">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7363"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1966">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Brno - mesto)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7364"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1967">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Age(&lt;50;60))"/>
+			<ItemRef itemRef="Item_FTLiteralI_7365"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1968">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7366"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1969">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Brno - mesto)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7367"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1970">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Age(&lt;50;60)) &amp; Salary(High)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7368"/>
+			<ItemRef itemRef="Item_FTLiteralI_7369"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1971">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7370"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1972">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Brno - mesto)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7371"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1973">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Salary(High)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7372"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1974">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7373"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1975">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Brno - mesto)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7374"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1976">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7375"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1977">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Brno - mesto)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7376"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_1978">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Bruntal)"/>
+			<ItemRef itemRef="Item_FTLiteralI_7377"/>
+		</Itemset>
+
+		<Itemset id="Itemset_Antecedent_1680">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Age(&lt;40;50))"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1944"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_1680">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1945"/>
+		</Itemset>
+		<Itemset id="Itemset_FirstSet_1680">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1946"/>
+		</Itemset>
+		<Itemset id="Itemset_SecondSet_1680">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Olomouc)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1947"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_1681">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Age(&lt;40;50)) &amp; Salary(Avg)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1948"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_1681">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1949"/>
+		</Itemset>
+		<Itemset id="Itemset_FirstSet_1681">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1950"/>
+		</Itemset>
+		<Itemset id="Itemset_SecondSet_1681">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Olomouc)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1951"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_1674">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Age(&lt;40;50)) &amp; Salary(Avg)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1926"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_1674">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1927"/>
+		</Itemset>
+		<Itemset id="Itemset_FirstSet_1674">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1928"/>
+		</Itemset>
+		<Itemset id="Itemset_SecondSet_1674">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="(empty)"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_1673">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Age(&lt;40;50))"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1923"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_1673">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1924"/>
+		</Itemset>
+		<Itemset id="Itemset_FirstSet_1673">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1925"/>
+		</Itemset>
+		<Itemset id="Itemset_SecondSet_1673">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="(empty)"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_1688">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Age(&lt;50;60)) &amp; Salary(High)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1970"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_1688">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1971"/>
+		</Itemset>
+		<Itemset id="Itemset_FirstSet_1688">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Brno - mesto)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1972"/>
+		</Itemset>
+		<Itemset id="Itemset_SecondSet_1688">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="(empty)"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_1687">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Age(&lt;50;60))"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1967"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_1687">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1968"/>
+		</Itemset>
+		<Itemset id="Itemset_FirstSet_1687">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Brno - mesto)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1969"/>
+		</Itemset>
+		<Itemset id="Itemset_SecondSet_1687">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="(empty)"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_1676">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="(empty)"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_1676">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1932"/>
+		</Itemset>
+		<Itemset id="Itemset_FirstSet_1676">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1933"/>
+		</Itemset>
+		<Itemset id="Itemset_SecondSet_1676">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Bruntal)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1934"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_1683">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="(empty)"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_1683">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1955"/>
+		</Itemset>
+		<Itemset id="Itemset_FirstSet_1683">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1956"/>
+		</Itemset>
+		<Itemset id="Itemset_SecondSet_1683">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Strakonice)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1957"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_1679">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="(empty)"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_1679">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1941"/>
+		</Itemset>
+		<Itemset id="Itemset_FirstSet_1679">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1942"/>
+		</Itemset>
+		<Itemset id="Itemset_SecondSet_1679">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Kromeriz)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1943"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_1684">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="(empty)"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_1684">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1958"/>
+		</Itemset>
+		<Itemset id="Itemset_FirstSet_1684">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1959"/>
+		</Itemset>
+		<Itemset id="Itemset_SecondSet_1684">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Tachov)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1960"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_1685">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Salary(Avg)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1961"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_1685">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1962"/>
+		</Itemset>
+		<Itemset id="Itemset_FirstSet_1685">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1963"/>
+		</Itemset>
+		<Itemset id="Itemset_SecondSet_1685">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Tachov)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1964"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_1682">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="(empty)"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_1682">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1952"/>
+		</Itemset>
+		<Itemset id="Itemset_FirstSet_1682">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1953"/>
+		</Itemset>
+		<Itemset id="Itemset_SecondSet_1682">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Ostrava - mesto)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1954"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_1678">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="(empty)"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_1678">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1938"/>
+		</Itemset>
+		<Itemset id="Itemset_FirstSet_1678">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1939"/>
+		</Itemset>
+		<Itemset id="Itemset_SecondSet_1678">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Karvina)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1940"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_1672">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="(empty)"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_1672">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1921"/>
+		</Itemset>
+		<Itemset id="Itemset_FirstSet_1672">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1922"/>
+		</Itemset>
+		<Itemset id="Itemset_SecondSet_1672">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="(empty)"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_1675">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Salary(Avg)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1929"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_1675">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1930"/>
+		</Itemset>
+		<Itemset id="Itemset_FirstSet_1675">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1931"/>
+		</Itemset>
+		<Itemset id="Itemset_SecondSet_1675">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="(empty)"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_1677">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="(empty)"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_1677">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1935"/>
+		</Itemset>
+		<Itemset id="Itemset_FirstSet_1677">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Beroun)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1936"/>
+		</Itemset>
+		<Itemset id="Itemset_SecondSet_1677">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Hl.m. Praha)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1937"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_1690">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="(empty)"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_1690">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1976"/>
+		</Itemset>
+		<Itemset id="Itemset_FirstSet_1690">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Brno - mesto)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1977"/>
+		</Itemset>
+		<Itemset id="Itemset_SecondSet_1690">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Bruntal)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1978"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_1689">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Salary(High)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1973"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_1689">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1974"/>
+		</Itemset>
+		<Itemset id="Itemset_FirstSet_1689">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Brno - mesto)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1975"/>
+		</Itemset>
+		<Itemset id="Itemset_SecondSet_1689">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="(empty)"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_1686">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="(empty)"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_1686">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Quality(Bad)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1965"/>
+		</Itemset>
+		<Itemset id="Itemset_FirstSet_1686">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="District(Brno - mesto)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_1966"/>
+		</Itemset>
+		<Itemset id="Itemset_SecondSet_1686">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="(empty)"/>
+		</Itemset>
+
+	<!-- Hypothesis -->
+
+		<SD4ftRule 
+			antecedent="Itemset_Antecedent_1680"
+			consequent="Itemset_Succedent_1680"
+		>
+			<Extension name="Text" value="Age(&lt;40;50)) ::: Quality(Bad) : District(Beroun) � District(Olomouc)"/>
+
+		         <AssociationRule role="FirstSet" set="Itemset_FirstSet_1680"
+				confidence="0.400000" 
+				support="0.285714"
+			 >
+				<Extension name="Text" value="Age(&lt;40;50)) ::: Quality(Bad) / District(Beroun)"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="27.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="45.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="63.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.4000000000" extender="Conf"/>
+				<Extension name="Quantifier" value="0.4000000000" extender="DConf"/>
+				<Extension name="Quantifier" value="0.5714285714" extender="EConf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.4000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="0.0006628328" extender="Fisher"/>
+				<Extension name="Quantifier" value="10.0800000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="18" extender="a"/>
+				<Extension name="4ftFrequency" value="27" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="18" extender="d"/>
+			</AssociationRule>
+
+		         <AssociationRule role="SecondSet" set="Itemset_SecondSet_1680"
+				confidence="0.666667" 
+				support="0.133333"
+			 >
+				<Extension name="Text" value="Age(&lt;40;50)) ::: Quality(Bad) / District(Olomouc)"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="9.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="9.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="99.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="27.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="135.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.6666666667" extender="Conf"/>
+				<Extension name="Quantifier" value="0.5000000000" extender="DConf"/>
+				<Extension name="Quantifier" value="0.8666666667" extender="EConf"/>
+				<Extension name="Quantifier" value="0.1333333333" extender="Supp"/>
+				<Extension name="Quantifier" value="0.6666666667" extender="Cmplt"/>
+				<Extension name="Quantifier" value="2.3333333333" extender="AvgDf"/>
+				<Extension name="Quantifier" value="0.9998310527" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0008724146" extender="UBound"/>
+				<Extension name="Quantifier" value="0.9195622628" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.1273274467" extender="EUBound"/>
+				<Extension name="Quantifier" value="0.9999999998" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000015" extender="DUBound"/>
+				<Extension name="Quantifier" value="0.0000000010" extender="Fisher"/>
+				<Extension name="Quantifier" value="45.9375000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="18" extender="a"/>
+				<Extension name="4ftFrequency" value="9" extender="b"/>
+				<Extension name="4ftFrequency" value="9" extender="c"/>
+				<Extension name="4ftFrequency" value="99" extender="d"/>
+			</AssociationRule>
+
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="Itemset_Antecedent_1681"
+			consequent="Itemset_Succedent_1681"
+		>
+			<Extension name="Text" value="Age(&lt;40;50)) &amp; Salary(Avg) ::: Quality(Bad) : District(Beroun) � District(Olomouc)"/>
+
+		         <AssociationRule role="FirstSet" set="Itemset_FirstSet_1681"
+				confidence="0.400000" 
+				support="0.285714"
+			 >
+				<Extension name="Text" value="Age(&lt;40;50)) &amp; Salary(Avg) ::: Quality(Bad) / District(Beroun)"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="27.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="45.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="63.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.4000000000" extender="Conf"/>
+				<Extension name="Quantifier" value="0.4000000000" extender="DConf"/>
+				<Extension name="Quantifier" value="0.5714285714" extender="EConf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.4000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="0.0006628328" extender="Fisher"/>
+				<Extension name="Quantifier" value="10.0800000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="18" extender="a"/>
+				<Extension name="4ftFrequency" value="27" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="18" extender="d"/>
+			</AssociationRule>
+
+		         <AssociationRule role="SecondSet" set="Itemset_SecondSet_1681"
+				confidence="0.666667" 
+				support="0.133333"
+			 >
+				<Extension name="Text" value="Age(&lt;40;50)) &amp; Salary(Avg) ::: Quality(Bad) / District(Olomouc)"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="9.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="9.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="99.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="27.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="135.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.6666666667" extender="Conf"/>
+				<Extension name="Quantifier" value="0.5000000000" extender="DConf"/>
+				<Extension name="Quantifier" value="0.8666666667" extender="EConf"/>
+				<Extension name="Quantifier" value="0.1333333333" extender="Supp"/>
+				<Extension name="Quantifier" value="0.6666666667" extender="Cmplt"/>
+				<Extension name="Quantifier" value="2.3333333333" extender="AvgDf"/>
+				<Extension name="Quantifier" value="0.9998310527" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0008724146" extender="UBound"/>
+				<Extension name="Quantifier" value="0.9195622628" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.1273274467" extender="EUBound"/>
+				<Extension name="Quantifier" value="0.9999999998" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000015" extender="DUBound"/>
+				<Extension name="Quantifier" value="0.0000000010" extender="Fisher"/>
+				<Extension name="Quantifier" value="45.9375000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="18" extender="a"/>
+				<Extension name="4ftFrequency" value="9" extender="b"/>
+				<Extension name="4ftFrequency" value="9" extender="c"/>
+				<Extension name="4ftFrequency" value="99" extender="d"/>
+			</AssociationRule>
+
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="Itemset_Antecedent_1674"
+			consequent="Itemset_Succedent_1674"
+		>
+			<Extension name="Text" value="Age(&lt;40;50)) &amp; Salary(Avg) ::: Quality(Bad) : District(Beroun) � (empty)"/>
+
+		         <AssociationRule role="FirstSet" set="Itemset_FirstSet_1674"
+				confidence="0.400000" 
+				support="0.285714"
+			 >
+				<Extension name="Text" value="Age(&lt;40;50)) &amp; Salary(Avg) ::: Quality(Bad) / District(Beroun)"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="27.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="45.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="63.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.4000000000" extender="Conf"/>
+				<Extension name="Quantifier" value="0.4000000000" extender="DConf"/>
+				<Extension name="Quantifier" value="0.5714285714" extender="EConf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.4000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="0.0006628328" extender="Fisher"/>
+				<Extension name="Quantifier" value="10.0800000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="18" extender="a"/>
+				<Extension name="4ftFrequency" value="27" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="18" extender="d"/>
+			</AssociationRule>
+
+		         <AssociationRule role="SecondSet" set="Itemset_SecondSet_1674"
+				confidence="0.134615" 
+				support="0.010264"
+			 >
+				<Extension name="Text" value="Age(&lt;40;50)) &amp; Salary(Avg) ::: Quality(Bad)"/>
+				<Extension name="Quantifier" value="63.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="405.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="621.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="5049.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="468.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="6138.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.1346153846" extender="Conf"/>
+				<Extension name="Quantifier" value="0.0578512397" extender="DConf"/>
+				<Extension name="Quantifier" value="0.8328445748" extender="EConf"/>
+				<Extension name="Quantifier" value="0.0102639296" extender="Supp"/>
+				<Extension name="Quantifier" value="0.0921052632" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.2079959514" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000001" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="0.0595022279" extender="Fisher"/>
+				<Extension name="Quantifier" value="2.7487827050" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="63" extender="a"/>
+				<Extension name="4ftFrequency" value="405" extender="b"/>
+				<Extension name="4ftFrequency" value="621" extender="c"/>
+				<Extension name="4ftFrequency" value="5049" extender="d"/>
+			</AssociationRule>
+
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="Itemset_Antecedent_1673"
+			consequent="Itemset_Succedent_1673"
+		>
+			<Extension name="Text" value="Age(&lt;40;50)) ::: Quality(Bad) : District(Beroun) � (empty)"/>
+
+		         <AssociationRule role="FirstSet" set="Itemset_FirstSet_1673"
+				confidence="0.400000" 
+				support="0.285714"
+			 >
+				<Extension name="Text" value="Age(&lt;40;50)) ::: Quality(Bad) / District(Beroun)"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="27.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="45.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="63.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.4000000000" extender="Conf"/>
+				<Extension name="Quantifier" value="0.4000000000" extender="DConf"/>
+				<Extension name="Quantifier" value="0.5714285714" extender="EConf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.4000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="0.0006628328" extender="Fisher"/>
+				<Extension name="Quantifier" value="10.0800000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="18" extender="a"/>
+				<Extension name="4ftFrequency" value="27" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="18" extender="d"/>
+			</AssociationRule>
+
+		         <AssociationRule role="SecondSet" set="Itemset_SecondSet_1673"
+				confidence="0.101266" 
+				support="0.023460"
+			 >
+				<Extension name="Text" value="Age(&lt;40;50)) ::: Quality(Bad)"/>
+				<Extension name="Quantifier" value="144.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="1278.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="540.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="4176.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="1422.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="6138.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.1012658228" extender="Conf"/>
+				<Extension name="Quantifier" value="0.0733944954" extender="DConf"/>
+				<Extension name="Quantifier" value="0.7038123167" extender="EConf"/>
+				<Extension name="Quantifier" value="0.0234604106" extender="Supp"/>
+				<Extension name="Quantifier" value="0.2105263158" extender="Cmplt"/>
+				<Extension name="Quantifier" value="-0.0912724850" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000001" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="0.9259450641" extender="Fisher"/>
+				<Extension name="Quantifier" value="1.9336301182" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="144" extender="a"/>
+				<Extension name="4ftFrequency" value="1278" extender="b"/>
+				<Extension name="4ftFrequency" value="540" extender="c"/>
+				<Extension name="4ftFrequency" value="4176" extender="d"/>
+			</AssociationRule>
+
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="Itemset_Antecedent_1688"
+			consequent="Itemset_Succedent_1688"
+		>
+			<Extension name="Text" value="Age(&lt;50;60)) &amp; Salary(High) ::: Quality(Bad) : District(Brno - mesto) � (empty)"/>
+
+		         <AssociationRule role="FirstSet" set="Itemset_FirstSet_1688"
+				confidence="0.333333" 
+				support="0.086957"
+			 >
+				<Extension name="Text" value="Age(&lt;50;60)) &amp; Salary(High) ::: Quality(Bad) / District(Brno - mesto)"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="36.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="27.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="126.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="54.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="207.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.3333333333" extender="Conf"/>
+				<Extension name="Quantifier" value="0.2222222222" extender="DConf"/>
+				<Extension name="Quantifier" value="0.6956521739" extender="EConf"/>
+				<Extension name="Quantifier" value="0.0869565217" extender="Supp"/>
+				<Extension name="Quantifier" value="0.4000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.5333333333" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="0.0153549477" extender="Fisher"/>
+				<Extension name="Quantifier" value="5.7725490196" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="18" extender="a"/>
+				<Extension name="4ftFrequency" value="36" extender="b"/>
+				<Extension name="4ftFrequency" value="27" extender="c"/>
+				<Extension name="4ftFrequency" value="126" extender="d"/>
+			</AssociationRule>
+
+		         <AssociationRule role="SecondSet" set="Itemset_SecondSet_1688"
+				confidence="0.109091" 
+				support="0.008798"
+			 >
+				<Extension name="Text" value="Age(&lt;50;60)) &amp; Salary(High) ::: Quality(Bad)"/>
+				<Extension name="Quantifier" value="54.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="441.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="630.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="5013.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="495.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="6138.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.1090909091" extender="Conf"/>
+				<Extension name="Quantifier" value="0.0480000000" extender="DConf"/>
+				<Extension name="Quantifier" value="0.8255131965" extender="EConf"/>
+				<Extension name="Quantifier" value="0.0087976540" extender="Supp"/>
+				<Extension name="Quantifier" value="0.0789473684" extender="Cmplt"/>
+				<Extension name="Quantifier" value="-0.0210526316" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000001" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="0.5917849224" extender="Fisher"/>
+				<Extension name="Quantifier" value="0.0299278681" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="54" extender="a"/>
+				<Extension name="4ftFrequency" value="441" extender="b"/>
+				<Extension name="4ftFrequency" value="630" extender="c"/>
+				<Extension name="4ftFrequency" value="5013" extender="d"/>
+			</AssociationRule>
+
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="Itemset_Antecedent_1687"
+			consequent="Itemset_Succedent_1687"
+		>
+			<Extension name="Text" value="Age(&lt;50;60)) ::: Quality(Bad) : District(Brno - mesto) � (empty)"/>
+
+		         <AssociationRule role="FirstSet" set="Itemset_FirstSet_1687"
+				confidence="0.333333" 
+				support="0.086957"
+			 >
+				<Extension name="Text" value="Age(&lt;50;60)) ::: Quality(Bad) / District(Brno - mesto)"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="36.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="27.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="126.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="54.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="207.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.3333333333" extender="Conf"/>
+				<Extension name="Quantifier" value="0.2222222222" extender="DConf"/>
+				<Extension name="Quantifier" value="0.6956521739" extender="EConf"/>
+				<Extension name="Quantifier" value="0.0869565217" extender="Supp"/>
+				<Extension name="Quantifier" value="0.4000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.5333333333" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="0.0153549477" extender="Fisher"/>
+				<Extension name="Quantifier" value="5.7725490196" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="18" extender="a"/>
+				<Extension name="4ftFrequency" value="36" extender="b"/>
+				<Extension name="4ftFrequency" value="27" extender="c"/>
+				<Extension name="4ftFrequency" value="126" extender="d"/>
+			</AssociationRule>
+
+		         <AssociationRule role="SecondSet" set="Itemset_SecondSet_1687"
+				confidence="0.101911" 
+				support="0.023460"
+			 >
+				<Extension name="Text" value="Age(&lt;50;60)) ::: Quality(Bad)"/>
+				<Extension name="Quantifier" value="144.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="1269.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="540.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="4185.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="1413.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="6138.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.1019108280" extender="Conf"/>
+				<Extension name="Quantifier" value="0.0737327189" extender="DConf"/>
+				<Extension name="Quantifier" value="0.7052785924" extender="EConf"/>
+				<Extension name="Quantifier" value="0.0234604106" extender="Supp"/>
+				<Extension name="Quantifier" value="0.2105263158" extender="Cmplt"/>
+				<Extension name="Quantifier" value="-0.0854844117" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000001" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="0.9116506446" extender="Fisher"/>
+				<Extension name="Quantifier" value="1.6822171466" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="144" extender="a"/>
+				<Extension name="4ftFrequency" value="1269" extender="b"/>
+				<Extension name="4ftFrequency" value="540" extender="c"/>
+				<Extension name="4ftFrequency" value="4185" extender="d"/>
+			</AssociationRule>
+
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="Itemset_Antecedent_1676"
+			consequent="Itemset_Succedent_1676"
+		>
+			<Extension name="Text" value="(empty) ::: Quality(Bad) : District(Beroun) � District(Bruntal)"/>
+
+		         <AssociationRule role="FirstSet" set="Itemset_FirstSet_1676"
+				confidence="0.285714" 
+				support="0.285714"
+			 >
+				<Extension name="Text" value="(empty) ::: Quality(Bad) / District(Beroun)"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="45.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="63.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="63.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="Conf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="DConf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="EConf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Fisher"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="18" extender="a"/>
+				<Extension name="4ftFrequency" value="45" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="0" extender="d"/>
+			</AssociationRule>
+
+		         <AssociationRule role="SecondSet" set="Itemset_SecondSet_1676"
+				confidence="0.600000" 
+				support="0.600000"
+			 >
+				<Extension name="Text" value="(empty) ::: Quality(Bad) / District(Bruntal)"/>
+				<Extension name="Quantifier" value="27.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="45.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="45.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.6000000000" extender="Conf"/>
+				<Extension name="Quantifier" value="0.6000000000" extender="DConf"/>
+				<Extension name="Quantifier" value="0.6000000000" extender="EConf"/>
+				<Extension name="Quantifier" value="0.6000000000" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="0.9999999816" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000001182" extender="UBound"/>
+				<Extension name="Quantifier" value="0.9999999816" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000001182" extender="EUBound"/>
+				<Extension name="Quantifier" value="0.9999999816" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000001182" extender="DUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Fisher"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="27" extender="a"/>
+				<Extension name="4ftFrequency" value="18" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="0" extender="d"/>
+			</AssociationRule>
+
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="Itemset_Antecedent_1683"
+			consequent="Itemset_Succedent_1683"
+		>
+			<Extension name="Text" value="(empty) ::: Quality(Bad) : District(Beroun) � District(Strakonice)"/>
+
+		         <AssociationRule role="FirstSet" set="Itemset_FirstSet_1683"
+				confidence="0.285714" 
+				support="0.285714"
+			 >
+				<Extension name="Text" value="(empty) ::: Quality(Bad) / District(Beroun)"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="45.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="63.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="63.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="Conf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="DConf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="EConf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Fisher"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="18" extender="a"/>
+				<Extension name="4ftFrequency" value="45" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="0" extender="d"/>
+			</AssociationRule>
+
+		         <AssociationRule role="SecondSet" set="Itemset_SecondSet_1683"
+				confidence="0.600000" 
+				support="0.600000"
+			 >
+				<Extension name="Text" value="(empty) ::: Quality(Bad) / District(Strakonice)"/>
+				<Extension name="Quantifier" value="27.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="45.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="45.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.6000000000" extender="Conf"/>
+				<Extension name="Quantifier" value="0.6000000000" extender="DConf"/>
+				<Extension name="Quantifier" value="0.6000000000" extender="EConf"/>
+				<Extension name="Quantifier" value="0.6000000000" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="0.9999999816" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000001182" extender="UBound"/>
+				<Extension name="Quantifier" value="0.9999999816" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000001182" extender="EUBound"/>
+				<Extension name="Quantifier" value="0.9999999816" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000001182" extender="DUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Fisher"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="27" extender="a"/>
+				<Extension name="4ftFrequency" value="18" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="0" extender="d"/>
+			</AssociationRule>
+
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="Itemset_Antecedent_1679"
+			consequent="Itemset_Succedent_1679"
+		>
+			<Extension name="Text" value="(empty) ::: Quality(Bad) : District(Beroun) � District(Kromeriz)"/>
+
+		         <AssociationRule role="FirstSet" set="Itemset_FirstSet_1679"
+				confidence="0.285714" 
+				support="0.285714"
+			 >
+				<Extension name="Text" value="(empty) ::: Quality(Bad) / District(Beroun)"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="45.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="63.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="63.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="Conf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="DConf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="EConf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Fisher"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="18" extender="a"/>
+				<Extension name="4ftFrequency" value="45" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="0" extender="d"/>
+			</AssociationRule>
+
+		         <AssociationRule role="SecondSet" set="Itemset_SecondSet_1679"
+				confidence="0.181818" 
+				support="0.181818"
+			 >
+				<Extension name="Text" value="(empty) ::: Quality(Bad) / District(Kromeriz)"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="81.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="99.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="99.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.1818181818" extender="Conf"/>
+				<Extension name="Quantifier" value="0.1818181818" extender="DConf"/>
+				<Extension name="Quantifier" value="0.1818181818" extender="EConf"/>
+				<Extension name="Quantifier" value="0.1818181818" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Fisher"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="18" extender="a"/>
+				<Extension name="4ftFrequency" value="81" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="0" extender="d"/>
+			</AssociationRule>
+
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="Itemset_Antecedent_1684"
+			consequent="Itemset_Succedent_1684"
+		>
+			<Extension name="Text" value="(empty) ::: Quality(Bad) : District(Beroun) � District(Tachov)"/>
+
+		         <AssociationRule role="FirstSet" set="Itemset_FirstSet_1684"
+				confidence="0.285714" 
+				support="0.285714"
+			 >
+				<Extension name="Text" value="(empty) ::: Quality(Bad) / District(Beroun)"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="45.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="63.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="63.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="Conf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="DConf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="EConf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Fisher"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="18" extender="a"/>
+				<Extension name="4ftFrequency" value="45" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="0" extender="d"/>
+			</AssociationRule>
+
+		         <AssociationRule role="SecondSet" set="Itemset_SecondSet_1684"
+				confidence="0.181818" 
+				support="0.181818"
+			 >
+				<Extension name="Text" value="(empty) ::: Quality(Bad) / District(Tachov)"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="81.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="99.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="99.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.1818181818" extender="Conf"/>
+				<Extension name="Quantifier" value="0.1818181818" extender="DConf"/>
+				<Extension name="Quantifier" value="0.1818181818" extender="EConf"/>
+				<Extension name="Quantifier" value="0.1818181818" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Fisher"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="18" extender="a"/>
+				<Extension name="4ftFrequency" value="81" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="0" extender="d"/>
+			</AssociationRule>
+
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="Itemset_Antecedent_1685"
+			consequent="Itemset_Succedent_1685"
+		>
+			<Extension name="Text" value="Salary(Avg) ::: Quality(Bad) : District(Beroun) � District(Tachov)"/>
+
+		         <AssociationRule role="FirstSet" set="Itemset_FirstSet_1685"
+				confidence="0.285714" 
+				support="0.285714"
+			 >
+				<Extension name="Text" value="Salary(Avg) ::: Quality(Bad) / District(Beroun)"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="45.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="63.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="63.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="Conf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="DConf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="EConf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Fisher"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="18" extender="a"/>
+				<Extension name="4ftFrequency" value="45" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="0" extender="d"/>
+			</AssociationRule>
+
+		         <AssociationRule role="SecondSet" set="Itemset_SecondSet_1685"
+				confidence="0.181818" 
+				support="0.181818"
+			 >
+				<Extension name="Text" value="Salary(Avg) ::: Quality(Bad) / District(Tachov)"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="81.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="99.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="99.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.1818181818" extender="Conf"/>
+				<Extension name="Quantifier" value="0.1818181818" extender="DConf"/>
+				<Extension name="Quantifier" value="0.1818181818" extender="EConf"/>
+				<Extension name="Quantifier" value="0.1818181818" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Fisher"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="18" extender="a"/>
+				<Extension name="4ftFrequency" value="81" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="0" extender="d"/>
+			</AssociationRule>
+
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="Itemset_Antecedent_1682"
+			consequent="Itemset_Succedent_1682"
+		>
+			<Extension name="Text" value="(empty) ::: Quality(Bad) : District(Beroun) � District(Ostrava - mesto)"/>
+
+		         <AssociationRule role="FirstSet" set="Itemset_FirstSet_1682"
+				confidence="0.285714" 
+				support="0.285714"
+			 >
+				<Extension name="Text" value="(empty) ::: Quality(Bad) / District(Beroun)"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="45.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="63.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="63.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="Conf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="DConf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="EConf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Fisher"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="18" extender="a"/>
+				<Extension name="4ftFrequency" value="45" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="0" extender="d"/>
+			</AssociationRule>
+
+		         <AssociationRule role="SecondSet" set="Itemset_SecondSet_1682"
+				confidence="0.150000" 
+				support="0.150000"
+			 >
+				<Extension name="Text" value="(empty) ::: Quality(Bad) / District(Ostrava - mesto)"/>
+				<Extension name="Quantifier" value="27.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="153.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="180.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="180.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.1500000000" extender="Conf"/>
+				<Extension name="Quantifier" value="0.1500000000" extender="DConf"/>
+				<Extension name="Quantifier" value="0.1500000000" extender="EConf"/>
+				<Extension name="Quantifier" value="0.1500000000" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Fisher"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="27" extender="a"/>
+				<Extension name="4ftFrequency" value="153" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="0" extender="d"/>
+			</AssociationRule>
+
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="Itemset_Antecedent_1678"
+			consequent="Itemset_Succedent_1678"
+		>
+			<Extension name="Text" value="(empty) ::: Quality(Bad) : District(Beroun) � District(Karvina)"/>
+
+		         <AssociationRule role="FirstSet" set="Itemset_FirstSet_1678"
+				confidence="0.285714" 
+				support="0.285714"
+			 >
+				<Extension name="Text" value="(empty) ::: Quality(Bad) / District(Beroun)"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="45.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="63.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="63.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="Conf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="DConf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="EConf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Fisher"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="18" extender="a"/>
+				<Extension name="4ftFrequency" value="45" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="0" extender="d"/>
+			</AssociationRule>
+
+		         <AssociationRule role="SecondSet" set="Itemset_SecondSet_1678"
+				confidence="0.120000" 
+				support="0.120000"
+			 >
+				<Extension name="Text" value="(empty) ::: Quality(Bad) / District(Karvina)"/>
+				<Extension name="Quantifier" value="27.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="198.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="225.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="225.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.1200000000" extender="Conf"/>
+				<Extension name="Quantifier" value="0.1200000000" extender="DConf"/>
+				<Extension name="Quantifier" value="0.1200000000" extender="EConf"/>
+				<Extension name="Quantifier" value="0.1200000000" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Fisher"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="27" extender="a"/>
+				<Extension name="4ftFrequency" value="198" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="0" extender="d"/>
+			</AssociationRule>
+
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="Itemset_Antecedent_1672"
+			consequent="Itemset_Succedent_1672"
+		>
+			<Extension name="Text" value="(empty) ::: Quality(Bad) : District(Beroun) � (empty)"/>
+
+		         <AssociationRule role="FirstSet" set="Itemset_FirstSet_1672"
+				confidence="0.285714" 
+				support="0.285714"
+			 >
+				<Extension name="Text" value="(empty) ::: Quality(Bad) / District(Beroun)"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="45.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="63.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="63.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="Conf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="DConf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="EConf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Fisher"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="18" extender="a"/>
+				<Extension name="4ftFrequency" value="45" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="0" extender="d"/>
+			</AssociationRule>
+
+		         <AssociationRule role="SecondSet" set="Itemset_SecondSet_1672"
+				confidence="0.111437" 
+				support="0.111437"
+			 >
+				<Extension name="Text" value="(empty) ::: Quality(Bad)"/>
+				<Extension name="Quantifier" value="684.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="5454.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="6138.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="6138.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.1114369501" extender="Conf"/>
+				<Extension name="Quantifier" value="0.1114369501" extender="DConf"/>
+				<Extension name="Quantifier" value="0.1114369501" extender="EConf"/>
+				<Extension name="Quantifier" value="0.1114369501" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000001" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000001" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000001" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Fisher"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="684" extender="a"/>
+				<Extension name="4ftFrequency" value="5454" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="0" extender="d"/>
+			</AssociationRule>
+
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="Itemset_Antecedent_1675"
+			consequent="Itemset_Succedent_1675"
+		>
+			<Extension name="Text" value="Salary(Avg) ::: Quality(Bad) : District(Beroun) � (empty)"/>
+
+		         <AssociationRule role="FirstSet" set="Itemset_FirstSet_1675"
+				confidence="0.285714" 
+				support="0.285714"
+			 >
+				<Extension name="Text" value="Salary(Avg) ::: Quality(Bad) / District(Beroun)"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="45.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="63.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="63.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="Conf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="DConf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="EConf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Fisher"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="18" extender="a"/>
+				<Extension name="4ftFrequency" value="45" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="0" extender="d"/>
+			</AssociationRule>
+
+		         <AssociationRule role="SecondSet" set="Itemset_SecondSet_1675"
+				confidence="0.101770" 
+				support="0.033724"
+			 >
+				<Extension name="Text" value="Salary(Avg) ::: Quality(Bad)"/>
+				<Extension name="Quantifier" value="207.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="1827.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="477.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="3627.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="2034.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="6138.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.1017699115" extender="Conf"/>
+				<Extension name="Quantifier" value="0.0824372760" extender="DConf"/>
+				<Extension name="Quantifier" value="0.6246334311" extender="EConf"/>
+				<Extension name="Quantifier" value="0.0337243402" extender="Supp"/>
+				<Extension name="Quantifier" value="0.3026315789" extender="Cmplt"/>
+				<Extension name="Quantifier" value="-0.0867489520" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000001" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="0.9595639001" extender="Fisher"/>
+				<Extension name="Quantifier" value="2.8710444916" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="207" extender="a"/>
+				<Extension name="4ftFrequency" value="1827" extender="b"/>
+				<Extension name="4ftFrequency" value="477" extender="c"/>
+				<Extension name="4ftFrequency" value="3627" extender="d"/>
+			</AssociationRule>
+
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="Itemset_Antecedent_1677"
+			consequent="Itemset_Succedent_1677"
+		>
+			<Extension name="Text" value="(empty) ::: Quality(Bad) : District(Beroun) � District(Hl.m. Praha)"/>
+
+		         <AssociationRule role="FirstSet" set="Itemset_FirstSet_1677"
+				confidence="0.285714" 
+				support="0.285714"
+			 >
+				<Extension name="Text" value="(empty) ::: Quality(Bad) / District(Beroun)"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="45.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="63.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="63.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="Conf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="DConf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="EConf"/>
+				<Extension name="Quantifier" value="0.2857142857" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Fisher"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="18" extender="a"/>
+				<Extension name="4ftFrequency" value="45" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="0" extender="d"/>
+			</AssociationRule>
+
+		         <AssociationRule role="SecondSet" set="Itemset_SecondSet_1677"
+				confidence="0.075949" 
+				support="0.075949"
+			 >
+				<Extension name="Text" value="(empty) ::: Quality(Bad) / District(Hl.m. Praha)"/>
+				<Extension name="Quantifier" value="54.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="657.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="711.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="711.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.0759493671" extender="Conf"/>
+				<Extension name="Quantifier" value="0.0759493671" extender="DConf"/>
+				<Extension name="Quantifier" value="0.0759493671" extender="EConf"/>
+				<Extension name="Quantifier" value="0.0759493671" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Fisher"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="54" extender="a"/>
+				<Extension name="4ftFrequency" value="657" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="0" extender="d"/>
+			</AssociationRule>
+
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="Itemset_Antecedent_1690"
+			consequent="Itemset_Succedent_1690"
+		>
+			<Extension name="Text" value="(empty) ::: Quality(Bad) : District(Brno - mesto) � District(Bruntal)"/>
+
+		         <AssociationRule role="FirstSet" set="Itemset_FirstSet_1690"
+				confidence="0.217391" 
+				support="0.217391"
+			 >
+				<Extension name="Text" value="(empty) ::: Quality(Bad) / District(Brno - mesto)"/>
+				<Extension name="Quantifier" value="45.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="162.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="207.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="207.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.2173913043" extender="Conf"/>
+				<Extension name="Quantifier" value="0.2173913043" extender="DConf"/>
+				<Extension name="Quantifier" value="0.2173913043" extender="EConf"/>
+				<Extension name="Quantifier" value="0.2173913043" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Fisher"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="45" extender="a"/>
+				<Extension name="4ftFrequency" value="162" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="0" extender="d"/>
+			</AssociationRule>
+
+		         <AssociationRule role="SecondSet" set="Itemset_SecondSet_1690"
+				confidence="0.600000" 
+				support="0.600000"
+			 >
+				<Extension name="Text" value="(empty) ::: Quality(Bad) / District(Bruntal)"/>
+				<Extension name="Quantifier" value="27.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="18.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="45.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="45.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.6000000000" extender="Conf"/>
+				<Extension name="Quantifier" value="0.6000000000" extender="DConf"/>
+				<Extension name="Quantifier" value="0.6000000000" extender="EConf"/>
+				<Extension name="Quantifier" value="0.6000000000" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="0.9999999816" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000001182" extender="UBound"/>
+				<Extension name="Quantifier" value="0.9999999816" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000001182" extender="EUBound"/>
+				<Extension name="Quantifier" value="0.9999999816" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000001182" extender="DUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Fisher"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="27" extender="a"/>
+				<Extension name="4ftFrequency" value="18" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="0" extender="d"/>
+			</AssociationRule>
+
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="Itemset_Antecedent_1689"
+			consequent="Itemset_Succedent_1689"
+		>
+			<Extension name="Text" value="Salary(High) ::: Quality(Bad) : District(Brno - mesto) � (empty)"/>
+
+		         <AssociationRule role="FirstSet" set="Itemset_FirstSet_1689"
+				confidence="0.217391" 
+				support="0.217391"
+			 >
+				<Extension name="Text" value="Salary(High) ::: Quality(Bad) / District(Brno - mesto)"/>
+				<Extension name="Quantifier" value="45.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="162.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="207.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="207.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.2173913043" extender="Conf"/>
+				<Extension name="Quantifier" value="0.2173913043" extender="DConf"/>
+				<Extension name="Quantifier" value="0.2173913043" extender="EConf"/>
+				<Extension name="Quantifier" value="0.2173913043" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Fisher"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="45" extender="a"/>
+				<Extension name="4ftFrequency" value="162" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="0" extender="d"/>
+			</AssociationRule>
+
+		         <AssociationRule role="SecondSet" set="Itemset_SecondSet_1689"
+				confidence="0.112069" 
+				support="0.038123"
+			 >
+				<Extension name="Text" value="Salary(High) ::: Quality(Bad)"/>
+				<Extension name="Quantifier" value="234.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="1854.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="450.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="3600.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="2088.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="6138.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.1120689655" extender="Conf"/>
+				<Extension name="Quantifier" value="0.0921985816" extender="DConf"/>
+				<Extension name="Quantifier" value="0.6246334311" extender="EConf"/>
+				<Extension name="Quantifier" value="0.0381231672" extender="Supp"/>
+				<Extension name="Quantifier" value="0.3421052632" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.0056715064" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000001" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="0.4706252978" extender="Fisher"/>
+				<Extension name="Quantifier" value="0.0127655688" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="234" extender="a"/>
+				<Extension name="4ftFrequency" value="1854" extender="b"/>
+				<Extension name="4ftFrequency" value="450" extender="c"/>
+				<Extension name="4ftFrequency" value="3600" extender="d"/>
+			</AssociationRule>
+
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="Itemset_Antecedent_1686"
+			consequent="Itemset_Succedent_1686"
+		>
+			<Extension name="Text" value="(empty) ::: Quality(Bad) : District(Brno - mesto) � (empty)"/>
+
+		         <AssociationRule role="FirstSet" set="Itemset_FirstSet_1686"
+				confidence="0.217391" 
+				support="0.217391"
+			 >
+				<Extension name="Text" value="(empty) ::: Quality(Bad) / District(Brno - mesto)"/>
+				<Extension name="Quantifier" value="45.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="162.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="207.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="207.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.2173913043" extender="Conf"/>
+				<Extension name="Quantifier" value="0.2173913043" extender="DConf"/>
+				<Extension name="Quantifier" value="0.2173913043" extender="EConf"/>
+				<Extension name="Quantifier" value="0.2173913043" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Fisher"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="45" extender="a"/>
+				<Extension name="4ftFrequency" value="162" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="0" extender="d"/>
+			</AssociationRule>
+
+		         <AssociationRule role="SecondSet" set="Itemset_SecondSet_1686"
+				confidence="0.111437" 
+				support="0.111437"
+			 >
+				<Extension name="Text" value="(empty) ::: Quality(Bad)"/>
+				<Extension name="Quantifier" value="684.0000000000" extender="a"/>
+				<Extension name="Quantifier" value="5454.0000000000" extender="b"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="c"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="d"/>
+				<Extension name="Quantifier" value="6138.0000000000" extender="r"/>
+				<Extension name="Quantifier" value="6138.0000000000" extender="n"/>
+				<Extension name="Quantifier" value="0.1114369501" extender="Conf"/>
+				<Extension name="Quantifier" value="0.1114369501" extender="DConf"/>
+				<Extension name="Quantifier" value="0.1114369501" extender="EConf"/>
+				<Extension name="Quantifier" value="0.1114369501" extender="Supp"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Cmplt"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="AvgDf"/>
+				<Extension name="Quantifier" value="1.0000000001" extender="LBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+				<Extension name="Quantifier" value="1.0000000001" extender="ELBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+				<Extension name="Quantifier" value="1.0000000001" extender="DLBound"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+				<Extension name="Quantifier" value="1.0000000000" extender="Fisher"/>
+				<Extension name="Quantifier" value="0.0000000000" extender="Chi-Sq"/>
+
+				<Extension name="4ftFrequency" value="684" extender="a"/>
+				<Extension name="4ftFrequency" value="5454" extender="b"/>
+				<Extension name="4ftFrequency" value="0" extender="c"/>
+				<Extension name="4ftFrequency" value="0" extender="d"/>
+			</AssociationRule>
+
+		</SD4ftRule>
+
+	</AssociationModel>
+</PMML>

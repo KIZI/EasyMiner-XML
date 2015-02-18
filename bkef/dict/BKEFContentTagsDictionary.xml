@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- For gInclude (?)-->
+<ContentTagsDictionary>
+    <Entry>
+        <name>Influences</name>
+        <type>Section</type> <!-- Type element Not used at the moment -->
+        <IDbase>Influences</IDbase>
+        <Level>0</Level>
+        <Title lang="cs">Známé vztahy</Title>
+    </Entry>
+    
+        <Entry>
+        <name>Metaattribute</name>
+        <type>Section</type> <!-- Type element Not used at the moment -->
+        <IDbase>Metaattribut</IDbase>
+        <Level>0</Level>
+        <Title lang="cs"  append="1">Metaattribut </Title>
+    </Entry>
+    
+    <Entry>
+        <name>InfluenceText</name>
+        <type>Text</type> <!-- Type element Not used at the moment -->
+        <IDbase>InfluenceText</IDbase>
+        <Level>1</Level>
+        <Title lang="cs"  append="1">Vztah </Title>
+    </Entry>   
+    
+        <Entry>
+        <name>Annotation</name>
+        <type>Text</type> <!-- Type element Not used at the moment -->
+        <IDbase>Annotation</IDbase>
+        <Level>1</Level>
+        <Title lang="cs"  append="1">Anotace - </Title>
+    </Entry>   
+    
+</ContentTagsDictionary>        

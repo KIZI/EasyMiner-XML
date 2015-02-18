@@ -1,0 +1,210 @@
+<?xml version="1.0"?>
+<arb:ARBuilder xmlns:arb="http://keg.vse.cz/ns/arbuilder0_2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://keg.vse.cz/ns/arbuilder0_2 http://sewebar.vse.cz/schemas/ARBuilder0_2.xsd">
+    <DataDescription xmlns:ar="http://keg.vse.cz/ns/arbuilder0_2" xmlns:dd="http://keg.vse.cz/ns/datadescription0_2" xmlns:guha="http://keg.vse.cz/ns/GUHA0.1rev1">
+        <Dictionary sourceDictType="TransformationDictionary" sourceFormat="PMML" default="true" completeness="All" id="bkef" sourceName="Loans">
+            <Identifier name="Metabase">LM LMBarbora.mdb MB</Identifier>
+            <Field dataType="string">
+                <Name>Age</Name>
+                <Interval closure="closedOpen" leftMargin="21" rightMargin="31"/>
+                <Interval closure="closedOpen" leftMargin="31" rightMargin="41"/>
+                <Interval closure="closedOpen" leftMargin="41" rightMargin="51"/>
+                <Interval closure="closedOpen" leftMargin="51" rightMargin="61"/>
+                <Interval closure="closedOpen" leftMargin="61" rightMargin="71"/>
+            </Field>
+            <Field dataType="string">
+                <Name>District</Name>
+                <Category>Benesov</Category>
+                <Category>Beroun</Category>
+                <Category>Blansko</Category>
+                <Category>Breclav</Category>
+                <Category>Brno</Category>
+                <Category>Brno - venkov</Category>
+                <Category>Bruntal</Category>
+                <Category>Ceska Lipa</Category>
+                <Category>Ceske Budejovice</Category>
+                <Category>Cesky Krumlov</Category>
+                <Category>Decin</Category>
+                <Category>Domazlice</Category>
+                <Category>Frydek - Mistek</Category>
+                <Category>Havlickuv Brod</Category>
+                <Category>Hodonin</Category>
+                <Category>Hradec Kralove</Category>
+                <Category>Cheb</Category>
+                <Category>Chomutov</Category>
+                <Category>Chrudim</Category>
+                <Category>Jablonec n. Nisou</Category>
+                <Category>Jesenik</Category>
+                <Category>Jicin</Category>
+                <Category>Jihlava</Category>
+                <Category>Jindrichuv Hradec</Category>
+                <Category>Karlovy Vary</Category>
+                <Category>Karvina</Category>
+                <Category>Kladno</Category>
+                <Category>Klatovy</Category>
+                <Category>Kolin</Category>
+                <Category>Kromeriz</Category>
+                <Category>Kutna Hora</Category>
+                <Category>Liberec</Category>
+                <Category>Litomerice</Category>
+                <Category>Louny</Category>
+                <Category>Melnik</Category>
+                <Category>Mlada Boleslav</Category>
+                <Category>Most</Category>
+                <Category>Nachod</Category>
+                <Category>Novy Jicin</Category>
+                <Category>Nymburk</Category>
+                <Category>Olomouc</Category>
+                <Category>Opava</Category>
+                <Category>Ostrava - mesto</Category>
+                <Category>Pardubice</Category>
+                <Category>Pelhrimov</Category>
+                <Category>Pisek</Category>
+                <Category>Plzen</Category>
+                <Category>Plzen - jih</Category>
+                <Category>Plzen - sever</Category>
+                <Category>Praha</Category>
+                <Category>Praha - vychod</Category>
+                <Category>Praha - zapad</Category>
+                <Category>Prachatice</Category>
+                <Category>Prerov</Category>
+                <Category>Pribram</Category>
+                <Category>Prostejov</Category>
+                <Category>Rakovnik</Category>
+                <Category>Rokycany</Category>
+                <Category>Rychnov nad Kneznou</Category>
+                <Category>Semily</Category>
+                <Category>Sokolov</Category>
+                <Category>Strakonice</Category>
+                <Category>Sumperk</Category>
+                <Category>Svitavy</Category>
+                <Category>Tabor</Category>
+                <Category>Tachov</Category>
+                <Category>Teplice</Category>
+                <Category>Trebic</Category>
+                <Category>Trutnov</Category>
+                <Category>Uherske Hradiste</Category>
+                <Category>Usti nad Labem</Category>
+                <Category>Usti nad Orlici</Category>
+                <Category>Vsetin</Category>
+                <Category>Vyskov</Category>
+                <Category>Zdar nad Sazavou</Category>
+                <Category>Zlin</Category>
+                <Category>Znojmo</Category>
+            </Field>
+            <Field dataType="string">
+                <Name>Quality</Name>
+                <Category>good</Category>
+                <Category>bad</Category>
+            </Field>
+            <Field>
+                <Name>Salary</Name>
+                <Category>low</Category>
+                <Category>avg</Category>
+                <Category>high</Category>
+            </Field>
+            <Field dataType="string">
+                <Name>Sex</Name>
+                <Category>M</Category>
+                <Category>F</Category>
+            </Field>
+            <Field dataType="string">
+                <Name>Amount</Name>
+                <Category>&lt; 20</Category>
+                <Category>&lt;20;50)</Category>
+                <Category>&lt;50;100)</Category>
+                <Category>&lt;100;250)</Category>
+                <Category>&lt;250;500)</Category>
+                <Category>&gt;= 500</Category>
+            </Field>
+            <Field dataType="string">
+                <Name>Duration</Name>
+                <Category>1 year</Category>
+                <Category>2 years</Category>
+                <Category>3 years</Category>
+                <Category>4 years</Category>
+                <Category>5 years</Category>
+            </Field>
+            <Field dataType="string">
+                <Name>Repayment</Name>
+                <Interval closure="openClosed" leftMargin="0" rightMargin="1"/>
+                <Interval closure="openClosed" leftMargin="1" rightMargin="2"/>
+                <Interval closure="openClosed" leftMargin="2" rightMargin="3"/>
+                <Interval closure="openClosed" leftMargin="3" rightMargin="4"/>
+                <Interval closure="openClosed" leftMargin="4" rightMargin="5"/>
+                <Interval closure="openClosed" leftMargin="5" rightMargin="6"/>
+                <Interval closure="openClosed" leftMargin="6" rightMargin="7"/>
+                <Interval closure="openClosed" leftMargin="7" rightMargin="8"/>
+                <Interval closure="openClosed" leftMargin="8" rightMargin="9"/>
+                <Interval closure="openClosed" leftMargin="9" rightMargin="10"/>
+            </Field>
+        </Dictionary>
+    </DataDescription>
+    <ARQuery>
+        <BBASettings>
+            <BBASetting id="1">
+                <Text>District</Text>
+             <FieldRef dictionary="TransformationDictionary">District</FieldRef>
+             <Coefficient match="At least one from listed">
+                    <Category>Brno</Category>
+                </Coefficient>
+            </BBASetting>
+            <BBASetting id="3">
+                <Text>Age</Text>
+             <FieldRef dictionary="TransformationDictionary">Age</FieldRef>
+             <Coefficient match="At least one from listed">                    
+                    <Category>&lt;51;61)</Category>
+                </Coefficient>
+            </BBASetting>
+            <BBASetting id="5">
+                <Text>Salary</Text>
+             <FieldRef dictionary="TransformationDictionary">Salary</FieldRef>
+             <Coefficient match="At least one from listed">
+                    <Category>high</Category>
+                </Coefficient>
+            </BBASetting>
+            <BBASetting id="7">
+                <Text>Quality</Text>
+                <FieldRef dictionary="TransformationDictionary">Quality</FieldRef>
+             <Coefficient match="None from listed">
+                    <Category>bad</Category>
+                </Coefficient>
+            </BBASetting>
+        </BBASettings>
+        <DBASettings>
+            <DBASetting id="2" type="Literal">
+                <BASettingRef>1</BASettingRef>
+                <LiteralSign>Positive</LiteralSign>
+            </DBASetting>
+            <DBASetting id="4" type="Literal">
+                <BASettingRef>3</BASettingRef>
+                <LiteralSign>Positive</LiteralSign>
+            </DBASetting>
+            <DBASetting id="6" type="Literal">
+                <BASettingRef>5</BASettingRef>
+                <LiteralSign>Positive</LiteralSign>
+            </DBASetting>
+            <DBASetting id="8" type="Literal">
+                <BASettingRef>7</BASettingRef>
+                <LiteralSign>Positive</LiteralSign>
+            </DBASetting>
+            <DBASetting id="9" type="AnyConnective" match="traverseOnly">
+                <BASettingRef>2</BASettingRef>
+                <BASettingRef>4</BASettingRef>
+                <BASettingRef>6</BASettingRef>
+            </DBASetting>
+            <DBASetting id="10" type="AnyConnective" match="traverseOnly">
+                <BASettingRef>9</BASettingRef>
+            </DBASetting>
+            <DBASetting id="11" type="AnyConnective" match="traverseOnly">
+                <BASettingRef>8</BASettingRef>
+            </DBASetting>
+        </DBASettings>
+        <AntecedentSetting>10</AntecedentSetting>
+        <ConsequentSetting>11</ConsequentSetting>
+        <InterestMeasureSetting>
+            <InterestMeasureThreshold id="1">
+                <InterestMeasure>Any Interest Measure</InterestMeasure>
+            </InterestMeasureThreshold>
+        </InterestMeasureSetting>
+    </ARQuery>
+</arb:ARBuilder>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp1 (http://www.altova.com) by Martin Ralbovsky (University of Economics) -->
+<PMML version="3.0" xmlns="http://www.dmg.org/PMML-3_2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Header copyright="Copyright (c) KIZI UEP">
+		<!-- author : clovek -data miner-->		
+		<Extension name="author" value="Ralbovsky"/>
+		<!-- Ve Ferdovi verze odpovĂ­dĂˇ verzi knihovny FerdaSemanticWebBoxes.dll, nejde to jinak poradne udelat -->
+		<Application name="Ferda" version="2.6"/>
+		<Annotation>Exported to PMML using the Ferda software</Annotation>
+		<Title>Barbora Financial Dataset</Title>
+		
+	</Header>
+	<!-- Atribut numberOfFields - pocet data fieldu v DataDictionary-->
+	<DataDictionary numberOfFields="4">
+		<!-- DataField = sloupecek ve zkoumane tabulce, nad kterym se minuje
+		optype odpovida semantice sloupce ve Ferdovi 
+		categorical - nominal
+		ordinal - ordinal
+		continuous - cardinal
+	-->
+		<DataField name="status" optype="categorical" dataType="string">
+			<Value value="A">
+				<!-- Extension udava frekvenci dane hodnoty atributu (pro tvorbu histogramu). Atribut extender je zde 
+				z duvodu komptibility s definici MapValues
+			-->
+				<Extension name="Frequency" value="1827" extender="A"/>
+			</Value>
+			<Value value="B">
+				<Extension name="Frequency" value="289" extender="B"/>
+			</Value>
+			<Value value="C">
+				<Extension name="Frequency" value="3627" extender="C"/>
+			</Value>
+			<Value value="D">
+				<Extension name="Frequency" value="438" extender="D"/>
+			</Value>
+		</DataField>
+		<DataField name="duration" optype="continuous" dataType="integer">
+			<Value value="12">
+				<Extension name="Frequency" value="1181" extender="12"/>
+			</Value>
+			<Value value="13">
+				<Extension name="Frequency" value="1" extender="13"/>
+			</Value>
+			<Value value="24">
+				<Extension name="Frequency" value="1242" extender="24"/>
+			</Value>
+			<Value value="36">
+				<Extension name="Frequency" value="1194" extender="36"/>
+			</Value>
+			<Value value="48">
+				<Extension name="Frequency" value="1252" extender="48"/>
+			</Value>
+			<Value value="60">
+				<Extension name="Frequency" value="1311" extender="60"/>
+			</Value>
+		</DataField>
+		<DataField dataType="string" optype="categorical" name="district">
+			<Value value="Brno">
+				<Extension name="Frequency" value="209" extender="Brno"/>
+			</Value>
+			<Value value="Praha">
+				<Extension name="Frequency" value="710" extender="Praha"/>
+			</Value>
+			<!-- Pro MS: pro ucely demonstrace a zkraceni ukazkoveho souboru sme si dovolili zmenit data :-) -->
+			<Value value="Other">
+				<Extension name="Frequency" value="5262" extender="Other"/>
+			</Value>
+		</DataField>
+		<!-- Vymysleny sloupec pro pohlavi, BUNO se predpoklada ze vsichni klienti Barbory jsou zeny -->
+		<DataField dataType="string" optype="categorical" name="sex">
+			<Value value="F">
+				<Extension name="Frequency" value="6181" extender="F"/>
+			</Value>
+		</DataField>
+	</DataDictionary>
+	<!-- Definuje datove transformace, faze "Data Preparation", odpovida LISP DataSource nebo
+	ve Ferdovi krabicky do tvorby atributu
+-->
+
+</PMML>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="http://sewebar.vse.cz/schemas/FDML0_2_Dict.xsd" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<fdmldict:FDMLDictionary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://keg.vse.cz/ns/fdml0_2_dict http://sewebar.vse.cz/schemas/FDML0_2_Dict.xsd"
+ xmlns:fdmldict="http://keg.vse.cz/ns/fdml0_2_dict">
+    <Header copyright="Copyright (c) KIZI UEP">
+        <Application name="BKEF Manager"></Application>
+        <Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+        <Author>Data miner</Author>        
+    </Header>
+    <Dictionary sourceDictType="Range"  sourceFormat="BKEF" sourceName="Barbora.bkef">               
+        <Field id="f1">
+            <Identifier name="Metaattribute">kvalita úvěru</Identifier>
+            <Identifier name="Format">Points of International Loan Quality Scale</Identifier>				                    
+            <Category id="1">A</Category>
+            <Category id="2">B</Category>
+            <Category id="3">C</Category>
+            <Category id="4">D</Category>
+            <Category id="5">E</Category>
+            <Category id="6">x</Category>
+        </Field>
+        <Field id="f2">
+            <Identifier name="Metaattribute">trvání úvěru</Identifier>
+            <Identifier name="Format">month</Identifier>				
+            <Interval closure="closedClosed" leftMargin="1" rightMargin="60"/>
+        </Field>
+        <Field id="f3">
+            <Identifier name="Metaattribute">bydliště klienta</Identifier>
+            <Identifier name="Format">district</Identifier>				
+            
+            <Name>Bydliště</Name>
+            <Category id="1">Praha</Category>
+            <Category id="2">Brno</Category>
+            <Category id="3">Bruntál</Category>
+            <Category id="4">Čáslav</Category>
+        </Field>
+    </Dictionary>
+</fdmldict:FDMLDictionary>
+

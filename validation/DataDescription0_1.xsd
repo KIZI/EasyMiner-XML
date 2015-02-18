@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://keg.vse.cz/ns/datadescription0_1"
+    xmlns="http://keg.vse.cz/ns/datadescription0_1" elementFormDefault="unqualified"
+    xmlns:data="http://keg.vse.cz/ns/datadescription0_1" attributeFormDefault="unqualified">
+    <xs:element name="DataDescription" type="DataDescription"/>
+
+    <xs:complexType name="DataDescription">
+        <xs:sequence>
+            <xs:element name="Dictionary" type="Dictionary" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="DictionaryMapping" type="DictionaryMapping" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DictionaryMapping">
+        <xs:sequence>
+            <xs:element name="ValueMapping" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Field" minOccurs="1" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:choice maxOccurs="unbounded">
+                                        <xs:element name="Value" type="xs:string"/>
+                                        <xs:element name="Interval">
+                                            <xs:complexType>
+                                                <xs:attribute name="closure" use="required">
+                                                  <xs:simpleType>
+                                                  <xs:restriction base="xs:string">
+                                                  <xs:enumeration value="openClosed"/>
+                                                  <xs:enumeration value="openOpen"/>
+                                                  <xs:enumeration value="closedOpen"/>
+                                                  <xs:enumeration value="closedClosed"/>
+                                                  </xs:restriction>
+                                                  </xs:simpleType>
+                                                </xs:attribute>
+                                                <xs:attribute name="leftMargin" type="xs:double"/>
+                                                <xs:attribute name="rightMargin" type="xs:double"/>
+                                            </xs:complexType>
+
+                                        </xs:element>
+                                    </xs:choice>
+                                </xs:sequence>
+                                <xs:attribute name="name" type="xs:string"/>
+                                <xs:attribute name="dictionary">
+                                    <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                            <xs:enumeration value="TransformationDictionary"/>
+                                            <xs:enumeration value="DataDictionary"/>
+                                        </xs:restriction>
+                                    </xs:simpleType>
+                                </xs:attribute>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="orphan" type="xs:boolean" default="false"/>
+                </xs:complexType>
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+
+
+    <xs:complexType name="Dictionary">
+        <xs:sequence maxOccurs="unbounded">
+            <xs:element name="Field">
+                <xs:complexType>
+                    <xs:sequence minOccurs="1">
+                        <xs:element name="AuxilliaryIdentifier" type="AuxilliaryIdentifier"
+                            minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element name="Statistics" type="Statistics" minOccurs="0"/>
+                        <xs:sequence maxOccurs="unbounded" minOccurs="0">
+                            <xs:choice>
+                                <xs:element name="Interval" type="Interval" minOccurs="0"
+                                    maxOccurs="unbounded"/>
+                                <xs:element name="Category" type="Category" minOccurs="0"
+                                    maxOccurs="unbounded"/>
+                            </xs:choice>
+                        </xs:sequence>
+                    </xs:sequence>
+                    <xs:attribute name="optype" type="OPTYPE"/>
+                    <xs:attribute name="dataType" type="DATATYPE"/>
+                    <xs:attribute name="name" type="xs:string"/>
+                    <xs:attribute name="derived" type="xs:boolean"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="numberOfFields" type="xs:integer"/>
+        <xs:attribute name="sourceType" type="sourceType"/>
+        <xs:attribute name="sourceSubType" type="dictType"/>
+        <xs:attribute name="sourceName" type="xs:string"/>
+        <!-- complete =false means that e.g. only those fields and values which are referenced from the association rules in the file are  listed -->
+        <xs:attribute name="complete" type="xs:boolean" default="true"/>
+        <xs:attribute name="default" type="xs:boolean" default="false"/>
+    </xs:complexType>
+
+
+    <xs:simpleType name="dictType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="TransformationDictionary"/>
+            <xs:enumeration value="DataDictionary"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="AuxilliaryIdentifier">
+        <xs:sequence>
+            <xs:element name="Name" type="xs:string"/>
+            <xs:element name="Value" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="display" type="xs:boolean" default="false"/>
+    </xs:complexType>
+    <xs:complexType name="Category">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="frequency" type="xs:integer"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:simpleType name="sourceType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="PMML"/>
+            <xs:enumeration value="BKEF"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="OPTYPE">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="categorical"/>
+            <xs:enumeration value="ordinal"/>
+            <xs:enumeration value="continuous"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="Statistics">
+        <xs:sequence>
+            <xs:element name="Min" type="xs:double"/>
+            <xs:element name="Max" type="xs:double"/>
+            <xs:element name="Average" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Interval">
+        <xs:attribute name="closure" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="openClosed"/>
+                    <xs:enumeration value="openOpen"/>
+                    <xs:enumeration value="closedOpen"/>
+                    <xs:enumeration value="closedClosed"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="leftMargin" type="xs:double"/>
+        <xs:attribute name="rightMargin" type="xs:double"/>
+        <xs:attribute name="binName" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:simpleType name="DATATYPE">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="string"/>
+            <xs:enumeration value="integer"/>
+            <xs:enumeration value="float"/>
+            <xs:enumeration value="double"/>
+            <xs:enumeration value="date"/>
+            <xs:enumeration value="time"/>
+            <xs:enumeration value="dateTime"/>
+            <xs:enumeration value="dateDaysSince[0]"/>
+            <xs:enumeration value="dateDaysSince[1960]"/>
+            <xs:enumeration value="dateDaysSince[1970]"/>
+            <xs:enumeration value="dateDaysSince[1980]"/>
+            <xs:enumeration value="timeSeconds"/>
+            <xs:enumeration value="dateTimeSecondsSince[0]"/>
+            <xs:enumeration value="dateTimeSecondsSince[1960]"/>
+            <xs:enumeration value="dateTimeSecondsSince[1970]"/>
+            <xs:enumeration value="dateTimeSecondsSince[1980]"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

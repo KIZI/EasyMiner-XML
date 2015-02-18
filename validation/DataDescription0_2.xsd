@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://keg.vse.cz/ns/datadescription0_2"
+    xmlns="http://keg.vse.cz/ns/datadescription0_2" elementFormDefault="unqualified"
+    xmlns:data="http://keg.vse.cz/ns/datadescription0_2" attributeFormDefault="unqualified"
+    xmlns:fdml="http://keg.vse.cz/ns/fdml0_2" xmlns:sch="http://www.ascc.net/xml/schematron">
+    <xs:annotation>
+        <xs:appinfo>
+            <sch:title>Schematron validation</sch:title>
+            <sch:ns prefix="dd" uri="http://keg.vse.cz/ns/datadescription0_2"/>
+        </xs:appinfo>
+        <xs:documentation>ARDesigner Input</xs:documentation>
+    </xs:annotation>
+    <xs:import namespace="http://keg.vse.cz/ns/fdml0_2" schemaLocation="FDML0_2.xsd"/>
+    <xs:element name="DataDescription" type="DataDescription_DD">
+        <xs:annotation>
+            <xs:appinfo>
+                <sch:pattern name="Check one dictionary set as default">
+                    <sch:rule context="dd:DataDescription">
+                        <sch:assert test="count(Dictionary[@default='true']) =1" diagnostics="def">
+                            Exactly one dictionary should be set as default </sch:assert>
+                    </sch:rule>
+                </sch:pattern>
+                <sch:pattern name="Default dictionary contains only categories">
+                    <sch:rule context="Dictionary[@default='true']">
+                        <sch:assert test="count(./Field/Interval) =0"> No Intervals can be present
+                            in default dictionary </sch:assert>
+                    </sch:rule>
+                </sch:pattern>
+            </xs:appinfo>
+        </xs:annotation>        
+        <xs:key name="DictUq">
+            <xs:selector xpath="Dictionary"/>
+            <xs:field xpath="@id"/>
+        </xs:key>
+        <xs:keyref refer="DictUq" name="DictRef">
+            <xs:selector xpath="DictionaryMapping/FieldMapping/AppliesTo/FieldRef"/>
+            <xs:field xpath="@dictID"/>
+        </xs:keyref>
+    </xs:element>
+
+
+    <xs:complexType name="DataDescription_DD">
+        <xs:complexContent>
+            <xs:extension base="fdml:AbstractDataDescription">
+                <xs:sequence>
+                    <xs:element name="Dictionary" type="Dictionary_dd" minOccurs="1"
+                        maxOccurs="unbounded"/>
+                    <xs:element name="DictionaryMapping" type="DictionaryMapping" minOccurs="0"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="DataDescription_BKEF">
+        <xs:complexContent>
+            <xs:extension base="fdml:AbstractDataDescription">
+                <xs:sequence>
+                    <xs:element name="Dictionary" type="Dictionary_bkef" minOccurs="1"
+                        maxOccurs="unbounded"/>
+                    <xs:element name="DictionaryMapping" type="DictionaryMapping" minOccurs="0"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="Dictionary_dd">
+        <xs:annotation>
+            <xs:documentation> Extension of FDML Dictionary type - added default attribute
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="fdml:AbstractDictionary">
+                <xs:attribute name="default" type="xs:boolean" default="false"/>
+                <xs:attribute name="completeness" type="completeness_forDD" use="required"/>
+                <xs:attribute name="sourceFormat" type="fdml:sourceFormatType" use="required"/>
+                <xs:attribute name="sourceName" type="xs:string"/>
+                <xs:attribute name="sourceDictType" type="fdml:dictType_all"/>
+                <xs:attribute name="id" type="xs:string"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="Dictionary_bkef">
+        <xs:annotation>
+            <xs:documentation> Extension of FDML Dictionary type - added default attribute
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="fdml:AbstractDictionary">
+                <xs:attribute name="completeness" type="completeness_forBKEF" use="required"/>
+                <xs:attribute name="sourceName" type="xs:string"/>
+                <xs:attribute name="sourceDictType" type="fdml:dictType_bkef"/>
+                <xs:attribute name="id" type="xs:string"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+
+    <xs:simpleType name="completeness_forDD">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="UserSelection"/>
+            <xs:enumeration value="All"/>
+            <xs:enumeration value="ReferencedFromPatterns"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="completeness_forBKEF">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ReferencedFromPatterns"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:complexType name="DictionaryMapping">
+        <xs:complexContent>
+            <xs:restriction base="fdml:DictionaryMapping">
+                <xs:sequence>
+                    <xs:element name="FieldMapping" type="FieldMapping" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:restriction>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="FieldMapping">
+        <xs:complexContent>
+            <xs:restriction base="fdml:FieldMapping">
+                <xs:sequence>
+                    <xs:element name="AppliesTo" type="fdml:AppliesTo"/>
+                    <xs:choice>
+                        <xs:element name="ValueMappings" type="fdml:ValueMappings"/>                        
+                        <xs:element name="IntervalMapping"/>
+                    </xs:choice>
+                </xs:sequence>
+            </xs:restriction>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

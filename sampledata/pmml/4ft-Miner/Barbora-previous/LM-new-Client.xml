@@ -1,0 +1,2456 @@
+<?xml version="1.0"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pmml="http://www.dmg.org/PMML-4_0" version="4.0" xsi:schemaLocation="http://www.dmg.org/PMML-4_0 http://sewebar.vse.cz/schemas/PMML4.0+GUHA0.1.xsd">
+<!-- 4ftMiner.Task.PMML.Template, version of 2010-08-29 -->
+
+	<Header copyright="Copyright (c) KIZI UEP">
+		<Extension name="metabase" value="LM LMBarbora.mdb MB"/>
+		<Extension name="dataset" value="Loans"/>
+		<Extension name="author" value="PowerUser"/>
+		<Extension name="subsystem" value="4ft-Miner"/>
+		<Extension name="module" value="4ftResult.exe"/>
+		<Extension name="format" value="4ftMiner.Task"/>		
+		<Extension name="NormalizedBy" value="0.11" extender="CheckAndNormalization.xsl"/><Extension name="NormalizationDictionary" value="0.1" extender="../pmml/dict/GUHAQuantifier-InterestMeasureDictionary.xml"/><Application name="LISp-Miner" version="14.04.02 of 09 Oct 2010"/>
+		<Annotation/>
+		<Timestamp>12.11.2010 14:53:34</Timestamp>
+	</Header>
+
+<!-- Matrix -->
+
+	<DataDictionary numberOfFields="5">
+		<DataField name="Age" optype="continuous" dataType="integer">
+			<Extension name="Avg" value="43.357386" extender="Avg"/>
+			<Interval leftMargin="21.000000" rightMargin="67.000000" closure="closedClosed"/>
+			
+		</DataField>
+		<DataField name="District" optype="categorical" dataType="string">
+		</DataField>
+		<DataField name="Salary" optype="continuous" dataType="integer">
+			<Extension name="Avg" value="9464.201747" extender="Avg"/>
+			<Interval leftMargin="8110.000000" rightMargin="12541.000000" closure="closedClosed"/>
+			
+		</DataField>
+		<DataField name="Sex" optype="categorical" dataType="string">
+		</DataField>
+		<DataField name="status" optype="categorical" dataType="string">
+		</DataField>
+	</DataDictionary>
+
+<!-- Attributes -->
+
+	<TransformationDictionary>
+		<DerivedField name="Age_in_years" dataType="string" optype="ordinal">
+			<MapValues outputColumn="Age_in_years">
+				<FieldColumnPair column="Age" field="Age_in_years"/>
+				<InlineTable>
+					<Extension name="Frequency" value="0" extender="21"/>
+					<Extension name="Frequency" value="0" extender="22"/>
+					<Extension name="Frequency" value="0" extender="23"/>
+					<Extension name="Frequency" value="0" extender="24"/>
+					<Extension name="Frequency" value="0" extender="25"/>
+					<Extension name="Frequency" value="0" extender="26"/>
+					<Extension name="Frequency" value="0" extender="27"/>
+					<Extension name="Frequency" value="0" extender="28"/>
+					<Extension name="Frequency" value="117" extender="29"/>
+					<Extension name="Frequency" value="108" extender="30"/>
+					<Extension name="Frequency" value="135" extender="31"/>
+					<Extension name="Frequency" value="126" extender="32"/>
+					<Extension name="Frequency" value="99" extender="33"/>
+					<Extension name="Frequency" value="117" extender="34"/>
+					<Extension name="Frequency" value="90" extender="35"/>
+					<Extension name="Frequency" value="144" extender="36"/>
+					<Extension name="Frequency" value="63" extender="37"/>
+					<Extension name="Frequency" value="198" extender="38"/><Extension name="Frequency" value="220" extender="39"/>
+					<Extension name="Frequency" value="99" extender="40"/>
+					<Extension name="Frequency" value="126" extender="41"/>
+					<Extension name="Frequency" value="144" extender="42"/>
+					<Extension name="Frequency" value="180" extender="43"/>
+					<Extension name="Frequency" value="144" extender="44"/>
+					<Extension name="Frequency" value="153" extender="45"/>
+					<Extension name="Frequency" value="207" extender="46"/>
+					<Extension name="Frequency" value="99" extender="47"/>
+					<Extension name="Frequency" value="153" extender="48"/>
+					<Extension name="Frequency" value="135" extender="49"/>
+					<Extension name="Frequency" value="99" extender="50"/>
+					<Extension name="Frequency" value="124" extender="51"/>
+					<Extension name="Frequency" value="234" extender="52"/>
+					<Extension name="Frequency" value="162" extender="53"/>
+					<Extension name="Frequency" value="135" extender="54"/>
+					<Extension name="Frequency" value="90" extender="55"/>
+					<Extension name="Frequency" value="99" extender="56"/>
+					<Extension name="Frequency" value="153" extender="57"/>
+					<Extension name="Frequency" value="172" extender="58"/>
+					<Extension name="Frequency" value="171" extender="59"/>
+					<Extension name="Frequency" value="108" extender="60"/>
+					<Extension name="Frequency" value="162" extender="61"/>
+					<Extension name="Frequency" value="93" extender="62"/>
+					<Extension name="Frequency" value="180" extender="63"/>
+					<Extension name="Frequency" value="153" extender="64"/>
+					<Extension name="Frequency" value="126" extender="65"/>
+					<Extension name="Frequency" value="99" extender="66"/>
+					<Extension name="Frequency" value="144" extender="67"/>
+					<row>
+						<column>21</column>
+						<field>21</field>
+					</row>
+					<row>
+						<column>22</column>
+						<field>22</field>
+					</row>
+					<row>
+						<column>23</column>
+						<field>23</field>
+					</row>
+					<row>
+						<column>24</column>
+						<field>24</field>
+					</row>
+					<row>
+						<column>25</column>
+						<field>25</field>
+					</row>
+					<row>
+						<column>26</column>
+						<field>26</field>
+					</row>
+					<row>
+						<column>27</column>
+						<field>27</field>
+					</row>
+					<row>
+						<column>28</column>
+						<field>28</field>
+					</row>
+					<row>
+						<column>29</column>
+						<field>29</field>
+					</row>
+					<row>
+						<column>30</column>
+						<field>30</field>
+					</row>
+					<row>
+						<column>31</column>
+						<field>31</field>
+					</row>
+					<row>
+						<column>32</column>
+						<field>32</field>
+					</row>
+					<row>
+						<column>33</column>
+						<field>33</field>
+					</row>
+					<row>
+						<column>34</column>
+						<field>34</field>
+					</row>
+					<row>
+						<column>35</column>
+						<field>35</field>
+					</row>
+					<row>
+						<column>36</column>
+						<field>36</field>
+					</row>
+					<row>
+						<column>37</column>
+						<field>37</field>
+					</row>
+					<row>
+						<column>38</column>
+						<field>38</field>
+					</row>
+					<row>
+						<column>39</column>
+						<field>39</field>
+					</row>
+					<row>
+						<column>40</column>
+						<field>40</field>
+					</row>
+					<row>
+						<column>41</column>
+						<field>41</field>
+					</row>
+					<row>
+						<column>42</column>
+						<field>42</field>
+					</row>
+					<row>
+						<column>43</column>
+						<field>43</field>
+					</row>
+					<row>
+						<column>44</column>
+						<field>44</field>
+					</row>
+					<row>
+						<column>45</column>
+						<field>45</field>
+					</row>
+					<row>
+						<column>46</column>
+						<field>46</field>
+					</row>
+					<row>
+						<column>47</column>
+						<field>47</field>
+					</row>
+					<row>
+						<column>48</column>
+						<field>48</field>
+					</row>
+					<row>
+						<column>49</column>
+						<field>49</field>
+					</row>
+					<row>
+						<column>50</column>
+						<field>50</field>
+					</row>
+					<row>
+						<column>51</column>
+						<field>51</field>
+					</row>
+					<row>
+						<column>52</column>
+						<field>52</field>
+					</row>
+					<row>
+						<column>53</column>
+						<field>53</field>
+					</row>
+					<row>
+						<column>54</column>
+						<field>54</field>
+					</row>
+					<row>
+						<column>55</column>
+						<field>55</field>
+					</row>
+					<row>
+						<column>56</column>
+						<field>56</field>
+					</row>
+					<row>
+						<column>57</column>
+						<field>57</field>
+					</row>
+					<row>
+						<column>58</column>
+						<field>58</field>
+					</row>
+					<row>
+						<column>59</column>
+						<field>59</field>
+					</row>
+					<row>
+						<column>60</column>
+						<field>60</field>
+					</row>
+					<row>
+						<column>61</column>
+						<field>61</field>
+					</row>
+					<row>
+						<column>62</column>
+						<field>62</field>
+					</row>
+					<row>
+						<column>63</column>
+						<field>63</field>
+					</row>
+					<row>
+						<column>64</column>
+						<field>64</field>
+					</row>
+					<row>
+						<column>65</column>
+						<field>65</field>
+					</row>
+					<row>
+						<column>66</column>
+						<field>66</field>
+					</row>
+					<row>
+						<column>67</column>
+						<field>67</field>
+					</row>
+				</InlineTable>
+			</MapValues>
+
+		</DerivedField>
+		<DerivedField name="DistrictR" dataType="string" optype="ordinal">
+			<MapValues outputColumn="DistrictR">
+				<FieldColumnPair column="District" field="DistrictR"/>
+				<InlineTable>
+					<Extension name="Frequency" value="63" extender="Benesov"/>
+					<Extension name="Frequency" value="63" extender="Beroun"/>
+					<Extension name="Frequency" value="63" extender="Blansko"/>
+					<Extension name="Frequency" value="54" extender="Breclav"/>
+					<Extension name="Frequency" value="207" extender="Brno"/>
+					<Extension name="Frequency" value="99" extender="Brno - venkov"/>
+					<Extension name="Frequency" value="55" extender="Bruntal"/>
+					<Extension name="Frequency" value="54" extender="Ceska Lipa"/>
+					<Extension name="Frequency" value="81" extender="Ceske Budejovice"/>
+					<Extension name="Frequency" value="63" extender="Cesky Krumlov"/>
+					<Extension name="Frequency" value="45" extender="Decin"/>
+					<Extension name="Frequency" value="18" extender="Domazlice"/>
+					<Extension name="Frequency" value="135" extender="Frydek - Mistek"/>
+					<Extension name="Frequency" value="86" extender="Havlickuv Brod"/>
+					<Extension name="Frequency" value="72" extender="Hodonin"/>
+					<Extension name="Frequency" value="54" extender="Hradec Kralove"/>
+					<Extension name="Frequency" value="36" extender="Cheb"/>
+					<Extension name="Frequency" value="72" extender="Chomutov"/>
+					<Extension name="Frequency" value="63" extender="Chrudim"/>
+					<Extension name="Frequency" value="18" extender="Jablonec n. Nisou"/>
+					<Extension name="Frequency" value="72" extender="Jesenik"/>
+					<Extension name="Frequency" value="63" extender="Jicin"/>
+					<Extension name="Frequency" value="54" extender="Jihlava"/>
+					<Extension name="Frequency" value="99" extender="Jindrichuv Hradec"/>
+					<Extension name="Frequency" value="54" extender="Karlovy Vary"/>
+					<Extension name="Frequency" value="225" extender="Karvina"/>
+					<Extension name="Frequency" value="54" extender="Kladno"/>
+					<Extension name="Frequency" value="18" extender="Klatovy"/>
+					<Extension name="Frequency" value="99" extender="Kolin"/>
+					<Extension name="Frequency" value="99" extender="Kromeriz"/>
+					<Extension name="Frequency" value="72" extender="Kutna Hora"/>
+					<Extension name="Frequency" value="63" extender="Liberec"/>
+					<Extension name="Frequency" value="63" extender="Litomerice"/>
+					<Extension name="Frequency" value="117" extender="Louny"/>
+					<Extension name="Frequency" value="45" extender="Melnik"/>
+					<Extension name="Frequency" value="45" extender="Mlada Boleslav"/>
+					<Extension name="Frequency" value="61" extender="Most"/>
+					<Extension name="Frequency" value="72" extender="Nachod"/>
+					<Extension name="Frequency" value="45" extender="Novy Jicin"/>
+					<Extension name="Frequency" value="81" extender="Nymburk"/>
+					<Extension name="Frequency" value="135" extender="Olomouc"/>
+					<Extension name="Frequency" value="72" extender="Opava"/>
+					<Extension name="Frequency" value="180" extender="Ostrava - mesto"/>
+					<Extension name="Frequency" value="90" extender="Pardubice"/>
+					<Extension name="Frequency" value="54" extender="Pelhrimov"/>
+					<Extension name="Frequency" value="27" extender="Pisek"/>
+					<Extension name="Frequency" value="54" extender="Plzen"/>
+					<Extension name="Frequency" value="81" extender="Plzen - jih"/>
+					<Extension name="Frequency" value="63" extender="Plzen - sever"/>
+					<Extension name="Frequency" value="711" extender="Praha"/>
+					<Extension name="Frequency" value="45" extender="Praha - vychod"/>
+					<Extension name="Frequency" value="90" extender="Praha - zapad"/>
+					<Extension name="Frequency" value="108" extender="Prachatice"/>
+					<Extension name="Frequency" value="27" extender="Prerov"/>
+					<Extension name="Frequency" value="45" extender="Pribram"/>
+					<Extension name="Frequency" value="81" extender="Prostejov"/>
+					<Extension name="Frequency" value="81" extender="Rakovnik"/>
+					<Extension name="Frequency" value="72" extender="Rokycany"/>
+					<Extension name="Frequency" value="45" extender="Rychnov nad Kneznou"/>
+					<Extension name="Frequency" value="27" extender="Semily"/>
+					<Extension name="Frequency" value="12" extender="Sokolov"/>
+					<Extension name="Frequency" value="45" extender="Strakonice"/>
+					<Extension name="Frequency" value="54" extender="Sumperk"/>
+					<Extension name="Frequency" value="108" extender="Svitavy"/>
+					<Extension name="Frequency" value="72" extender="Tabor"/>
+					<Extension name="Frequency" value="99" extender="Tachov"/>
+					<Extension name="Frequency" value="45" extender="Teplice"/>
+					<Extension name="Frequency" value="54" extender="Trebic"/>
+					<Extension name="Frequency" value="63" extender="Trutnov"/>
+					<Extension name="Frequency" value="81" extender="Uherske Hradiste"/>
+					<Extension name="Frequency" value="27" extender="Usti nad Labem"/>
+					<Extension name="Frequency" value="135" extender="Usti nad Orlici"/>
+					<Extension name="Frequency" value="63" extender="Vsetin"/>
+					<Extension name="Frequency" value="72" extender="Vyskov"/>
+					<Extension name="Frequency" value="63" extender="Zdar nad Sazavou"/>
+					<Extension name="Frequency" value="144" extender="Zlin"/>
+					<Extension name="Frequency" value="54" extender="Znojmo"/>
+					<row>
+						<column>Benesov</column>
+						<field>Benesov</field>
+					</row>
+					<row>
+						<column>Beroun</column>
+						<field>Beroun</field>
+					</row>
+					<row>
+						<column>Blansko</column>
+						<field>Blansko</field>
+					</row>
+					<row>
+						<column>Breclav</column>
+						<field>Breclav</field>
+					</row>
+					<row>
+						<column>Brno</column>
+						<field>Brno</field>
+					</row>
+					<row>
+						<column>Brno - venkov</column>
+						<field>Brno - venkov</field>
+					</row>
+					<row>
+						<column>Bruntal</column>
+						<field>Bruntal</field>
+					</row>
+					<row>
+						<column>Ceska Lipa</column>
+						<field>Ceska Lipa</field>
+					</row>
+					<row>
+						<column>Ceske Budejovice</column>
+						<field>Ceske Budejovice</field>
+					</row>
+					<row>
+						<column>Cesky Krumlov</column>
+						<field>Cesky Krumlov</field>
+					</row>
+					<row>
+						<column>Decin</column>
+						<field>Decin</field>
+					</row>
+					<row>
+						<column>Domazlice</column>
+						<field>Domazlice</field>
+					</row>
+					<row>
+						<column>Frydek - Mistek</column>
+						<field>Frydek - Mistek</field>
+					</row>
+					<row>
+						<column>Havlickuv Brod</column>
+						<field>Havlickuv Brod</field>
+					</row>
+					<row>
+						<column>Hodonin</column>
+						<field>Hodonin</field>
+					</row>
+					<row>
+						<column>Hradec Kralove</column>
+						<field>Hradec Kralove</field>
+					</row>
+					<row>
+						<column>Cheb</column>
+						<field>Cheb</field>
+					</row>
+					<row>
+						<column>Chomutov</column>
+						<field>Chomutov</field>
+					</row>
+					<row>
+						<column>Chrudim</column>
+						<field>Chrudim</field>
+					</row>
+					<row>
+						<column>Jablonec n. Nisou</column>
+						<field>Jablonec n. Nisou</field>
+					</row>
+					<row>
+						<column>Jesenik</column>
+						<field>Jesenik</field>
+					</row>
+					<row>
+						<column>Jicin</column>
+						<field>Jicin</field>
+					</row>
+					<row>
+						<column>Jihlava</column>
+						<field>Jihlava</field>
+					</row>
+					<row>
+						<column>Jindrichuv Hradec</column>
+						<field>Jindrichuv Hradec</field>
+					</row>
+					<row>
+						<column>Karlovy Vary</column>
+						<field>Karlovy Vary</field>
+					</row>
+					<row>
+						<column>Karvina</column>
+						<field>Karvina</field>
+					</row>
+					<row>
+						<column>Kladno</column>
+						<field>Kladno</field>
+					</row>
+					<row>
+						<column>Klatovy</column>
+						<field>Klatovy</field>
+					</row>
+					<row>
+						<column>Kolin</column>
+						<field>Kolin</field>
+					</row>
+					<row>
+						<column>Kromeriz</column>
+						<field>Kromeriz</field>
+					</row>
+					<row>
+						<column>Kutna Hora</column>
+						<field>Kutna Hora</field>
+					</row>
+					<row>
+						<column>Liberec</column>
+						<field>Liberec</field>
+					</row>
+					<row>
+						<column>Litomerice</column>
+						<field>Litomerice</field>
+					</row>
+					<row>
+						<column>Louny</column>
+						<field>Louny</field>
+					</row>
+					<row>
+						<column>Melnik</column>
+						<field>Melnik</field>
+					</row>
+					<row>
+						<column>Mlada Boleslav</column>
+						<field>Mlada Boleslav</field>
+					</row>
+					<row>
+						<column>Most</column>
+						<field>Most</field>
+					</row>
+					<row>
+						<column>Nachod</column>
+						<field>Nachod</field>
+					</row>
+					<row>
+						<column>Novy Jicin</column>
+						<field>Novy Jicin</field>
+					</row>
+					<row>
+						<column>Nymburk</column>
+						<field>Nymburk</field>
+					</row>
+					<row>
+						<column>Olomouc</column>
+						<field>Olomouc</field>
+					</row>
+					<row>
+						<column>Opava</column>
+						<field>Opava</field>
+					</row>
+					<row>
+						<column>Ostrava - mesto</column>
+						<field>Ostrava - mesto</field>
+					</row>
+					<row>
+						<column>Pardubice</column>
+						<field>Pardubice</field>
+					</row>
+					<row>
+						<column>Pelhrimov</column>
+						<field>Pelhrimov</field>
+					</row>
+					<row>
+						<column>Pisek</column>
+						<field>Pisek</field>
+					</row>
+					<row>
+						<column>Plzen</column>
+						<field>Plzen</field>
+					</row>
+					<row>
+						<column>Plzen - jih</column>
+						<field>Plzen - jih</field>
+					</row>
+					<row>
+						<column>Plzen - sever</column>
+						<field>Plzen - sever</field>
+					</row>
+					<row>
+						<column>Praha</column>
+						<field>Praha</field>
+					</row>
+					<row>
+						<column>Praha - vychod</column>
+						<field>Praha - vychod</field>
+					</row>
+					<row>
+						<column>Praha - zapad</column>
+						<field>Praha - zapad</field>
+					</row>
+					<row>
+						<column>Prachatice</column>
+						<field>Prachatice</field>
+					</row>
+					<row>
+						<column>Prerov</column>
+						<field>Prerov</field>
+					</row>
+					<row>
+						<column>Pribram</column>
+						<field>Pribram</field>
+					</row>
+					<row>
+						<column>Prostejov</column>
+						<field>Prostejov</field>
+					</row>
+					<row>
+						<column>Rakovnik</column>
+						<field>Rakovnik</field>
+					</row>
+					<row>
+						<column>Rokycany</column>
+						<field>Rokycany</field>
+					</row>
+					<row>
+						<column>Rychnov nad Kneznou</column>
+						<field>Rychnov nad Kneznou</field>
+					</row>
+					<row>
+						<column>Semily</column>
+						<field>Semily</field>
+					</row>
+					<row>
+						<column>Sokolov</column>
+						<field>Sokolov</field>
+					</row>
+					<row>
+						<column>Strakonice</column>
+						<field>Strakonice</field>
+					</row>
+					<row>
+						<column>Sumperk</column>
+						<field>Sumperk</field>
+					</row>
+					<row>
+						<column>Svitavy</column>
+						<field>Svitavy</field>
+					</row>
+					<row>
+						<column>Tabor</column>
+						<field>Tabor</field>
+					</row>
+					<row>
+						<column>Tachov</column>
+						<field>Tachov</field>
+					</row>
+					<row>
+						<column>Teplice</column>
+						<field>Teplice</field>
+					</row>
+					<row>
+						<column>Trebic</column>
+						<field>Trebic</field>
+					</row>
+					<row>
+						<column>Trutnov</column>
+						<field>Trutnov</field>
+					</row>
+					<row>
+						<column>Uherske Hradiste</column>
+						<field>Uherske Hradiste</field>
+					</row>
+					<row>
+						<column>Usti nad Labem</column>
+						<field>Usti nad Labem</field>
+					</row>
+					<row>
+						<column>Usti nad Orlici</column>
+						<field>Usti nad Orlici</field>
+					</row>
+					<row>
+						<column>Vsetin</column>
+						<field>Vsetin</field>
+					</row>
+					<row>
+						<column>Vyskov</column>
+						<field>Vyskov</field>
+					</row>
+					<row>
+						<column>Zdar nad Sazavou</column>
+						<field>Zdar nad Sazavou</field>
+					</row>
+					<row>
+						<column>Zlin</column>
+						<field>Zlin</field>
+					</row>
+					<row>
+						<column>Znojmo</column>
+						<field>Znojmo</field>
+					</row>
+				</InlineTable>
+			</MapValues>
+
+		</DerivedField>
+		<DerivedField name="Quality" dataType="string" optype="ordinal">
+			<MapValues outputColumn="Quality">
+				<FieldColumnPair column="status" field="Quality"/>
+				<InlineTable>
+					<Extension name="Frequency" value="5454" extender="good"/>
+					<Extension name="Frequency" value="727" extender="bad"/>
+					<row>
+						<column>A</column>
+						<field>good</field>
+					</row>
+					<row>
+						<column>C</column>
+						<field>good</field>
+					</row>
+					<row>
+						<column>B</column>
+						<field>bad</field>
+					</row>
+					<row>
+						<column>D</column>
+						<field>bad</field>
+					</row>
+				</InlineTable>
+			</MapValues>
+
+		</DerivedField>
+		<DerivedField name="Salary" dataType="string" optype="continuous">
+			<Discretize field="Salary">
+				<DiscretizeBin binValue="low">
+					<Extension name="Frequency" value="2049" extender="low"/>
+						<Interval closure="closedOpen" leftMargin="8110" rightMargin="8678"/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="avg">
+					<Extension name="Frequency" value="2034" extender="avg"/>
+						<Interval closure="closedOpen" leftMargin="8678" rightMargin="9624"/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="high">
+					<Extension name="Frequency" value="2098" extender="high"/>
+						<Interval closure="closedClosed" leftMargin="9624" rightMargin="12541"/>
+				</DiscretizeBin>
+			</Discretize>
+
+		</DerivedField>
+		<DerivedField name="Sex" dataType="string" optype="ordinal">
+			<MapValues outputColumn="Sex">
+				<FieldColumnPair column="Sex" field="Sex"/>
+				<InlineTable>
+					<Extension name="Frequency" value="3145" extender="F"/>
+					<Extension name="Frequency" value="3036" extender="M"/>
+					<row>
+						<column>Yes</column>
+						<field>F</field>
+					</row>
+					<row>
+						<column>No</column>
+						<field>M</field>
+					</row>
+				</InlineTable>
+			</MapValues>
+
+		</DerivedField>
+	</TransformationDictionary>
+
+<!-- Task -->
+
+	<guha:AssociationModel xmlns="" xmlns:guha="http://keg.vse.cz/ns/GUHA0.1rev1" xsi:schemaLocation="http://keg.vse.cz/ns/GUHA0.1rev1 http://sewebar.vse.cz/schemas/GUHA0.1rev1.xsd" modelName=" 2  Client(?)   =&gt; Loan(Bad) " functionName="associationRules" algorithmName="4ft" numberOfTransactions="6181" numberOfCategories="131" numberOfRules="14">
+		<TaskSetting>
+		<Extension name="LISp-Miner">
+			<TaskGroup>Default task-group</TaskGroup>
+			<NumberOfVerifications>71950</NumberOfVerifications>
+			<TaskDuration>0h 0m 3s</TaskDuration>
+			<FTMissingsType>Delete</FTMissingsType>
+			<FTTaskParamProlong100AFlag>No</FTTaskParamProlong100AFlag>
+			<FTTaskParamProlong100SFlag>No</FTTaskParamProlong100SFlag>
+			<FTTaskParamPrimeCheckMinLen>No</FTTaskParamPrimeCheckMinLen>
+			<FTTaskParamPrimeCheck>Yes</FTTaskParamPrimeCheck>
+			<FTTaskParamIncludeSymetricFlag>Yes</FTTaskParamIncludeSymetricFlag>
+			<TaskNotice>complex literals,  p = 0.9, Base = 40</TaskNotice>
+		</Extension>
+			<BBASettings>
+				<BBASetting id="Basic_FTLiteralD_22">			   
+					<Name>Quality( bad)</Name>
+					<FieldRef>status</FieldRef>
+					<Coefficient>
+					    <Type>One category</Type>
+					    <MinimalLength>1</MinimalLength>
+					    <MaximalLength>1</MaximalLength>
+					</Coefficient>
+				</BBASetting>
+				<BBASetting id="Basic_FTLiteralD_77">			   
+					<Name>Age_in_years (int), 5 - 5</Name>
+					<FieldRef>Age</FieldRef>
+					<Coefficient>
+					    <Type>Interval</Type>
+					    <MinimalLength>5</MinimalLength>
+					    <MaximalLength>5</MaximalLength>
+					</Coefficient>
+				</BBASetting>
+				<BBASetting id="Basic_FTLiteralD_74">			   
+					<Name>Sex (subset), 1 - 1</Name>
+					<FieldRef>Sex</FieldRef>
+					<Coefficient>
+					    <Type>Subset</Type>
+					    <MinimalLength>1</MinimalLength>
+					    <MaximalLength>1</MaximalLength>
+					</Coefficient>
+				</BBASetting>
+				<BBASetting id="Basic_FTLiteralD_75">			   
+					<Name>Salary (subset), 1 - 1</Name>
+					<FieldRef>Salary</FieldRef>
+					<Coefficient>
+					    <Type>Subset</Type>
+					    <MinimalLength>1</MinimalLength>
+					    <MaximalLength>1</MaximalLength>
+					</Coefficient>
+				</BBASetting>
+				<BBASetting id="Basic_FTLiteralD_76">			   
+					<Name>DistrictR (subset), 1 - 2</Name>
+					<FieldRef>District</FieldRef>
+					<Coefficient>
+					    <Type>Subset</Type>
+					    <MinimalLength>1</MinimalLength>
+					    <MaximalLength>2</MaximalLength>
+					</Coefficient>
+				</BBASetting>
+			</BBASettings>
+			<DBASettings>
+				<DBASetting id="Derived_FTLiteralD_Sign_22" type="Literal">
+					<Name>Quality( bad)</Name>
+					<BASettingRef>Basic_FTLiteralD_22</BASettingRef>
+					<LiteralSign>Positive</LiteralSign>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>				   
+				</DBASetting>
+				<DBASetting id="Derived_FTLiteralD_Sign_77" type="Literal">
+					<Name>Age_in_years (int), 5 - 5</Name>
+					<BASettingRef>Basic_FTLiteralD_77</BASettingRef>
+					<LiteralSign>Negative</LiteralSign>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>				   
+				</DBASetting>
+				<DBASetting id="Derived_FTLiteralD_Sign_74" type="Literal">
+					<Name>Sex (subset), 1 - 1</Name>
+					<BASettingRef>Basic_FTLiteralD_74</BASettingRef>
+					<LiteralSign>Negative</LiteralSign>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>				   
+				</DBASetting>
+				<DBASetting id="Derived_FTLiteralD_Sign_75" type="Literal">
+					<Name>Salary (subset), 1 - 1</Name>
+					<BASettingRef>Basic_FTLiteralD_75</BASettingRef>
+					<LiteralSign>Positive</LiteralSign>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>				   
+				</DBASetting>
+				<DBASetting id="Derived_FTLiteralD_Sign_76" type="Literal">
+					<Name>DistrictR (subset), 1 - 2</Name>
+					<BASettingRef>Basic_FTLiteralD_76</BASettingRef>
+					<LiteralSign>Positive</LiteralSign>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>				   
+				</DBASetting>
+
+				<DBASetting id="Derived_FTCedentD_5" type="Conjunction">
+					<Name>Loan</Name>
+					<BASettingRef>Derived_FTLiteralD_Sign_22</BASettingRef>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>1</MaximalLength>
+				</DBASetting>
+				<DBASetting id="Derived_FTCedentD_35" type="Conjunction">
+					<Name>Client</Name>
+					<BASettingRef>Derived_FTLiteralD_Sign_77</BASettingRef>
+					<BASettingRef>Derived_FTLiteralD_Sign_74</BASettingRef>
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+				<DBASetting id="Derived_FTCedentD_36" type="Conjunction">
+					<Name>Social Status</Name>
+					<BASettingRef>Derived_FTLiteralD_Sign_75</BASettingRef>
+					<BASettingRef>Derived_FTLiteralD_Sign_76</BASettingRef>
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+
+				<DBASetting id="Derived_FTCedentBagD_5" type="Conjunction">
+					<Name>Antecedent</Name>
+					<BASettingRef>Derived_FTCedentD_35</BASettingRef>
+					<BASettingRef>Derived_FTCedentD_36</BASettingRef>
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+				<DBASetting id="Derived_FTCedentBagD_6" type="Conjunction">
+					<Name>Succedent</Name>
+					<BASettingRef>Derived_FTCedentD_5</BASettingRef>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+
+			</DBASettings>
+
+			<AntecedentSetting>Derived_FTCedentBagD_5</AntecedentSetting>
+			<ConsequentSetting>Derived_FTCedentBagD_6</ConsequentSetting>
+
+		<InterestMeasureSetting>
+		<InterestMeasureThreshold id="13">
+			<Extension name="ShortName">BASE</Extension>
+			<Extension name="Description">a &gt;= BASE ... at least BASE-number of objects for dependency to be statistically relevant</Extension>
+			<Extension name="Order">0</Extension>
+			<InterestMeasure>Support</InterestMeasure>
+			<Threshold>0.000000</Threshold>
+			<CompareType>Greater than or equal</CompareType>
+		</InterestMeasureThreshold>		
+		<InterestMeasureThreshold id="2">
+			<Extension name="ShortName">FUI</Extension>
+			<Extension name="Description">a/(a+b) &gt;= p ... at least 100*p [%] of objects satisfying A satisfy also S</Extension>
+			<Extension name="Order">1</Extension>
+			<InterestMeasure>Confidence</InterestMeasure>
+			<Threshold>0.900000</Threshold>
+			<CompareType>Greater than or equal</CompareType>
+		</InterestMeasureThreshold>		
+		</InterestMeasureSetting>
+		</TaskSetting>
+
+	<!-- MiningSchema -->
+
+		<pmml:MiningSchema>
+			<pmml:MiningField name="Age"/>
+			<pmml:MiningField name="District"/>
+			<pmml:MiningField name="Sex"/>
+			<pmml:MiningField name="status"/>
+		</pmml:MiningSchema>
+
+	<!-- Item a DBA -->
+		<AssociationRules>
+		    <BBA id="BBA_FTLiteralI_40934">
+			<Text>DistrictR(Sokolov)</Text>
+			<FieldRef>DistrictR</FieldRef>
+			<CatRef>Sokolov</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40935">
+			<Text>Quality(bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40936" literal="false">
+			<Text>¬Age_in_years(&lt;= 25)</Text>
+			<FieldRef>Age_in_years</FieldRef>
+			<CatRef>21</CatRef>
+			<CatRef>22</CatRef>
+			<CatRef>23</CatRef>
+			<CatRef>24</CatRef>
+			<CatRef>25</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40937" literal="false">
+			<Text>¬Sex(F)</Text>
+			<FieldRef>Sex</FieldRef>
+			<CatRef>F</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40938">
+			<Text>DistrictR(Strakonice)</Text>
+			<FieldRef>DistrictR</FieldRef>
+			<CatRef>Strakonice</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40939">
+			<Text>Quality(bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40940" literal="false">
+			<Text>¬Age_in_years(&lt;= 25)</Text>
+			<FieldRef>Age_in_years</FieldRef>
+			<CatRef>21</CatRef>
+			<CatRef>22</CatRef>
+			<CatRef>23</CatRef>
+			<CatRef>24</CatRef>
+			<CatRef>25</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40941" literal="false">
+			<Text>¬Sex(M)</Text>
+			<FieldRef>Sex</FieldRef>
+			<CatRef>M</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40942">
+			<Text>DistrictR(Beroun)</Text>
+			<FieldRef>DistrictR</FieldRef>
+			<CatRef>Beroun</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40943">
+			<Text>Quality(bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40944" literal="false">
+			<Text>¬Age_in_years(&lt;= 25)</Text>
+			<FieldRef>Age_in_years</FieldRef>
+			<CatRef>21</CatRef>
+			<CatRef>22</CatRef>
+			<CatRef>23</CatRef>
+			<CatRef>24</CatRef>
+			<CatRef>25</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40945" literal="false">
+			<Text>¬Sex(M)</Text>
+			<FieldRef>Sex</FieldRef>
+			<CatRef>M</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40946">
+			<Text>DistrictR(Beroun, Domazlice)</Text>
+			<FieldRef>DistrictR</FieldRef>
+			<CatRef>Beroun</CatRef>
+			<CatRef>Domazlice</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40947">
+			<Text>Quality(bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40948" literal="false">
+			<Text>¬Age_in_years(&lt;= 25)</Text>
+			<FieldRef>Age_in_years</FieldRef>
+			<CatRef>21</CatRef>
+			<CatRef>22</CatRef>
+			<CatRef>23</CatRef>
+			<CatRef>24</CatRef>
+			<CatRef>25</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40949" literal="false">
+			<Text>¬Sex(M)</Text>
+			<FieldRef>Sex</FieldRef>
+			<CatRef>M</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40950">
+			<Text>DistrictR(Beroun, Sokolov)</Text>
+			<FieldRef>DistrictR</FieldRef>
+			<CatRef>Beroun</CatRef>
+			<CatRef>Sokolov</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40951">
+			<Text>Quality(bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40952" literal="false">
+			<Text>¬Age_in_years(&lt;= 25)</Text>
+			<FieldRef>Age_in_years</FieldRef>
+			<CatRef>21</CatRef>
+			<CatRef>22</CatRef>
+			<CatRef>23</CatRef>
+			<CatRef>24</CatRef>
+			<CatRef>25</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40953" literal="false">
+			<Text>¬Sex(M)</Text>
+			<FieldRef>Sex</FieldRef>
+			<CatRef>M</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40954">
+			<Text>DistrictR(Domazlice)</Text>
+			<FieldRef>DistrictR</FieldRef>
+			<CatRef>Domazlice</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40955">
+			<Text>Quality(bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40956" literal="false">
+			<Text>¬Age_in_years(&lt;= 25)</Text>
+			<FieldRef>Age_in_years</FieldRef>
+			<CatRef>21</CatRef>
+			<CatRef>22</CatRef>
+			<CatRef>23</CatRef>
+			<CatRef>24</CatRef>
+			<CatRef>25</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40957" literal="false">
+			<Text>¬Sex(M)</Text>
+			<FieldRef>Sex</FieldRef>
+			<CatRef>M</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40958">
+			<Text>DistrictR(Domazlice, Sokolov)</Text>
+			<FieldRef>DistrictR</FieldRef>
+			<CatRef>Domazlice</CatRef>
+			<CatRef>Sokolov</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40959">
+			<Text>Quality(bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40960" literal="false">
+			<Text>¬Age_in_years(22...26)</Text>
+			<FieldRef>Age_in_years</FieldRef>
+			<CatRef>22</CatRef>
+			<CatRef>23</CatRef>
+			<CatRef>24</CatRef>
+			<CatRef>25</CatRef>
+			<CatRef>26</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40961" literal="false">
+			<Text>¬Sex(F)</Text>
+			<FieldRef>Sex</FieldRef>
+			<CatRef>F</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40962">
+			<Text>DistrictR(Strakonice)</Text>
+			<FieldRef>DistrictR</FieldRef>
+			<CatRef>Strakonice</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40963">
+			<Text>Quality(bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40964" literal="false">
+			<Text>¬Age_in_years(22...26)</Text>
+			<FieldRef>Age_in_years</FieldRef>
+			<CatRef>22</CatRef>
+			<CatRef>23</CatRef>
+			<CatRef>24</CatRef>
+			<CatRef>25</CatRef>
+			<CatRef>26</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40965" literal="false">
+			<Text>¬Sex(M)</Text>
+			<FieldRef>Sex</FieldRef>
+			<CatRef>M</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40966">
+			<Text>DistrictR(Beroun)</Text>
+			<FieldRef>DistrictR</FieldRef>
+			<CatRef>Beroun</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40967">
+			<Text>Quality(bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40968" literal="false">
+			<Text>¬Age_in_years(22...26)</Text>
+			<FieldRef>Age_in_years</FieldRef>
+			<CatRef>22</CatRef>
+			<CatRef>23</CatRef>
+			<CatRef>24</CatRef>
+			<CatRef>25</CatRef>
+			<CatRef>26</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40969" literal="false">
+			<Text>¬Sex(M)</Text>
+			<FieldRef>Sex</FieldRef>
+			<CatRef>M</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40970">
+			<Text>DistrictR(Beroun, Domazlice)</Text>
+			<FieldRef>DistrictR</FieldRef>
+			<CatRef>Beroun</CatRef>
+			<CatRef>Domazlice</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40971">
+			<Text>Quality(bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40972" literal="false">
+			<Text>¬Age_in_years(22...26)</Text>
+			<FieldRef>Age_in_years</FieldRef>
+			<CatRef>22</CatRef>
+			<CatRef>23</CatRef>
+			<CatRef>24</CatRef>
+			<CatRef>25</CatRef>
+			<CatRef>26</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40973" literal="false">
+			<Text>¬Sex(M)</Text>
+			<FieldRef>Sex</FieldRef>
+			<CatRef>M</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40974">
+			<Text>DistrictR(Beroun, Sokolov)</Text>
+			<FieldRef>DistrictR</FieldRef>
+			<CatRef>Beroun</CatRef>
+			<CatRef>Sokolov</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40975">
+			<Text>Quality(bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40976" literal="false">
+			<Text>¬Age_in_years(22...26)</Text>
+			<FieldRef>Age_in_years</FieldRef>
+			<CatRef>22</CatRef>
+			<CatRef>23</CatRef>
+			<CatRef>24</CatRef>
+			<CatRef>25</CatRef>
+			<CatRef>26</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40977" literal="false">
+			<Text>¬Sex(M)</Text>
+			<FieldRef>Sex</FieldRef>
+			<CatRef>M</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40978">
+			<Text>DistrictR(Domazlice)</Text>
+			<FieldRef>DistrictR</FieldRef>
+			<CatRef>Domazlice</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40979">
+			<Text>Quality(bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40980" literal="false">
+			<Text>¬Age_in_years(22...26)</Text>
+			<FieldRef>Age_in_years</FieldRef>
+			<CatRef>22</CatRef>
+			<CatRef>23</CatRef>
+			<CatRef>24</CatRef>
+			<CatRef>25</CatRef>
+			<CatRef>26</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40981" literal="false">
+			<Text>¬Sex(M)</Text>
+			<FieldRef>Sex</FieldRef>
+			<CatRef>M</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40982">
+			<Text>DistrictR(Domazlice, Sokolov)</Text>
+			<FieldRef>DistrictR</FieldRef>
+			<CatRef>Domazlice</CatRef>
+			<CatRef>Sokolov</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40983">
+			<Text>Quality(bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40984" literal="false">
+			<Text>¬Age_in_years(23...27)</Text>
+			<FieldRef>Age_in_years</FieldRef>
+			<CatRef>23</CatRef>
+			<CatRef>24</CatRef>
+			<CatRef>25</CatRef>
+			<CatRef>26</CatRef>
+			<CatRef>27</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40985" literal="false">
+			<Text>¬Sex(F)</Text>
+			<FieldRef>Sex</FieldRef>
+			<CatRef>F</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40986">
+			<Text>DistrictR(Strakonice)</Text>
+			<FieldRef>DistrictR</FieldRef>
+			<CatRef>Strakonice</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_40987">
+			<Text>Quality(bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>bad</CatRef>
+		    </BBA>
+
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40934" connective="Conjunction">
+			<Text>DistrictR(Sokolov)</Text>
+			<BARef>BBA_FTLiteralI_40934</BARef>
+		   </DBA>
+		
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40935" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_40935</BARef>
+		   </DBA>
+		
+
+		   <DBA id="DBA_FTLiteralI_Sign_40936" connective="Negation" literal="true">
+			<Text>¬Age_in_years(&lt;= 25)</Text>
+			<BARef>BBA_FTLiteralI_40936</BARef>
+		   </DBA>
+		
+		
+
+		   <DBA id="DBA_FTLiteralI_Sign_40937" connective="Negation" literal="true">
+			<Text>¬Sex(F)</Text>
+			<BARef>BBA_FTLiteralI_40937</BARef>
+		   </DBA>
+		
+		
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40938" connective="Conjunction">
+			<Text>DistrictR(Strakonice)</Text>
+			<BARef>BBA_FTLiteralI_40938</BARef>
+		   </DBA>
+		
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40939" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_40939</BARef>
+		   </DBA>
+		
+
+		   <DBA id="DBA_FTLiteralI_Sign_40940" connective="Negation" literal="true">
+			<Text>¬Age_in_years(&lt;= 25)</Text>
+			<BARef>BBA_FTLiteralI_40940</BARef>
+		   </DBA>
+		
+		
+
+		   <DBA id="DBA_FTLiteralI_Sign_40941" connective="Negation" literal="true">
+			<Text>¬Sex(M)</Text>
+			<BARef>BBA_FTLiteralI_40941</BARef>
+		   </DBA>
+		
+		
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40942" connective="Conjunction">
+			<Text>DistrictR(Beroun)</Text>
+			<BARef>BBA_FTLiteralI_40942</BARef>
+		   </DBA>
+		
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40943" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_40943</BARef>
+		   </DBA>
+		
+
+		   <DBA id="DBA_FTLiteralI_Sign_40944" connective="Negation" literal="true">
+			<Text>¬Age_in_years(&lt;= 25)</Text>
+			<BARef>BBA_FTLiteralI_40944</BARef>
+		   </DBA>
+		
+		
+
+		   <DBA id="DBA_FTLiteralI_Sign_40945" connective="Negation" literal="true">
+			<Text>¬Sex(M)</Text>
+			<BARef>BBA_FTLiteralI_40945</BARef>
+		   </DBA>
+		
+		
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40946" connective="Conjunction">
+			<Text>DistrictR(Beroun, Domazlice)</Text>
+			<BARef>BBA_FTLiteralI_40946</BARef>
+		   </DBA>
+		
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40947" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_40947</BARef>
+		   </DBA>
+		
+
+		   <DBA id="DBA_FTLiteralI_Sign_40948" connective="Negation" literal="true">
+			<Text>¬Age_in_years(&lt;= 25)</Text>
+			<BARef>BBA_FTLiteralI_40948</BARef>
+		   </DBA>
+		
+		
+
+		   <DBA id="DBA_FTLiteralI_Sign_40949" connective="Negation" literal="true">
+			<Text>¬Sex(M)</Text>
+			<BARef>BBA_FTLiteralI_40949</BARef>
+		   </DBA>
+		
+		
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40950" connective="Conjunction">
+			<Text>DistrictR(Beroun, Sokolov)</Text>
+			<BARef>BBA_FTLiteralI_40950</BARef>
+		   </DBA>
+		
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40951" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_40951</BARef>
+		   </DBA>
+		
+
+		   <DBA id="DBA_FTLiteralI_Sign_40952" connective="Negation" literal="true">
+			<Text>¬Age_in_years(&lt;= 25)</Text>
+			<BARef>BBA_FTLiteralI_40952</BARef>
+		   </DBA>
+		
+		
+
+		   <DBA id="DBA_FTLiteralI_Sign_40953" connective="Negation" literal="true">
+			<Text>¬Sex(M)</Text>
+			<BARef>BBA_FTLiteralI_40953</BARef>
+		   </DBA>
+		
+		
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40954" connective="Conjunction">
+			<Text>DistrictR(Domazlice)</Text>
+			<BARef>BBA_FTLiteralI_40954</BARef>
+		   </DBA>
+		
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40955" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_40955</BARef>
+		   </DBA>
+		
+
+		   <DBA id="DBA_FTLiteralI_Sign_40956" connective="Negation" literal="true">
+			<Text>¬Age_in_years(&lt;= 25)</Text>
+			<BARef>BBA_FTLiteralI_40956</BARef>
+		   </DBA>
+		
+		
+
+		   <DBA id="DBA_FTLiteralI_Sign_40957" connective="Negation" literal="true">
+			<Text>¬Sex(M)</Text>
+			<BARef>BBA_FTLiteralI_40957</BARef>
+		   </DBA>
+		
+		
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40958" connective="Conjunction">
+			<Text>DistrictR(Domazlice, Sokolov)</Text>
+			<BARef>BBA_FTLiteralI_40958</BARef>
+		   </DBA>
+		
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40959" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_40959</BARef>
+		   </DBA>
+		
+
+		   <DBA id="DBA_FTLiteralI_Sign_40960" connective="Negation" literal="true">
+			<Text>¬Age_in_years(22...26)</Text>
+			<BARef>BBA_FTLiteralI_40960</BARef>
+		   </DBA>
+		
+		
+
+		   <DBA id="DBA_FTLiteralI_Sign_40961" connective="Negation" literal="true">
+			<Text>¬Sex(F)</Text>
+			<BARef>BBA_FTLiteralI_40961</BARef>
+		   </DBA>
+		
+		
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40962" connective="Conjunction">
+			<Text>DistrictR(Strakonice)</Text>
+			<BARef>BBA_FTLiteralI_40962</BARef>
+		   </DBA>
+		
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40963" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_40963</BARef>
+		   </DBA>
+		
+
+		   <DBA id="DBA_FTLiteralI_Sign_40964" connective="Negation" literal="true">
+			<Text>¬Age_in_years(22...26)</Text>
+			<BARef>BBA_FTLiteralI_40964</BARef>
+		   </DBA>
+		
+		
+
+		   <DBA id="DBA_FTLiteralI_Sign_40965" connective="Negation" literal="true">
+			<Text>¬Sex(M)</Text>
+			<BARef>BBA_FTLiteralI_40965</BARef>
+		   </DBA>
+		
+		
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40966" connective="Conjunction">
+			<Text>DistrictR(Beroun)</Text>
+			<BARef>BBA_FTLiteralI_40966</BARef>
+		   </DBA>
+		
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40967" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_40967</BARef>
+		   </DBA>
+		
+
+		   <DBA id="DBA_FTLiteralI_Sign_40968" connective="Negation" literal="true">
+			<Text>¬Age_in_years(22...26)</Text>
+			<BARef>BBA_FTLiteralI_40968</BARef>
+		   </DBA>
+		
+		
+
+		   <DBA id="DBA_FTLiteralI_Sign_40969" connective="Negation" literal="true">
+			<Text>¬Sex(M)</Text>
+			<BARef>BBA_FTLiteralI_40969</BARef>
+		   </DBA>
+		
+		
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40970" connective="Conjunction">
+			<Text>DistrictR(Beroun, Domazlice)</Text>
+			<BARef>BBA_FTLiteralI_40970</BARef>
+		   </DBA>
+		
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40971" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_40971</BARef>
+		   </DBA>
+		
+
+		   <DBA id="DBA_FTLiteralI_Sign_40972" connective="Negation" literal="true">
+			<Text>¬Age_in_years(22...26)</Text>
+			<BARef>BBA_FTLiteralI_40972</BARef>
+		   </DBA>
+		
+		
+
+		   <DBA id="DBA_FTLiteralI_Sign_40973" connective="Negation" literal="true">
+			<Text>¬Sex(M)</Text>
+			<BARef>BBA_FTLiteralI_40973</BARef>
+		   </DBA>
+		
+		
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40974" connective="Conjunction">
+			<Text>DistrictR(Beroun, Sokolov)</Text>
+			<BARef>BBA_FTLiteralI_40974</BARef>
+		   </DBA>
+		
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40975" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_40975</BARef>
+		   </DBA>
+		
+
+		   <DBA id="DBA_FTLiteralI_Sign_40976" connective="Negation" literal="true">
+			<Text>¬Age_in_years(22...26)</Text>
+			<BARef>BBA_FTLiteralI_40976</BARef>
+		   </DBA>
+		
+		
+
+		   <DBA id="DBA_FTLiteralI_Sign_40977" connective="Negation" literal="true">
+			<Text>¬Sex(M)</Text>
+			<BARef>BBA_FTLiteralI_40977</BARef>
+		   </DBA>
+		
+		
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40978" connective="Conjunction">
+			<Text>DistrictR(Domazlice)</Text>
+			<BARef>BBA_FTLiteralI_40978</BARef>
+		   </DBA>
+		
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40979" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_40979</BARef>
+		   </DBA>
+		
+
+		   <DBA id="DBA_FTLiteralI_Sign_40980" connective="Negation" literal="true">
+			<Text>¬Age_in_years(22...26)</Text>
+			<BARef>BBA_FTLiteralI_40980</BARef>
+		   </DBA>
+		
+		
+
+		   <DBA id="DBA_FTLiteralI_Sign_40981" connective="Negation" literal="true">
+			<Text>¬Sex(M)</Text>
+			<BARef>BBA_FTLiteralI_40981</BARef>
+		   </DBA>
+		
+		
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40982" connective="Conjunction">
+			<Text>DistrictR(Domazlice, Sokolov)</Text>
+			<BARef>BBA_FTLiteralI_40982</BARef>
+		   </DBA>
+		
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40983" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_40983</BARef>
+		   </DBA>
+		
+
+		   <DBA id="DBA_FTLiteralI_Sign_40984" connective="Negation" literal="true">
+			<Text>¬Age_in_years(23...27)</Text>
+			<BARef>BBA_FTLiteralI_40984</BARef>
+		   </DBA>
+		
+		
+
+		   <DBA id="DBA_FTLiteralI_Sign_40985" connective="Negation" literal="true">
+			<Text>¬Sex(F)</Text>
+			<BARef>BBA_FTLiteralI_40985</BARef>
+		   </DBA>
+		
+		
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40986" connective="Conjunction">
+			<Text>DistrictR(Strakonice)</Text>
+			<BARef>BBA_FTLiteralI_40986</BARef>
+		   </DBA>
+		
+
+		
+		   <DBA id="DBA_FTLiteralI_Sign_40987" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_40987</BARef>
+		   </DBA>
+		
+
+		   <DBA id="DBA_FTCedentI_12645" connective="Conjunction">
+			<Text>DistrictR(Sokolov)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40934</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12646" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40935</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12647" connective="Conjunction">
+			<Text>¬Age_in_years(&lt;= 25) &amp; ¬Sex(F)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40936</BARef>
+
+			<BARef>DBA_FTLiteralI_Sign_40937</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12648" connective="Conjunction">
+			<Text>DistrictR(Strakonice)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40938</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12649" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40939</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12650" connective="Conjunction">
+			<Text>¬Age_in_years(&lt;= 25) &amp; ¬Sex(M)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40940</BARef>
+
+			<BARef>DBA_FTLiteralI_Sign_40941</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12651" connective="Conjunction">
+			<Text>DistrictR(Beroun)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40942</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12652" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40943</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12653" connective="Conjunction">
+			<Text>¬Age_in_years(&lt;= 25) &amp; ¬Sex(M)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40944</BARef>
+
+			<BARef>DBA_FTLiteralI_Sign_40945</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12654" connective="Conjunction">
+			<Text>DistrictR(Beroun, Domazlice)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40946</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12655" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40947</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12656" connective="Conjunction">
+			<Text>¬Age_in_years(&lt;= 25) &amp; ¬Sex(M)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40948</BARef>
+
+			<BARef>DBA_FTLiteralI_Sign_40949</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12657" connective="Conjunction">
+			<Text>DistrictR(Beroun, Sokolov)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40950</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12658" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40951</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12659" connective="Conjunction">
+			<Text>¬Age_in_years(&lt;= 25) &amp; ¬Sex(M)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40952</BARef>
+
+			<BARef>DBA_FTLiteralI_Sign_40953</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12660" connective="Conjunction">
+			<Text>DistrictR(Domazlice)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40954</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12661" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40955</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12662" connective="Conjunction">
+			<Text>¬Age_in_years(&lt;= 25) &amp; ¬Sex(M)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40956</BARef>
+
+			<BARef>DBA_FTLiteralI_Sign_40957</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12663" connective="Conjunction">
+			<Text>DistrictR(Domazlice, Sokolov)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40958</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12664" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40959</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12665" connective="Conjunction">
+			<Text>¬Age_in_years(22...26) &amp; ¬Sex(F)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40960</BARef>
+
+			<BARef>DBA_FTLiteralI_Sign_40961</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12666" connective="Conjunction">
+			<Text>DistrictR(Strakonice)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40962</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12667" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40963</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12668" connective="Conjunction">
+			<Text>¬Age_in_years(22...26) &amp; ¬Sex(M)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40964</BARef>
+
+			<BARef>DBA_FTLiteralI_Sign_40965</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12669" connective="Conjunction">
+			<Text>DistrictR(Beroun)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40966</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12670" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40967</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12671" connective="Conjunction">
+			<Text>¬Age_in_years(22...26) &amp; ¬Sex(M)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40968</BARef>
+
+			<BARef>DBA_FTLiteralI_Sign_40969</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12672" connective="Conjunction">
+			<Text>DistrictR(Beroun, Domazlice)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40970</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12673" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40971</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12674" connective="Conjunction">
+			<Text>¬Age_in_years(22...26) &amp; ¬Sex(M)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40972</BARef>
+
+			<BARef>DBA_FTLiteralI_Sign_40973</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12675" connective="Conjunction">
+			<Text>DistrictR(Beroun, Sokolov)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40974</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12676" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40975</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12677" connective="Conjunction">
+			<Text>¬Age_in_years(22...26) &amp; ¬Sex(M)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40976</BARef>
+
+			<BARef>DBA_FTLiteralI_Sign_40977</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12678" connective="Conjunction">
+			<Text>DistrictR(Domazlice)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40978</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12679" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40979</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12680" connective="Conjunction">
+			<Text>¬Age_in_years(22...26) &amp; ¬Sex(M)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40980</BARef>
+
+			<BARef>DBA_FTLiteralI_Sign_40981</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12681" connective="Conjunction">
+			<Text>DistrictR(Domazlice, Sokolov)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40982</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12682" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40983</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12683" connective="Conjunction">
+			<Text>¬Age_in_years(23...27) &amp; ¬Sex(F)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40984</BARef>
+
+			<BARef>DBA_FTLiteralI_Sign_40985</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12684" connective="Conjunction">
+			<Text>DistrictR(Strakonice)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40986</BARef>
+
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_12685" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTLiteralI_Sign_40987</BARef>
+
+		   </DBA>
+
+		   <DBA id="DBA_Antecedent_10017" connective="Conjunction">
+			<Text>DistrictR(Sokolov)</Text>
+			<BARef>DBA_FTCedentI_12645</BARef>
+		   </DBA>
+		   <DBA id="DBA_Succedent_10017" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTCedentI_12646</BARef>
+		   </DBA>
+		   <DBA id="DBA_Antecedent_10018" connective="Conjunction">
+			<Text>¬Age_in_years(&lt;= 25) &amp; ¬Sex(F) &amp; DistrictR(Strakonice)</Text>
+			<BARef>DBA_FTCedentI_12647</BARef>
+			<BARef>DBA_FTCedentI_12648</BARef>
+		   </DBA>
+		   <DBA id="DBA_Succedent_10018" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTCedentI_12649</BARef>
+		   </DBA>
+		   <DBA id="DBA_Antecedent_10019" connective="Conjunction">
+			<Text>¬Age_in_years(&lt;= 25) &amp; ¬Sex(M) &amp; DistrictR(Beroun)</Text>
+			<BARef>DBA_FTCedentI_12650</BARef>
+			<BARef>DBA_FTCedentI_12651</BARef>
+		   </DBA>
+		   <DBA id="DBA_Succedent_10019" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTCedentI_12652</BARef>
+		   </DBA>
+		   <DBA id="DBA_Antecedent_10020" connective="Conjunction">
+			<Text>¬Age_in_years(&lt;= 25) &amp; ¬Sex(M) &amp; DistrictR(Beroun, Domazlice)</Text>
+			<BARef>DBA_FTCedentI_12653</BARef>
+			<BARef>DBA_FTCedentI_12654</BARef>
+		   </DBA>
+		   <DBA id="DBA_Succedent_10020" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTCedentI_12655</BARef>
+		   </DBA>
+		   <DBA id="DBA_Antecedent_10021" connective="Conjunction">
+			<Text>¬Age_in_years(&lt;= 25) &amp; ¬Sex(M) &amp; DistrictR(Beroun, Sokolov)</Text>
+			<BARef>DBA_FTCedentI_12656</BARef>
+			<BARef>DBA_FTCedentI_12657</BARef>
+		   </DBA>
+		   <DBA id="DBA_Succedent_10021" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTCedentI_12658</BARef>
+		   </DBA>
+		   <DBA id="DBA_Antecedent_10022" connective="Conjunction">
+			<Text>¬Age_in_years(&lt;= 25) &amp; ¬Sex(M) &amp; DistrictR(Domazlice)</Text>
+			<BARef>DBA_FTCedentI_12659</BARef>
+			<BARef>DBA_FTCedentI_12660</BARef>
+		   </DBA>
+		   <DBA id="DBA_Succedent_10022" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTCedentI_12661</BARef>
+		   </DBA>
+		   <DBA id="DBA_Antecedent_10023" connective="Conjunction">
+			<Text>¬Age_in_years(&lt;= 25) &amp; ¬Sex(M) &amp; DistrictR(Domazlice, Sokolov)</Text>
+			<BARef>DBA_FTCedentI_12662</BARef>
+			<BARef>DBA_FTCedentI_12663</BARef>
+		   </DBA>
+		   <DBA id="DBA_Succedent_10023" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTCedentI_12664</BARef>
+		   </DBA>
+		   <DBA id="DBA_Antecedent_10024" connective="Conjunction">
+			<Text>¬Age_in_years(22...26) &amp; ¬Sex(F) &amp; DistrictR(Strakonice)</Text>
+			<BARef>DBA_FTCedentI_12665</BARef>
+			<BARef>DBA_FTCedentI_12666</BARef>
+		   </DBA>
+		   <DBA id="DBA_Succedent_10024" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTCedentI_12667</BARef>
+		   </DBA>
+		   <DBA id="DBA_Antecedent_10025" connective="Conjunction">
+			<Text>¬Age_in_years(22...26) &amp; ¬Sex(M) &amp; DistrictR(Beroun)</Text>
+			<BARef>DBA_FTCedentI_12668</BARef>
+			<BARef>DBA_FTCedentI_12669</BARef>
+		   </DBA>
+		   <DBA id="DBA_Succedent_10025" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTCedentI_12670</BARef>
+		   </DBA>
+		   <DBA id="DBA_Antecedent_10026" connective="Conjunction">
+			<Text>¬Age_in_years(22...26) &amp; ¬Sex(M) &amp; DistrictR(Beroun, Domazlice)</Text>
+			<BARef>DBA_FTCedentI_12671</BARef>
+			<BARef>DBA_FTCedentI_12672</BARef>
+		   </DBA>
+		   <DBA id="DBA_Succedent_10026" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTCedentI_12673</BARef>
+		   </DBA>
+		   <DBA id="DBA_Antecedent_10027" connective="Conjunction">
+			<Text>¬Age_in_years(22...26) &amp; ¬Sex(M) &amp; DistrictR(Beroun, Sokolov)</Text>
+			<BARef>DBA_FTCedentI_12674</BARef>
+			<BARef>DBA_FTCedentI_12675</BARef>
+		   </DBA>
+		   <DBA id="DBA_Succedent_10027" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTCedentI_12676</BARef>
+		   </DBA>
+		   <DBA id="DBA_Antecedent_10028" connective="Conjunction">
+			<Text>¬Age_in_years(22...26) &amp; ¬Sex(M) &amp; DistrictR(Domazlice)</Text>
+			<BARef>DBA_FTCedentI_12677</BARef>
+			<BARef>DBA_FTCedentI_12678</BARef>
+		   </DBA>
+		   <DBA id="DBA_Succedent_10028" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTCedentI_12679</BARef>
+		   </DBA>
+		   <DBA id="DBA_Antecedent_10029" connective="Conjunction">
+			<Text>¬Age_in_years(22...26) &amp; ¬Sex(M) &amp; DistrictR(Domazlice, Sokolov)</Text>
+			<BARef>DBA_FTCedentI_12680</BARef>
+			<BARef>DBA_FTCedentI_12681</BARef>
+		   </DBA>
+		   <DBA id="DBA_Succedent_10029" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTCedentI_12682</BARef>
+		   </DBA>
+		   <DBA id="DBA_Antecedent_10030" connective="Conjunction">
+			<Text>¬Age_in_years(23...27) &amp; ¬Sex(F) &amp; DistrictR(Strakonice)</Text>
+			<BARef>DBA_FTCedentI_12683</BARef>
+			<BARef>DBA_FTCedentI_12684</BARef>
+		   </DBA>
+		   <DBA id="DBA_Succedent_10030" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTCedentI_12685</BARef>
+		   </DBA>
+
+	<!-- Hypothesis -->
+
+		   <AssociationRule id="1" antecedent="DBA_Antecedent_10017" consequent="DBA_Succedent_10017">
+			<Text>DistrictR(Sokolov) ::: Quality(bad)</Text>
+	
+			<IMValue name="BASE" imSettingRef="13">12</IMValue>
+			<IMValue name="FUI" imSettingRef="2">1</IMValue>
+
+			<IMValue name="a-frequency">12</IMValue>
+			<IMValue name="b-frequency">0</IMValue>
+			<IMValue name="c-frequency">715</IMValue>
+			<IMValue name="d-frequency">5454</IMValue>
+			<IMValue name="r-frequency">12</IMValue>
+			<IMValue name="n-frequency">6181</IMValue>
+			<IMValue name="Confidence">1</IMValue>
+			<IMValue name="Double Founded Implication">0.0165061898</IMValue>
+			<IMValue name="Founded Equivalence">0.8843229251</IMValue>
+			<IMValue name="Support">0.0019414334</IMValue>
+			<IMValue name="Cmplt">0.0165061898</IMValue>
+			<IMValue name="Average Difference">7.5020632737</IMValue>
+			<IMValue name="Lower Critical Implication">0.2824295365</IMValue>
+			<IMValue name="Upper Critical Implication">1</IMValue>
+			<IMValue name="Lower Critical Equivalence">0.9999738083</IMValue>
+			<IMValue name="Upper Critical Equivalence">0.0000311241</IMValue>
+			<IMValue name="Double Lower Critical Implication">1</IMValue>
+			<IMValue name="Double Upper Critical Implication">0</IMValue>
+			<IMValue name="Fisher">0</IMValue>
+			<IMValue name="Chi-Square Significance Level">90.1998763396</IMValue>
+			<IMValue name="bMean">0.9285714286</IMValue>
+			<IMValue name="bVAR">0.9285714286</IMValue>
+			<IMValue name="bStDev">0.0664963812</IMValue>
+			<IMValue name="P(&gt;=90%)">0.7458223376</IMValue>
+			<IMValue name="P(&gt;=95%)">0.4866593181</IMValue>
+
+			<FourFtTable a="12" b="0" c="715" d="5454"/>
+		   </AssociationRule>
+		   <AssociationRule id="2" antecedent="DBA_Antecedent_10018" consequent="DBA_Succedent_10018">
+			<Text>¬Age_in_years(&lt;= 25) &amp; ¬Sex(F) &amp; DistrictR(Strakonice) ::: Quality(bad)</Text>
+	
+			<IMValue name="BASE" imSettingRef="13">18</IMValue>
+			<IMValue name="FUI" imSettingRef="2">1</IMValue>
+
+			<IMValue name="a-frequency">18</IMValue>
+			<IMValue name="b-frequency">0</IMValue>
+			<IMValue name="c-frequency">709</IMValue>
+			<IMValue name="d-frequency">5454</IMValue>
+			<IMValue name="r-frequency">18</IMValue>
+			<IMValue name="n-frequency">6181</IMValue>
+			<IMValue name="Confidence">1</IMValue>
+			<IMValue name="Double Founded Implication">0.0247592847</IMValue>
+			<IMValue name="Founded Equivalence">0.8852936418</IMValue>
+			<IMValue name="Support">0.0029121501</IMValue>
+			<IMValue name="Cmplt">0.0247592847</IMValue>
+			<IMValue name="Average Difference">7.5020632737</IMValue>
+			<IMValue name="Lower Critical Implication">0.1500946353</IMValue>
+			<IMValue name="Upper Critical Implication">1</IMValue>
+			<IMValue name="Lower Critical Equivalence">0.9999278951</IMValue>
+			<IMValue name="Upper Critical Equivalence">0.0000849141</IMValue>
+			<IMValue name="Double Lower Critical Implication">1</IMValue>
+			<IMValue name="Double Upper Critical Implication">0</IMValue>
+			<IMValue name="Fisher">0</IMValue>
+			<IMValue name="Chi-Square Significance Level">135.431535893</IMValue>
+			<IMValue name="bMean">0.95</IMValue>
+			<IMValue name="bVAR">0.95</IMValue>
+			<IMValue name="bStDev">0.0475594866</IMValue>
+			<IMValue name="P(&gt;=90%)">0.8649385751</IMValue>
+			<IMValue name="P(&gt;=95%)">0.6226505434</IMValue>
+
+			<FourFtTable a="18" b="0" c="709" d="5454"/>
+		   </AssociationRule>
+		   <AssociationRule id="3" antecedent="DBA_Antecedent_10019" consequent="DBA_Succedent_10019">
+			<Text>¬Age_in_years(&lt;= 25) &amp; ¬Sex(M) &amp; DistrictR(Beroun) ::: Quality(bad)</Text>
+	
+			<IMValue name="BASE" imSettingRef="13">18</IMValue>
+			<IMValue name="FUI" imSettingRef="2">1</IMValue>
+
+			<IMValue name="a-frequency">18</IMValue>
+			<IMValue name="b-frequency">0</IMValue>
+			<IMValue name="c-frequency">709</IMValue>
+			<IMValue name="d-frequency">5454</IMValue>
+			<IMValue name="r-frequency">18</IMValue>
+			<IMValue name="n-frequency">6181</IMValue>
+			<IMValue name="Confidence">1</IMValue>
+			<IMValue name="Double Founded Implication">0.0247592847</IMValue>
+			<IMValue name="Founded Equivalence">0.8852936418</IMValue>
+			<IMValue name="Support">0.0029121501</IMValue>
+			<IMValue name="Cmplt">0.0247592847</IMValue>
+			<IMValue name="Average Difference">7.5020632737</IMValue>
+			<IMValue name="Lower Critical Implication">0.1500946353</IMValue>
+			<IMValue name="Upper Critical Implication">1</IMValue>
+			<IMValue name="Lower Critical Equivalence">0.9999278951</IMValue>
+			<IMValue name="Upper Critical Equivalence">0.0000849141</IMValue>
+			<IMValue name="Double Lower Critical Implication">1</IMValue>
+			<IMValue name="Double Upper Critical Implication">0</IMValue>
+			<IMValue name="Fisher">0</IMValue>
+			<IMValue name="Chi-Square Significance Level">135.431535893</IMValue>
+			<IMValue name="bMean">0.95</IMValue>
+			<IMValue name="bVAR">0.95</IMValue>
+			<IMValue name="bStDev">0.0475594866</IMValue>
+			<IMValue name="P(&gt;=90%)">0.8649385751</IMValue>
+			<IMValue name="P(&gt;=95%)">0.6226505434</IMValue>
+
+			<FourFtTable a="18" b="0" c="709" d="5454"/>
+		   </AssociationRule>
+		   <AssociationRule id="4" antecedent="DBA_Antecedent_10020" consequent="DBA_Succedent_10020">
+			<Text>¬Age_in_years(&lt;= 25) &amp; ¬Sex(M) &amp; DistrictR(Beroun, Domazlice) ::: Quality(bad)</Text>
+	
+			<IMValue name="BASE" imSettingRef="13">27</IMValue>
+			<IMValue name="FUI" imSettingRef="2">1</IMValue>
+
+			<IMValue name="a-frequency">27</IMValue>
+			<IMValue name="b-frequency">0</IMValue>
+			<IMValue name="c-frequency">700</IMValue>
+			<IMValue name="d-frequency">5454</IMValue>
+			<IMValue name="r-frequency">27</IMValue>
+			<IMValue name="n-frequency">6181</IMValue>
+			<IMValue name="Confidence">1</IMValue>
+			<IMValue name="Double Founded Implication">0.0371389271</IMValue>
+			<IMValue name="Founded Equivalence">0.8867497169</IMValue>
+			<IMValue name="Support">0.0043682252</IMValue>
+			<IMValue name="Cmplt">0.0371389271</IMValue>
+			<IMValue name="Average Difference">7.5020632737</IMValue>
+			<IMValue name="Lower Critical Implication">0.058149737</IMValue>
+			<IMValue name="Upper Critical Implication">1</IMValue>
+			<IMValue name="Lower Critical Equivalence">0.9997024557</IMValue>
+			<IMValue name="Upper Critical Equivalence">0.000345683</IMValue>
+			<IMValue name="Double Lower Critical Implication">1</IMValue>
+			<IMValue name="Double Upper Critical Implication">0</IMValue>
+			<IMValue name="Fisher">0</IMValue>
+			<IMValue name="Chi-Square Significance Level">203.4443993439</IMValue>
+			<IMValue name="bMean">0.9655172414</IMValue>
+			<IMValue name="bVAR">0.9655172414</IMValue>
+			<IMValue name="bStDev">0.0333135098</IMValue>
+			<IMValue name="P(&gt;=90%)">0.9477241656</IMValue>
+			<IMValue name="P(&gt;=95%)">0.7621847143</IMValue>
+
+			<FourFtTable a="27" b="0" c="700" d="5454"/>
+		   </AssociationRule>
+		   <AssociationRule id="5" antecedent="DBA_Antecedent_10021" consequent="DBA_Succedent_10021">
+			<Text>¬Age_in_years(&lt;= 25) &amp; ¬Sex(M) &amp; DistrictR(Beroun, Sokolov) ::: Quality(bad)</Text>
+	
+			<IMValue name="BASE" imSettingRef="13">30</IMValue>
+			<IMValue name="FUI" imSettingRef="2">1</IMValue>
+
+			<IMValue name="a-frequency">30</IMValue>
+			<IMValue name="b-frequency">0</IMValue>
+			<IMValue name="c-frequency">697</IMValue>
+			<IMValue name="d-frequency">5454</IMValue>
+			<IMValue name="r-frequency">30</IMValue>
+			<IMValue name="n-frequency">6181</IMValue>
+			<IMValue name="Confidence">1</IMValue>
+			<IMValue name="Double Founded Implication">0.0412654746</IMValue>
+			<IMValue name="Founded Equivalence">0.8872350752</IMValue>
+			<IMValue name="Support">0.0048535836</IMValue>
+			<IMValue name="Cmplt">0.0412654746</IMValue>
+			<IMValue name="Average Difference">7.5020632737</IMValue>
+			<IMValue name="Lower Critical Implication">0.0423911583</IMValue>
+			<IMValue name="Upper Critical Implication">1</IMValue>
+			<IMValue name="Lower Critical Equivalence">0.9995355215</IMValue>
+			<IMValue name="Upper Critical Equivalence">0.0005371891</IMValue>
+			<IMValue name="Double Lower Critical Implication">1</IMValue>
+			<IMValue name="Double Upper Critical Implication">0</IMValue>
+			<IMValue name="Fisher">0</IMValue>
+			<IMValue name="Chi-Square Significance Level">226.1595826447</IMValue>
+			<IMValue name="bMean">0.96875</IMValue>
+			<IMValue name="bVAR">0.96875</IMValue>
+			<IMValue name="bStDev">0.0302882303</IMValue>
+			<IMValue name="P(&gt;=90%)">0.9619218062</IMValue>
+			<IMValue name="P(&gt;=95%)">0.7961081717</IMValue>
+
+			<FourFtTable a="30" b="0" c="697" d="5454"/>
+		   </AssociationRule>
+		   <AssociationRule id="6" antecedent="DBA_Antecedent_10022" consequent="DBA_Succedent_10022">
+			<Text>¬Age_in_years(&lt;= 25) &amp; ¬Sex(M) &amp; DistrictR(Domazlice) ::: Quality(bad)</Text>
+	
+			<IMValue name="BASE" imSettingRef="13">9</IMValue>
+			<IMValue name="FUI" imSettingRef="2">1</IMValue>
+
+			<IMValue name="a-frequency">9</IMValue>
+			<IMValue name="b-frequency">0</IMValue>
+			<IMValue name="c-frequency">718</IMValue>
+			<IMValue name="d-frequency">5454</IMValue>
+			<IMValue name="r-frequency">9</IMValue>
+			<IMValue name="n-frequency">6181</IMValue>
+			<IMValue name="Confidence">1</IMValue>
+			<IMValue name="Double Founded Implication">0.0123796424</IMValue>
+			<IMValue name="Founded Equivalence">0.8838375667</IMValue>
+			<IMValue name="Support">0.0014560751</IMValue>
+			<IMValue name="Cmplt">0.0123796424</IMValue>
+			<IMValue name="Average Difference">7.5020632737</IMValue>
+			<IMValue name="Lower Critical Implication">0.387420489</IMValue>
+			<IMValue name="Upper Critical Implication">1</IMValue>
+			<IMValue name="Lower Critical Equivalence">0.9999845311</IMValue>
+			<IMValue name="Upper Critical Equivalence">0.0000184649</IMValue>
+			<IMValue name="Double Lower Critical Implication">1</IMValue>
+			<IMValue name="Double Upper Critical Implication">0</IMValue>
+			<IMValue name="Fisher">0.0000000041</IMValue>
+			<IMValue name="Chi-Square Significance Level">67.6170249278</IMValue>
+			<IMValue name="bMean">0.9090909091</IMValue>
+			<IMValue name="bVAR">0.9090909091</IMValue>
+			<IMValue name="bStDev">0.0829882663</IMValue>
+			<IMValue name="P(&gt;=90%)">0.6513258314</IMValue>
+			<IMValue name="P(&gt;=95%)">0.4012636918</IMValue>
+
+			<FourFtTable a="9" b="0" c="718" d="5454"/>
+		   </AssociationRule>
+		   <AssociationRule id="7" antecedent="DBA_Antecedent_10023" consequent="DBA_Succedent_10023">
+			<Text>¬Age_in_years(&lt;= 25) &amp; ¬Sex(M) &amp; DistrictR(Domazlice, Sokolov) ::: Quality(bad)</Text>
+	
+			<IMValue name="BASE" imSettingRef="13">21</IMValue>
+			<IMValue name="FUI" imSettingRef="2">1</IMValue>
+
+			<IMValue name="a-frequency">21</IMValue>
+			<IMValue name="b-frequency">0</IMValue>
+			<IMValue name="c-frequency">706</IMValue>
+			<IMValue name="d-frequency">5454</IMValue>
+			<IMValue name="r-frequency">21</IMValue>
+			<IMValue name="n-frequency">6181</IMValue>
+			<IMValue name="Confidence">1</IMValue>
+			<IMValue name="Double Founded Implication">0.0288858322</IMValue>
+			<IMValue name="Founded Equivalence">0.8857790002</IMValue>
+			<IMValue name="Support">0.0033975085</IMValue>
+			<IMValue name="Cmplt">0.0288858322</IMValue>
+			<IMValue name="Average Difference">7.5020632737</IMValue>
+			<IMValue name="Lower Critical Implication">0.1094189891</IMValue>
+			<IMValue name="Upper Critical Implication">1</IMValue>
+			<IMValue name="Lower Critical Equivalence">0.9998827677</IMValue>
+			<IMValue name="Upper Critical Equivalence">0.0001374362</IMValue>
+			<IMValue name="Double Lower Critical Implication">1</IMValue>
+			<IMValue name="Double Upper Critical Implication">0</IMValue>
+			<IMValue name="Fisher">0</IMValue>
+			<IMValue name="Chi-Square Significance Level">158.0804082781</IMValue>
+			<IMValue name="bMean">0.9565217391</IMValue>
+			<IMValue name="bVAR">0.9565217391</IMValue>
+			<IMValue name="bStDev">0.0416272656</IMValue>
+			<IMValue name="P(&gt;=90%)">0.9015567289</IMValue>
+			<IMValue name="P(&gt;=95%)">0.6764726296</IMValue>
+
+			<FourFtTable a="21" b="0" c="706" d="5454"/>
+		   </AssociationRule>
+		   <AssociationRule id="8" antecedent="DBA_Antecedent_10024" consequent="DBA_Succedent_10024">
+			<Text>¬Age_in_years(22...26) &amp; ¬Sex(F) &amp; DistrictR(Strakonice) ::: Quality(bad)</Text>
+	
+			<IMValue name="BASE" imSettingRef="13">18</IMValue>
+			<IMValue name="FUI" imSettingRef="2">1</IMValue>
+
+			<IMValue name="a-frequency">18</IMValue>
+			<IMValue name="b-frequency">0</IMValue>
+			<IMValue name="c-frequency">709</IMValue>
+			<IMValue name="d-frequency">5454</IMValue>
+			<IMValue name="r-frequency">18</IMValue>
+			<IMValue name="n-frequency">6181</IMValue>
+			<IMValue name="Confidence">1</IMValue>
+			<IMValue name="Double Founded Implication">0.0247592847</IMValue>
+			<IMValue name="Founded Equivalence">0.8852936418</IMValue>
+			<IMValue name="Support">0.0029121501</IMValue>
+			<IMValue name="Cmplt">0.0247592847</IMValue>
+			<IMValue name="Average Difference">7.5020632737</IMValue>
+			<IMValue name="Lower Critical Implication">0.1500946353</IMValue>
+			<IMValue name="Upper Critical Implication">1</IMValue>
+			<IMValue name="Lower Critical Equivalence">0.9999278951</IMValue>
+			<IMValue name="Upper Critical Equivalence">0.0000849141</IMValue>
+			<IMValue name="Double Lower Critical Implication">1</IMValue>
+			<IMValue name="Double Upper Critical Implication">0</IMValue>
+			<IMValue name="Fisher">0</IMValue>
+			<IMValue name="Chi-Square Significance Level">135.431535893</IMValue>
+			<IMValue name="bMean">0.95</IMValue>
+			<IMValue name="bVAR">0.95</IMValue>
+			<IMValue name="bStDev">0.0475594866</IMValue>
+			<IMValue name="P(&gt;=90%)">0.8649385751</IMValue>
+			<IMValue name="P(&gt;=95%)">0.6226505434</IMValue>
+
+			<FourFtTable a="18" b="0" c="709" d="5454"/>
+		   </AssociationRule>
+		   <AssociationRule id="9" antecedent="DBA_Antecedent_10025" consequent="DBA_Succedent_10025">
+			<Text>¬Age_in_years(22...26) &amp; ¬Sex(M) &amp; DistrictR(Beroun) ::: Quality(bad)</Text>
+	
+			<IMValue name="BASE" imSettingRef="13">18</IMValue>
+			<IMValue name="FUI" imSettingRef="2">1</IMValue>
+
+			<IMValue name="a-frequency">18</IMValue>
+			<IMValue name="b-frequency">0</IMValue>
+			<IMValue name="c-frequency">709</IMValue>
+			<IMValue name="d-frequency">5454</IMValue>
+			<IMValue name="r-frequency">18</IMValue>
+			<IMValue name="n-frequency">6181</IMValue>
+			<IMValue name="Confidence">1</IMValue>
+			<IMValue name="Double Founded Implication">0.0247592847</IMValue>
+			<IMValue name="Founded Equivalence">0.8852936418</IMValue>
+			<IMValue name="Support">0.0029121501</IMValue>
+			<IMValue name="Cmplt">0.0247592847</IMValue>
+			<IMValue name="Average Difference">7.5020632737</IMValue>
+			<IMValue name="Lower Critical Implication">0.1500946353</IMValue>
+			<IMValue name="Upper Critical Implication">1</IMValue>
+			<IMValue name="Lower Critical Equivalence">0.9999278951</IMValue>
+			<IMValue name="Upper Critical Equivalence">0.0000849141</IMValue>
+			<IMValue name="Double Lower Critical Implication">1</IMValue>
+			<IMValue name="Double Upper Critical Implication">0</IMValue>
+			<IMValue name="Fisher">0</IMValue>
+			<IMValue name="Chi-Square Significance Level">135.431535893</IMValue>
+			<IMValue name="bMean">0.95</IMValue>
+			<IMValue name="bVAR">0.95</IMValue>
+			<IMValue name="bStDev">0.0475594866</IMValue>
+			<IMValue name="P(&gt;=90%)">0.8649385751</IMValue>
+			<IMValue name="P(&gt;=95%)">0.6226505434</IMValue>
+
+			<FourFtTable a="18" b="0" c="709" d="5454"/>
+		   </AssociationRule>
+		   <AssociationRule id="10" antecedent="DBA_Antecedent_10026" consequent="DBA_Succedent_10026">
+			<Text>¬Age_in_years(22...26) &amp; ¬Sex(M) &amp; DistrictR(Beroun, Domazlice) ::: Quality(bad)</Text>
+	
+			<IMValue name="BASE" imSettingRef="13">27</IMValue>
+			<IMValue name="FUI" imSettingRef="2">1</IMValue>
+
+			<IMValue name="a-frequency">27</IMValue>
+			<IMValue name="b-frequency">0</IMValue>
+			<IMValue name="c-frequency">700</IMValue>
+			<IMValue name="d-frequency">5454</IMValue>
+			<IMValue name="r-frequency">27</IMValue>
+			<IMValue name="n-frequency">6181</IMValue>
+			<IMValue name="Confidence">1</IMValue>
+			<IMValue name="Double Founded Implication">0.0371389271</IMValue>
+			<IMValue name="Founded Equivalence">0.8867497169</IMValue>
+			<IMValue name="Support">0.0043682252</IMValue>
+			<IMValue name="Cmplt">0.0371389271</IMValue>
+			<IMValue name="Average Difference">7.5020632737</IMValue>
+			<IMValue name="Lower Critical Implication">0.058149737</IMValue>
+			<IMValue name="Upper Critical Implication">1</IMValue>
+			<IMValue name="Lower Critical Equivalence">0.9997024557</IMValue>
+			<IMValue name="Upper Critical Equivalence">0.000345683</IMValue>
+			<IMValue name="Double Lower Critical Implication">1</IMValue>
+			<IMValue name="Double Upper Critical Implication">0</IMValue>
+			<IMValue name="Fisher">0</IMValue>
+			<IMValue name="Chi-Square Significance Level">203.4443993439</IMValue>
+			<IMValue name="bMean">0.9655172414</IMValue>
+			<IMValue name="bVAR">0.9655172414</IMValue>
+			<IMValue name="bStDev">0.0333135098</IMValue>
+			<IMValue name="P(&gt;=90%)">0.9477241656</IMValue>
+			<IMValue name="P(&gt;=95%)">0.7621847143</IMValue>
+
+			<FourFtTable a="27" b="0" c="700" d="5454"/>
+		   </AssociationRule>
+		   <AssociationRule id="11" antecedent="DBA_Antecedent_10027" consequent="DBA_Succedent_10027">
+			<Text>¬Age_in_years(22...26) &amp; ¬Sex(M) &amp; DistrictR(Beroun, Sokolov) ::: Quality(bad)</Text>
+	
+			<IMValue name="BASE" imSettingRef="13">30</IMValue>
+			<IMValue name="FUI" imSettingRef="2">1</IMValue>
+
+			<IMValue name="a-frequency">30</IMValue>
+			<IMValue name="b-frequency">0</IMValue>
+			<IMValue name="c-frequency">697</IMValue>
+			<IMValue name="d-frequency">5454</IMValue>
+			<IMValue name="r-frequency">30</IMValue>
+			<IMValue name="n-frequency">6181</IMValue>
+			<IMValue name="Confidence">1</IMValue>
+			<IMValue name="Double Founded Implication">0.0412654746</IMValue>
+			<IMValue name="Founded Equivalence">0.8872350752</IMValue>
+			<IMValue name="Support">0.0048535836</IMValue>
+			<IMValue name="Cmplt">0.0412654746</IMValue>
+			<IMValue name="Average Difference">7.5020632737</IMValue>
+			<IMValue name="Lower Critical Implication">0.0423911583</IMValue>
+			<IMValue name="Upper Critical Implication">1</IMValue>
+			<IMValue name="Lower Critical Equivalence">0.9995355215</IMValue>
+			<IMValue name="Upper Critical Equivalence">0.0005371891</IMValue>
+			<IMValue name="Double Lower Critical Implication">1</IMValue>
+			<IMValue name="Double Upper Critical Implication">0</IMValue>
+			<IMValue name="Fisher">0</IMValue>
+			<IMValue name="Chi-Square Significance Level">226.1595826447</IMValue>
+			<IMValue name="bMean">0.96875</IMValue>
+			<IMValue name="bVAR">0.96875</IMValue>
+			<IMValue name="bStDev">0.0302882303</IMValue>
+			<IMValue name="P(&gt;=90%)">0.9619218062</IMValue>
+			<IMValue name="P(&gt;=95%)">0.7961081717</IMValue>
+
+			<FourFtTable a="30" b="0" c="697" d="5454"/>
+		   </AssociationRule>
+		   <AssociationRule id="12" antecedent="DBA_Antecedent_10028" consequent="DBA_Succedent_10028">
+			<Text>¬Age_in_years(22...26) &amp; ¬Sex(M) &amp; DistrictR(Domazlice) ::: Quality(bad)</Text>
+	
+			<IMValue name="BASE" imSettingRef="13">9</IMValue>
+			<IMValue name="FUI" imSettingRef="2">1</IMValue>
+
+			<IMValue name="a-frequency">9</IMValue>
+			<IMValue name="b-frequency">0</IMValue>
+			<IMValue name="c-frequency">718</IMValue>
+			<IMValue name="d-frequency">5454</IMValue>
+			<IMValue name="r-frequency">9</IMValue>
+			<IMValue name="n-frequency">6181</IMValue>
+			<IMValue name="Confidence">1</IMValue>
+			<IMValue name="Double Founded Implication">0.0123796424</IMValue>
+			<IMValue name="Founded Equivalence">0.8838375667</IMValue>
+			<IMValue name="Support">0.0014560751</IMValue>
+			<IMValue name="Cmplt">0.0123796424</IMValue>
+			<IMValue name="Average Difference">7.5020632737</IMValue>
+			<IMValue name="Lower Critical Implication">0.387420489</IMValue>
+			<IMValue name="Upper Critical Implication">1</IMValue>
+			<IMValue name="Lower Critical Equivalence">0.9999845311</IMValue>
+			<IMValue name="Upper Critical Equivalence">0.0000184649</IMValue>
+			<IMValue name="Double Lower Critical Implication">1</IMValue>
+			<IMValue name="Double Upper Critical Implication">0</IMValue>
+			<IMValue name="Fisher">0.0000000041</IMValue>
+			<IMValue name="Chi-Square Significance Level">67.6170249278</IMValue>
+			<IMValue name="bMean">0.9090909091</IMValue>
+			<IMValue name="bVAR">0.9090909091</IMValue>
+			<IMValue name="bStDev">0.0829882663</IMValue>
+			<IMValue name="P(&gt;=90%)">0.6513258314</IMValue>
+			<IMValue name="P(&gt;=95%)">0.4012636918</IMValue>
+
+			<FourFtTable a="9" b="0" c="718" d="5454"/>
+		   </AssociationRule>
+		   <AssociationRule id="13" antecedent="DBA_Antecedent_10029" consequent="DBA_Succedent_10029">
+			<Text>¬Age_in_years(22...26) &amp; ¬Sex(M) &amp; DistrictR(Domazlice, Sokolov) ::: Quality(bad)</Text>
+	
+			<IMValue name="BASE" imSettingRef="13">21</IMValue>
+			<IMValue name="FUI" imSettingRef="2">1</IMValue>
+
+			<IMValue name="a-frequency">21</IMValue>
+			<IMValue name="b-frequency">0</IMValue>
+			<IMValue name="c-frequency">706</IMValue>
+			<IMValue name="d-frequency">5454</IMValue>
+			<IMValue name="r-frequency">21</IMValue>
+			<IMValue name="n-frequency">6181</IMValue>
+			<IMValue name="Confidence">1</IMValue>
+			<IMValue name="Double Founded Implication">0.0288858322</IMValue>
+			<IMValue name="Founded Equivalence">0.8857790002</IMValue>
+			<IMValue name="Support">0.0033975085</IMValue>
+			<IMValue name="Cmplt">0.0288858322</IMValue>
+			<IMValue name="Average Difference">7.5020632737</IMValue>
+			<IMValue name="Lower Critical Implication">0.1094189891</IMValue>
+			<IMValue name="Upper Critical Implication">1</IMValue>
+			<IMValue name="Lower Critical Equivalence">0.9998827677</IMValue>
+			<IMValue name="Upper Critical Equivalence">0.0001374362</IMValue>
+			<IMValue name="Double Lower Critical Implication">1</IMValue>
+			<IMValue name="Double Upper Critical Implication">0</IMValue>
+			<IMValue name="Fisher">0</IMValue>
+			<IMValue name="Chi-Square Significance Level">158.0804082781</IMValue>
+			<IMValue name="bMean">0.9565217391</IMValue>
+			<IMValue name="bVAR">0.9565217391</IMValue>
+			<IMValue name="bStDev">0.0416272656</IMValue>
+			<IMValue name="P(&gt;=90%)">0.9015567289</IMValue>
+			<IMValue name="P(&gt;=95%)">0.6764726296</IMValue>
+
+			<FourFtTable a="21" b="0" c="706" d="5454"/>
+		   </AssociationRule>
+		   <AssociationRule id="14" antecedent="DBA_Antecedent_10030" consequent="DBA_Succedent_10030">
+			<Text>¬Age_in_years(23...27) &amp; ¬Sex(F) &amp; DistrictR(Strakonice) ::: Quality(bad)</Text>
+	
+			<IMValue name="BASE" imSettingRef="13">18</IMValue>
+			<IMValue name="FUI" imSettingRef="2">1</IMValue>
+
+			<IMValue name="a-frequency">18</IMValue>
+			<IMValue name="b-frequency">0</IMValue>
+			<IMValue name="c-frequency">709</IMValue>
+			<IMValue name="d-frequency">5454</IMValue>
+			<IMValue name="r-frequency">18</IMValue>
+			<IMValue name="n-frequency">6181</IMValue>
+			<IMValue name="Confidence">1</IMValue>
+			<IMValue name="Double Founded Implication">0.0247592847</IMValue>
+			<IMValue name="Founded Equivalence">0.8852936418</IMValue>
+			<IMValue name="Support">0.0029121501</IMValue>
+			<IMValue name="Cmplt">0.0247592847</IMValue>
+			<IMValue name="Average Difference">7.5020632737</IMValue>
+			<IMValue name="Lower Critical Implication">0.1500946353</IMValue>
+			<IMValue name="Upper Critical Implication">1</IMValue>
+			<IMValue name="Lower Critical Equivalence">0.9999278951</IMValue>
+			<IMValue name="Upper Critical Equivalence">0.0000849141</IMValue>
+			<IMValue name="Double Lower Critical Implication">1</IMValue>
+			<IMValue name="Double Upper Critical Implication">0</IMValue>
+			<IMValue name="Fisher">0</IMValue>
+			<IMValue name="Chi-Square Significance Level">135.431535893</IMValue>
+			<IMValue name="bMean">0.95</IMValue>
+			<IMValue name="bVAR">0.95</IMValue>
+			<IMValue name="bStDev">0.0475594866</IMValue>
+			<IMValue name="P(&gt;=90%)">0.8649385751</IMValue>
+			<IMValue name="P(&gt;=95%)">0.6226505434</IMValue>
+
+			<FourFtTable a="18" b="0" c="709" d="5454"/>
+		   </AssociationRule>
+		</AssociationRules>
+	</guha:AssociationModel>
+</PMML>

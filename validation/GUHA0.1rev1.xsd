@@ -1,0 +1,858 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://keg.vse.cz/ns/GUHA0.1rev1" xmlns="http://keg.vse.cz/ns/GUHA0.1rev1"
+    xmlns:guha="http://keg.vse.cz/ns/GUHA0.1rev1" xmlns:pmml="http://www.dmg.org/PMML-4_0"
+    elementFormDefault="unqualified">
+    <!--  CHANGE LOG
+        29/4/13: added RuleAnnotation element on AssociationRule. This element was moved from the ARBuilder0_2.xsd.
+                
+        5/7/11: added id attribute to CatRef element. Changed type from string to CatRefType on Coefficient element.
+        purpose: allow references to FDML dictionaries by category id        
+        
+    -->
+    <!-- http://www.xfront.com/HideVersusExpose.html -->
+    <xs:annotation>
+        <xs:documentation>The only root-level declarations in the schema are the models, their direct children and reference types.</xs:documentation>
+    </xs:annotation>
+    <xs:import namespace="http://www.dmg.org/PMML-4_0"
+        schemaLocation="http://www.dmg.org/v4-0-1/pmml-4-0.xsd"/>
+
+    <xs:complexType name="Extension">
+        <xs:complexContent mixed="true">
+            <xs:restriction base="xs:anyType">
+                <xs:sequence>
+                    <xs:any processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+                <xs:attribute name="extender" type="xs:string" use="optional"/>
+                <xs:attribute name="name" type="xs:string" use="optional"/>
+                <xs:attribute name="value" type="xs:string" use="optional"/>
+            </xs:restriction>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:element name="AssociationModel">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Extension" type="Extension" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="TaskSetting" type="TaskSetting4ft"/>
+                <xs:element ref="pmml:MiningSchema" minOccurs="0"/>
+                <xs:element ref="pmml:Output" minOccurs="0"/>
+                <xs:element ref="pmml:ModelStats" minOccurs="0"/>
+                <xs:element ref="pmml:LocalTransformations" minOccurs="0"/>
+                <xs:element name="AssociationRules" type="AssociationRules">
+                    <xs:key name="keyBASetting_4ft">
+                        <xs:selector
+                            xpath="TaskSetting/BBASettings/BBASetting|TaskSetting/DBASettings/DBASetting"/>
+                        <xs:field xpath="@id"/>
+                    </xs:key>
+                    <xs:key name="keyBA_4ft">
+                        <xs:selector xpath="BBA|DBA"/>
+                        <xs:field xpath="@id"/>
+                    </xs:key>
+                    <xs:keyref refer="keyBASetting_4ft" name="DBASettingreferencesExistingBASetting">
+                        <xs:selector xpath="TaskSetting/DBASettings/DBASetting/BASettingRef"/>
+                        <xs:field xpath="."/>
+                    </xs:keyref>
+                    <!-- RulePartSettings must refer to existing DBASetting ids -->
+                    <xs:keyref refer="keyBASetting_4ft" name="BAreferencefromAntecedent">
+                        <xs:selector xpath="TaskSetting"/>
+                        <xs:field xpath="AntecedentSetting"/>
+                    </xs:keyref>
+                    <xs:keyref refer="keyBASetting_4ft" name="BAreferencefromConsequent">
+                        <xs:selector xpath="TaskSetting"/>
+                        <xs:field xpath="ConsequentSetting"/>
+                    </xs:keyref>
+                    <xs:keyref refer="keyBASetting_4ft" name="BAreferencefromCondition">
+                        <xs:selector xpath="TaskSetting"/>
+                        <xs:field xpath="ConditionSetting"/>
+                    </xs:keyref>
+                    <xs:keyref refer="keyBA_4ft" name="DBAreferencesExistingBA">
+                        <xs:selector xpath="DBA/BARef"/>
+                        <xs:field xpath="."/>
+                    </xs:keyref>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="modelName" type="xs:string"/>
+            <xs:attribute name="functionName" type="funcNameType"/>
+            <xs:attribute name="algorithmName" type="algoNameType"/>
+            <xs:attribute name="numberOfTransactions" type="xs:unsignedInt"/>
+            <xs:attribute name="numberOfCategories" type="xs:unsignedInt"/>
+            <xs:attribute name="numberOfRules" type="xs:unsignedShort"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="SD4ftModel">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Extension" type="Extension" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="TaskSetting" type="TaskSettingSD4ft"/>
+                <xs:element ref="pmml:MiningSchema" minOccurs="0"/>
+                <xs:element ref="pmml:Output" minOccurs="0"/>
+                <xs:element ref="pmml:ModelStats" minOccurs="0"/>
+                <xs:element ref="pmml:LocalTransformations" minOccurs="0"/>
+                <xs:element name="SD4ftRules" type="SD4ftRules">
+                    <xs:key name="keyBASetting_SD4ft">
+                        <xs:selector
+                            xpath="TaskSetting/BBASettings/BBASetting|TaskSetting/DBASettings/DBASetting"/>
+                        <xs:field xpath="@id"/>
+                    </xs:key>
+                    <xs:key name="keyBA_SD4ft">
+                        <xs:selector xpath="BBA|DBA"/>
+                        <xs:field xpath="@id"/>
+                    </xs:key>
+                    <xs:keyref refer="keyBASetting_SD4ft"
+                        name="DBASettingreferencesExistingBASetting_SD4ft">
+                        <xs:selector xpath="TaskSetting/DBASettings/DBASetting/BASettingRef"/>
+                        <xs:field xpath="."/>
+                    </xs:keyref>
+                    <!-- RulePartSettings must refer to existing DBASetting ids -->
+                    <xs:keyref refer="keyBASetting_SD4ft" name="BAreferencefromAntecedent_SD4ft">
+                        <xs:selector xpath="TaskSetting"/>
+                        <xs:field xpath="AntecedentSetting"/>
+                    </xs:keyref>
+                    <xs:keyref refer="keyBASetting_SD4ft" name="BAreferencefromConsequent_SD4ft">
+                        <xs:selector xpath="TaskSetting"/>
+                        <xs:field xpath="ConsequentSetting"/>
+                    </xs:keyref>
+                    <xs:keyref refer="keyBASetting_SD4ft" name="BAreferencefromCondition_SD4ft">
+                        <xs:selector xpath="TaskSetting"/>
+                        <xs:field xpath="ConditionSetting"/>
+                    </xs:keyref>
+                    <xs:keyref refer="keyBASetting_SD4ft" name="BAreferencefromFirstSet_SD4ft">
+                        <xs:selector xpath="TaskSetting"/>
+                        <xs:field xpath="FirstSetSetting"/>
+                    </xs:keyref>
+                    <xs:keyref refer="keyBASetting_SD4ft" name="BAreferencefromSecondSet_SD4ft">
+                        <xs:selector xpath="TaskSetting"/>
+                        <xs:field xpath="SecondSetSetting"/>
+                    </xs:keyref>
+                    <xs:keyref refer="keyBA_SD4ft" name="DBAreferencesExistingBA_SD4ft">
+                        <xs:selector xpath="DBA/BARef"/>
+                        <xs:field xpath="."/>
+                    </xs:keyref>
+                    <xs:keyref refer="keyBA_SD4ft" name="FirstSetReferencesExistingBA">
+                        <xs:selector xpath="FirstSet"/>
+                        <xs:field xpath="@FirstSet"/>
+                    </xs:keyref>
+                    <xs:keyref refer="keyBA_SD4ft" name="SecondSetReferencesExistingBA">
+                        <xs:selector xpath="SecondSet"/>
+                        <xs:field xpath="@SecondSet"/>
+                    </xs:keyref>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="modelName" type="xs:string"/>
+            <xs:attribute name="functionName" type="funcNameType"/>
+            <xs:attribute name="algorithmName" type="algoNameType"/>
+            <xs:attribute name="numberOfTransactions" type="xs:unsignedInt"/>
+            <xs:attribute name="numberOfCategories" type="xs:unsignedInt"/>
+            <xs:attribute name="numberOfRules" type="xs:unsignedShort"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Ac4ftModel">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Extension" type="Extension" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="TaskSetting" type="TaskSettingAc4ft"/>
+                <xs:element ref="pmml:MiningSchema" minOccurs="0"/>
+                <xs:element ref="pmml:Output" minOccurs="0"/>
+                <xs:element ref="pmml:ModelStats" minOccurs="0"/>
+                <xs:element ref="pmml:LocalTransformations" minOccurs="0"/>
+                <xs:element name="Ac4ftRules" type="Ac4ftRules">
+                    <xs:key name="keyBASetting_Ac4ft">
+                        <xs:selector
+                            xpath="TaskSetting/BBASettings/BBASetting|TaskSetting/DBASettings/DBASetting"/>
+                        <xs:field xpath="@id"/>
+                    </xs:key>
+                    <xs:key name="keyBA_Ac4ft">
+                        <xs:selector xpath="BBA|DBA"/>
+                        <xs:field xpath="@id"/>
+                    </xs:key>
+                    <xs:keyref refer="keyBASetting_Ac4ft"
+                        name="DBASettingreferencesExistingBASetting_Ac4ft">
+                        <xs:selector xpath="TaskSetting/DBASettings/DBASetting/BASettingRef"/>
+                        <xs:field xpath="."/>
+                    </xs:keyref>
+                    <!-- RulePartSettings must refer to existing DBASetting ids -->
+                    <xs:keyref refer="keyBASetting_Ac4ft" name="BAreferencefromAntecedent_Ac4ft">
+                        <xs:selector xpath="TaskSetting"/>
+                        <xs:field xpath="AntecedentSetting"/>
+                    </xs:keyref>
+                    <xs:keyref refer="keyBASetting_Ac4ft" name="BAreferencefromConsequent_Ac4ft">
+                        <xs:selector xpath="TaskSetting"/>
+                        <xs:field xpath="ConsequentSetting"/>
+                    </xs:keyref>
+                    <xs:keyref refer="keyBASetting_Ac4ft" name="BAreferencefromCondition_Ac4ft">
+                        <xs:selector xpath="TaskSetting"/>
+                        <xs:field xpath="ConditionSetting"/>
+                    </xs:keyref>
+                    <xs:keyref refer="keyBASetting_Ac4ft" name="BAreferencefromFirstSet_Ac4ft">
+                        <xs:selector xpath="TaskSetting"/>
+                        <xs:field xpath="FirstSetSetting"/>
+                    </xs:keyref>
+                    <xs:keyref refer="keyBASetting_Ac4ft" name="BAreferencefromSecondSet_Ac4ft">
+                        <xs:selector xpath="TaskSetting"/>
+                        <xs:field xpath="SecondSetSetting"/>
+                    </xs:keyref>
+                    <xs:keyref refer="keyBA_Ac4ft" name="DBAreferencesExistingBA_Ac4ft">
+                        <xs:selector xpath="DBA/BARef"/>
+                        <xs:field xpath="."/>
+                    </xs:keyref>
+                    <xs:keyref refer="keyBA_Ac4ft" name="antecedentVarBeforeReferencesExistingBA">
+                        <xs:selector xpath="StateBefore"/>
+                        <xs:field xpath="@antecedentVarBefore"/>
+                    </xs:keyref>
+                    <xs:keyref refer="keyBA_Ac4ft" name="consequentVarBeforeReferencesExistingBA">
+                        <xs:selector xpath="StateBefore"/>
+                        <xs:field xpath="@consequentVarBefore"/>
+                    </xs:keyref>
+                    <xs:keyref refer="keyBA_Ac4ft" name="antecedentVarAfterReferencesExistingBA">
+                        <xs:selector xpath="StateAfter"/>
+                        <xs:field xpath="@antecedentVarAfter"/>
+                    </xs:keyref>
+                    <xs:keyref refer="keyBA_Ac4ft" name="consequentVarAfterReferencesExistingBA">
+                        <xs:selector xpath="StateAfter"/>
+                        <xs:field xpath="@consequentVarAfter"/>
+                    </xs:keyref>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="modelName" type="xs:string"/>
+            <xs:attribute name="functionName" type="funcNameType"/>
+            <xs:attribute name="algorithmName" type="algoNameType"/>
+            <xs:attribute name="numberOfTransactions" type="xs:unsignedInt"/>
+            <xs:attribute name="numberOfCategories" type="xs:unsignedInt"/>
+            <xs:attribute name="numberOfRules" type="xs:unsignedShort"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="AssociationRules">
+        <xs:sequence>
+            <xs:element name="BBA" type="BBA" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="DBA" type="DBA" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="AssociationRule" type="AssociationRule" minOccurs="0"
+                maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AssociationRule">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Stores a single association rule</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="Text" type="Text" minOccurs="0"/>
+            <xs:element name="IMValue" type="IMValue" maxOccurs="unbounded"/>
+            <xs:element name="Annotation" type="RuleAnnotation" minOccurs="0"></xs:element>
+            <xs:element name="FourFtTable" type="FourFtTable" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="antecedent" type="BARef"/>
+        <xs:attribute name="consequent" type="BARef" use="required"/>
+        <xs:attribute name="condition" type="BARef"/>
+        <xs:attribute name="id" type="xs:NMTOKEN"/>
+    </xs:complexType>
+
+    <xs:complexType name="RuleAnnotation">
+        <xs:sequence>
+            <xs:element name="Interestingness" type="InterestingnessEnum"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:simpleType name="InterestingnessEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="interesting"/>   
+            <xs:enumeration value="not interesting"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    
+    <xs:complexType name="SD4ftRules">
+        <xs:sequence>
+            <xs:element name="BBA" type="BBA" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="DBA" type="DBA" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="SD4ftRule" type="SD4ftRule" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="SD4ftRule">
+        <xs:sequence>
+            <xs:element name="Text" type="Text" minOccurs="0"/>
+            <xs:element name="IMValue" type="IMValue" maxOccurs="unbounded"/>
+            <xs:element name="FirstSet" type="FirstSet" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="SecondSet" type="SecondSet" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="antecedent" type="BARef"/>
+        <xs:attribute name="consequent" type="BARef" use="required"/>
+        <xs:attribute name="condition" type="BARef"/>
+        <xs:attribute name="id" type="xs:NMTOKEN"/>
+    </xs:complexType>
+
+    <xs:complexType name="FirstSet">
+        <xs:sequence>
+            <xs:element name="Text" type="Text" minOccurs="0"/>
+            <xs:element name="IMValue" type="IMValue" maxOccurs="unbounded"/>
+            <xs:element name="FourFtTable" type="FourFtTable" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="FirstSet" type="xs:NMTOKEN"/>
+    </xs:complexType>
+
+    <xs:complexType name="SecondSet">
+        <xs:sequence>
+            <xs:element name="Text" type="Text" minOccurs="0"/>
+            <xs:element name="IMValue" type="IMValue" maxOccurs="unbounded"/>
+            <xs:element name="FourFtTable" type="FourFtTable" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="SecondSet" type="xs:NMTOKEN"/>
+    </xs:complexType>
+
+    <xs:complexType name="Ac4ftRules">
+        <xs:sequence>
+            <xs:element name="BBA" type="BBA" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="DBA" type="DBA" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="Ac4ftRule" type="Ac4ftRule" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Ac4ftRule">
+        <xs:sequence>
+            <xs:element name="Text" type="Text" minOccurs="0"/>
+            <xs:element name="IMValue" type="IMValue" maxOccurs="unbounded"/>
+            <xs:element name="StateBefore" type="StateBefore" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="StateAfter" type="StateAfter" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+        
+        <!--In Ac4ft Consequent has two parts - fixed and variable. Fixed part listed in the AC4ftRule/consequent attribute can be empty (attribute not present). 
+            In that case,consequentVarBefore or consequentVarAfter cannot be empty.    
+            -->        
+        
+        <xs:attribute name="antecedent" type="BARef" use="optional"/>
+        <xs:attribute name="consequent" type="BARef" use="optional"/>
+        <xs:attribute name="condition" type="BARef" use="optional"/>
+        <xs:attribute name="id" type="xs:NMTOKEN"/>
+    </xs:complexType>
+    
+    <xs:complexType name="StateBefore">
+        <xs:sequence>
+            <xs:element name="Text" type="Text" minOccurs="0"/>
+            <xs:element name="IMValue" type="IMValue" maxOccurs="unbounded"/>
+            <xs:element name="FourFtTable" type="FourFtTable" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="antecedentVarBefore" type="xs:NMTOKEN"/>
+        <xs:attribute name="consequentVarBefore" type="xs:NMTOKEN"/>
+    </xs:complexType>
+    
+    <xs:complexType name="StateAfter">
+        <xs:sequence>
+            <xs:element name="Text" type="Text" minOccurs="0"/>
+            <xs:element name="IMValue" type="IMValue" maxOccurs="unbounded"/>
+            <xs:element name="FourFtTable" type="FourFtTable" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="antecedentVarAfter" type="xs:NMTOKEN"/>
+        <xs:attribute name="consequentVarAfter" type="xs:NMTOKEN"/>
+    </xs:complexType>
+    
+
+    <xs:complexType name="BASettingRef">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="transactional" default="false">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:boolean"/>
+                    </xs:simpleType>
+                </xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:simpleType name="IMSettingRef">
+        <xs:restriction base="xs:NMTOKEN"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="InterestMeasure">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="a-frequency"/>
+            <xs:enumeration value="SUPP"/>
+            <xs:enumeration value="BASE"/>
+            <!-- workaround for SDxx and AC4ft Miner, where BASE and a frequency is  merged into this one value. Unlike a frequency, a (BASE) can act as a test criterion -->
+            <xs:enumeration value="a (BASE)"/>
+            <xs:enumeration value="b-frequency"/>
+            <xs:enumeration value="c-frequency"/>
+            <xs:enumeration value="d-frequency"/>
+            <xs:enumeration value="r-frequency"/>
+            <xs:enumeration value="s-frequency"/>
+            <xs:enumeration value="k-frequency"/>
+            <xs:enumeration value="l-frequency"/>
+            <xs:enumeration value="n-frequency"/>            
+            <xs:enumeration value="AAD"/>
+            <xs:enumeration value="FUI"/>
+            <xs:enumeration value="BAD"/>
+            <xs:enumeration value="DFUI"/>
+            <xs:enumeration value="LCI"/>
+            <xs:enumeration value="UCI"/>
+            <xs:enumeration value="DLCI"/>
+            <xs:enumeration value="DUCI"/>
+            <xs:enumeration value="FUE"/>            
+            <xs:enumeration value="LCE"/>
+            <xs:enumeration value="UCE"/>
+            <xs:enumeration value="FSH"/>
+            <xs:enumeration value="CHI"/>
+            <xs:enumeration value="SID"/>
+        </xs:restriction>        
+    </xs:simpleType>
+
+    <xs:simpleType name="BARef">
+        <xs:restriction base="xs:NMTOKEN"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="Text">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:complexType name="Formula">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="name" type="xs:string"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:annotation>
+        <xs:documentation>FieldRef is a reference to a DataField, DerivedField in
+            TransformationDictionary or LocalTransformations. PMML 40 also defines a FieldRef, but
+            it is supposed to point at DataFields only.</xs:documentation>
+    </xs:annotation>
+
+    <xs:complexType name="FieldRef">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">                
+                <xs:attribute name="dictionary" use="optional" default="TransformationDictionary">
+                    <xs:annotation>
+                        <xs:documentation>
+                            This attribute identifies dictionary in PMML
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="DataDictionary"/>
+                            <xs:enumeration value="TransformationDictionary"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+                <xs:attribute name="dictID">
+                    <xs:annotation>
+                        <xs:documentation>
+                            This attribute is used if an FDML Dictionary is referenced to identify the field's dictionary in FDML
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="fieldID">
+                    <xs:annotation>
+                        <xs:documentation>
+                            This attribute is used if an FDML Dictionary is referenced 
+                            along with the element content denoting field name.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:simpleType name="coefTypes">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Interval"/>
+            <xs:enumeration value="Cyclical intervals"/>
+            <xs:enumeration value="Subset"/>
+            <xs:enumeration value="Cut"/>
+            <xs:enumeration value="Left cut"/>
+            <xs:enumeration value="Right cut"/>
+            <xs:enumeration value="One category"/>
+            <xs:enumeration value="Both boolean"/>
+            <xs:enumeration value="Boolean true"/>
+            <xs:enumeration value="Boolean false"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="Coefficient">
+        <xs:sequence>
+            <xs:element name="Type" type="coefTypes" default="One category"/>
+            <xs:element name="MinimalLength" type="MinimalLength" minOccurs="0"/>
+            <xs:element name="MaximalLength" type="MaximalLength" minOccurs="0"/>
+            <xs:element name="Category" type="CatRef" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CatRef">
+        <xs:simpleContent>
+            <xs:extension base="CatRefContent">
+                <xs:attribute name="id" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>
+                            This attribute can be used if an FDML dictionary is referenced to identify the category as an alternative to the category name in element's content. 
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+<xs:simpleType name="CatRefContent">
+    <xs:restriction base="xs:string">
+        <xs:minLength value="1"/>
+    </xs:restriction>    
+</xs:simpleType>
+    <xs:simpleType name="funcNameType">
+        <xs:restriction base="xs:NMTOKEN">
+            <xs:pattern value="associationRules"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="algoNameType">
+        <xs:restriction base="xs:string"> </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="BBA">
+        <xs:sequence>
+            <xs:element name="Extension" type="Extension" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="Text" type="Text" minOccurs="0"/>
+            <xs:element name="FieldRef" type="FieldRef" minOccurs="0"/>
+            <xs:element name="CatRef" type="CatRef" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:NMTOKEN" use="required"/>
+        <xs:attribute name="literal" type="xs:boolean" default="true"/>
+        <xs:attribute name="weight" type="xs:double"/>
+    </xs:complexType>
+
+    <xs:complexType name="DBA">
+        <xs:sequence>
+            <xs:element name="Extension" type="Extension" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="Text" type="Text" minOccurs="0"/>
+            <xs:element name="BARef" type="BARef" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:NMTOKEN" use="required"/>
+        <xs:attribute name="connective" type="connType" use="optional" default="Conjunction"/>
+        <xs:attribute name="literal" type="xs:boolean" default="false"/>
+    </xs:complexType>
+
+    <xs:complexType name="FourFtTable">
+        <xs:attribute name="a" type="xs:integer"/>
+        <xs:attribute name="b" type="xs:integer"/>
+        <xs:attribute name="c" type="xs:integer"/>
+        <xs:attribute name="d" type="xs:integer"/>
+    </xs:complexType>
+
+    <xs:complexType name="IMValue">
+        <xs:simpleContent>
+            <xs:extension base="xs:double">
+                <xs:attribute name="name" type="xs:string"/>
+                <xs:attribute name="imSettingRef" type="xs:NMTOKEN" use="optional"/>
+                <xs:attribute name="sourceMode" type="xs:string"/>
+                <!-- this  attribute is only present if imSettingRef is also present-->
+                <xs:attribute name="type" type="ThresholdType"></xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+
+    <xs:simpleType name="ThresholdType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Abs"></xs:enumeration>
+            <xs:enumeration value="% of all"></xs:enumeration>
+            <xs:enumeration value="% of act"></xs:enumeration>
+            <xs:enumeration value="% of max"></xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="GeneralSetting">
+        <xs:sequence>
+            <xs:element name="Extension" type="Extension" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="Scope">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Extension" type="Extension" minOccurs="0"
+                            maxOccurs="unbounded"/>
+                        <xs:element name="RulePart" maxOccurs="unbounded">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="Antecedent"/>
+                                    <xs:enumeration value="Consequent"/>
+                                    <xs:enumeration value="Condition"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ApplyRecursively" type="xs:boolean" default="false"/>
+            <xs:element name="LengthConstraint" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="MinimalLength" type="MaximalLength" minOccurs="0"/>
+                        <xs:element name="MaximalLength" type="MaximalLength" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="MandatoryPresenceConstraint" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Extension" type="Extension" minOccurs="0"
+                            maxOccurs="unbounded"/>
+                        <xs:element name="MandatoryBA" type="BASettingRef" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="InterestMeasureSetting">
+        <xs:sequence>
+            <xs:element name="Extension" type="Extension" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="InterestMeasureThreshold" type="InterestMeasureThreshold"
+                maxOccurs="unbounded">
+                <!-- must have a unique id --> </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="InterestMeasureSettingSD4ft">
+        
+        <xs:sequence>
+            <xs:element name="Extension" type="Extension" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="InterestMeasureThreshold" type="InterestMeasureThresholdSD4ft"
+                maxOccurs="unbounded"/>                
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="InterestMeasureSettingAC4ft">
+        
+        <xs:sequence>
+            <xs:element name="Extension" type="Extension" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="InterestMeasureThreshold" type="InterestMeasureThresholdAC4ft"
+                maxOccurs="unbounded"/>                
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="InterestMeasureThreshold">
+        <xs:sequence>
+            <xs:element name="Extension" type="Extension" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:choice>
+                <xs:element name="InterestMeasure" type="InterestMeasure"/>
+                <xs:element name="Formula" type="Formula"/>
+            </xs:choice>                        
+            <xs:element name="CompareType" type="CompareType"/>
+            <xs:element name="Threshold" type="Threshold"/>                       
+            <xs:element name="SignificanceLevel" type="xs:decimal" minOccurs="0"/>            
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:NMTOKEN" use="required"/>
+    </xs:complexType>
+    
+    <xs:complexType name="InterestMeasureThresholdAC4ft">
+        <xs:complexContent>
+            <xs:extension base="InterestMeasureThreshold">
+                <xs:sequence>
+                    <xs:element name="SourceType" type="SourceTypeAC4ft"/>
+                </xs:sequence>                                               
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="InterestMeasureThresholdSD4ft">
+        <xs:complexContent>
+            <xs:extension base="InterestMeasureThreshold">
+                <xs:sequence>
+                    <xs:element name="SourceType" type="SourceTypeSD4ft"/>
+                </xs:sequence>                                               
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:simpleType name="SourceTypeAC4ft">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="State-before frequencies"/>
+            <xs:enumeration value="State-after frequencies"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="SourceTypeSD4ft">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="First set frequencies"/>
+            <xs:enumeration value="Second set frequencies"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="Threshold">
+        <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+                <xs:attribute name="type" type="ThresholdType"></xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="TaskSetting4ft">
+        <xs:sequence>
+            <xs:element name="Extension" type="Extension" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="BBASettings" type="BBASettings">
+                <xs:key name="BBAKey">
+                    <xs:selector xpath="guha:InterestMeasureSetting/guha:InterestMeasureThreshold"/>
+                    <xs:field xpath="@id"/>
+                </xs:key>
+            </xs:element>
+            <xs:element name="DBASettings" type="DBASettings"/>
+            <xs:element name="AntecedentSetting" type="BASettingRef"/>
+            <xs:element name="ConsequentSetting" type="BASettingRef"/>
+            <xs:element name="ConditionSetting" type="BASettingRef" minOccurs="0"/>
+            <xs:element name="GeneralSetting" type="GeneralSetting" minOccurs="0"
+                maxOccurs="unbounded">
+                <!-- BA References from GeneralSetting must refer to literal DBAs -->
+                <xs:keyref refer="keyBASetting_4ft" name="BAreferencefromGeneralSetting">
+                    <xs:selector xpath="MandatoryPresenceConstraint/guha:MandatoryBA"/>
+                    <xs:field xpath="."/>
+                </xs:keyref>
+            </xs:element>
+            <xs:element name="InterestMeasureSetting" type="InterestMeasureSetting"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="TaskSettingSD4ft">
+        <xs:sequence>
+            <xs:element name="Extension" type="Extension" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="BBASettings" type="BBASettings">
+                <xs:key name="BBAKey_SD4ft">
+                    <xs:selector xpath="guha:InterestMeasureSetting/guha:InterestMeasureThreshold"/>
+                    <xs:field xpath="@id"/>
+                </xs:key>
+            </xs:element>
+            <xs:element name="DBASettings" type="DBASettings"/>
+            <xs:element name="AntecedentSetting" type="BASettingRef"/>
+            <xs:element name="ConsequentSetting" type="BASettingRef"/>
+            <xs:element name="FirstSetSetting" type="BASettingRef"/>
+            <xs:element name="SecondSetSetting" type="BASettingRef"/>
+            <xs:element name="ConditionSetting" type="BASettingRef" minOccurs="0"/>
+            <xs:element name="GeneralSetting" type="GeneralSetting" minOccurs="0"
+                maxOccurs="unbounded">
+                <!-- BA References from GeneralSetting must refer to literal DBAs -->
+                <xs:keyref refer="keyBASetting_SD4ft" name="BAreferencefromGeneralSetting_SD4ft">
+                    <xs:selector xpath="MandatoryPresenceConstraint/guha:MandatoryBA"/>
+                    <xs:field xpath="."/>
+                </xs:keyref>
+            </xs:element>
+            <xs:element name="InterestMeasureSetting" type="InterestMeasureSettingSD4ft"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="TaskSettingAc4ft">
+        <xs:sequence>
+            <xs:element name="Extension" type="Extension" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="BBASettings" type="BBASettings">
+                <xs:key name="BBAKey_Ac4ft">
+                    <xs:selector xpath="guha:InterestMeasureSetting/guha:InterestMeasureThreshold"/>
+                    <xs:field xpath="@id"/>
+                </xs:key>
+            </xs:element>
+            <xs:element name="DBASettings" type="DBASettings"/>
+            <xs:element name="AntecedentSetting" type="BASettingRef"/>
+            <xs:element name="ConsequentSetting" type="BASettingRef"/>
+            <xs:element name="AntecedentVarSetting" type="BASettingRef"/>
+            <xs:element name="ConsequentVarSetting" type="BASettingRef"/>
+            <xs:element name="ConditionSetting" type="BASettingRef" minOccurs="0"/>
+            <xs:element name="GeneralSetting" type="GeneralSetting" minOccurs="0"
+                maxOccurs="unbounded">
+                <!-- BA References from GeneralSetting must refer to literal DBAs -->
+                <xs:keyref refer="keyBASetting_Ac4ft" name="BAreferencefromGeneralSetting_Ac4ft">
+                    <xs:selector xpath="MandatoryPresenceConstraint/guha:MandatoryBA"/>
+                    <xs:field xpath="."/>
+                </xs:keyref>
+            </xs:element>
+            <xs:element name="InterestMeasureSetting" type="InterestMeasureSettingAC4ft"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+
+    <xs:complexType name="BBASettings">
+        <xs:sequence>
+            <xs:element name="BBASetting" type="BBASetting" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="BBASetting">
+        <xs:sequence>
+            <xs:element name="Extension" type="Extension" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="Text" type="Text" minOccurs="0"/>
+            <xs:element name="Name" type="xs:string" minOccurs="0"/>
+            <xs:element name="FieldRef" type="FieldRef"/>
+            <xs:element name="Coefficient" type="Coefficient"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:NMTOKEN"/>
+    </xs:complexType>
+
+    <xs:complexType name="DBASettings">
+        <xs:sequence>
+            <xs:element name="DBASetting" type="DBASetting" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DBASetting">
+        <xs:sequence>
+            <xs:element name="Extension" type="Extension" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="Text" type="Text" minOccurs="0"/>
+            <xs:element name="Name" type="xs:string" minOccurs="0"/>
+            <xs:element name="BASettingRef" type="BASettingRef" maxOccurs="unbounded"/>
+            <!-- NON Literal DBA -->
+            <xs:element name="MinimalLength" type="MinimalLength" minOccurs="0"/>
+            <xs:element name="MaximalLength" type="MaximalLength" minOccurs="0"/>
+            <!-- Literal DBA -->
+            <xs:element name="LiteralSign" type="LiteralSign" minOccurs="0"/>
+            <xs:element name="LiteralType" minOccurs="0"/>
+            <xs:element name="EquivalenceClass" type="EquivalenceClass" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="type" type="connDBASettingType" default="Conjunction"/>
+        <xs:attribute name="id" type="xs:NMTOKEN"/>
+    </xs:complexType>
+
+    <xs:simpleType name="LiteralSign">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Positive"/>
+            <xs:enumeration value="Negative"/>
+            <xs:enumeration value="Both"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="LiteralType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Basic"/>
+            <xs:enumeration value="Remaining"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="EquivalenceClass">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="MinimalLength">
+        <xs:restriction base="xs:integer"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="MaximalLength">
+        <xs:restriction base="xs:integer"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="connType">
+        <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="Conjunction"/>
+            <xs:enumeration value="Negation"/>
+            <xs:enumeration value="Disjunction"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="connDBASettingType">
+        <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="Conjunction"/>
+            <xs:enumeration value="Disjunction"/>
+            <xs:enumeration value="AnyConnective"/>
+            <xs:enumeration value="Negation"/>
+            <xs:enumeration value="Literal"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="CompareType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="Greater than or equal"/>
+            <xs:pattern value="Less than or equal"/>
+            <xs:pattern value="Greater than"/>
+            <xs:pattern value="Less than"/>
+            <xs:pattern value="Equal"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

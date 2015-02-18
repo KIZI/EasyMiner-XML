@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<arb:ARBuilder xmlns:arb="http://keg.vse.cz/ns/arbuilder0_2"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://keg.vse.cz/ns/arbuilder0_2 file:/home/tomas/sewebar-cms/joomla25/www/xml/sampledata/validation/ARBuilder0_2.xsd">
+ <DataDescription>
+  <Dictionary completeness="ReferencedFromPatterns" sourceFormat="PMML">
+   <Field>
+    <Name>Trvání úvěru</Name>    
+   </Field>
+   <Field>
+    <Name>Kvalita úvěru</Name>
+   </Field>
+   <Field>
+    <Name>Bydliště</Name>
+   </Field>
+  </Dictionary>
+ </DataDescription>
+ <AnnotatedAssociationRules>
+  <BBA id="1">
+   <FieldRef dictID="d1" fieldID="f1">Trvání úvěru</FieldRef>
+   <CatRef id="c1">Extrémní</CatRef>
+  </BBA>
+  <BBA id="2">
+   <FieldRef dictID="d1" fieldID="f2">Kvalita úvěru</FieldRef>
+   <CatRef id="c1">dobrý</CatRef>
+   <CatRef id="c2">nevypadá to dobře</CatRef>
+  </BBA>
+  <BBA id="3">
+   <FieldRef dictID="d1" fieldID="f3">Bydliště</FieldRef>
+   <CatRef id="c1">Praha</CatRef>
+  </BBA>
+  <DBA id="6" connective="Negation">
+   <BARef>3</BARef>
+  </DBA>
+  <DBA id="7" connective="Conjunction">
+   <BARef>1</BARef>
+   <BARef>6</BARef>
+  </DBA>
+  <AssociationRule antecedent="7" consequent="2">   
+   <IMValue name="Support">0.55282316777220514479</IMValue>
+   <IMValue name="Average Difference">0.1414</IMValue>
+   <Annotation>
+    <Interestingness>interesting</Interestingness>
+   </Annotation>
+  </AssociationRule>
+  <AssociationRule antecedent="7" consequent="2">   
+   <IMValue name="Support">0.55282316777220514479</IMValue>
+   <IMValue name="Average Difference">0.1414</IMValue>
+   <Annotation>
+    <Interestingness>not interesting</Interestingness>
+   </Annotation>
+  </AssociationRule>
+ </AnnotatedAssociationRules>
+</arb:ARBuilder>

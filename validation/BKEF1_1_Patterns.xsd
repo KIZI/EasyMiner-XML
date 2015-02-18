@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://keg.vse.cz/bkef_patterns"
+  targetNamespace="http://keg.vse.cz/bkef_patterns" elementFormDefault="unqualified" version="1.01"
+  xmlns:guha="http://keg.vse.cz/ns/GUHA0.1rev1" xmlns:dd="http://keg.vse.cz/ns/datadescription0_2"
+  xmlns:base="http://keg.vse.cz/bkef_base" xmlns:sch="http://www.ascc.net/xml/schematron">
+  <xs:annotation>
+    <xs:documentation> BKEF Patterns 1.1 Update to version 1.1 Author: Tomáš Kliegr
+      tomas.kliegr@vse.cz Date: 7/2011 </xs:documentation>
+  </xs:annotation>
+  <xs:annotation>
+    <xs:appinfo>
+      <sch:title>Schematron validation</sch:title>
+      <sch:ns prefix="dd" uri="http://keg.vse.cz/ns/datadescription0_2"/>
+    </xs:appinfo>
+    <xs:documentation>ARDesigner Input</xs:documentation>
+  </xs:annotation>
+  <xs:import namespace="http://keg.vse.cz/bkef_base" schemaLocation="BKEF1_1_Base.xsd"/>
+  <xs:import namespace="http://keg.vse.cz/ns/GUHA0.1rev1"
+    schemaLocation="http://sewebar.vse.cz/schemas/GUHA0.1rev1.xsd"/>
+  <xs:import namespace="http://keg.vse.cz/ns/datadescription0_2"
+    schemaLocation="DataDescription0_2.xsd"/>
+
+  <xs:element name="BKEFPatterns" type="BKEFPatternsType">
+    <xs:annotation>
+      <xs:documentation>The root element.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="BKEFPatternsType">
+    <xs:sequence>
+      <xs:element name="Header" type="HeaderType"/>
+      <xs:element name="DataDescription" type="dd:DataDescription_BKEF"/>
+      <xs:element name="Patterns" type="PatternType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- **** HEADER **** -->
+
+  <xs:complexType name="HeaderType">
+    <xs:complexContent>
+      <xs:extension base="base:HeaderType">
+        <xs:sequence>
+
+          <xs:element name="BaseBKEF" type="baseBKEFID"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="baseBKEFID">
+    <xs:sequence>
+      <xs:element name="DocumentID" type="xs:string"/>
+      <xs:element name="URI" type="xs:string"/>
+      <xs:element name="LastModified" type="base:LastModifiedType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <!-- **** PATTERNS**** -->
+  <xs:complexType name="PatternType">
+    <xs:annotation>
+      <xs:documentation>Representation of patterns in data.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="AssociationRules" type="AssociationRulePatternType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BackgroundAssociationRulesType">
+    <xs:sequence>
+      <xs:element name="BBA" type="BBA" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:appinfo>
+            <sch:pattern name="Check FieldRef">
+              <sch:rule context="BBA/FieldRef">
+                <sch:assert test="@fieldID=../../../../../DataDescription/Dictionary[@id=current()/@dictID]/Field/@id"> 
+                  Referenced field does not exist (id)
+                </sch:assert>                
+              </sch:rule>
+            </sch:pattern>
+            <sch:pattern name="Patterns reference derived metafields">
+              <sch:rule context="BBA/FieldRef">
+                <sch:assert test="//DataDescription/Dictionary[@id=current()/@dictID]/@sourceDictType='DiscretizationHint'"> 
+                  BKEF Patterns can reference only derived metafields
+                </sch:assert>                
+              </sch:rule>            
+              </sch:pattern>
+            <sch:pattern name="Check FieldRefName">
+              <sch:rule context="BBA/FieldRef[text()]">
+                <sch:assert test="text()=../../../../../DataDescription/Dictionary[@id=current()/@dictID]/Field[@id=current()/@fieldID]/Name/text()"> 
+                  Referenced field has incorrect name
+                </sch:assert>                
+              </sch:rule>
+            </sch:pattern>
+            <sch:pattern name="Check CatRef">
+              <sch:rule context="BBA/CatRef[@id]">
+                <sch:assert test="@id = ../../../../../DataDescription/Dictionary[@id=current()/../FieldRef/@dictID]/Field[@id=current()/../FieldRef/@fieldID]/Category/@id"> 
+                  Referenced category does not exist (cat ref)
+                </sch:assert>                
+              </sch:rule>
+            </sch:pattern>
+            <sch:pattern name="Check CatValue">
+              <sch:rule context="BBA/CatRef[text()]">
+                <sch:assert test="text() = ../../../../../DataDescription/Dictionary[@id=current()/../FieldRef/@dictID]/Field[@id=current()/../FieldRef/@fieldID]/Category/text()"> 
+                  Referenced category does not exist (cat value) 
+                </sch:assert>                
+              </sch:rule>
+            </sch:pattern>
+            <!--sch:diagnostics>
+             <sch:diagnostic id="diag"> Error! 
+              text = <sch:value-of select="text()"/>
+              exprt = <sch:value-of select="//DataDescription/Dictionary[@id=current()/@dictID]/Field[@id=current()/@fieldID]/text()"/>                
+            </sch:diagnostic>
+            </sch:diagnostics-->
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DBA" type="guha:DBA" maxOccurs="unbounded"/>
+      <xs:element name="AssociationRule" type="BackgroundAssociationRule" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AssociationRulePatternType">
+    <xs:sequence>
+      <xs:element name="BackgroundAssociationRules" minOccurs="0"
+        type="BackgroundAssociationRulesType"/>
+      <xs:element name="Influences" type="InfluencesType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="BBA">
+    <xs:complexContent>
+      <xs:restriction base="guha:BBA">
+        <xs:sequence>
+          <xs:element name="Text" type="guha:Text" minOccurs="0"/>
+          <xs:element name="FieldRef" type="guha:FieldRef" minOccurs="1"/>
+          <xs:element name="CatRef" type="guha:CatRef" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:NMTOKEN" use="required"/>
+        <xs:attribute name="literal" type="xs:boolean" default="true"/>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="BackgroundAssociationRule">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Stores a single association rule</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="guha:AssociationRule">
+        <xs:sequence>
+          <xs:element name="Text" type="guha:Text" minOccurs="0"/>
+          <xs:element name="IMValue" type="IMValue" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="antecedent" type="guha:BARef"/>
+        <xs:attribute name="consequent" type="guha:BARef" use="required"/>
+        <xs:attribute name="condition" type="guha:BARef"/>
+        <xs:attribute name="id" type="xs:NMTOKEN"/>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="IMValue">
+    <xs:simpleContent>
+      <xs:restriction base="guha:IMValue">
+        <xs:attribute name="name" type="xs:string"/>
+        <xs:attribute name="imSettingRef" type="xs:NMTOKEN" use="prohibited"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <!-- **** INFLUENCES **** -->
+
+  <xs:complexType name="InfluencesType">
+    <xs:annotation>
+      <xs:documentation>Representation of influences among particular
+        meta-attributes.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence maxOccurs="unbounded">
+      <xs:element name="Influence" type="InfluenceType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <xs:complexType name="InfluenceType">
+    <xs:annotation>
+      <xs:documentation>Type of an influence - there are several defined types.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Annotations" type="base:AnnotationsType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="KnowledgeValidity" type="KnowledgeValidityType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="InfluenceScope" type="InfluenceScopeType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="MetaAttribute" type="InfluenceMetaAttributeType" minOccurs="2" maxOccurs="2"/>
+      <xs:element name="AtomicConsequences" type="AtomicConsequences" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="type" type="InfluenceTypeAttrTypeType"/>
+    <xs:attribute name="id" type="InfluenceTypeAttrIdType" use="required"/>
+    <xs:attribute name="arity" type="InfluenceTypeAttrArityType"/>
+  </xs:complexType>
+  <xs:complexType name="AtomicConsequences">
+    <xs:sequence>
+      <xs:element name="ARRef" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="InfluenceTypeAttrTypeType">
+    <xs:annotation>
+      <xs:documentation>Predefined types of influences.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Not-set"/>
+      <xs:enumeration value="None"/>
+      <xs:enumeration value="Uninteresting"/>
+      <xs:enumeration value="Some-influence"/>
+      <xs:enumeration value="Unknown"/>
+      <xs:enumeration value="Functional"/>
+      <xs:enumeration value="Positive-growth"/>
+      <xs:enumeration value="Negative-growth"/>
+      <xs:enumeration value="Positive-bool-growth"/>
+      <xs:enumeration value="Negative-bool-growth"/>
+      <xs:enumeration value="Double-bool-growth"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="InfluenceTypeAttrIdType">
+    <xs:restriction base="xs:integer"/>
+  </xs:simpleType>
+
+  <!-- Arity has to be number 2 because of two-dimensional visualization -->
+  <xs:simpleType name="InfluenceTypeAttrArityType">
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="KnowledgeValidityType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Proven"/>
+      <xs:enumeration value="Rejected"/>
+      <xs:enumeration value="Unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="InfluenceScopeType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <xs:complexType name="InfluenceMetaAttributeType">
+    <xs:sequence>
+      <xs:element name="RestrictedTo" type="RestrictedToType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="role" type="InfluenceMetaAttributeAttrRoleType"/>
+    <xs:attribute name="name" type="InfluenceMetaAttributeAttrNameType"/>
+  </xs:complexType>
+
+  <xs:simpleType name="InfluenceMetaAttributeAttrRoleType">
+    <xs:restriction base="xs:string">
+      <!-- Only for purposes of two-dimensional matrix -->
+      <xs:enumeration value="A"/>
+      <xs:enumeration value="B"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="InfluenceMetaAttributeAttrNameType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <xs:complexType name="RestrictedToType">
+    <xs:annotation>
+      <xs:documentation>Particular influence could be restricted only for a specific part of values
+        of a meta-attribute.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Format" type="RestrictedToFormatType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RestrictedToFormatType">
+    <xs:sequence minOccurs="0">
+      <xs:choice>
+        <xs:element name="Value" type="RestrictedToFormatValueType" maxOccurs="unbounded"/>
+        <xs:element name="Intervals" type="base:IntervalsType"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="name" type="RestrictedToFormatAttrType"/>
+  </xs:complexType>
+
+  <xs:simpleType name="RestrictedToFormatAttrType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:complexType name="RestrictedToFormatValueType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="format" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>

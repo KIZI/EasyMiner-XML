@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Dictionary xmlns="http://keg.vse.cz/ns/datadescription0_1" xmlns:d="http://keg.vse.cz/ns/datadescription0_1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:x="http://www.topicmaps.org/xtm/1.0/" sourceName="Barbora"  xsi:schemaLocation="http://keg.vse.cz/ns/datadescription0_1 http://sewebar.vse.cz/schemas/DataDescription0_1.xsd">
+   <Field name="months [Loan Duration]" optype="continuous" dataType="string">
+      <Interval leftMargin="0" rightMargin="99999999" closure="closedClosed"/>
+   </Field>
+   <Field name="Region [Area]" optype="categorical" dataType="string">
+      <Category>Central Bohemia</Category>
+      <Category>Moravia</Category>
+      <Category>Eastern Bohemia</Category>
+   </Field>
+   <Field name="AD Scale [Loan Quality]" optype="categorical" dataType="string">
+      <Category>C</Category>
+      <Category>A</Category>
+      <Category>D</Category>
+      <Category>B</Category>
+   </Field>
+</Dictionary>

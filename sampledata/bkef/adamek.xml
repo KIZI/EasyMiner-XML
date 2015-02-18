@@ -1,0 +1,2723 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="bkef-styl.xsl"?>
+<bkef:BKEF xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bkef="http://keg.vse.cz/bkef"
+    version="0.92" xsi:schemaLocation="http://keg.vse.cz/bkef http://sewebar.vse.cz/schemas/BKEF1.0.xsd">
+    <Header>
+        <Application name="Manually edited output of BKEF editor" version="0.1"/>
+        <Title>background knwowledge on Adamek dataset</Title>
+    </Header>
+    <MetaAttributes>
+        <MetaAttribute name="Fyzikální vyšetření" id="1" level="1">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+        </MetaAttribute>
+        <MetaAttribute name="hmotnost" id="2" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="kg">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>Float</DataType>
+                    <ValueType>Cardinal</ValueType>
+                    <AllowedRange>
+                        <Interval>
+                            <LeftBound type="closed" value="40"/>
+                            <RightBound type="closed" value="400"/>
+                        </Interval>
+                    </AllowedRange>
+                    <Annotations>
+                        <Annotation>
+                            <Author>Marie Tomečková</Author>
+                            <Text>přesnost 0.1</Text>
+                        </Annotation>
+                    </Annotations>
+                    <Collation sense="Ascending" type="Numerical"/>
+                    <ValueDescriptions>
+                        <ValueDescription type="Significant">
+                            <Annotation>
+                                <Text/>
+                                <Author/>
+                            </Annotation>
+                            <Interval>
+                                <LeftBound type="closed" value="100"/>
+                                <RightBound type="closed" value="150"/>
+                            </Interval>
+                        </ValueDescription>
+                        <ValueDescription type="Suspicious">
+                            <Annotation>
+                                <Text/>
+                                <Author/>
+                            </Annotation>
+                            <Interval>
+                                <LeftBound type="closed" value="150"/>
+                                <RightBound type="closed" value="400"/>
+                            </Interval>
+                        </ValueDescription>
+                    </ValueDescriptions>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="systolický krevní tlak" id="3" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="mmHg">
+                    <Author>Marie Tomečková</Author>
+                    <Collation sense="Ascending" type="Numerical"/>
+                    <DataType>Float</DataType>
+                    <ValueType>Cardinal</ValueType>
+                    <AllowedRange>
+                        <Interval>
+                            <LeftBound type="closed" value="50"/>
+                            <RightBound type="closed" value="300"/>
+                        </Interval>
+                    </AllowedRange>
+                    <PreprocessingHints>
+                        <PreprocessingHint name="">
+                            <DiscretizationHint> </DiscretizationHint>
+                        </PreprocessingHint>
+                        <PreprocessingHint name="Pacient bez cukrovky">
+                            <DiscretizationHint>
+                                <IntervalEnumeration>
+                                    <IntervalBin name="Normální">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="closed" value="100"/>
+                                            <RightBound type="closed" value="135"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                    <IntervalBin name="Vyšší normální">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="open" value="135"/>
+                                            <RightBound type="closed" value="140"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                    <IntervalBin name="Hypertenze">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="open" value="140"/>
+                                            <RightBound type="closed" value="240"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                </IntervalEnumeration>
+                            </DiscretizationHint>
+                        </PreprocessingHint>
+                        <PreprocessingHint name="Pacient s cukrovkou">
+                            <DiscretizationHint>
+                                <IntervalEnumeration>
+                                    <IntervalBin name="Normální">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="closed" value="100"/>
+                                            <RightBound type="closed" value="130"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                    <IntervalBin name="Hypertenze">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="open" value="130"/>
+                                            <RightBound type="closed" value="240"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                </IntervalEnumeration>
+                            </DiscretizationHint>
+                        </PreprocessingHint>
+                    </PreprocessingHints>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Body Mass Index (BMI)" id="4" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="kg/m2">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>Integer</DataType>
+                    <ValueType>Cardinal</ValueType>
+                    <AllowedRange>
+                        <Interval>
+                            <LeftBound type="closed" value="15"/>
+                            <RightBound type="closed" value="80"/>
+                        </Interval>
+                    </AllowedRange>
+                    <Collation sense="Ascending" type="Numerical"/>
+                    <PreprocessingHints>
+                        <PreprocessingHint name="Univerzální">
+                            <DiscretizationHint>
+                                <IntervalEnumeration>
+                                    <IntervalBin name="Podvýživa">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="closed" value="15"/>
+                                            <RightBound type="closed" value="18.5"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                    <IntervalBin name="Normální">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="open" value="18.5"/>
+                                            <RightBound type="closed" value="25"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                    <IntervalBin name="Nadváha">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="open" value="25"/>
+                                            <RightBound type="closed" value="30"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                    <IntervalBin name="Obezita I. stupně">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="open" value="30"/>
+                                            <RightBound type="closed" value="35"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                    <IntervalBin name="Obezita II. stupně">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="open" value="35"/>
+                                            <RightBound type="closed" value="40"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                    <IntervalBin name="Obezita III. stupně">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="open" value="40"/>
+                                            <RightBound type="closed" value="80"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                </IntervalEnumeration>
+                            </DiscretizationHint>
+                        </PreprocessingHint>
+                    </PreprocessingHints>
+
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Waist-Hip Ratio (WHR)" id="5" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="Bezrozměrné číslo">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>Float</DataType>
+                    <ValueType>Cardinal</ValueType>
+                    <PreprocessingHints>
+                        <PreprocessingHint name="ženy">
+                            <DiscretizationHint>
+                                <IntervalEnumeration>
+                                    <IntervalBin name="Normální">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="closed" value="0.4"/>
+                                            <RightBound type="closed" value="0.7"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                    <IntervalBin name="Ukazatel obezity">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="open" value="0.7"/>
+                                            <RightBound type="closed" value="1.2"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                </IntervalEnumeration>
+                            </DiscretizationHint>
+                        </PreprocessingHint>
+                        <PreprocessingHint name="muži">
+                            <DiscretizationHint>
+                                <IntervalEnumeration>
+                                    <IntervalBin name="normální">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="closed" value="0.6"/>
+                                            <RightBound type="closed" value="0.9"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                    <IntervalBin name="Ukazatel obezity">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="closed" value="0.9"/>
+                                            <RightBound type="closed" value="1.4"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                </IntervalEnumeration>
+                            </DiscretizationHint>
+                        </PreprocessingHint>
+                    </PreprocessingHints>
+                    <AllowedRange>
+                        <Interval>
+                            <LeftBound type="closed" value="0.6"/>
+                            <RightBound type="closed" value="1.4"/>
+                        </Interval>
+                    </AllowedRange>
+                    <Collation sense="Ascending" type="Numerical"/>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Laboratorní vyšetření" id="6" level="1">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text>Atributy v této skupině jsou zjištěny aktuálně při klinickém vyšetřování
+                    rozborem krve.</Text>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <ChildMetaAttribute id="18"/>
+            <ChildMetaAttribute id="17"/>
+            <ChildMetaAttribute id="7"/>
+        </MetaAttribute>
+        <MetaAttribute name="Glykemie" id="7" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text>Hladina krevního cukru</Text>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="mg%">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>String</DataType>
+                    <ValueType>Cardinal</ValueType>
+                    <Annotations>
+                        <Annotation>
+                            <Author>Marie Tomečková</Author>
+                            <Text>Udává se v miligram procentech</Text>
+                        </Annotation>
+                    </Annotations>
+                    <AllowedRange>
+                        <Interval>
+                            <LeftBound type="closed" value="0.5"/>
+                            <RightBound type="closed" value="60"/>
+                        </Interval>
+                    </AllowedRange>
+                    <Collation sense="Ascending" type="Numerical"/>
+                    <PreprocessingHints>
+                        <PreprocessingHint name="Univerzální">
+                            <DiscretizationHint>
+                                <IntervalEnumeration>
+                                    <IntervalBin name="Normoglykemie">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="closed" value="0.5"/>
+                                            <RightBound type="closed" value="6"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                    <IntervalBin name="Porucha glukózové tolerance">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="open" value="6"/>
+                                            <RightBound type="closed" value="7.5"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                    <IntervalBin name="Diabete mellitus (cukrovka)">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="closed" value="7.5"/>
+                                            <RightBound type="closed" value="60"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                </IntervalEnumeration>
+                            </DiscretizationHint>
+                        </PreprocessingHint>
+                    </PreprocessingHints>
+                    <ValueDescriptions>
+                        <ValueDescription type="Similar">
+                            <Annotation>
+                                <Text>Hypoglykemie - nízká hladina krevního cukru s klinickými
+                                    projevy. Hladina je individuální, proto není hypoglykemie jako
+                                    samostatná kategorie (je v intervalu normoglykemie)</Text>
+                                <Author/>
+                            </Annotation>
+                            <Interval>
+                                <LeftBound type="closed" value="0.5"/>
+                                <RightBound type="open" value="3"/>
+                            </Interval>
+                        </ValueDescription>
+                    </ValueDescriptions>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Celkový cholesterol" id="8" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="mmol/l">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>Float</DataType>
+                    <ValueType>Cardinal</ValueType>
+                    <AllowedRange>
+                        <Interval>
+                            <LeftBound type="closed" value="2"/>
+                            <RightBound type="closed" value="15"/>
+                        </Interval>
+                    </AllowedRange>
+                    <Collation sense="Ascending" type="Numerical"/>
+                    <PreprocessingHints>
+                        <PreprocessingHint name="Pacienti s kardiovaskulárním onemocněním">
+                            <DiscretizationHint>
+                                <IntervalEnumeration>
+                                    <IntervalBin name="Normální">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="closed" value="2"/>
+                                            <RightBound type="closed" value="4.5"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                    <IntervalBin name="Zvýšený">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="open" value="4.5"/>
+                                            <RightBound type="closed" value="15"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                </IntervalEnumeration>
+                            </DiscretizationHint>
+                        </PreprocessingHint>
+                        <PreprocessingHint name="Pacienti bez kardiovaskulárního onemocněním">
+                            <DiscretizationHint>
+                                <IntervalEnumeration>
+                                    <IntervalBin name="Normální">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="closed" value="2"/>
+                                            <RightBound type="closed" value="5"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                    <IntervalBin name="Zvýšený">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="open" value="5"/>
+                                            <RightBound type="closed" value="15"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                </IntervalEnumeration>
+                            </DiscretizationHint>
+                        </PreprocessingHint>
+                    </PreprocessingHints>
+                    <Annotations>
+                        <Annotation>
+                            <Author>Marie Tomečková</Author>
+                            <Text>Kardiovaskulární onemocnění - srdeční infarkt, mozková mrtvice,
+                                ale i diabetes mellitus.</Text>
+                        </Annotation>
+                        <Annotation>
+                            <Author>Marie Tomečková</Author>
+                            <Text>mmol/l je zkratka pro milimol/litr.</Text>
+                        </Annotation>
+                    </Annotations>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Obvod pasu" id="9" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="cm">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>Integer</DataType>
+                    <ValueType>Cardinal</ValueType>
+                    <AllowedRange>
+                        <Interval>
+                            <LeftBound type="closed" value="70"/>
+                            <RightBound type="closed" value="160"/>
+                        </Interval>
+                    </AllowedRange>
+                    <Collation sense="Ascending" type="Numerical"/>
+                    <PreprocessingHints>
+                        <PreprocessingHint name="Muži">
+                            <DiscretizationHint>
+                                <IntervalEnumeration>
+                                    <IntervalBin name="Normální">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="closed" value="70"/>
+                                            <RightBound type="closed" value="102"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                    <IntervalBin name="Ukazatel obezity">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="closed" value="102"/>
+                                            <RightBound type="closed" value="160"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                </IntervalEnumeration>
+                            </DiscretizationHint>
+                        </PreprocessingHint>
+                        <PreprocessingHint name="Ženy">
+                            <DiscretizationHint>
+                                <IntervalEnumeration>
+                                    <IntervalBin name="Normální">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="closed" value="60"/>
+                                            <RightBound type="closed" value="88"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                    <IntervalBin name="Ukazatel obezity">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="closed" value="88"/>
+                                            <RightBound type="closed" value="140"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                </IntervalEnumeration>
+                            </DiscretizationHint>
+                        </PreprocessingHint>
+                    </PreprocessingHints>
+                    <Annotations>
+                        <Annotation>
+                            <Author>Marie Tomečková</Author>
+                            <Text>Hodnoty v seskupení Muži a Ženy vychází z definice metabolického
+                                syndromu podle NCEP-ATP III</Text>
+                        </Annotation>
+                    </Annotations>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Rizikové faktory pro aterosklerózu" id="10" level="1">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text>Ateroskleróza je postižení tepen. Rizikové faktory aterosklerózu zhoršují.
+                    Ateroskleróza může vést k srdečnímu infarktu nebo mozkové mrtvici či dalším
+                    onemocněním.&#13; &#13; Atributy v této skupině jsou zjištěny anamnesticky -
+                    dotazem na pacienta - a vychází z dřívějších klinických a laboratorních
+                    vyšetření.</Text>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <ChildMetaAttribute id="13"/>
+            <ChildMetaAttribute id="11"/>
+            <ChildMetaAttribute id="12"/>
+            <ChildMetaAttribute id="20"/>
+        </MetaAttribute>
+        <MetaAttribute name="Hyperlipoproteinémie - zvýšené lipidy" id="11" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text>Zvýené hodnoty hodnoty lipidů v krvi (celkový cholesterol, HDL cholesterol,
+                    LDL cholesterol, triacylglyceroly)&#13; &#13; K anamnéze se vztahuje atribut,
+                    zda je nebo není medikamentózně léčen (užívá léky). I léčený pacient s anamnézou
+                    léčené hyperlipoproteinémie nemusí mít pří aktuálním vyšetření normální hodnoty
+                    lipidů v krvi.</Text>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="booleovská hodnota">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>String</DataType>
+                    <ValueType>Nominal</ValueType>
+                    <AllowedRange>
+                        <Enumeration>
+                            <Value>ano</Value>
+                            <Value>ne</Value>
+                        </Enumeration>
+                    </AllowedRange>
+                    <Annotations>
+                        <Annotation>
+                            <Author>Marie Tomečková</Author>
+                            <Text>Jedná se o údaj od pacienta, zda mu byla v minulosti zjištěna
+                                porucha hodnot lipidů.</Text>
+                        </Annotation>
+                    </Annotations>
+                    <ValueDescriptions>
+                        <ValueDescription type="Significant">
+                            <Annotation>
+                                <Text>Hodnoty nemusí odpovídat aktuálnímu stavu laboratorního
+                                    vyšteření. Datový model obsahuje informaci o tom, kdy byla
+                                    hyperlipoproteinémie zjištěna a zda byla nebo nebyla léčena
+                                    (režimová opatření, hypolipimedika - druh medikace)</Text>
+                                <Author>Marie Tomečková</Author>
+                            </Annotation>
+                            <Value>ano</Value>
+                            <Value>ne</Value>
+                        </ValueDescription>
+                    </ValueDescriptions>
+                    <PreprocessingHints>
+                        <PreprocessingHint name="Zjištěno od pacienta">
+                            <DiscretizationHint>
+                                <ExhaustiveEnumeration>
+                                    <Bin name="ano">
+                                        <Annotation>
+                                            <Text>Pacientovi bylo sděleno. že má zvýšené lipidy.
+                                                Přesnou hodnotu často pacient neví.</Text>
+                                            <Author/>
+                                        </Annotation>
+                                        <Value>ano</Value>
+                                    </Bin>
+                                    <Bin name="ne">
+                                        <Annotation>
+                                            <Text>Hodnota ne znamená, že pacientovi bylo sděleno, že
+                                                nemá zvýšené lipidy.</Text>
+                                            <Author/>
+                                        </Annotation>
+                                        <Value>ne</Value>
+                                    </Bin>
+                                    <Bin name="Nevím">
+                                        <Annotation>
+                                            <Text>Pacient si nepamatuje, nebo neměl lipidy
+                                                vyšetřené.</Text>
+                                            <Author/>
+                                        </Annotation>
+                                        <Value>nevím</Value>
+                                    </Bin>
+                                </ExhaustiveEnumeration>
+                            </DiscretizationHint>
+                        </PreprocessingHint>
+                    </PreprocessingHints>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Diabetes mellitus - cukrovka" id="12" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text>Diabetes mellitus (DM) je odborný název pro cukrovku. Atribut v tomto modelu
+                    nerozlišuje druh cukrovky (I. typu, II. typu, gestační - v těhotenství).&#13;
+                    &#13; &#13; K anamnéze se vztahuje atribut, zda je nebo není medikamentózně
+                    léčen (užívá léky nebo aplikuje inzulin). I léčený pacient s anamnézou léčené
+                    cukrovky nemusí mít pří aktuálním vyšetření normální hodnoty glykemie v
+                    krvi.</Text>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="booleovská hodnota">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>String</DataType>
+                    <ValueType>Nominal</ValueType>
+                    <AllowedRange>
+                        <Enumeration>
+                            <Value>ano</Value>
+                            <Value>ne</Value>
+                            <Value>nevím</Value>
+                        </Enumeration>
+                    </AllowedRange>
+                    <PreprocessingHints>
+                        <PreprocessingHint name="Zjištěno od pacienta - Anamnéza">
+                            <DiscretizationHint>
+                                <ExhaustiveEnumeration>
+                                    <Bin name="ano">
+                                        <Annotation>
+                                            <Text>Pacientovi bylo v minulosti sděleno na základě
+                                                klinického(zjištění potíží) a laboratorního
+                                                vyšetření, že má cukrovku.</Text>
+                                            <Author/>
+                                        </Annotation>
+                                        <Value>ani</Value>
+                                    </Bin>
+                                    <Bin name="ne">
+                                        <Annotation>
+                                            <Text>Hodnota znamená, že pacientovi bylo na základě
+                                                laboratorního vyšetření sděleno, že nemá
+                                                cukrovku.</Text>
+                                            <Author/>
+                                        </Annotation>
+                                        <Value>ne</Value>
+                                    </Bin>
+                                    <Bin name="nevím">
+                                        <Annotation>
+                                            <Text>Pacient si nepamatuje, nebo laboratorní vyšetření
+                                                na cukrovku mu nebyla provedena.</Text>
+                                            <Author/>
+                                        </Annotation>
+                                        <Value>nevím</Value>
+                                    </Bin>
+                                </ExhaustiveEnumeration>
+                            </DiscretizationHint>
+                        </PreprocessingHint>
+                    </PreprocessingHints>
+                    <ValueDescriptions>
+                        <ValueDescription type="Significant">
+                            <Annotation>
+                                <Text>Hodnoty nemusí odpovídat aktuálnímu stavu laboratorního
+                                    vyšteření. Datový model obsahuje informaci o tom, kdy byl
+                                    diabetes zjištěn a zda byl nebo nebyl léčen (režimová opatření,
+                                    druh medikace)</Text>
+                                <Author>Marie Tomečková</Author>
+                            </Annotation>
+                        </ValueDescription>
+                    </ValueDescriptions>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Hypertenze - vysoký krevní tlak" id="13" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text>K anamnéze se vztahuje atribut, zda je nebo není medikamentózně léčen (užívá
+                    léky). I léčený hypertonik nemusí mít pří aktuálním vyšetření normální hodnoty
+                    krevního tlaku.</Text>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="booleovská hodnota">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>String</DataType>
+                    <ValueType>Nominal</ValueType>
+                    <AllowedRange>
+                        <Enumeration>
+                            <Value>ano</Value>
+                            <Value>ne</Value>
+                            <Value>nevím</Value>
+                        </Enumeration>
+                    </AllowedRange>
+                    <PreprocessingHints>
+                        <PreprocessingHint name="Zjištěno od pacienta - Anamnéza">
+                            <DiscretizationHint>
+                                <ExhaustiveEnumeration>
+                                    <Bin name="ano">
+                                        <Annotation>
+                                            <Text>Pacientovi bylo sděleno na základě opakovaných
+                                                měření krevního tlaku, že trpí vysokým krevním
+                                                tlakem. Přesnou hodnotu často pacient neví.</Text>
+                                            <Author/>
+                                        </Annotation>
+                                        <Value>ano</Value>
+                                    </Bin>
+                                    <Bin name="ne">
+                                        <Annotation>
+                                            <Text>Hodnota ne znamená, že pacientovi bylo sděleno, že
+                                                netrpí vysokým krevním tlakem.</Text>
+                                            <Author/>
+                                        </Annotation>
+                                        <Value>ne</Value>
+                                    </Bin>
+                                    <Bin name="nevím">
+                                        <Annotation>
+                                            <Text>Pacient neví, zda má nebo nemá vysoký krevní tlak.
+                                                Tato odpověď není příliš častá.</Text>
+                                            <Author/>
+                                        </Annotation>
+                                        <Value>nevím</Value>
+                                    </Bin>
+                                </ExhaustiveEnumeration>
+                            </DiscretizationHint>
+                        </PreprocessingHint>
+                    </PreprocessingHints>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Rodinná anamnéza  - fatální" id="14" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text>Rodiče, sourozenci nebo děti zemřeli na aterosklerotickésrdečně cévní
+                    onemocnění (tj. nikoliv např. na srdeční vadu).&#13; Příbuzní mužského pohlaví
+                    do 55 let věku a příbuzné ženského pohlaví do 65 let věku.</Text>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="booleovská hodnota">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>String</DataType>
+                    <ValueType>Nominal</ValueType>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="LDL Cholesterol" id="15" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text>Zkratka Low Density Cholesterol - ester cholesterolu o nízké hustotě. Zjišťuje
+                    se přímým laboratorním vyšetřením, které je relativně složité a nákladné, nebo
+                    výpočtem na základě hodnot triacylglyceridů a celkového cholesterolu.</Text>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="mmol/l">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>Integer</DataType>
+                    <ValueType>Cardinal</ValueType>
+                    <Annotations>
+                        <Annotation>
+                            <Author>Marie Tomečková</Author>
+                            <Text>mmol/l je zkratka pro milimol/litr.</Text>
+                        </Annotation>
+                        <Annotation>
+                            <Author>Marie Tomečková</Author>
+                            <Text>U LDL cholesterolu se rostoucí hodnoty považují za rizikový -
+                                zhoršující faktor aterosklerózy.</Text>
+                        </Annotation>
+                    </Annotations>
+                    <AllowedRange>
+                        <Interval>
+                            <LeftBound type="closed" value="1.5"/>
+                            <RightBound type="closed" value="6"/>
+                        </Interval>
+                    </AllowedRange>
+                    <PreprocessingHints>
+                        <PreprocessingHint
+                            name="pacient bez diabetes mellitus a bez anamnézy srdečně cévního onemocnění">
+                            <DiscretizationHint>
+                                <IntervalEnumeration>
+                                    <IntervalBin name="Normální">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="closed" value="1.5"/>
+                                            <RightBound type="closed" value="3"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                    <IntervalBin name="Zvýšený">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="open" value="3"/>
+                                            <RightBound type="closed" value="6"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                </IntervalEnumeration>
+                            </DiscretizationHint>
+                        </PreprocessingHint>
+                        <PreprocessingHint
+                            name="pacient s diabetes mellitus nebo s anamnézou srdečně cévního onemocnění">
+                            <DiscretizationHint>
+                                <IntervalEnumeration>
+                                    <IntervalBin name="Normální">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="closed" value="1.5"/>
+                                            <RightBound type="closed" value="2.5"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                    <IntervalBin name="Zvýšený">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="open" value="2.5"/>
+                                            <RightBound type="closed" value="6"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                </IntervalEnumeration>
+                            </DiscretizationHint>
+                        </PreprocessingHint>
+                    </PreprocessingHints>
+
+                    <Collation sense="Ascending" type="Numerical"/>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="HDL Cholesterol" id="16" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text>Zkratka znamená High Density - protein ester cholesterolu o vysoké hustotě.
+                    Zjišťuje se přimou laboratorní metodou.</Text>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="mmol/l">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>Float</DataType>
+                    <ValueType>Cardinal</ValueType>
+                    <AllowedRange>
+                        <Interval>
+                            <LeftBound type="closed" value="0.6"/>
+                            <RightBound type="closed" value="2.5"/>
+                        </Interval>
+                    </AllowedRange>
+                    <Collation sense="Ascending" type="Numerical"/>
+                    <PreprocessingHints>
+                        <PreprocessingHint name="Muži">
+                            <DiscretizationHint>
+                                <IntervalEnumeration>
+                                    <IntervalBin name="snížený">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="closed" value="0.6"/>
+                                            <RightBound type="closed" value="1"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                    <IntervalBin name="Normální">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="open" value="1"/>
+                                            <RightBound type="closed" value="2.5"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                </IntervalEnumeration>
+                            </DiscretizationHint>
+                        </PreprocessingHint>
+                        <PreprocessingHint name="Ženy">
+                            <DiscretizationHint>
+                                <IntervalEnumeration>
+                                    <IntervalBin name="snížený">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="closed" value="0.5"/>
+                                            <RightBound type="closed" value="1.3"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                    <IntervalBin name="Normální">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="open" value="1.3"/>
+                                            <RightBound type="closed" value="2.5"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                </IntervalEnumeration>
+                            </DiscretizationHint>
+                        </PreprocessingHint>
+                    </PreprocessingHints>
+                    <Annotations>
+                        <Annotation>
+                            <Author>Marie Tomečková</Author>
+                            <Text>Hodnoty v seskupení Muži a Ženy vychází z definice metabolického
+                                syndromu podle NCEP-ATP III</Text>
+                        </Annotation>
+                        <Annotation>
+                            <Author>Marie Tomečková</Author>
+                            <Text>U HDL cholesterolu se rostoucí hodnoty považují za ochranný faktor
+                                proti ateroskleróze</Text>
+                        </Annotation>
+                    </Annotations>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Triacylglyceroly" id="17" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text>Zvyšující se hodnoty se považují za rizikový - zhoršující faktor
+                    aterosklerózy. Zjištuje se přimým laboratorním vyštřením.&#13; &#13;
+                    Triacylglyceroly se v těle vytváří z cukrů a alkoholu.</Text>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="mmol/l">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>Float</DataType>
+                    <ValueType>Cardinal</ValueType>
+                    <Annotations>
+                        <Annotation>
+                            <Author>Marie Tomečková</Author>
+                            <Text>Hodnoty v seskupení vychází z definice metabolického syndromu
+                                podle NCEP-ATP III</Text>
+                        </Annotation>
+                    </Annotations>
+                    <AllowedRange>
+                        <Interval>
+                            <LeftBound type="closed" value="0.8"/>
+                            <RightBound type="closed" value="8"/>
+                        </Interval>
+                    </AllowedRange>
+                    <PreprocessingHints>
+                        <PreprocessingHint name="Univerzální">
+                            <DiscretizationHint>
+                                <IntervalEnumeration>
+                                    <IntervalBin name="Normální">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="closed" value="0.8"/>
+                                            <RightBound type="closed" value="1.7"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                    <IntervalBin name="Zvýšené">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="open" value="1.7"/>
+                                            <RightBound type="closed" value="8"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                </IntervalEnumeration>
+                            </DiscretizationHint>
+                        </PreprocessingHint>
+                    </PreprocessingHints>
+                    <Collation sense="Ascending" type="Numerical"/>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Kyselina močová" id="18" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text>Zvýšená hodnota je rizikovým faktorem aterosklerózy. Někdy se její vyšší
+                    hodnoty dávají do souvislosti s vyšší konzumací masa.</Text>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="umol/l">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>String</DataType>
+                    <ValueType>Cardinal</ValueType>
+                    <Annotations>
+                        <Annotation>
+                            <Author>Marie Tomečková</Author>
+                            <Text>umol/l je zkratka pro mikromol/litr.</Text>
+                        </Annotation>
+                        <Annotation>
+                            <Author>Marie Tomečková</Author>
+                            <Text>Hraniční hodnoty v seskupení stanoveny podle Přehledu
+                                laboratorních vyšetření prováděných ve Všeobecné fakultní nemocnici
+                                v Praze (2007).</Text>
+                        </Annotation>
+                    </Annotations>
+                    <AllowedRange>
+                        <Interval>
+                            <LeftBound type="closed" value="100"/>
+                            <RightBound type="closed" value="600"/>
+                        </Interval>
+                    </AllowedRange>
+                    <Collation sense="Ascending" type="Numerical"/>
+                    <PreprocessingHints>
+                        <PreprocessingHint name="Muži">
+                            <DiscretizationHint>
+                                <IntervalEnumeration>
+                                    <IntervalBin name="Normální">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="closed" value="100"/>
+                                            <RightBound type="closed" value="420"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                    <IntervalBin name="Zvýšená">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="open" value="420"/>
+                                            <RightBound type="closed" value="600"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                </IntervalEnumeration>
+                            </DiscretizationHint>
+                        </PreprocessingHint>
+                        <PreprocessingHint name="Ženy">
+                            <DiscretizationHint>
+                                <IntervalEnumeration>
+                                    <IntervalBin name="Normální">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="closed" value="100"/>
+                                            <RightBound type="closed" value="340"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                    <IntervalBin name="Zvýšená">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="open" value="340"/>
+                                            <RightBound type="closed" value="600"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                </IntervalEnumeration>
+                            </DiscretizationHint>
+                        </PreprocessingHint>
+                    </PreprocessingHints>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Míry obezity" id="19" level="1">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text>WHR se považuje za nejlepší ukazatel obezity (měřeno jeho schopností
+                    predikovat úmrtí na kardiovaskulární choroby). Zdroj: &#13; Medical Journal Of
+                    Australia, Waist–hip ratio is the dominant risk factor predicting cardiovascular
+                    death in Australia&#13;
+                    http://www.mja.com.au/public/issues/179_11_011203/wel10182_fm-1.html</Text>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <ChildMetaAttribute id="5"/>
+            <ChildMetaAttribute id="9"/>
+            <ChildMetaAttribute id="4"/>
+        </MetaAttribute>
+        <MetaAttribute name="Rodinná anamnéza fatální" id="20" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="Booleovská charakteristika">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>String</DataType>
+                    <ValueType>Nominal</ValueType>
+                    <AllowedRange>
+                        <Enumeration>
+                            <Value>ano</Value>
+                            <Value>ne</Value>
+                        </Enumeration>
+                    </AllowedRange>
+                    <ValueDescriptions>
+                        <ValueDescription type="Significant">
+                            <Annotation>
+                                <Text>Pozitivní rodinná anamnéza je neovlivnitelným rizikovým
+                                    faktorem aterosklerózy. Znamená úmrtí rodičů nebo sourozenců na
+                                    srdeční infarkt nebo mozkovou mrtvici, a to u příbuzných
+                                    mužského pohlaví do 55 let věku, u příbuzných ženského pohlaví
+                                    do 65 let věku.</Text>
+                                <Author>Marie Tomečková</Author>
+                            </Annotation>
+                            <Value>ano</Value>
+                        </ValueDescription>
+                    </ValueDescriptions>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Věk" id="21" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="rok">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>Integer</DataType>
+                    <ValueType>Cardinal</ValueType>
+                    <AllowedRange>
+                        <Interval>
+                            <LeftBound type="closed" value="10"/>
+                            <RightBound type="closed" value="110"/>
+                        </Interval>
+                    </AllowedRange>
+
+                    <PreprocessingHints>
+                        <PreprocessingHint name="Euromise">
+                            <DiscretizationHint>
+                                <IntervalEnumeration>
+                                    <IntervalBin name="Mladí dospělý">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="closed" value="10"/>
+                                            <RightBound type="closed" value="40"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                    <IntervalBin name="Střední věk">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="open" value="40"/>
+                                            <RightBound type="closed" value="65"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                    <IntervalBin name="Stáří">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="open" value="65"/>
+                                            <RightBound type="closed" value="110"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                </IntervalEnumeration>
+                            </DiscretizationHint>
+                        </PreprocessingHint>
+                        <PreprocessingHint name="Doporučená diskretizace">
+                            <DiscretizationHint>
+                                <Equidistant>
+                                    <Start type="closed">10</Start>
+                                    <End type="closed">110</End>
+                                    <Step>5</Step>
+                                </Equidistant>
+                            </DiscretizationHint>
+                        </PreprocessingHint>
+                    </PreprocessingHints>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Pohlaví" id="22" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="muž/žena">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>String</DataType>
+                    <ValueType>Nominal</ValueType>
+                    <AllowedRange>
+                        <Enumeration>
+                            <Value>muž</Value>
+                            <Value>žena</Value>
+                        </Enumeration>
+                    </AllowedRange>
+                    <Annotations>
+                        <Annotation>
+                            <Author>Marie Tomečková</Author>
+                            <Text>Průměrný HDL cholesterol je vyšší u žen než u mužů.</Text>
+                        </Annotation>
+                    </Annotations>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Vzdělání" id="23" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="Adamek">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>String</DataType>
+                    <ValueType>Cardinal</ValueType>
+                    <AllowedRange>
+                        <Enumeration>
+                            <Value>základní</Value>
+                            <Value>střední</Value>
+                            <Value>vysokoškolské</Value>
+                        </Enumeration>
+                    </AllowedRange>
+
+                    <Collation type="Enumeration" sense="Ascending">
+                        <Value>základní</Value>
+                        <Value>střední</Value>
+                        <Value>vysokoškolské</Value>
+                    </Collation>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Kouření" id="24" level="0">
+            <Variability>Actionable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="Euromise">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>String</DataType>
+                    <ValueType>Nominal</ValueType>
+                    <AllowedRange>
+                        <Enumeration>
+                            <Value>nekuřák</Value>
+                            <Value>exkuřák</Value>
+                            <Value>příležitostný kuřák</Value>
+                            <Value>kuřák</Value>
+                        </Enumeration>
+                    </AllowedRange>
+                    <Collation type="Enumeration" sense="Ascending">
+                        <Value>nekuřák</Value>
+                        <Value>exkuřák</Value>
+                        <Value>příležitostný kuřák</Value>
+                        <Value>kuřák</Value>
+                    </Collation>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Tělesná aktivita" id="25" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="Euromise">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>String</DataType>
+                    <ValueType>Nominal</ValueType>
+                    <AllowedRange>
+                        <Enumeration>
+                            <Value>žádná</Value>
+                            <Value>mírná</Value>
+                            <Value>střední</Value>
+                            <Value>vysoká</Value>
+                        </Enumeration>
+                    </AllowedRange>
+                    <Collation type="Enumeration" sense="Ascending">
+                        <Value>žádná</Value>
+                        <Value>mírná</Value>
+                        <Value>střední</Value>
+                        <Value>vysoká</Value>
+                    </Collation>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Lipidové parametry" id="26" level="1">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <ChildMetaAttribute id="17"/>
+            <ChildMetaAttribute id="15"/>
+            <ChildMetaAttribute id="16"/>
+            <ChildMetaAttribute id="8"/>
+        </MetaAttribute>
+        <MetaAttribute name="Sociální anamnéza" id="27" level="1">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <ChildMetaAttribute id="23"/>
+            <ChildMetaAttribute id="24"/>
+            <ChildMetaAttribute id="29"/>
+            <ChildMetaAttribute id="31"/>
+            <ChildMetaAttribute id="30"/>
+        </MetaAttribute>
+        <MetaAttribute name="Osobní údaje" id="28" level="1">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <ChildMetaAttribute id="21"/>
+            <ChildMetaAttribute id="22"/>
+        </MetaAttribute>
+        <MetaAttribute name="Psychická zátěž" id="29" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text>Celková psychická zátěž v osobním životě i zaměstnání z pohledu
+                    pacienta.</Text>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="Euromise">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>String</DataType>
+                    <ValueType>Nominal</ValueType>
+                    <AllowedRange>
+                        <Enumeration>
+                            <Value>žádná</Value>
+                            <Value>mírná</Value>
+                            <Value>střední</Value>
+                            <Value>vysoká</Value>
+                        </Enumeration>
+                    </AllowedRange>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Rodinný stav" id="30" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="Euromise">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>String</DataType>
+                    <ValueType>Nominal</ValueType>
+                    <AllowedRange>
+                        <Enumeration>
+                            <Value>svobodný</Value>
+                            <Value>ženatý/vdaná</Value>
+                            <Value>rozvedený/rozvedená</Value>
+                            <Value>vdovec/vdova</Value>
+                        </Enumeration>
+                    </AllowedRange>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Žije sám" id="31" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="Euromise">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>String</DataType>
+                    <ValueType>Nominal</ValueType>
+                    <AllowedRange>
+                        <Enumeration>
+                            <Value>ano</Value>
+                            <Value>ne</Value>
+                        </Enumeration>
+                    </AllowedRange>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Fyziká zátěž v zaměstnání" id="32" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="Euromise">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>String</DataType>
+                    <ValueType>Cardinal</ValueType>
+                    <AllowedRange>
+                        <Enumeration>
+                            <Value>není zaměstnán</Value>
+                            <Value>žádná</Value>
+                            <Value>mírná</Value>
+                            <Value>střední</Value>
+                            <Value>vysoká</Value>
+                        </Enumeration>
+                    </AllowedRange>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Aktivity" id="33" level="1">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <ChildMetaAttribute id="32"/>
+            <ChildMetaAttribute id="25"/>
+        </MetaAttribute>
+        <MetaAttribute name="Míry" id="34" level="1">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <ChildMetaAttribute id="2"/>
+            <ChildMetaAttribute id="35"/>
+            <ChildMetaAttribute id="36"/>
+            <ChildMetaAttribute id="9"/>
+        </MetaAttribute>
+        <MetaAttribute name="Výška" id="35" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="cm">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>Float</DataType>
+                    <ValueType>Cardinal</ValueType>
+                    <AllowedRange>
+                        <Interval>
+                            <LeftBound type="closed" value="150"/>
+                            <RightBound type="closed" value="210"/>
+                        </Interval>
+                    </AllowedRange>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Obvod boků" id="36" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="cm">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>Float</DataType>
+                    <ValueType>Cardinal</ValueType>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Otoky" id="37" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="Booleovská charakteristika">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>String</DataType>
+                    <ValueType>Nominal</ValueType>
+                    <AllowedRange>
+                        <Enumeration>
+                            <Value>ano</Value>
+                            <Value>ne</Value>
+                        </Enumeration>
+                    </AllowedRange>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Palpitace" id="38" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text>Pocit bušení srdce</Text>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="Booleovská charakteristika">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>String</DataType>
+                    <ValueType>Nominal</ValueType>
+                    <AllowedRange>
+                        <Enumeration>
+                            <Value>ano</Value>
+                            <Value>ne</Value>
+                        </Enumeration>
+                    </AllowedRange>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Klaudikace" id="39" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text>Bolest v dolních končetinách při chůzi</Text>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="Booleovská charakteristika">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>String</DataType>
+                    <ValueType>Nominal</ValueType>
+                    <AllowedRange>
+                        <Enumeration>
+                            <Value>ano</Value>
+                            <Value>ne</Value>
+                        </Enumeration>
+                    </AllowedRange>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Dušnost" id="40" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text>Subjektivní pocit nedostatku vzduchu</Text>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="Euromise">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>String</DataType>
+                    <ValueType>Ordinal</ValueType>
+                    <AllowedRange>
+                        <Enumeration>
+                            <Value>žádná</Value>
+                            <Value>námahová</Value>
+                            <Value>klidová</Value>
+                        </Enumeration>
+                    </AllowedRange>
+                    <Collation type="Enumeration" sense="Ascending">
+                        <Value>žádná</Value>
+                        <Value>námahová</Value>
+                        <Value>klidová</Value>
+                    </Collation>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Bolest na hrudi" id="41" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="Euromise">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>String</DataType>
+                    <ValueType>Ordinal</ValueType>
+                    <AllowedRange>
+                        <Enumeration>
+                            <Value>žádná</Value>
+                            <Value>námahová</Value>
+                            <Value>klidová</Value>
+                        </Enumeration>
+                    </AllowedRange>
+                    <Collation type="Enumeration" sense="Ascending">
+                        <Value>žádná</Value>
+                        <Value>námahová</Value>
+                        <Value>klidová</Value>
+                    </Collation>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Diastolický krevní tlak" id="42" level="0">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <Formats>
+                <Format name="mmHg">
+                    <Author>Marie Tomečková</Author>
+                    <DataType>Integer</DataType>
+                    <ValueType>Cardinal</ValueType>
+                    <PreprocessingHints>
+                        <PreprocessingHint name="Pacient bez cukrovky">
+                            <DiscretizationHint>
+                                <IntervalEnumeration>
+                                    <IntervalBin name="Normální">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="closed" value="50"/>
+                                            <RightBound type="closed" value="90"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                    <IntervalBin name="Zvýšený">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="closed" value="90"/>
+                                            <RightBound type="closed" value="140"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                </IntervalEnumeration>
+                            </DiscretizationHint>
+                        </PreprocessingHint>
+                        <PreprocessingHint name="Pacient s cukrovkou">
+                            <DiscretizationHint>
+                                <IntervalEnumeration>
+                                    <IntervalBin name="Normální">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="closed" value="50"/>
+                                            <RightBound type="closed" value="80"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                    <IntervalBin name="Zvýšený">
+                                        <Annotation>
+                                            <Text/>
+                                            <Author>Marie Tomečková</Author>
+                                        </Annotation>
+                                        <Interval>
+                                            <LeftBound type="closed" value="80"/>
+                                            <RightBound type="closed" value="140"/>
+                                        </Interval>
+                                    </IntervalBin>
+                                </IntervalEnumeration>
+                            </DiscretizationHint>
+                        </PreprocessingHint>
+                    </PreprocessingHints>
+                    <Collation sense="Descending" type="Numerical"/>
+                    <AllowedRange>
+                        <Interval>
+                            <LeftBound type="closed" value="60"/>
+                            <RightBound type="closed" value="140"/>
+                        </Interval>
+                    </AllowedRange>
+                </Format>
+            </Formats>
+        </MetaAttribute>
+        <MetaAttribute name="Krevní tlak" id="43" level="1">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <ChildMetaAttribute id="3"/>
+            <ChildMetaAttribute id="42"/>
+        </MetaAttribute>
+        <MetaAttribute name="Obtíže" id="44" level="1">
+            <Variability>Stable</Variability>
+            <Annotation>
+                <Text/>
+                <Author>Marie Tomečková</Author>
+            </Annotation>
+            <ChildMetaAttribute id="40"/>
+            <ChildMetaAttribute id="39"/>
+            <ChildMetaAttribute id="37"/>
+            <ChildMetaAttribute id="41"/>
+        </MetaAttribute>
+    </MetaAttributes>
+    <Patterns>
+
+        <AssociationRules>
+            <BackgroundAssociationRules>
+                <BBA id="bba1">
+                    <FieldRef dictionary="TransformationDictionary">BMI</FieldRef>
+                    <CatRef>Nadváha</CatRef>
+                </BBA>
+                <BBA id="bba2">
+                    <FieldRef dictionary="TransformationDictionary">BMI</FieldRef>
+                    <CatRef>Obezita I. stupně</CatRef>
+                </BBA>
+                <BBA id="bba3">
+                    <FieldRef dictionary="DataDictionary">Diastolický krevní tlak</FieldRef>
+                    <CatRef>Zvýšený</CatRef>
+                </BBA>                
+                <AssociationRule antecedent="ar1" consequent="3" id="1">
+                    <IMValue name="Confidence">0.9</IMValue>
+                    <IMValue name="Support">20</IMValue>
+                </AssociationRule>
+                <AssociationRule antecedent="ar2" consequent="3" id="1">
+                    <IMValue name="Confidence">0.9</IMValue>
+                    <IMValue name="Support">20</IMValue>
+                </AssociationRule>
+            </BackgroundAssociationRules>
+            <Influences>
+                <Influence type="None" id="0" arity="2">
+                    <MetaAttribute role="A" name="hmotnost">
+                        <RestrictedTo>
+                            <Format name="kg"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="systolický krevní tlak">
+                        <RestrictedTo>
+                            <Format name="mmHg"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="None" id="1" arity="2">
+                    <MetaAttribute role="A" name="hmotnost">
+                        <RestrictedTo>
+                            <Format name="kg"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Glykemie">
+                        <RestrictedTo>
+                            <Format name="mg%"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="None" id="2" arity="2">
+                    <MetaAttribute role="A" name="hmotnost">
+                        <RestrictedTo>
+                            <Format name="kg"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Celkový cholesterol">
+                        <RestrictedTo>
+                            <Format name="mmol/l"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="None" id="3" arity="2">
+                    <MetaAttribute role="A" name="hmotnost">
+                        <RestrictedTo>
+                            <Format name="kg"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Rodinná anamnéza  - fatální">
+                        <RestrictedTo>
+                            <Format name="booleovská hodnota"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="None" id="4" arity="2">
+                    <MetaAttribute role="A" name="systolický krevní tlak">
+                        <RestrictedTo>
+                            <Format name="mmHg"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Rodinná anamnéza  - fatální">
+                        <RestrictedTo>
+                            <Format name="booleovská hodnota"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Positive-growth" id="5" arity="2">
+                    <MetaAttribute role="A" name="Body Mass Index (BMI)">
+                        <RestrictedTo>
+                            <Format name="kg/m2"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="systolický krevní tlak">
+                        <RestrictedTo>
+                            <Format name="mmHg"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Positive-growth" id="75" arity="2">                    
+                    <MetaAttribute role="A" name="Body Mass Index (BMI)">
+                        <RestrictedTo>
+                            <Format name="kg/m2"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Diastolický krevní tlak">
+                        <RestrictedTo>
+                            <Format name="mmHg"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <AtomicConsequences>
+                        <ARRef>ar1</ARRef>
+                        <ARRef>ar2</ARRef>
+                    </AtomicConsequences>
+                </Influence>                
+                <Influence type="Positive-growth" id="6" arity="2">
+                    <MetaAttribute role="A" name="Body Mass Index (BMI)">
+                        <RestrictedTo>
+                            <Format name="kg/m2"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Glykemie">
+                        <RestrictedTo>
+                            <Format name="mg%"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Positive-growth" id="7" arity="2">
+                    <MetaAttribute role="A" name="Body Mass Index (BMI)">
+                        <RestrictedTo>
+                            <Format name="kg/m2"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Celkový cholesterol">
+                        <RestrictedTo>
+                            <Format name="mmol/l"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="None" id="8" arity="2">
+                    <MetaAttribute role="A" name="Body Mass Index (BMI)">
+                        <RestrictedTo>
+                            <Format name="kg/m2"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Rodinná anamnéza  - fatální">
+                        <RestrictedTo>
+                            <Format name="booleovská hodnota"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Positive-growth" id="9" arity="2">
+                    <MetaAttribute role="A" name="Body Mass Index (BMI)">
+                        <RestrictedTo>
+                            <Format name="kg/m2"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="LDL Cholesterol">
+                        <RestrictedTo>
+                            <Format name="mmol/l"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Negative-growth" id="10" arity="2">
+                    <MetaAttribute role="A" name="Body Mass Index (BMI)">
+                        <RestrictedTo>
+                            <Format name="kg/m2"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="HDL cholesterolu">
+                        <RestrictedTo>
+                            <Format name="mmol/l"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Positive-growth" id="11" arity="2">
+                    <MetaAttribute role="A" name="Body Mass Index (BMI)">
+                        <RestrictedTo>
+                            <Format name="kg/m2"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Triacylglyceroly">
+                        <RestrictedTo>
+                            <Format name="mmol/l"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Positive-growth" id="12" arity="2">
+                    <MetaAttribute role="A" name="Waist-Hip Ratio (WHR)">
+                        <RestrictedTo>
+                            <Format name="Bezrozměrné číslo"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="systolický krevní tlak">
+                        <RestrictedTo>
+                            <Format name="mmHg"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="None" id="13" arity="2">
+                    <MetaAttribute role="A" name="Waist-Hip Ratio (WHR)">
+                        <RestrictedTo>
+                            <Format name="Bezrozměrné číslo"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Glykemie">
+                        <RestrictedTo>
+                            <Format name="mg%"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="None" id="14" arity="2">
+                    <MetaAttribute role="A" name="Waist-Hip Ratio (WHR)">
+                        <RestrictedTo>
+                            <Format name="Bezrozměrné číslo"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Celkový cholesterol">
+                        <RestrictedTo>
+                            <Format name="mmol/l"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Negative-growth" id="15" arity="2">
+                    <MetaAttribute role="A" name="Waist-Hip Ratio (WHR)">
+                        <RestrictedTo>
+                            <Format name="Bezrozměrné číslo"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="HDL cholesterolu">
+                        <RestrictedTo>
+                            <Format name="mmol/l"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Positive-growth" id="16" arity="2">
+                    <Annotations>
+                        <Annotation>
+                            <Author>Marie Tomečková</Author>
+                            <Text>Nejlepší prediktor z měr obezity
+                                http://www.mja.com.au/public/issues/179_11_011203/wel10182_fm-1.html</Text>
+                        </Annotation>
+                    </Annotations>
+                    <MetaAttribute role="A" name="Waist-Hip Ratio (WHR)">
+                        <RestrictedTo>
+                            <Format name="Bezrozměrné číslo"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Triacylglyceroly">
+                        <RestrictedTo>
+                            <Format name="mmol/l"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Positive-growth" id="17" arity="2">
+                    <MetaAttribute role="A" name="Glykemie">
+                        <RestrictedTo>
+                            <Format name="mg%"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Triacylglyceroly">
+                        <RestrictedTo>
+                            <Format name="mmol/l"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="None" id="18" arity="2">
+                    <MetaAttribute role="A" name="Celkový cholesterol">
+                        <RestrictedTo>
+                            <Format name="mmol/l"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Glykemie">
+                        <RestrictedTo>
+                            <Format name="mg%"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Positive-growth" id="19" arity="2">
+                    <MetaAttribute role="A" name="Obvod pasu">
+                        <RestrictedTo>
+                            <Format name="cm"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="systolický krevní tlak">
+                        <RestrictedTo>
+                            <Format name="mmHg"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Positive-growth" id="20" arity="2">
+                    <MetaAttribute role="A" name="Obvod pasu">
+                        <RestrictedTo>
+                            <Format name="cm"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Glykemie">
+                        <RestrictedTo>
+                            <Format name="mg%"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Positive-growth" id="21" arity="2">
+                    <MetaAttribute role="A" name="Obvod pasu">
+                        <RestrictedTo>
+                            <Format name="cm"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Celkový cholesterol">
+                        <RestrictedTo>
+                            <Format name="mmol/l"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Positive-growth" id="22" arity="2">
+                    <MetaAttribute role="A" name="Obvod pasu">
+                        <RestrictedTo>
+                            <Format name="cm"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="LDL Cholesterol">
+                        <RestrictedTo>
+                            <Format name="mmol/l"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Negative-growth" id="23" arity="2">
+                    <MetaAttribute role="A" name="Obvod pasu">
+                        <RestrictedTo>
+                            <Format name="cm"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="HDL cholesterolu">
+                        <RestrictedTo>
+                            <Format name="mmol/l"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Positive-growth" id="24" arity="2">
+                    <MetaAttribute role="A" name="Obvod pasu">
+                        <RestrictedTo>
+                            <Format name="cm"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Triacylglyceroly">
+                        <RestrictedTo>
+                            <Format name="mmol/l"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Positive-bool-growth" id="25" arity="2">
+                    <MetaAttribute role="A" name="HDL cholesterolu">
+                        <RestrictedTo>
+                            <Format name="mmol/l"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Pohlaví">
+                        <RestrictedTo>
+                            <Format name="muž/žena">
+                                <Value format="muž/žena">žena</Value>
+                            </Format>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Negative-bool-growth" id="26" arity="2">
+                    <MetaAttribute role="A" name="Vzdělání">
+                        <RestrictedTo>
+                            <Format name="Adamek"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Kouření">
+                        <RestrictedTo>
+                            <Format name="Euromise">
+                                <Value format="Euromise">kuřák</Value>
+                            </Format>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Positive-growth" id="27" arity="2">
+                    <MetaAttribute role="A" name="Vzdělání">
+                        <RestrictedTo>
+                            <Format name="Adamek"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Tělesná aktivita">
+                        <RestrictedTo>
+                            <Format name="Euromise"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Positive-growth" id="28" arity="2">
+                    <MetaAttribute role="A" name="Tělesná aktivita">
+                        <RestrictedTo>
+                            <Format name="Euromise"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="HDL cholesterolu">
+                        <RestrictedTo>
+                            <Format name="mmol/l"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Positive-bool-growth" id="29" arity="2">
+                    <MetaAttribute role="A" name="hmotnost">
+                        <RestrictedTo>
+                            <Format name="kg"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Hyperlipoproteinémie - zvýšené lipidy">
+                        <RestrictedTo>
+                            <Format name="booleovská hodnota">
+                                <Value format="booleovská hodnota">ano</Value>
+                            </Format>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Positive-bool-growth" id="30" arity="2">
+                    <MetaAttribute role="A" name="hmotnost">
+                        <RestrictedTo>
+                            <Format name="kg"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Diabetes mellitus - cukrovka">
+                        <RestrictedTo>
+                            <Format name="booleovská hodnota">
+                                <Value format="booleovská hodnota">ano</Value>
+                            </Format>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Positive-bool-growth" id="31" arity="2">
+                    <MetaAttribute role="A" name="hmotnost">
+                        <RestrictedTo>
+                            <Format name="kg"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Hypertenze - vysoký krevní tlak">
+                        <RestrictedTo>
+                            <Format name="booleovská hodnota">
+                                <Value format="booleovská hodnota">ano</Value>
+                            </Format>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Uninteresting" id="32" arity="2">
+                    <KnowledgeValidity>Unknown</KnowledgeValidity>
+                    <MetaAttribute role="A" name="Výška">
+                        <RestrictedTo>
+                            <Format name="cm"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Hyperlipoproteinémie - zvýšené lipidy">
+                        <RestrictedTo>
+                            <Format name="booleovská hodnota"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Uninteresting" id="33" arity="2">
+                    <KnowledgeValidity>Unknown</KnowledgeValidity>
+                    <MetaAttribute role="A" name="Výška">
+                        <RestrictedTo>
+                            <Format name="cm"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Diabetes mellitus - cukrovka">
+                        <RestrictedTo>
+                            <Format name="booleovská hodnota"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="None" id="34" arity="2">
+                    <KnowledgeValidity>Unknown</KnowledgeValidity>
+                    <MetaAttribute role="A" name="hmotnost">
+                        <RestrictedTo>
+                            <Format name="kg"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Rodinná anamnéza fatální">
+                        <RestrictedTo>
+                            <Format name="Booleovská charakteristika"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Uninteresting" id="35" arity="2">
+                    <KnowledgeValidity>Unknown</KnowledgeValidity>
+                    <MetaAttribute role="A" name="Výška">
+                        <RestrictedTo>
+                            <Format name="cm"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Hypertenze - vysoký krevní tlak">
+                        <RestrictedTo>
+                            <Format name="booleovská hodnota"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="None" id="36" arity="2">
+                    <KnowledgeValidity>Unknown</KnowledgeValidity>
+                    <MetaAttribute role="A" name="Výška">
+                        <RestrictedTo>
+                            <Format name="cm"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Rodinná anamnéza fatální">
+                        <RestrictedTo>
+                            <Format name="Booleovská charakteristika"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Uninteresting" id="37" arity="2">
+                    <KnowledgeValidity>Unknown</KnowledgeValidity>
+                    <MetaAttribute role="A" name="Body Mass Index (BMI)">
+                        <RestrictedTo>
+                            <Format name="kg/m2"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Hyperlipoproteinémie - zvýšené lipidy">
+                        <RestrictedTo>
+                            <Format name="booleovská hodnota"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Uninteresting" id="38" arity="2">
+                    <KnowledgeValidity>Unknown</KnowledgeValidity>
+                    <MetaAttribute role="A" name="Body Mass Index (BMI)">
+                        <RestrictedTo>
+                            <Format name="kg/m2"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Diabetes mellitus - cukrovka">
+                        <RestrictedTo>
+                            <Format name="booleovská hodnota"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Uninteresting" id="39" arity="2">
+                    <KnowledgeValidity>Unknown</KnowledgeValidity>
+                    <MetaAttribute role="A" name="Body Mass Index (BMI)">
+                        <RestrictedTo>
+                            <Format name="kg/m2"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Hypertenze - vysoký krevní tlak">
+                        <RestrictedTo>
+                            <Format name="booleovská hodnota"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Positive-bool-growth" id="40" arity="2">
+                    <MetaAttribute role="A" name="Waist-Hip Ratio (WHR)">
+                        <RestrictedTo>
+                            <Format name="Bezrozměrné číslo"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Hyperlipoproteinémie - zvýšené lipidy">
+                        <RestrictedTo>
+                            <Format name="booleovská hodnota">
+                                <Value format="booleovská hodnota">ano</Value>
+                            </Format>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Positive-bool-growth" id="41" arity="2">
+                    <MetaAttribute role="A" name="Waist-Hip Ratio (WHR)">
+                        <RestrictedTo>
+                            <Format name="Bezrozměrné číslo"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Diabetes mellitus - cukrovka">
+                        <RestrictedTo>
+                            <Format name="booleovská hodnota">
+                                <Value format="booleovská hodnota">ano</Value>
+                            </Format>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Positive-bool-growth" id="42" arity="2">
+                    <MetaAttribute role="A" name="Waist-Hip Ratio (WHR)">
+                        <RestrictedTo>
+                            <Format name="Bezrozměrné číslo"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Hypertenze - vysoký krevní tlak">
+                        <RestrictedTo>
+                            <Format name="booleovská hodnota">
+                                <Value format="booleovská hodnota">ano</Value>
+                            </Format>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="None" id="43" arity="2">
+                    <KnowledgeValidity>Unknown</KnowledgeValidity>
+                    <MetaAttribute role="A" name="Body Mass Index (BMI)">
+                        <RestrictedTo>
+                            <Format name="kg/m2"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Rodinná anamnéza fatální">
+                        <RestrictedTo>
+                            <Format name="Booleovská charakteristika"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="None" id="44" arity="2">
+                    <KnowledgeValidity>Unknown</KnowledgeValidity>
+                    <MetaAttribute role="A" name="Waist-Hip Ratio (WHR)">
+                        <RestrictedTo>
+                            <Format name="Bezrozměrné číslo"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Rodinná anamnéza fatální">
+                        <RestrictedTo>
+                            <Format name="Booleovská charakteristika"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="45" arity="2">
+                    <MetaAttribute role="A" name="hmotnost">
+                        <RestrictedTo>
+                            <Format name="kg"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Dušnost">
+                        <RestrictedTo>
+                            <Format name="Euromise"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="46" arity="2">
+                    <MetaAttribute role="A" name="hmotnost">
+                        <RestrictedTo>
+                            <Format name="kg"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Bolest na hrudi">
+                        <RestrictedTo>
+                            <Format name="Euromise"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="47" arity="2">
+                    <MetaAttribute role="A" name="hmotnost">
+                        <RestrictedTo>
+                            <Format name="kg"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Otoky">
+                        <RestrictedTo>
+                            <Format name="Booleovská charakteristika"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="48" arity="2">
+                    <MetaAttribute role="A" name="hmotnost">
+                        <RestrictedTo>
+                            <Format name="kg"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Klaudikace">
+                        <RestrictedTo>
+                            <Format name="Booleovská charakteristika"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="49" arity="2">
+                    <MetaAttribute role="A" name="Výška">
+                        <RestrictedTo>
+                            <Format name="cm"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Otoky">
+                        <RestrictedTo>
+                            <Format name="Booleovská charakteristika"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="50" arity="2">
+                    <MetaAttribute role="A" name="Výška">
+                        <RestrictedTo>
+                            <Format name="cm"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Klaudikace">
+                        <RestrictedTo>
+                            <Format name="Booleovská charakteristika"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="51" arity="2">
+                    <MetaAttribute role="A" name="Výška">
+                        <RestrictedTo>
+                            <Format name="cm"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Dušnost">
+                        <RestrictedTo>
+                            <Format name="Euromise"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="52" arity="2">
+                    <MetaAttribute role="A" name="Výška">
+                        <RestrictedTo>
+                            <Format name="cm"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Bolest na hrudi">
+                        <RestrictedTo>
+                            <Format name="Euromise"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="53" arity="2">
+                    <MetaAttribute role="A" name="Obvod pasu">
+                        <RestrictedTo>
+                            <Format name="cm"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Otoky">
+                        <RestrictedTo>
+                            <Format name="Booleovská charakteristika"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="54" arity="2">
+                    <MetaAttribute role="A" name="Obvod pasu">
+                        <RestrictedTo>
+                            <Format name="cm"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Klaudikace">
+                        <RestrictedTo>
+                            <Format name="Booleovská charakteristika"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="55" arity="2">
+                    <MetaAttribute role="A" name="Obvod pasu">
+                        <RestrictedTo>
+                            <Format name="cm"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Dušnost">
+                        <RestrictedTo>
+                            <Format name="Euromise"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="56" arity="2">
+                    <MetaAttribute role="A" name="Obvod pasu">
+                        <RestrictedTo>
+                            <Format name="cm"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Bolest na hrudi">
+                        <RestrictedTo>
+                            <Format name="Euromise"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="57" arity="2">
+                    <MetaAttribute role="A" name="Obvod boků">
+                        <RestrictedTo>
+                            <Format name="cm"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Otoky">
+                        <RestrictedTo>
+                            <Format name="Booleovská charakteristika"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="58" arity="2">
+                    <MetaAttribute role="A" name="Obvod boků">
+                        <RestrictedTo>
+                            <Format name="cm"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Klaudikace">
+                        <RestrictedTo>
+                            <Format name="Booleovská charakteristika"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="59" arity="2">
+                    <MetaAttribute role="A" name="Obvod boků">
+                        <RestrictedTo>
+                            <Format name="cm"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Dušnost">
+                        <RestrictedTo>
+                            <Format name="Euromise"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="60" arity="2">
+                    <MetaAttribute role="A" name="Obvod boků">
+                        <RestrictedTo>
+                            <Format name="cm"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Bolest na hrudi">
+                        <RestrictedTo>
+                            <Format name="Euromise"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="61" arity="2">
+                    <MetaAttribute role="A" name="Body Mass Index (BMI)">
+                        <RestrictedTo>
+                            <Format name="kg/m2"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Bolest na hrudi">
+                        <RestrictedTo>
+                            <Format name="Euromise"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="62" arity="2">
+                    <MetaAttribute role="A" name="Body Mass Index (BMI)">
+                        <RestrictedTo>
+                            <Format name="kg/m2"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Dušnost">
+                        <RestrictedTo>
+                            <Format name="Euromise"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Positive-bool-growth" id="63" arity="2">
+                    <MetaAttribute role="A" name="Body Mass Index (BMI)">
+                        <RestrictedTo>
+                            <Format name="kg/m2"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Otoky">
+                        <RestrictedTo>
+                            <Format name="Booleovská charakteristika">
+                                <Value format="Booleovská charakteristika">ano</Value>
+                            </Format>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="64" arity="2">
+                    <MetaAttribute role="A" name="Body Mass Index (BMI)">
+                        <RestrictedTo>
+                            <Format name="kg/m2"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Klaudikace">
+                        <RestrictedTo>
+                            <Format name="Booleovská charakteristika"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="65" arity="2">
+                    <MetaAttribute role="A" name="Waist-Hip Ratio (WHR)">
+                        <RestrictedTo>
+                            <Format name="Bezrozměrné číslo"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Bolest na hrudi">
+                        <RestrictedTo>
+                            <Format name="Euromise"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="66" arity="2">
+                    <MetaAttribute role="A" name="Waist-Hip Ratio (WHR)">
+                        <RestrictedTo>
+                            <Format name="Bezrozměrné číslo"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Dušnost">
+                        <RestrictedTo>
+                            <Format name="Euromise"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="67" arity="2">
+                    <MetaAttribute role="A" name="Waist-Hip Ratio (WHR)">
+                        <RestrictedTo>
+                            <Format name="Bezrozměrné číslo"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Klaudikace">
+                        <RestrictedTo>
+                            <Format name="Booleovská charakteristika"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="68" arity="2">
+                    <MetaAttribute role="A" name="Waist-Hip Ratio (WHR)">
+                        <RestrictedTo>
+                            <Format name="Bezrozměrné číslo"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Otoky">
+                        <RestrictedTo>
+                            <Format name="Booleovská charakteristika"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="69" arity="2">
+                    <MetaAttribute role="A" name="hmotnost">
+                        <RestrictedTo>
+                            <Format name="kg"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Palpitace">
+                        <RestrictedTo>
+                            <Format name="Booleovská charakteristika"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="70" arity="2">
+                    <MetaAttribute role="A" name="Body Mass Index (BMI)">
+                        <RestrictedTo>
+                            <Format name="kg/m2"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Palpitace">
+                        <RestrictedTo>
+                            <Format name="Booleovská charakteristika"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="71" arity="2">
+                    <MetaAttribute role="A" name="Waist-Hip Ratio (WHR)">
+                        <RestrictedTo>
+                            <Format name="Bezrozměrné číslo"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Palpitace">
+                        <RestrictedTo>
+                            <Format name="Booleovská charakteristika"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="72" arity="2">
+                    <MetaAttribute role="A" name="Obvod pasu">
+                        <RestrictedTo>
+                            <Format name="cm"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Palpitace">
+                        <RestrictedTo>
+                            <Format name="Booleovská charakteristika"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="73" arity="2">
+                    <MetaAttribute role="A" name="Výška">
+                        <RestrictedTo>
+                            <Format name="cm"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Palpitace">
+                        <RestrictedTo>
+                            <Format name="Booleovská charakteristika"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+                <Influence type="Unknown" id="74" arity="2">
+                    <MetaAttribute role="A" name="Obvod boků">
+                        <RestrictedTo>
+                            <Format name="cm"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                    <MetaAttribute role="B" name="Palpitace">
+                        <RestrictedTo>
+                            <Format name="Booleovská charakteristika"/>
+                        </RestrictedTo>
+                    </MetaAttribute>
+                </Influence>
+            </Influences>
+        </AssociationRules>
+    </Patterns>
+
+</bkef:BKEF>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Dictionary xmlns="http://keg.vse.cz/ns/datadescription0_1" xmlns:d="http://keg.vse.cz/ns/datadescription0_1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:x="http://www.topicmaps.org/xtm/1.0/" sourceName="Barbora" sourceType="BKEF" xsi:schemaLocation="http://keg.vse.cz/ns/datadescription0_1 http://sewebar.vse.cz/schemas/DataDescription0_1.xsd">
+   <Field name="AD Scale [Loan Quality]" optype="categorical" dataType="string" derived="true">
+      <AuxilliaryIdentifier display="true">
+         <Name>Preprocessing Hint</Name>
+         <Value>Verbal [Loan Quality/AD Scale]</Value>
+      </AuxilliaryIdentifier>
+      <AuxilliaryIdentifier display="false">
+         <Name>Bin Type</Name>
+         <Value>Metafield Enumeration Bin</Value>
+      </AuxilliaryIdentifier>
+      <Category>Bad</Category>
+      <Category>Good</Category>
+      <Category>Medium</Category>
+   </Field>
+   <Field name="months [Loan Duration]" optype="categorical" dataType="string" derived="true">
+      <AuxilliaryIdentifier display="true">
+         <Name>Preprocessing Hint</Name>
+         <Value>coarse grained [Loan Duration / months]</Value>
+      </AuxilliaryIdentifier>
+      <AuxilliaryIdentifier display="false">
+         <Name>Bin Type</Name>
+         <Value>Metafield Interval Bin</Value>
+      </AuxilliaryIdentifier>
+      <Category>&lt;13;23&gt;</Category>
+      <Category>&lt;0;12&gt;</Category>
+      <Category>&lt;24;INF&gt;</Category>
+   </Field>
+</Dictionary>

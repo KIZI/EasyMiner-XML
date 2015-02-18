@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:guha="http://keg.vse.cz/ns/GUHA0.1rev1"
+ xmlns:data="http://keg.vse.cz/ns/datadescription0_2" xmlns:ard="http://keg.vse.cz/ns/arbuilder0_2">
+ <xs:import namespace="http://keg.vse.cz/ns/GUHA0.1rev1"
+  schemaLocation="http://sewebar.vse.cz/schemas/GUHA0.1rev1.xsd"/>
+
+ <xs:import namespace="http://keg.vse.cz/ns/datadescription0_2"
+  schemaLocation="http://sewebar.vse.cz/schemas/DataDescription0_2.xsd"/>
+ <xs:import namespace="http://keg.vse.cz/ns/arbuilder0_2"
+  schemaLocation="http://sewebar.vse.cz/schemas/ARBuilder0_2.xsd"/>
+
+
+ <xs:simpleType name="searchAlg">
+  <xs:restriction base="xs:string">
+   <xs:enumeration value="xquery"/>
+   <xs:enumeration value="tolog"/>
+   <xs:enumeration value="lucene"/>
+  </xs:restriction>
+ </xs:simpleType>
+ <xs:element name="SearchResult">
+
+  <xs:complexType>
+   <xs:sequence>
+
+    <xs:element name="Metadata">
+     <xs:complexType>
+      <xs:sequence>
+       <xs:element name="SearchTimestamp" type="xs:dateTime"/>
+       <xs:element name="LastIndexUpdate" type="xs:dateTime"/>
+       <xs:element name="SearchAlgorithm" type="searchAlg"/>
+       <xs:element name="SearchAlgorithmVersion" type="xs:string"/>
+      </xs:sequence>
+     </xs:complexType>
+    </xs:element>
+    <xs:element name="Statistics">
+     <xs:complexType>
+      <xs:sequence>
+       <xs:element name="ExecutionTime">
+        <xs:complexType>
+         <xs:simpleContent>
+          <xs:extension base="xs:nonNegativeInteger">
+           <xs:attribute name="unit" fixed="ms"/>
+          </xs:extension>
+         </xs:simpleContent>
+        </xs:complexType>
+       </xs:element>
+       <xs:element name="DocumentsSearched" type="xs:nonNegativeInteger"/>
+       <xs:element name="RulesSearched" type="xs:nonNegativeInteger"/>
+      </xs:sequence>
+     </xs:complexType>
+    </xs:element>
+    <xs:element name="DataDescription" type="data:DataDescription_DD"/>
+    <xs:element name="Hits">
+     <xs:complexType>
+      <xs:sequence>
+       <xs:sequence>
+        <xs:element type="guha:BBA" name="BBA" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element type="guha:DBA" name="DBA" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="Hit" minOccurs="0" maxOccurs="unbounded">
+         <xs:complexType>
+          <xs:sequence>
+           <xs:element name="AssociationRule" type="ard:AnnotatedAssociationRule"/>           
+          </xs:sequence>
+          <xs:attribute name="docID" type="xs:string" use="required"/>
+          <xs:attribute name="docName" type="xs:string" use="required"/>
+          <xs:attribute name="reportURI" type="xs:string" use="required"/>
+          <xs:attribute name="database" type="xs:string" use="required"/>
+          <xs:attribute name="ruleID" type="xs:string" use="required"/>
+         </xs:complexType>
+        </xs:element>
+       </xs:sequence>
+
+      </xs:sequence>
+     </xs:complexType>
+    </xs:element>
+   </xs:sequence>
+  </xs:complexType>
+
+ </xs:element>
+
+</xs:schema>

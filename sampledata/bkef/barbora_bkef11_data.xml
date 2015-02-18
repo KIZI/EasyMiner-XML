@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="bkef-styl.xsl"?>
+<?xml-model href="http://sewebar.vse.cz/schemas/BKEF1_1_Data.xsd" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<bkef:BKEFData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://keg.vse.cz/bkef_data http://sewebar.vse.cz/schemas/BKEF1_1_Data.xsd"
+ xmlns:bkef="http://keg.vse.cz/bkef_data">
+	<Header>
+		<Application name="BKEF Editor" version="x"/>
+		<Title>Barbora</Title>
+		<Created>
+			<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+			<Author>Testovací anotátor</Author>
+		</Created>
+		<LastModified>
+			<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+			<Author>Testovací anotátor</Author>
+		</LastModified>
+	</Header>
+
+	<MetaAttributes>
+		<MetaAttribute id="1" level="1">
+			<Name>charakteristika úvěru</Name>
+			<Created>
+				<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+				<Author>Testovací anotátor</Author>
+			</Created>
+			<LastModified>
+				<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+				<Author>Testovací anotátor</Author>
+			</LastModified>
+			<ChildMetaAttribute id="2"/>
+			<ChildMetaAttribute id="354"/>
+		</MetaAttribute>
+
+
+		<MetaAttribute id="2" level="0">
+			<Name>kvalita úvěru</Name>
+			<Created>
+				<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+				<Author>Testovací anotátor</Author>
+			</Created>
+			<LastModified>
+				<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+				<Author>Testovací anotátor</Author>
+			</LastModified>
+			<Annotations>
+				<Annotation>
+					<Created>
+						<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+						<Author>Testovací anotátor</Author>
+					</Created>
+					<LastModified>
+						<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+						<Author>Testovací anotátor</Author>
+					</LastModified>
+					<Text>Tento atribut slouží jako třída, u testovacích dat bude odhadován na základě
+						hodnot ostatních atributů.</Text>
+				</Annotation>
+			</Annotations>
+			<Variability>Stable</Variability>
+			<Formats>				
+				<Format>
+					<Name>Points of International Loan Quality Scale</Name>
+					<Created>
+						<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+						<Author>Testovací anotátor</Author>
+					</Created>
+					<LastModified>
+						<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+						<Author>Testovací anotátor</Author>
+					</LastModified>
+					<Annotations>
+						<Annotation>
+							<Created>
+								<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+								<Author>Testovací anotátor</Author>
+							</Created>
+							<LastModified>
+								<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+								<Author>Testovací anotátor</Author>
+							</LastModified>
+							<Text>Tento formát je využívaný ve střední evropě.</Text>
+						</Annotation>
+					</Annotations>
+					<DataType>String</DataType>
+					<ValueType>Cardinal</ValueType>
+					<Collation type="Enumeration" sense="Descending"/>
+					<Range type="enumeration">
+						<Value>A</Value>
+						<Value>B</Value>
+						<Value>C</Value>
+						<Value>D</Value>
+						<Value>E</Value>
+						<Value>x</Value>
+					</Range>
+
+					<PreprocessingHints>
+						<DiscretizationHint>
+							<Name>predpriprava pro detailni analyzu</Name>
+							<Created>
+								<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+								<Author>Testovací anotátor</Author>
+							</Created>
+							<LastModified>
+								<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+								<Author>Testovací anotátor</Author>
+							</LastModified>
+							<NominalEnumeration>
+								<NominalBin>
+									<Name>dobrý</Name>
+									<Value>A</Value>
+									<Value>B</Value>
+								</NominalBin>
+								<NominalBin>
+									<Name>nevypadá to dobře</Name>
+									<Value>C</Value>
+									<Value>D</Value>
+								</NominalBin>
+								<NominalBin>
+									<Name>průšvih</Name>
+									<Annotations>
+										<Annotation>
+											<Created>
+												<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+												<Author>Testovací anotátor</Author>
+											</Created>
+											<LastModified>
+												<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+												<Author>Testovací anotátor</Author>
+											</LastModified>
+											<Text>Hodnota E musí být vždy v samostatné
+												kategorii.</Text>
+										</Annotation>
+									</Annotations>
+
+									<Value>E</Value>
+
+								</NominalBin>
+							</NominalEnumeration>
+						</DiscretizationHint>
+					</PreprocessingHints>
+					<ValueDescriptions>
+						<ValueDescription>
+							<Annotations>
+								<Annotation>
+									<Created>
+										<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+										<Author>Testovací anotátor</Author>
+									</Created>
+									<LastModified>
+										<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+										<Author>Testovací anotátor</Author>
+									</LastModified>
+
+									<Text>Tyto hodnoty jsou velmi podobné.</Text>
+								</Annotation>
+							</Annotations>
+							<Scope>
+								<Value>x</Value>
+							</Scope>
+							<Features>
+								<Feature>Missing</Feature>
+							</Features>
+						</ValueDescription>
+					</ValueDescriptions>
+				</Format>
+			</Formats>
+		</MetaAttribute>
+
+		<MetaAttribute id="354" level="0">
+			<Name>trvání úvěru</Name>
+			<Created>
+				<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+				<Author>Testovací anotátor</Author>
+			</Created>
+			<LastModified>
+				<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+				<Author>Testovací anotátor</Author>
+			</LastModified>
+			<Variability>Actionable</Variability>
+			<Formats>
+				<Format>
+					<Name>months</Name>
+					<Created>
+						<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+						<Author>Testovací anotátor</Author>
+					</Created>
+					<LastModified>
+						<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+						<Author>Testovací anotátor</Author>
+					</LastModified>
+					<DataType>Integer</DataType>
+					<ValueType>Ordinal</ValueType>
+					<Collation type="Numerical" sense="Ascending"/>
+					<Range type="interval">
+						<Interval closure="closedClosed" leftMargin="1" rightMargin="60"/>
+					</Range>
+
+					<PreprocessingHints>
+						<DiscretizationHint>
+							<Name>predpriprava pro detailni analyzu</Name>
+							<Created>
+								<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+								<Author>Testovací anotátor</Author>
+							</Created>
+							<LastModified>
+								<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+								<Author>Testovací anotátor</Author>
+							</LastModified>
+							<IntervalEnumeration>
+								<IntervalBin>
+									<Name>Extrémní</Name>
+									<Interval closure="closedClosed" leftMargin="1" rightMargin="20"/>
+									<Interval closure="openClosed" leftMargin="40" rightMargin="60"
+									/>
+								</IntervalBin>
+								<Equidistant closure="openClosed">
+									<Start>20</Start>
+									<End>40</End>
+									<Step>10</Step>
+								</Equidistant>
+							</IntervalEnumeration>
+						</DiscretizationHint>
+					</PreprocessingHints>
+					<ValueDescriptions>
+						<ValueDescription>
+							<Scope>
+								<Interval closure="closedOpen" leftMargin="1" rightMargin="5"/>
+								<Interval closure="closedOpen" leftMargin="55" rightMargin="60"/>
+							</Scope>
+						</ValueDescription>
+					</ValueDescriptions>
+				</Format>
+			</Formats>
+		</MetaAttribute>
+
+		<MetaAttribute id="4" level="0">
+			<Name>bydliště klienta</Name>
+			<Created>
+				<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+				<Author>Testovací anotátor</Author>
+			</Created>
+			<LastModified>
+				<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+				<Author>Testovací anotátor</Author>
+			</LastModified>
+			<Annotations>
+				<Annotation>
+					<Created>
+						<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+						<Author>Testovací anotátor</Author>
+					</Created>
+					<LastModified>
+						<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+						<Author>Testovací anotátor</Author>
+					</LastModified>
+					<Text>Tento atribut je pravděpodobně nejdůležitější pro odhad kvaliry úvěru.</Text>
+				</Annotation>
+			</Annotations>
+			<Formats>
+				<Format>
+					<Name>sth</Name>
+					<Created>
+						<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+						<Author>Testovací anotátor</Author>
+					</Created>
+					<LastModified>
+						<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+						<Author>Testovací anotátor</Author>
+					</LastModified>
+					<DataType>String</DataType>
+					<ValueType>Nominal</ValueType>
+					<Range type="enumeration">
+						<Value>Praha</Value>
+						<Value>Brno</Value>
+						<Value>Bruntál</Value>
+						<Value>Čáslav</Value>
+					</Range>
+					<PreprocessingHints>
+						<DiscretizationHint>
+							<Name>Bydliště</Name>
+							<Created>
+								<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+								<Author>Testovací anotátor</Author>
+							</Created>
+							<LastModified>
+								<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+								<Author>Testovací anotátor</Author>
+							</LastModified>	
+							<EachValueOneBin/>							
+						</DiscretizationHint>
+						<DiscretizationHint>
+							<Name>Dle velikosti mesta</Name>
+							<Created>
+								<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+								<Author>Testovací anotátor</Author>
+							</Created>
+							<LastModified>
+								<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+								<Author>Testovací anotátor</Author>
+							</LastModified>	
+							<NominalEnumeration>
+								<NominalBin>
+									<Name>Nad 0.5 mil</Name>
+									<Value>Praha</Value>
+									<Value>Brno</Value>
+								</NominalBin>
+								<NominalBin>
+									<Name>Pod 0.5 mil</Name>
+									<Value>Bruntál</Value>
+									<Value>Čáslav</Value>
+								</NominalBin>
+							</NominalEnumeration>							
+						</DiscretizationHint>						
+					</PreprocessingHints>					
+					<ValueDescriptions>
+						<ValueDescription>
+							<Annotations>
+								<Annotation>
+									<Created>
+										<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+										<Author>Testovací anotátor</Author>
+									</Created>
+									<LastModified>
+										<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+										<Author>Testovací anotátor</Author>
+									</LastModified>
+									<Text>Ač je tato hodnota v souboru nejčastější, lze očekávat, že
+									instance s district=Praha se budou od ostatních instancí výrazně
+									lišit.</Text>
+								</Annotation>
+							</Annotations>
+							<Scope>
+								<Value>Praha</Value>
+							</Scope>
+						</ValueDescription>						
+					</ValueDescriptions>					
+				</Format>
+			</Formats>
+		</MetaAttribute>
+		<MetaAttribute id="5" level="0">
+			<Name>Sex</Name>
+			<Created>
+				<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+				<Author>Testovací anotátor</Author>
+			</Created>
+			<LastModified>
+				<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+				<Author>Testovací anotátor</Author>
+			</LastModified>
+			<Formats>
+				<Format>
+					<Name>Sex</Name>
+					<Created>
+						<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+						<Author>Testovací anotátor</Author>
+					</Created>
+					<LastModified>
+						<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+						<Author>Testovací anotátor</Author>
+					</LastModified>
+					<Range type="enumeration">
+						<Value>Male</Value>
+						<Value>Female</Value>
+					</Range>
+					<PreprocessingHints>
+						<DiscretizationHint>
+							<Name>Pohlaví</Name>
+							<Created>
+								<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+								<Author>Testovací anotátor</Author>
+							</Created>
+							<LastModified>
+								<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+								<Author>Testovací anotátor</Author>
+							</LastModified>
+							<EachValueOneBin/>
+						</DiscretizationHint>
+					</PreprocessingHints>					
+				</Format>
+			</Formats>			
+		</MetaAttribute>		
+	</MetaAttributes>
+</bkef:BKEFData>

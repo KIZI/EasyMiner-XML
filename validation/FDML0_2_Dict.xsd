@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://keg.vse.cz/ns/fdml0_2_dict" xmlns="http://keg.vse.cz/ns/fdml0_2_dict"
+    elementFormDefault="unqualified" 
+    attributeFormDefault="unqualified" xmlns:fdml="http://keg.vse.cz/ns/fdml0_2">
+    <xs:import namespace="http://keg.vse.cz/ns/fdml0_2"
+        schemaLocation="FDML0_2.xsd"/>
+
+    <xs:element name="FDMLDictionary" type="FDMLDictionaryType"/>
+    
+    <xs:complexType name="FDMLDictionaryType">
+        <xs:sequence>
+            <xs:element name="Header" type="fdml:Header"/>                            
+            <xs:element name="Dictionary" type="fdml:StandaloneRawDictionary" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    </xs:schema>

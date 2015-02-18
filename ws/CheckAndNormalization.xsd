@@ -1,0 +1,34 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.dmg.org/PMML-4_0" targetNamespace="http://www.dmg.org/PMML-4_0" elementFormDefault="unqualified" 
+xmlns:guha="http://keg.vse.cz/ns/GUHA0.1rev1">
+	<xs:import namespace="http://keg.vse.cz/ns/GUHA0.1rev1" schemaLocation="GUHA0.1rev1-light.xsd"/>
+	<xs:element name="PMML">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Header"/>			
+				<xs:element ref="MiningBuildTask" minOccurs="0"  />
+					<xs:element ref="DataDictionary"  />
+				<xs:element ref="TransformationDictionary" minOccurs="0"  />
+				<xs:choice>
+					<xs:element ref="guha:AssociationModel"/>
+					<xs:element ref="guha:SD4ftModel"></xs:element>
+					<xs:element ref="guha:Ac4ftModel"></xs:element>					
+				</xs:choice>
+				
+			</xs:sequence>
+			<xs:attribute name="version" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="anyContent">				
+			<xs:sequence maxOccurs="unbounded" minOccurs="0">
+				<xs:any processContents="skip"></xs:any>				
+			</xs:sequence>
+		<xs:anyAttribute processContents = "skip" ></xs:anyAttribute>		
+	</xs:complexType>
+	
+	<xs:element name="Header" type="anyContent">
+	</xs:element>
+	<xs:element name="MiningBuildTask"  type="anyContent"/>
+	<xs:element name="DataDictionary"  type="anyContent"/>
+	<xs:element name="TransformationDictionary"  type="anyContent"/>
+</xs:schema>

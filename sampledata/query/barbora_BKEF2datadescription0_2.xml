@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="http://sewebar.vse.cz/schemas/DataDescription0_2.xsd" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<dd:DataDescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://keg.vse.cz/ns/datadescription0_2 http://sewebar.vse.cz/schemas/DataDescription0_2.xsd"
+ xmlns:dd="http://keg.vse.cz/ns/datadescription0_2">      
+    <Dictionary id="d0" sourceDictType="Range" default="false" completeness="UserSelection" sourceFormat="BKEF" sourceName="Barbora.bkef">
+        
+        <Field id="f1">     
+            <Identifier name="Metaattribute">kvalita úvěru</Identifier>
+            <Identifier name="Format">Points of International Loan Quality Scale</Identifier>				
+            
+            <Category id="1">A</Category>
+            <Category id="2">B</Category>
+            <Category id="3">C</Category>
+            <Category id="4">D</Category>
+            <Category id="5">E</Category>
+            <Category id="6">x</Category>
+        </Field>
+        <Field id="f2">
+            <Identifier name="Metaattribute">trvání úvěru</Identifier>
+            <Identifier name="Format">month</Identifier>				            
+            <Interval closure="closedClosed" leftMargin="1" rightMargin="60"/>
+        </Field>
+        <Field id="f3">
+            <Identifier name="Metaattribute">bydliště klienta</Identifier>
+            <Identifier name="Format">district</Identifier>				
+            
+            <Name>Bydliště</Name>
+            <Category id="1">Praha</Category>
+            <Category id="2">Brno</Category>
+            <Category id="3">Bruntál</Category>
+            <Category id="4">Čáslav</Category>
+        </Field>
+    </Dictionary>    
+    <Dictionary sourceDictType="DiscretizationHint" sourceFormat="BKEF" default="true" completeness="UserSelection" id="d1">
+        <!-- Dictionary contains fields created from  DiscretizationHints 
+             a BKEF manager can preselect a subset of available discretization hints
+             All categories for selected hints are present.
+             In this example, the DiscretizationHint "Dle velikosti mesta" in the source BKEF
+             was not selected and therefore it is not present as Field here
+        -->
+        <Identifier name="ArticleName">barbora_bkef11.xml</Identifier>
+        <Identifier name="ArticleID">16</Identifier>
+        <Field id="f1">
+            <Identifier name="Metaattribute">bydliště klienta</Identifier>
+            <Identifier name="Format">district</Identifier>				
+            <Identifier name="DiscretizationHint">predpriprava pro detailni analyzu</Identifier>
+
+            <Name>Trvání úvěru</Name>
+            <Category>Extrémní</Category>
+            <Category>(20;30></Category>
+            <Category>(30;40></Category>
+        </Field>
+        <Field id="f2">
+            <Identifier name="Metaattribute">kvalita úvěru</Identifier>
+            <Identifier name="Format">Points of International Loan Quality Scale</Identifier>	
+            <Identifier name="DiscretizationHint">predpriprava pro detailni analyzu</Identifier>
+            
+            <Name>Kvalita úvěru</Name>
+            <Category>dobrý</Category>
+            <Category>nevypadá to dobře</Category>
+            <Category>průšvih</Category>
+        </Field>
+        <Field id="f3">
+            <Identifier name="Metaattribute">bydliště klienta</Identifier>
+            <Identifier name="Format">district</Identifier>		
+            <Name>Bydliště</Name>
+            <Category>Praha</Category>
+            <Category>Brno</Category>
+            <Category>Bruntál</Category>
+            <Category>Čáslav</Category>
+        </Field>
+        <Field id="f4">
+            <Identifier name="Metaattribute">Sex</Identifier>
+            <Identifier name="Format">Sex</Identifier>		
+            
+            <Name>Pohlaví</Name>
+            <Category>Male</Category>
+            <Category>Female</Category>
+        </Field>
+    </Dictionary>
+    <DictionaryMapping>
+        <FieldMapping>
+            <AppliesTo>
+                <FieldRef id="f1" dictID="d0"/>					
+                
+                <FieldRef id="f2" dictID="d1"/>
+                
+            </AppliesTo>
+            <ValueMappings>
+                <ValueMapping>
+                    <Field id="f1" dictID="d0">
+                        <CatRef>A</CatRef>
+                        <CatRef>B</CatRef>
+                    </Field>
+                    <Field id="f2" dictID="d1">
+                        <CatRef>dobrý</CatRef>
+                    </Field>
+                </ValueMapping>
+                <ValueMapping>
+                    <Field id="f1" dictID="d0">
+                        <CatRef>C</CatRef>
+                        <CatRef>D</CatRef>
+                    </Field>
+                    <Field id="f2" dictID="d1">
+                        <CatRef>nevypadá to dobře</CatRef>
+                    </Field>
+                </ValueMapping>
+            </ValueMappings>
+
+            <!--ValueMapping>
+                <Field>
+                <CatRef>E</CatRef>
+                </Field>
+                <Field>
+                <CatRef>průšvih</CatRef>
+                </Field>
+                </ValueMapping-->
+        </FieldMapping>
+        <FieldMapping>
+            <AppliesTo>
+                <FieldRef id="f3" dictID="d0"/>
+                <FieldRef id="f3" dictID="d1"/>                
+            </AppliesTo>
+            <ValueMappings>
+                <ValueMapping>
+                    <Field  id="f3" dictID="d0">
+                        <CatRef id="1">Praha</CatRef>
+                    </Field>
+                    <Field id="f3" dictID="d1">
+                        <CatRef>Praha</CatRef>
+                    </Field>
+                </ValueMapping>
+            </ValueMappings>
+        </FieldMapping>
+        <FieldMapping>
+            <AppliesTo>
+                <FieldRef id="" dictID="d0"/>                
+                <FieldRef id="f1" dictID="d1"/>				
+            </AppliesTo>
+<ValueMappings>
+    <ValueMapping>
+        <Field id="" dictID="d0">
+            <Interval closure="closedClosed" leftMargin="1" rightMargin="20"/>
+            <Interval closure="openClosed" leftMargin="40" rightMargin="60"/>							
+        </Field>
+        <Field  id="f1" dictID="d1">
+            <CatRef>Extrémní</CatRef>
+        </Field>
+    </ValueMapping>
+</ValueMappings>
+
+        </FieldMapping>			
+    </DictionaryMapping>
+</dd:DataDescription>

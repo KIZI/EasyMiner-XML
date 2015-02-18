@@ -1,0 +1,1277 @@
+<?xml version="1.0"?>
+<PMML version="4.0" xmlns="http://www.dmg.org/PMML-4_0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:pmml="http://www.dmg.org/PMML-4_0"
+    xsi:schemaLocation="http://www.dmg.org/PMML-4_0 http://sewebar.vse.cz/schemas/PMML4.0+GUHA0.1.xsd">
+<!-- 4ftMiner.Task.PMML.Template, version of 2010-05-14 -->
+
+	<Header copyright="Copyright (c) KIZI UEP">
+		<Extension name="metabase" value="LM RuleML.mdb MB"/>
+		<Extension name="dataset" value="Loans"/>
+		<Extension name="author" value="PowerUser"/>
+		<Extension name="subsystem" value="4ft-Miner"/>
+		<Extension name="module" value="4ftResult.exe"/>
+		<Extension name="format" value="4ftMiner.Task"/>		
+		<Application name="LISp-Miner" version="14.02.00 of 10 Jul 2010"/>
+		<Annotation>-</Annotation>
+		<Timestamp>12.8.2010 18:44:04</Timestamp>
+	</Header>
+
+<!-- Matrix -->
+
+	<DataDictionary numberOfFields="4">
+		<DataField 
+			name="birth_number" 
+			optype="continuous" 
+			dataType="integer"
+		>
+			<Extension name="Avg" value="584550.205792" extender="Avg"/>
+			<Interval leftMargin="350129.000000" rightMargin="806207.000000" closure="closedClosed"/>
+			
+		</DataField>
+		<DataField 
+			name="District" 
+			optype="categorical" 
+			dataType="string"
+		>
+		</DataField>
+		<DataField 
+			name="Salary" 
+			optype="continuous" 
+			dataType="integer"
+		>
+			<Extension name="Avg" value="9464.201747" extender="Avg"/>
+			<Interval leftMargin="8110.000000" rightMargin="12541.000000" closure="closedClosed"/>
+			
+		</DataField>
+		<DataField 
+			name="status" 
+			optype="categorical" 
+			dataType="string"
+		>
+		</DataField>
+	</DataDictionary>
+
+<!-- Attributes -->
+
+	<TransformationDictionary>
+		<DerivedField 
+			name= "Age"
+			dataType="string" 
+			optype="continuous"
+		>
+			<Discretize field="birth_number"
+			>
+				<DiscretizeBin binValue="&lt;65;75)">
+					<Extension name="Frequency" value="1135" extender="&lt;65;75)"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="350000" 
+						  rightMargin="450000" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="&lt;55;65)">
+					<Extension name="Frequency" value="1390" extender="&lt;55;65)"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="450000" 
+						  rightMargin="550000" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="&lt;45;55)">
+					<Extension name="Frequency" value="1483" extender="&lt;45;55)"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="550000" 
+						  rightMargin="650000" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="&lt;35;45)">
+					<Extension name="Frequency" value="1417" extender="&lt;35;45)"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="650000" 
+						  rightMargin="750000" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="&lt;25;35)">
+					<Extension name="Frequency" value="756" extender="&lt;25;35)"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="750000" 
+						  rightMargin="850000" 
+						/>
+				</DiscretizeBin>
+			</Discretize>
+
+		</DerivedField>
+		<DerivedField 
+			name= "Quality"
+			dataType="string" 
+			optype="ordinal"
+		>
+			<MapValues outputColumn="Quality"
+			>
+				<FieldColumnPair column="status" field="Quality"/>
+				<InlineTable>
+					<Extension name="Frequency" value="5454" extender="Good"/>
+					<Extension name="Frequency" value="727" extender="Bad"/>
+					<row>
+						<column>A</column>
+						<field>Good</field>
+					</row>
+					<row>
+						<column>C</column>
+						<field>Good</field>
+					</row>
+					<row>
+						<column>B</column>
+						<field>Bad</field>
+					</row>
+					<row>
+						<column>D</column>
+						<field>Bad</field>
+					</row>
+				</InlineTable>
+			</MapValues>
+
+		</DerivedField>
+		<DerivedField 
+			name= "Regions"
+			dataType="string" 
+			optype="ordinal"
+		>
+			<MapValues outputColumn="Regions"
+			>
+				<FieldColumnPair column="District" field="Regions"/>
+				<InlineTable>
+					<Extension name="Frequency" value="783" extender="Stredocesky"/>
+					<Extension name="Frequency" value="621" extender="Jihomoravsky"/>
+					<Extension name="Frequency" value="712" extender="Moravskoslezsky"/>
+					<Extension name="Frequency" value="162" extender="Liberecky"/>
+					<Extension name="Frequency" value="495" extender="Jihocesky"/>
+					<Extension name="Frequency" value="430" extender="Ustecky"/>
+					<Extension name="Frequency" value="405" extender="Plzensky"/>
+					<Extension name="Frequency" value="311" extender="Vysocina"/>
+					<Extension name="Frequency" value="297" extender="Kralovehradecky"/>
+					<Extension name="Frequency" value="102" extender="Karlovarsky"/>
+					<Extension name="Frequency" value="396" extender="Pardubicky"/>
+					<Extension name="Frequency" value="369" extender="Olomoucky"/>
+					<Extension name="Frequency" value="387" extender="Zlinsky"/>
+					<Extension name="Frequency" value="711" extender="Praha"/>
+					<row>
+						<column>Benesov</column>
+						<field>Stredocesky</field>
+					</row>
+					<row>
+						<column>Beroun</column>
+						<field>Stredocesky</field>
+					</row>
+					<row>
+						<column>Kladno</column>
+						<field>Stredocesky</field>
+					</row>
+					<row>
+						<column>Kolin</column>
+						<field>Stredocesky</field>
+					</row>
+					<row>
+						<column>Kutna Hora</column>
+						<field>Stredocesky</field>
+					</row>
+					<row>
+						<column>Melnik</column>
+						<field>Stredocesky</field>
+					</row>
+					<row>
+						<column>Mlada Boleslav</column>
+						<field>Stredocesky</field>
+					</row>
+					<row>
+						<column>Nymburk</column>
+						<field>Stredocesky</field>
+					</row>
+					<row>
+						<column>Praha - vychod</column>
+						<field>Stredocesky</field>
+					</row>
+					<row>
+						<column>Praha - zapad</column>
+						<field>Stredocesky</field>
+					</row>
+					<row>
+						<column>Pribram</column>
+						<field>Stredocesky</field>
+					</row>
+					<row>
+						<column>Rakovnik</column>
+						<field>Stredocesky</field>
+					</row>
+					<row>
+						<column>Blansko</column>
+						<field>Jihomoravsky</field>
+					</row>
+					<row>
+						<column>Breclav</column>
+						<field>Jihomoravsky</field>
+					</row>
+					<row>
+						<column>Brno</column>
+						<field>Jihomoravsky</field>
+					</row>
+					<row>
+						<column>Brno - venkov</column>
+						<field>Jihomoravsky</field>
+					</row>
+					<row>
+						<column>Hodonin</column>
+						<field>Jihomoravsky</field>
+					</row>
+					<row>
+						<column>Vyskov</column>
+						<field>Jihomoravsky</field>
+					</row>
+					<row>
+						<column>Znojmo</column>
+						<field>Jihomoravsky</field>
+					</row>
+					<row>
+						<column>Bruntal</column>
+						<field>Moravskoslezsky</field>
+					</row>
+					<row>
+						<column>Frydek - Mistek</column>
+						<field>Moravskoslezsky</field>
+					</row>
+					<row>
+						<column>Karvina</column>
+						<field>Moravskoslezsky</field>
+					</row>
+					<row>
+						<column>Novy Jicin</column>
+						<field>Moravskoslezsky</field>
+					</row>
+					<row>
+						<column>Opava</column>
+						<field>Moravskoslezsky</field>
+					</row>
+					<row>
+						<column>Ostrava - mesto</column>
+						<field>Moravskoslezsky</field>
+					</row>
+					<row>
+						<column>Ceska Lipa</column>
+						<field>Liberecky</field>
+					</row>
+					<row>
+						<column>Jablonec n. Nisou</column>
+						<field>Liberecky</field>
+					</row>
+					<row>
+						<column>Liberec</column>
+						<field>Liberecky</field>
+					</row>
+					<row>
+						<column>Semily</column>
+						<field>Liberecky</field>
+					</row>
+					<row>
+						<column>Ceske Budejovice</column>
+						<field>Jihocesky</field>
+					</row>
+					<row>
+						<column>Cesky Krumlov</column>
+						<field>Jihocesky</field>
+					</row>
+					<row>
+						<column>Jindrichuv Hradec</column>
+						<field>Jihocesky</field>
+					</row>
+					<row>
+						<column>Pisek</column>
+						<field>Jihocesky</field>
+					</row>
+					<row>
+						<column>Prachatice</column>
+						<field>Jihocesky</field>
+					</row>
+					<row>
+						<column>Strakonice</column>
+						<field>Jihocesky</field>
+					</row>
+					<row>
+						<column>Tabor</column>
+						<field>Jihocesky</field>
+					</row>
+					<row>
+						<column>Decin</column>
+						<field>Ustecky</field>
+					</row>
+					<row>
+						<column>Chomutov</column>
+						<field>Ustecky</field>
+					</row>
+					<row>
+						<column>Litomerice</column>
+						<field>Ustecky</field>
+					</row>
+					<row>
+						<column>Louny</column>
+						<field>Ustecky</field>
+					</row>
+					<row>
+						<column>Most</column>
+						<field>Ustecky</field>
+					</row>
+					<row>
+						<column>Teplice</column>
+						<field>Ustecky</field>
+					</row>
+					<row>
+						<column>Usti nad Labem</column>
+						<field>Ustecky</field>
+					</row>
+					<row>
+						<column>Domazlice</column>
+						<field>Plzensky</field>
+					</row>
+					<row>
+						<column>Klatovy</column>
+						<field>Plzensky</field>
+					</row>
+					<row>
+						<column>Plzen</column>
+						<field>Plzensky</field>
+					</row>
+					<row>
+						<column>Plzen - jih</column>
+						<field>Plzensky</field>
+					</row>
+					<row>
+						<column>Plzen - sever</column>
+						<field>Plzensky</field>
+					</row>
+					<row>
+						<column>Rokycany</column>
+						<field>Plzensky</field>
+					</row>
+					<row>
+						<column>Tachov</column>
+						<field>Plzensky</field>
+					</row>
+					<row>
+						<column>Havlickuv Brod</column>
+						<field>Vysocina</field>
+					</row>
+					<row>
+						<column>Jihlava</column>
+						<field>Vysocina</field>
+					</row>
+					<row>
+						<column>Pelhrimov</column>
+						<field>Vysocina</field>
+					</row>
+					<row>
+						<column>Trebic</column>
+						<field>Vysocina</field>
+					</row>
+					<row>
+						<column>Zdar nad Sazavou</column>
+						<field>Vysocina</field>
+					</row>
+					<row>
+						<column>Hradec Kralove</column>
+						<field>Kralovehradecky</field>
+					</row>
+					<row>
+						<column>Jicin</column>
+						<field>Kralovehradecky</field>
+					</row>
+					<row>
+						<column>Nachod</column>
+						<field>Kralovehradecky</field>
+					</row>
+					<row>
+						<column>Rychnov nad Kneznou</column>
+						<field>Kralovehradecky</field>
+					</row>
+					<row>
+						<column>Trutnov</column>
+						<field>Kralovehradecky</field>
+					</row>
+					<row>
+						<column>Cheb</column>
+						<field>Karlovarsky</field>
+					</row>
+					<row>
+						<column>Karlovy Vary</column>
+						<field>Karlovarsky</field>
+					</row>
+					<row>
+						<column>Sokolov</column>
+						<field>Karlovarsky</field>
+					</row>
+					<row>
+						<column>Chrudim</column>
+						<field>Pardubicky</field>
+					</row>
+					<row>
+						<column>Pardubice</column>
+						<field>Pardubicky</field>
+					</row>
+					<row>
+						<column>Svitavy</column>
+						<field>Pardubicky</field>
+					</row>
+					<row>
+						<column>Usti nad Orlici</column>
+						<field>Pardubicky</field>
+					</row>
+					<row>
+						<column>Jesenik</column>
+						<field>Olomoucky</field>
+					</row>
+					<row>
+						<column>Olomouc</column>
+						<field>Olomoucky</field>
+					</row>
+					<row>
+						<column>Prerov</column>
+						<field>Olomoucky</field>
+					</row>
+					<row>
+						<column>Prostejov</column>
+						<field>Olomoucky</field>
+					</row>
+					<row>
+						<column>Sumperk</column>
+						<field>Olomoucky</field>
+					</row>
+					<row>
+						<column>Kromeriz</column>
+						<field>Zlinsky</field>
+					</row>
+					<row>
+						<column>Uherske Hradiste</column>
+						<field>Zlinsky</field>
+					</row>
+					<row>
+						<column>Vsetin</column>
+						<field>Zlinsky</field>
+					</row>
+					<row>
+						<column>Zlin</column>
+						<field>Zlinsky</field>
+					</row>
+					<row>
+						<column>Praha</column>
+						<field>Praha</field>
+					</row>
+				</InlineTable>
+			</MapValues>
+
+		</DerivedField>
+		<DerivedField 
+			name= "Salary"
+			dataType="string" 
+			optype="continuous"
+		>
+			<Discretize field="Salary"
+			>
+				<DiscretizeBin binValue="very low">
+					<Extension name="Frequency" value="1185" extender="very low"/>
+						<Interval 
+						  closure="closedOpen" 
+						  leftMargin="8110" 
+						  rightMargin="8441" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="low">
+					<Extension name="Frequency" value="1197" extender="low"/>
+						<Interval 
+						  closure="closedOpen" 
+						  leftMargin="8441" 
+						  rightMargin="8754" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="medium">
+					<Extension name="Frequency" value="1206" extender="medium"/>
+						<Interval 
+						  closure="closedOpen" 
+						  leftMargin="8754" 
+						  rightMargin="9198" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="high">
+					<Extension name="Frequency" value="1191" extender="high"/>
+						<Interval 
+						  closure="closedOpen" 
+						  leftMargin="9198" 
+						  rightMargin="10045" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="very high">
+					<Extension name="Frequency" value="1402" extender="very high"/>
+						<Interval 
+						  closure="closedClosed" 
+						  leftMargin="10045" 
+						  rightMargin="12541" 
+						/>
+				</DiscretizeBin>
+			</Discretize>
+
+		</DerivedField>
+	</TransformationDictionary>
+
+<!-- Task -->
+
+	<guha:AssociationModel  xmlns="" xsi:schemaLocation="http://keg.vse.cz/ns/GUHA0.1rev1 http://sewebar.vse.cz/schemas/GUHA0.1rev1.xsd"
+			  xmlns:guha="http://keg.vse.cz/ns/GUHA0.1rev1"
+			  modelName="Quality =&gt; Bad (with regions)" 
+			  functionName="associationRules" 
+			  algorithmName="4ft" 
+			  numberOfTransactions="6181" 
+			  numberOfCategories="26" 
+			  numberOfRules="7"
+	>
+		<TaskSetting>
+		<Extension name="LISp-Miner">
+			<TaskGroup>Default group of tasks</TaskGroup>
+			<NumberOfVerifications>908</NumberOfVerifications>
+			<TaskDuration>0h 0m 1s</TaskDuration>
+			<FTMissingsType>Delete</FTMissingsType>
+			<FTTaskParamProlong100AFlag>Yes</FTTaskParamProlong100AFlag>
+			<FTTaskParamProlong100SFlag>Yes</FTTaskParamProlong100SFlag>
+			<FTTaskParamPrimeCheckMinLen>Yes</FTTaskParamPrimeCheckMinLen>
+			<FTTaskParamPrimeCheck>No</FTTaskParamPrimeCheck>
+			<FTTaskParamIncludeSymetricFlag>Yes</FTTaskParamIncludeSymetricFlag>
+			<TaskNotice>-</TaskNotice>
+		</Extension>
+			<BBASettings>
+				<BBASetting 
+				   id="Basic_FTLiteralD_17">			   
+					<Name>Age (int), 1 - 2</Name>
+					<FieldRef>birth_number</FieldRef>
+					<Coefficient>
+					    <Type>Interval</Type>
+					    <MinimalLength>1</MinimalLength>
+					    <MaximalLength>2</MaximalLength>
+					</Coefficient>
+				</BBASetting>
+				<BBASetting 
+				   id="Basic_FTLiteralD_18">			   
+					<Name>Regions (subset), 1 - 1</Name>
+					<FieldRef>District</FieldRef>
+					<Coefficient>
+					    <Type>Subset</Type>
+					    <MinimalLength>1</MinimalLength>
+					    <MaximalLength>1</MaximalLength>
+					</Coefficient>
+				</BBASetting>
+				<BBASetting 
+				   id="Basic_FTLiteralD_19">			   
+					<Name>Salary (int), 1 - 2</Name>
+					<FieldRef>Salary</FieldRef>
+					<Coefficient>
+					    <Type>Interval</Type>
+					    <MinimalLength>1</MinimalLength>
+					    <MaximalLength>2</MaximalLength>
+					</Coefficient>
+				</BBASetting>
+				<BBASetting 
+				   id="Basic_FTLiteralD_20">			   
+					<Name>Quality( Bad)</Name>
+					<FieldRef>status</FieldRef>
+					<Coefficient>
+					    <Type>One category</Type>
+					    <MinimalLength>1</MinimalLength>
+					    <MaximalLength>1</MaximalLength>
+					</Coefficient>
+				</BBASetting>
+			</BBASettings>
+			<DBASettings>
+				<DBASetting id="Derived_FTLiteralD_Sign_17" 
+					type="Literal">
+					<Name>Age (int), 1 - 2</Name>
+					<BASettingRef>Basic_FTLiteralD_17</BASettingRef>
+					<LiteralSign>Positive</LiteralSign>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>				   
+				</DBASetting>
+				<DBASetting id="Derived_FTLiteralD_Sign_18" 
+					type="Literal">
+					<Name>Regions (subset), 1 - 1</Name>
+					<BASettingRef>Basic_FTLiteralD_18</BASettingRef>
+					<LiteralSign>Positive</LiteralSign>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>				   
+				</DBASetting>
+				<DBASetting id="Derived_FTLiteralD_Sign_19" 
+					type="Literal">
+					<Name>Salary (int), 1 - 2</Name>
+					<BASettingRef>Basic_FTLiteralD_19</BASettingRef>
+					<LiteralSign>Positive</LiteralSign>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>				   
+				</DBASetting>
+				<DBASetting id="Derived_FTLiteralD_Sign_20" 
+					type="Literal">
+					<Name>Quality( Bad)</Name>
+					<BASettingRef>Basic_FTLiteralD_20</BASettingRef>
+					<LiteralSign>Positive</LiteralSign>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>				   
+				</DBASetting>
+
+				<DBASetting 
+					id="Derived_FTCedentD_13"
+					type="Conjunction"
+				>
+					<Name>Antecedent</Name>
+					<BASettingRef>Derived_FTLiteralD_Sign_17</BASettingRef>
+					<BASettingRef>Derived_FTLiteralD_Sign_18</BASettingRef>
+					<BASettingRef>Derived_FTLiteralD_Sign_19</BASettingRef>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>3</MaximalLength>
+				</DBASetting>
+				<DBASetting 
+					id="Derived_FTCedentD_14"
+					type="Conjunction"
+				>
+					<Name>Succedent</Name>
+					<BASettingRef>Derived_FTLiteralD_Sign_20</BASettingRef>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+				<DBASetting 
+					id="Derived_FTCedentD_15"
+					type="Conjunction"
+				>
+					<Name>Condition</Name>
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+
+				<DBASetting id="Derived_FTCedentBagD_14" type="Conjunction">
+					<Name>Antecedent</Name>
+					<BASettingRef>Derived_FTCedentD_13</BASettingRef>
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+				<DBASetting id="Derived_FTCedentBagD_15" type="Conjunction">
+					<Name>Succedent</Name>
+					<BASettingRef>Derived_FTCedentD_14</BASettingRef>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+				<DBASetting id="Derived_FTCedentBagD_13" type="Conjunction">
+					<Name>Condition</Name>
+					<BASettingRef>Derived_FTCedentD_15</BASettingRef>
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+			</DBASettings>
+
+			<AntecedentSetting>Derived_FTCedentBagD_14</AntecedentSetting>
+			<ConsequentSetting>Derived_FTCedentBagD_15</ConsequentSetting>
+			<ConditionSetting>Derived_FTCedentBagD_13</ConditionSetting>
+
+		<InterestMeasureSetting>
+		<InterestMeasureThreshold id="9">
+			<Extension name="ShortName">BASE</Extension>
+			<Extension name="Description">a &gt;= BASE ... at least BASE-number of objects for dependency to be statistically relevant</Extension>
+			<Extension name="Order">0</Extension>
+			<InterestMeasure>BASE</InterestMeasure>
+			<Threshold>0.003236</Threshold>
+			<CompareType>Greater than or equal</CompareType>
+		</InterestMeasureThreshold>		
+		<InterestMeasureThreshold id="10">
+			<Extension name="ShortName">FUI</Extension>
+			<Extension name="Description">a/(a+b) &gt;= p ... at least 100*p [%] of objects satisfying A satisfy also S</Extension>
+			<Extension name="Order">0</Extension>
+			<InterestMeasure>Founded Implication</InterestMeasure>
+			<Threshold>0.500000</Threshold>
+			<CompareType>Greater than or equal</CompareType>
+		</InterestMeasureThreshold>		
+		</InterestMeasureSetting>
+		</TaskSetting>
+
+	<!-- MiningSchema -->
+
+		<pmml:MiningSchema>
+			<pmml:MiningField name="birth_number"/>
+			<pmml:MiningField name="District"/>
+			<pmml:MiningField name="Salary"/>
+			<pmml:MiningField name="status"/>
+		</pmml:MiningSchema>
+
+	<!-- Item a DBA -->
+		<AssociationRules>
+		    <BBA id="BBA_FTLiteralI_464" 		      
+		      literal = "true"
+		      >
+			<Text>Age(&lt;55;65))</Text>
+			<FieldRef>Age</FieldRef>
+			<CatRef>&lt;55;65)</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_465" 		      
+		      literal = "true"
+		      >
+			<Text>Regions(Karlovarsky)</Text>
+			<FieldRef>Regions</FieldRef>
+			<CatRef>Karlovarsky</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_466" 		      
+		      literal = "true"
+		      >
+			<Text>Quality(Bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>Bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_467" 		      
+		      literal = "true"
+		      >
+			<Text>Age(&lt;55;65))</Text>
+			<FieldRef>Age</FieldRef>
+			<CatRef>&lt;55;65)</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_468" 		      
+		      literal = "true"
+		      >
+			<Text>Regions(Karlovarsky)</Text>
+			<FieldRef>Regions</FieldRef>
+			<CatRef>Karlovarsky</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_469" 		      
+		      literal = "true"
+		      >
+			<Text>Salary(medium, high)</Text>
+			<FieldRef>Salary</FieldRef>
+			<CatRef>medium</CatRef>
+			<CatRef>high</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_470" 		      
+		      literal = "true"
+		      >
+			<Text>Quality(Bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>Bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_471" 		      
+		      literal = "true"
+		      >
+			<Text>Age(&lt;55;65), &lt;45;55))</Text>
+			<FieldRef>Age</FieldRef>
+			<CatRef>&lt;55;65)</CatRef>
+			<CatRef>&lt;45;55)</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_472" 		      
+		      literal = "true"
+		      >
+			<Text>Regions(Olomoucky)</Text>
+			<FieldRef>Regions</FieldRef>
+			<CatRef>Olomoucky</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_473" 		      
+		      literal = "true"
+		      >
+			<Text>Salary(medium)</Text>
+			<FieldRef>Salary</FieldRef>
+			<CatRef>medium</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_474" 		      
+		      literal = "true"
+		      >
+			<Text>Quality(Bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>Bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_475" 		      
+		      literal = "true"
+		      >
+			<Text>Age(&lt;45;55), &lt;35;45))</Text>
+			<FieldRef>Age</FieldRef>
+			<CatRef>&lt;45;55)</CatRef>
+			<CatRef>&lt;35;45)</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_476" 		      
+		      literal = "true"
+		      >
+			<Text>Regions(Moravskoslezsky)</Text>
+			<FieldRef>Regions</FieldRef>
+			<CatRef>Moravskoslezsky</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_477" 		      
+		      literal = "true"
+		      >
+			<Text>Salary(very low)</Text>
+			<FieldRef>Salary</FieldRef>
+			<CatRef>very low</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_478" 		      
+		      literal = "true"
+		      >
+			<Text>Quality(Bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>Bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_479" 		      
+		      literal = "true"
+		      >
+			<Text>Age(&lt;35;45))</Text>
+			<FieldRef>Age</FieldRef>
+			<CatRef>&lt;35;45)</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_480" 		      
+		      literal = "true"
+		      >
+			<Text>Regions(Vysocina)</Text>
+			<FieldRef>Regions</FieldRef>
+			<CatRef>Vysocina</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_481" 		      
+		      literal = "true"
+		      >
+			<Text>Salary(very low)</Text>
+			<FieldRef>Salary</FieldRef>
+			<CatRef>very low</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_482" 		      
+		      literal = "true"
+		      >
+			<Text>Quality(Bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>Bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_483" 		      
+		      literal = "true"
+		      >
+			<Text>Regions(Moravskoslezsky)</Text>
+			<FieldRef>Regions</FieldRef>
+			<CatRef>Moravskoslezsky</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_484" 		      
+		      literal = "true"
+		      >
+			<Text>Salary(very low)</Text>
+			<FieldRef>Salary</FieldRef>
+			<CatRef>very low</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_485" 		      
+		      literal = "true"
+		      >
+			<Text>Quality(Bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>Bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_486" 		      
+		      literal = "true"
+		      >
+			<Text>Regions(Jihocesky)</Text>
+			<FieldRef>Regions</FieldRef>
+			<CatRef>Jihocesky</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_487" 		      
+		      literal = "true"
+		      >
+			<Text>Salary(low)</Text>
+			<FieldRef>Salary</FieldRef>
+			<CatRef>low</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_488" 		      
+		      literal = "true"
+		      >
+			<Text>Quality(Bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>Bad</CatRef>
+		    </BBA>
+
+
+		   <DBA id="DBA_FTCedentI_186" connective="Conjunction">
+			<Text>Age(&lt;55;65)) &amp; Regions(Karlovarsky)</Text>
+			<BARef>BBA_FTLiteralI_464</BARef>
+			<BARef>BBA_FTLiteralI_465</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_187" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>BBA_FTLiteralI_466</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_188" connective="Conjunction">
+			<Text>Age(&lt;55;65)) &amp; Regions(Karlovarsky) &amp; Salary(medium, high)</Text>
+			<BARef>BBA_FTLiteralI_467</BARef>
+			<BARef>BBA_FTLiteralI_468</BARef>
+			<BARef>BBA_FTLiteralI_469</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_189" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>BBA_FTLiteralI_470</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_190" connective="Conjunction">
+			<Text>Age(&lt;55;65), &lt;45;55)) &amp; Regions(Olomoucky) &amp; Salary(medium)</Text>
+			<BARef>BBA_FTLiteralI_471</BARef>
+			<BARef>BBA_FTLiteralI_472</BARef>
+			<BARef>BBA_FTLiteralI_473</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_191" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>BBA_FTLiteralI_474</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_192" connective="Conjunction">
+			<Text>Age(&lt;45;55), &lt;35;45)) &amp; Regions(Moravskoslezsky) &amp; Salary(very low)</Text>
+			<BARef>BBA_FTLiteralI_475</BARef>
+			<BARef>BBA_FTLiteralI_476</BARef>
+			<BARef>BBA_FTLiteralI_477</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_193" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>BBA_FTLiteralI_478</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_194" connective="Conjunction">
+			<Text>Age(&lt;35;45)) &amp; Regions(Vysocina) &amp; Salary(very low)</Text>
+			<BARef>BBA_FTLiteralI_479</BARef>
+			<BARef>BBA_FTLiteralI_480</BARef>
+			<BARef>BBA_FTLiteralI_481</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_195" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>BBA_FTLiteralI_482</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_196" connective="Conjunction">
+			<Text>Regions(Moravskoslezsky) &amp; Salary(very low)</Text>
+			<BARef>BBA_FTLiteralI_483</BARef>
+			<BARef>BBA_FTLiteralI_484</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_197" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>BBA_FTLiteralI_485</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_198" connective="Conjunction">
+			<Text>Regions(Jihocesky) &amp; Salary(low)</Text>
+			<BARef>BBA_FTLiteralI_486</BARef>
+			<BARef>BBA_FTLiteralI_487</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_199" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>BBA_FTLiteralI_488</BARef>
+		   </DBA>
+
+		   <DBA id="DBA_Antecedent_133" connective="Conjunction">
+			<Text>Age(&lt;55;65)) &amp; Regions(Karlovarsky)</Text>
+			<BARef>DBA_FTCedentI_186</BARef>
+		   </DBA>
+		   <DBA id="DBA_Succedent_133" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>DBA_FTCedentI_187</BARef>
+		   </DBA>
+		   <DBA id="DBA_Antecedent_134" connective="Conjunction">
+			<Text>Age(&lt;55;65)) &amp; Regions(Karlovarsky) &amp; Salary(medium, high)</Text>
+			<BARef>DBA_FTCedentI_188</BARef>
+		   </DBA>
+		   <DBA id="DBA_Succedent_134" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>DBA_FTCedentI_189</BARef>
+		   </DBA>
+		   <DBA id="DBA_Antecedent_135" connective="Conjunction">
+			<Text>Age(&lt;55;65), &lt;45;55)) &amp; Regions(Olomoucky) &amp; Salary(medium)</Text>
+			<BARef>DBA_FTCedentI_190</BARef>
+		   </DBA>
+		   <DBA id="DBA_Succedent_135" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>DBA_FTCedentI_191</BARef>
+		   </DBA>
+		   <DBA id="DBA_Antecedent_136" connective="Conjunction">
+			<Text>Age(&lt;45;55), &lt;35;45)) &amp; Regions(Moravskoslezsky) &amp; Salary(very low)</Text>
+			<BARef>DBA_FTCedentI_192</BARef>
+		   </DBA>
+		   <DBA id="DBA_Succedent_136" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>DBA_FTCedentI_193</BARef>
+		   </DBA>
+		   <DBA id="DBA_Antecedent_137" connective="Conjunction">
+			<Text>Age(&lt;35;45)) &amp; Regions(Vysocina) &amp; Salary(very low)</Text>
+			<BARef>DBA_FTCedentI_194</BARef>
+		   </DBA>
+		   <DBA id="DBA_Succedent_137" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>DBA_FTCedentI_195</BARef>
+		   </DBA>
+		   <DBA id="DBA_Antecedent_138" connective="Conjunction">
+			<Text>Regions(Moravskoslezsky) &amp; Salary(very low)</Text>
+			<BARef>DBA_FTCedentI_196</BARef>
+		   </DBA>
+		   <DBA id="DBA_Succedent_138" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>DBA_FTCedentI_197</BARef>
+		   </DBA>
+		   <DBA id="DBA_Antecedent_139" connective="Conjunction">
+			<Text>Regions(Jihocesky) &amp; Salary(low)</Text>
+			<BARef>DBA_FTCedentI_198</BARef>
+		   </DBA>
+		   <DBA id="DBA_Succedent_139" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>DBA_FTCedentI_199</BARef>
+		   </DBA>
+
+	<!-- Hypothesis -->
+
+		   <AssociationRule 
+			antecedent="DBA_Antecedent_133"
+			consequent="DBA_Succedent_133"
+		   >
+			<Text>Age(&lt;55;65)) &amp; Regions(Karlovarsky) ::: Quality(Bad)</Text>
+	
+			<IMValue imSettingRef="9" name="BASE">30</IMValue>
+			<IMValue imSettingRef="10" name="FUI">0.5263157895</IMValue>
+
+			<IMValue name="a">30</IMValue>
+			<IMValue name="b">27</IMValue>
+			<IMValue name="c">697</IMValue>
+			<IMValue name="d">5427</IMValue>
+			<IMValue name="r">57</IMValue>
+			<IMValue name="n">6181</IMValue>
+			<IMValue name="Conf">0.5263157895</IMValue>
+			<IMValue name="DConf">0.0397877984</IMValue>
+			<IMValue name="EConf">0.88286685</IMValue>
+			<IMValue name="Supp">0.0048535836</IMValue>
+			<IMValue name="Cmplt">0.0412654746</IMValue>
+			<IMValue name="AvgDf">3.4747701441</IMValue>
+			<IMValue name="LBound">1</IMValue>
+			<IMValue name="UBound">0</IMValue>
+			<IMValue name="ELBound">0.9999948182</IMValue>
+			<IMValue name="EUBound">0.0000062413</IMValue>
+			<IMValue name="DLBound">1</IMValue>
+			<IMValue name="DUBound">0</IMValue>
+			<IMValue name="Fisher">0</IMValue>
+			<IMValue name="Chi-Sq">92.5912307939</IMValue>
+			<IMValue name="bMean">0.5254237288</IMValue>
+			<IMValue name="bVAR">0.5254237288</IMValue>
+			<IMValue name="bStDev">0.0644662229</IMValue>
+			<IMValue name="P(&gt;=90%)">0</IMValue>
+			<IMValue name="P(&gt;=95%)">0</IMValue>
+
+			<FourFtTable a="30" b="27" c="697" d="5427"/>
+		   </AssociationRule>
+		   <AssociationRule 
+			antecedent="DBA_Antecedent_134"
+			consequent="DBA_Succedent_134"
+		   >
+			<Text>Age(&lt;55;65)) &amp; Regions(Karlovarsky) &amp; Salary(medium, high) ::: Quality(Bad)</Text>
+	
+			<IMValue imSettingRef="9" name="BASE">30</IMValue>
+			<IMValue imSettingRef="10" name="FUI">0.7692307692</IMValue>
+
+			<IMValue name="a">30</IMValue>
+			<IMValue name="b">9</IMValue>
+			<IMValue name="c">697</IMValue>
+			<IMValue name="d">5445</IMValue>
+			<IMValue name="r">39</IMValue>
+			<IMValue name="n">6181</IMValue>
+			<IMValue name="Conf">0.7692307692</IMValue>
+			<IMValue name="DConf">0.0407608696</IMValue>
+			<IMValue name="EConf">0.8857790002</IMValue>
+			<IMValue name="Supp">0.0048535836</IMValue>
+			<IMValue name="Cmplt">0.0412654746</IMValue>
+			<IMValue name="AvgDf">5.5400486721</IMValue>
+			<IMValue name="LBound">0.9958352791</IMValue>
+			<IMValue name="UBound">0.0131480488</IMValue>
+			<IMValue name="ELBound">0.9998827677</IMValue>
+			<IMValue name="EUBound">0.0001374362</IMValue>
+			<IMValue name="DLBound">1</IMValue>
+			<IMValue name="DUBound">0</IMValue>
+			<IMValue name="Fisher">0</IMValue>
+			<IMValue name="Chi-Sq">160.5683617047</IMValue>
+			<IMValue name="bMean">0.756097561</IMValue>
+			<IMValue name="bVAR">0.756097561</IMValue>
+			<IMValue name="bStDev">0.0662631908</IMValue>
+			<IMValue name="P(&gt;=90%)">0.0050647505</IMValue>
+			<IMValue name="P(&gt;=95%)">0.0000206943</IMValue>
+
+			<FourFtTable a="30" b="9" c="697" d="5445"/>
+		   </AssociationRule>
+		   <AssociationRule 
+			antecedent="DBA_Antecedent_135"
+			consequent="DBA_Succedent_135"
+		   >
+			<Text>Age(&lt;55;65), &lt;45;55)) &amp; Regions(Olomoucky) &amp; Salary(medium) ::: Quality(Bad)</Text>
+	
+			<IMValue imSettingRef="9" name="BASE">27</IMValue>
+			<IMValue imSettingRef="10" name="FUI">0.5</IMValue>
+
+			<IMValue name="a">27</IMValue>
+			<IMValue name="b">27</IMValue>
+			<IMValue name="c">700</IMValue>
+			<IMValue name="d">5427</IMValue>
+			<IMValue name="r">54</IMValue>
+			<IMValue name="n">6181</IMValue>
+			<IMValue name="Conf">0.5</IMValue>
+			<IMValue name="DConf">0.0358090186</IMValue>
+			<IMValue name="EConf">0.8823814917</IMValue>
+			<IMValue name="Supp">0.0043682252</IMValue>
+			<IMValue name="Cmplt">0.0371389271</IMValue>
+			<IMValue name="AvgDf">3.2510316369</IMValue>
+			<IMValue name="LBound">1</IMValue>
+			<IMValue name="UBound">0</IMValue>
+			<IMValue name="ELBound">0.9999970609</IMValue>
+			<IMValue name="EUBound">0.000003556</IMValue>
+			<IMValue name="DLBound">1</IMValue>
+			<IMValue name="DUBound">0</IMValue>
+			<IMValue name="Fisher">0</IMValue>
+			<IMValue name="Chi-Sq">76.7478630456</IMValue>
+			<IMValue name="bMean">0.5</IMValue>
+			<IMValue name="bVAR">0.5</IMValue>
+			<IMValue name="bStDev">0.0662266179</IMValue>
+			<IMValue name="P(&gt;=90%)">0</IMValue>
+			<IMValue name="P(&gt;=95%)">0</IMValue>
+
+			<FourFtTable a="27" b="27" c="700" d="5427"/>
+		   </AssociationRule>
+		   <AssociationRule 
+			antecedent="DBA_Antecedent_136"
+			consequent="DBA_Succedent_136"
+		   >
+			<Text>Age(&lt;45;55), &lt;35;45)) &amp; Regions(Moravskoslezsky) &amp; Salary(very low) ::: Quality(Bad)</Text>
+	
+			<IMValue imSettingRef="9" name="BASE">27</IMValue>
+			<IMValue imSettingRef="10" name="FUI">0.6</IMValue>
+
+			<IMValue name="a">27</IMValue>
+			<IMValue name="b">18</IMValue>
+			<IMValue name="c">700</IMValue>
+			<IMValue name="d">5436</IMValue>
+			<IMValue name="r">45</IMValue>
+			<IMValue name="n">6181</IMValue>
+			<IMValue name="Conf">0.6</IMValue>
+			<IMValue name="DConf">0.0362416107</IMValue>
+			<IMValue name="EConf">0.8838375667</IMValue>
+			<IMValue name="Supp">0.0043682252</IMValue>
+			<IMValue name="Cmplt">0.0371389271</IMValue>
+			<IMValue name="AvgDf">4.1012379642</IMValue>
+			<IMValue name="LBound">0.9999999816</IMValue>
+			<IMValue name="UBound">0.0000001182</IMValue>
+			<IMValue name="ELBound">0.9999845311</IMValue>
+			<IMValue name="EUBound">0.0000184649</IMValue>
+			<IMValue name="DLBound">1</IMValue>
+			<IMValue name="DUBound">0</IMValue>
+			<IMValue name="Fisher">0</IMValue>
+			<IMValue name="Chi-Sq">101.6330880362</IMValue>
+			<IMValue name="bMean">0.5957446809</IMValue>
+			<IMValue name="bVAR">0.5957446809</IMValue>
+			<IMValue name="bStDev">0.0708332779</IMValue>
+			<IMValue name="P(&gt;=90%)">0.0000000284</IMValue>
+			<IMValue name="P(&gt;=95%)">0</IMValue>
+
+			<FourFtTable a="27" b="18" c="700" d="5436"/>
+		   </AssociationRule>
+		   <AssociationRule 
+			antecedent="DBA_Antecedent_137"
+			consequent="DBA_Succedent_137"
+		   >
+			<Text>Age(&lt;35;45)) &amp; Regions(Vysocina) &amp; Salary(very low) ::: Quality(Bad)</Text>
+	
+			<IMValue imSettingRef="9" name="BASE">31</IMValue>
+			<IMValue imSettingRef="10" name="FUI">0.5344827586</IMValue>
+
+			<IMValue name="a">31</IMValue>
+			<IMValue name="b">27</IMValue>
+			<IMValue name="c">696</IMValue>
+			<IMValue name="d">5427</IMValue>
+			<IMValue name="r">58</IMValue>
+			<IMValue name="n">6181</IMValue>
+			<IMValue name="Conf">0.5344827586</IMValue>
+			<IMValue name="DConf">0.0411140584</IMValue>
+			<IMValue name="EConf">0.8830286361</IMValue>
+			<IMValue name="Supp">0.0050153697</IMValue>
+			<IMValue name="Cmplt">0.0426409904</IMValue>
+			<IMValue name="AvgDf">3.5442062325</IMValue>
+			<IMValue name="LBound">1</IMValue>
+			<IMValue name="UBound">0</IMValue>
+			<IMValue name="ELBound">0.9999937588</IMValue>
+			<IMValue name="EUBound">0.000007506</IMValue>
+			<IMValue name="DLBound">1</IMValue>
+			<IMValue name="DUBound">0</IMValue>
+			<IMValue name="Fisher">0</IMValue>
+			<IMValue name="Chi-Sq">98.0346775852</IMValue>
+			<IMValue name="bMean">0.5333333333</IMValue>
+			<IMValue name="bVAR">0.5333333333</IMValue>
+			<IMValue name="bStDev">0.0638760183</IMValue>
+			<IMValue name="P(&gt;=90%)">0</IMValue>
+			<IMValue name="P(&gt;=95%)">0</IMValue>
+
+			<FourFtTable a="31" b="27" c="696" d="5427"/>
+		   </AssociationRule>
+		   <AssociationRule 
+			antecedent="DBA_Antecedent_138"
+			consequent="DBA_Succedent_138"
+		   >
+			<Text>Regions(Moravskoslezsky) &amp; Salary(very low) ::: Quality(Bad)</Text>
+	
+			<IMValue imSettingRef="9" name="BASE">37</IMValue>
+			<IMValue imSettingRef="10" name="FUI">0.6727272727</IMValue>
+
+			<IMValue name="a">37</IMValue>
+			<IMValue name="b">18</IMValue>
+			<IMValue name="c">690</IMValue>
+			<IMValue name="d">5436</IMValue>
+			<IMValue name="r">55</IMValue>
+			<IMValue name="n">6181</IMValue>
+			<IMValue name="Conf">0.6727272727</IMValue>
+			<IMValue name="DConf">0.0496644295</IMValue>
+			<IMValue name="EConf">0.8854554279</IMValue>
+			<IMValue name="Supp">0.0059860864</IMValue>
+			<IMValue name="Cmplt">0.0508940853</IMValue>
+			<IMValue name="AvgDf">4.7195698387</IMValue>
+			<IMValue name="LBound">0.9999992133</IMValue>
+			<IMValue name="UBound">0.000003708</IMValue>
+			<IMValue name="ELBound">0.999915086</IMValue>
+			<IMValue name="EUBound">0.0000998483</IMValue>
+			<IMValue name="DLBound">1</IMValue>
+			<IMValue name="DUBound">0</IMValue>
+			<IMValue name="Fisher">0</IMValue>
+			<IMValue name="Chi-Sq">164.7663617051</IMValue>
+			<IMValue name="bMean">0.6666666667</IMValue>
+			<IMValue name="bVAR">0.6666666667</IMValue>
+			<IMValue name="bStDev">0.0618984461</IMValue>
+			<IMValue name="P(&gt;=90%)">0.0000010807</IMValue>
+			<IMValue name="P(&gt;=95%)">0</IMValue>
+
+			<FourFtTable a="37" b="18" c="690" d="5436"/>
+		   </AssociationRule>
+		   <AssociationRule 
+			antecedent="DBA_Antecedent_139"
+			consequent="DBA_Succedent_139"
+		   >
+			<Text>Regions(Jihocesky) &amp; Salary(low) ::: Quality(Bad)</Text>
+	
+			<IMValue imSettingRef="9" name="BASE">27</IMValue>
+			<IMValue imSettingRef="10" name="FUI">0.6</IMValue>
+
+			<IMValue name="a">27</IMValue>
+			<IMValue name="b">18</IMValue>
+			<IMValue name="c">700</IMValue>
+			<IMValue name="d">5436</IMValue>
+			<IMValue name="r">45</IMValue>
+			<IMValue name="n">6181</IMValue>
+			<IMValue name="Conf">0.6</IMValue>
+			<IMValue name="DConf">0.0362416107</IMValue>
+			<IMValue name="EConf">0.8838375667</IMValue>
+			<IMValue name="Supp">0.0043682252</IMValue>
+			<IMValue name="Cmplt">0.0371389271</IMValue>
+			<IMValue name="AvgDf">4.1012379642</IMValue>
+			<IMValue name="LBound">0.9999999816</IMValue>
+			<IMValue name="UBound">0.0000001182</IMValue>
+			<IMValue name="ELBound">0.9999845311</IMValue>
+			<IMValue name="EUBound">0.0000184649</IMValue>
+			<IMValue name="DLBound">1</IMValue>
+			<IMValue name="DUBound">0</IMValue>
+			<IMValue name="Fisher">0</IMValue>
+			<IMValue name="Chi-Sq">101.6330880362</IMValue>
+			<IMValue name="bMean">0.5957446809</IMValue>
+			<IMValue name="bVAR">0.5957446809</IMValue>
+			<IMValue name="bStDev">0.0708332779</IMValue>
+			<IMValue name="P(&gt;=90%)">0.0000000284</IMValue>
+			<IMValue name="P(&gt;=95%)">0</IMValue>
+
+			<FourFtTable a="27" b="18" c="700" d="5436"/>
+		   </AssociationRule>
+		</AssociationRules>
+	</guha:AssociationModel>
+</PMML>

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SearchResult xsi:noNamespaceSchemaLocation="http://sewebar.vse.cz/schemas/SearchResult0_2.xsd"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <Metadata>
+  <SearchTimestamp>2012-05-15T15:27:40</SearchTimestamp>
+  <LastIndexUpdate>2011-05-30T09:00:00</LastIndexUpdate>
+  <SearchAlgorithm>xquery</SearchAlgorithm>
+  <SearchAlgorithmVersion>xquery 3/4/2011</SearchAlgorithmVersion>
+ </Metadata>
+ <Statistics>
+  <ExecutionTime>699</ExecutionTime>
+  <DocumentsSearched>20</DocumentsSearched>
+  <RulesSearched>6424</RulesSearched>
+ </Statistics>
+ <DataDescription>
+  <Dictionary id="DataDictionary" completeness="ReferencedFromPatterns" default="true"
+   sourceDictType="DataDictionary" sourceFormat="PMML">
+   <Field id="f1">
+    <Name>Salary</Name>
+    <Interval rightMargin="12541" closure="closedClosed" leftMargin="9624"/>
+   </Field>
+   <Field id="f2">
+    <Name>District</Name>
+    <Category>Praha</Category>
+   </Field>
+   <Field id="f3">
+    <Name>payments</Name>
+    <Interval rightMargin="3000" closure="openClosed" leftMargin="2000"/>
+   </Field>
+   <Field id="f4">
+    <Name>Age</Name>
+    <Interval rightMargin="41" closure="closedOpen" leftMargin="31"/>
+   </Field>
+   <Field id="f5">
+    <Name>status</Name>
+    <Category>A</Category>
+    <Category>C</Category>
+   </Field>
+  </Dictionary>
+  <Dictionary id="TransformationDictionary" completeness="ReferencedFromPatterns"
+   default="true" sourceDictType="DiscretizationHint" sourceFormat="PMML">
+   <Field id="f1">
+    <Name>Salary</Name>
+    <Category>high</Category>
+   </Field>
+   <Field id="f2">
+    <Name>DistrictR</Name>
+    <Category>Praha</Category>
+   </Field>
+   <Field id="f3">
+    <Name>Repayment</Name>
+    <Category>(2;3></Category>
+   </Field>
+   <Field id="f4">
+    <Name>Age</Name>
+    <Category>&lt;31;41)</Category>
+   </Field>
+   <Field id="f5">
+    <Name>Quality</Name>
+    <Category>good</Category>
+   </Field>
+  </Dictionary>
+  <DictionaryMapping>
+   <FieldMapping>
+    <AppliesTo>
+     <FieldRef id="f1" dictID="DataDictionary"/>
+     <FieldRef id="f1" dictID="TransformationDictionary"/>
+    </AppliesTo>
+    <IntervalMapping>
+     <Field>
+      <Interval rightMargin="12541" closure="closedClosed" leftMargin="9624"/>
+     </Field>
+     <Field>
+      <CatRef>high</CatRef>
+     </Field>
+    </IntervalMapping>
+   </FieldMapping>
+   <FieldMapping>
+    <AppliesTo>
+     <FieldRef id="f2" dictID="DataDictionary"/>
+     <FieldRef id="f2" dictID="TransformationDictionary"/>
+    </AppliesTo>
+    <ValueMappings>
+     <ValueMapping>
+      <Field id="f2" dictID="DataDictionary">
+       <CatRef>Praha</CatRef>
+      </Field>
+      <Field id="f2" dictID="TransformationDictionary">
+       <CatRef>Praha</CatRef>
+      </Field>
+     </ValueMapping>
+    </ValueMappings>
+   </FieldMapping>
+   <FieldMapping>
+    <AppliesTo>
+     <FieldRef id="f3" dictID="DataDictionary"/>
+     <FieldRef id="f3" dictID="TransformationDictionary"/>
+    </AppliesTo>
+    <IntervalMapping>
+     <Field>
+      <Interval rightMargin="3000" closure="openClosed" leftMargin="2000"/>
+     </Field>
+     <Field>
+      <CatRef>(2;3></CatRef>
+     </Field>
+    </IntervalMapping>
+   </FieldMapping>
+   <FieldMapping>
+    <AppliesTo>
+     <FieldRef id="f4" dictID="DataDictionary"/>
+     <FieldRef id="f4" dictID="TransformationDictionary"/>
+    </AppliesTo>
+    <IntervalMapping>
+     <Field>
+      <Interval rightMargin="41" closure="closedOpen" leftMargin="31"/>
+     </Field>
+     <Field>
+      <CatRef>&lt;31;41)</CatRef>
+     </Field>
+    </IntervalMapping>
+   </FieldMapping>
+   <FieldMapping>
+    <AppliesTo>
+     <FieldRef id="f5" dictID="DataDictionary"/>
+     <FieldRef id="f5" dictID="TransformationDictionary"/>
+    </AppliesTo>
+    <ValueMappings>
+     <ValueMapping>
+      <Field id="f5" dictID="DataDictionary">
+       <CatRef>A</CatRef>
+      </Field>
+      <Field id="f5" dictID="TransformationDictionary">
+       <CatRef>good</CatRef>
+      </Field>
+     </ValueMapping>
+     <ValueMapping>
+      <Field id="f5" dictID="DataDictionary">
+       <CatRef>C</CatRef>
+      </Field>
+      <Field id="f5" dictID="TransformationDictionary">
+       <CatRef>good</CatRef>
+      </Field>
+     </ValueMapping>
+    </ValueMappings>
+   </FieldMapping>
+  </DictionaryMapping>
+ </DataDescription>
+ <Hits>
+  <BBA id="BBA_FTLiteralI_32183">
+   <Text>Salary(high)</Text>
+   <FieldRef>Salary</FieldRef>
+   <CatRef>high</CatRef>
+  </BBA>
+  <BBA id="BBA_FTLiteralI_32184">
+   <Text>DistrictR(Praha)</Text>
+   <FieldRef>DistrictR</FieldRef>
+   <CatRef>Praha</CatRef>
+  </BBA>
+  <BBA id="BBA_FTLiteralI_32185">
+   <Text>Repayment((2;3>)</Text>
+   <FieldRef>Repayment</FieldRef>
+   <CatRef>(2;3></CatRef>
+  </BBA>
+  <BBA id="BBA_FTLiteralI_32186">
+   <Text>Age(&lt;31;41))</Text>
+   <FieldRef>Age</FieldRef>
+   <CatRef>&lt;31;41)</CatRef>
+  </BBA>
+  <BBA id="BBA_FTLiteralI_32187">
+   <Text>Quality(good)</Text>
+   <FieldRef>Quality</FieldRef>
+   <CatRef>good</CatRef>
+  </BBA>
+  <DBA id="ante_001" connective="Conjunction">
+   <BARef>ante_001_001</BARef>
+   <BARef>ante_001_002</BARef>
+   <BARef>ante_001_003</BARef>
+  </DBA>
+  <DBA id="ante_001_001" connective="Conjunction">
+   <BARef>ante_001_001_001</BARef>
+   <BARef>ante_001_001_002</BARef>
+  </DBA>
+  <DBA id="ante_001_001_001" connective="Conjunction">
+   <BARef>BBA_FTLiteralI_32183</BARef>
+  </DBA>
+  <DBA id="ante_001_001_002" connective="Conjunction">
+   <BARef>BBA_FTLiteralI_32184</BARef>
+  </DBA>
+  <DBA id="ante_001_002" connective="Conjunction">
+   <BARef>ante_001_002_001</BARef>
+  </DBA>
+  <DBA id="ante_001_002_001" connective="Conjunction">
+   <BARef>BBA_FTLiteralI_32185</BARef>
+  </DBA>
+  <DBA id="ante_001_003" connective="Conjunction">
+   <BARef>ante_001_003_001</BARef>
+  </DBA>
+  <DBA id="ante_001_003_001" connective="Conjunction">
+   <BARef>BBA_FTLiteralI_32186</BARef>
+  </DBA>
+  <DBA id="cons_001" connective="Conjunction">
+   <BARef>cons_001_001</BARef>
+  </DBA>
+  <DBA id="cons_001_001" connective="Conjunction">
+   <BARef>cons_001_001_001</BARef>
+  </DBA>
+  <DBA id="cons_001_001_001" connective="Conjunction">
+   <BARef>BBA_FTLiteralI_32187</BARef>
+  </DBA>
+  <Hit docName="dbxml:///sewebar1.dbxml/s00-ClientAAILoanIMPLIEDCONDYear31-41.xml"
+   ruleID="136" docID="local0" database="localDB" reportURI="http://local.here/0">
+   <AssociationRule antecedent="ante_001" consequent="cons_001">
+    <IMValue name="BASE">18</IMValue>
+    <IMValue name="AAD">1.133296663</IMValue>
+    <IMValue name="a">18</IMValue>
+    <IMValue name="b">0</IMValue>
+    <IMValue name="c">5436</IMValue>
+    <IMValue name="d">727</IMValue>
+    <IMValue name="r">18</IMValue>
+    <IMValue name="n">6181</IMValue>
+    <IMValue name="Conf">1</IMValue>
+    <IMValue name="DConf">0.00330033</IMValue>
+    <IMValue name="EConf">0.1205306585</IMValue>
+    <IMValue name="Supp">0.0029121501</IMValue>
+    <IMValue name="Cmplt">0.00330033</IMValue>
+    <IMValue name="AvgDf">0.133296663</IMValue>
+    <IMValue name="LBound">0.1500946353</IMValue>
+    <IMValue name="UBound">1</IMValue>
+    <IMValue name="ELBound">1</IMValue>
+    <IMValue name="EUBound">0</IMValue>
+    <IMValue name="DLBound">1</IMValue>
+    <IMValue name="DUBound">0</IMValue>
+    <IMValue name="Fisher">0.1048043144</IMValue>
+    <IMValue name="Chi-Sq">2.4063475794</IMValue>
+    <IMValue name="bMean">0.95</IMValue>
+    <IMValue name="bVAR">0.95</IMValue>
+    <IMValue name="bStDev">0.0475594866</IMValue>
+    <IMValue name="P(>=90%)">0.8649385751</IMValue>
+    <IMValue name="P(>=95%)">0.6226505434</IMValue>
+    <Annotation>
+     <Interestingness>interesting</Interestingness>
+    </Annotation>    
+   </AssociationRule>
+  </Hit>
+ </Hits>
+</SearchResult>

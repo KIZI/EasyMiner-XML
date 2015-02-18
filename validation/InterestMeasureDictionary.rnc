@@ -1,0 +1,8 @@
+datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
+start = element InterestMeasures { attribute dictionaryVersion {text}, element InterestMeasure{InterestMeasure}+ }
+InterestMeasure = element str {str}+, element TestCriteria {element TestCriterion{TestCriterion}+}, element Symbol {Symbol}
+str = attribute lang{text},attribute software{text}?, text
+TestCriterion = attribute type{"Functional"| "Aggregational"| "BASE/CEILING"},element ThresholdType{"Abs"|"% of act"|"% of max"|"% of all"}+, element CompareType{"Equal"|"Less than"|"Less than or equal"|"Greater than or equal"|"Greater than"}+, element Threshold{"Yes"|"No"},element SignificanceLevel{"Yes"|"No"}, element str{str}+
+Symbol = text & element sup{text}?
+
+

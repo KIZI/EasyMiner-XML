@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FML xmlns="http://keg.vse.cz/fml"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://keg.vse.cz/fml ../validation/fml.xsd">
+    <BKEFtoPMML>       
+        <AppliesTo>
+            <BKEF>
+                <Document>
+                    <Title>Financial Dataset</Title>
+                    <URL>http://sewebar.vse.cz/index.php/demo/39-bkef-specification/61-financialdatasetbarbora</URL>
+                    <Filename>Barbora.xml</Filename>
+                </Document>
+            </BKEF>
+            <PMML>
+                <Document>
+                    <Title>Barbora Financial Dataset</Title>
+                    <URL>http://sewebar.vse.cz/index.php/demo/36-pmml-specifications/53-financial-dataset-barbora</URL>
+                    <Filename>Barbora.pmml</Filename>
+                </Document>
+            </PMML>
+        </AppliesTo>
+
+        <FieldMappings>
+            <FieldMapping>
+                <MappingInfo>
+                    <Type>Partial</Type>
+                    <!-- There are some values that do not match-->
+                    <Confidence>0.9</Confidence>
+                </MappingInfo>
+                <Field type="bkef" id="6">
+                    <Metafield metaattribute="kvalita úvěru"
+                        format="Points of International Loan Quality Scale">
+                        <AllowedValues />
+                    </Metafield>
+                </Field>
+                <Field type="pmml" id="5">
+                    <DataField name="status"/>
+                </Field>
+                <!-- Specific values are matched if their STRING DISTANCE is zero-->
+                <ValueToValueMapping>
+                    <ExactlyMatchingValues count="4"> </ExactlyMatchingValues>
+                    <OrphanValues fieldid="6" count="1">
+                        <Value>E</Value>
+                    </OrphanValues>
+                    <OrphanValues fieldid="7" count="0"> </OrphanValues>
+                </ValueToValueMapping>
+
+            </FieldMapping>
+
+            <FieldMapping>
+                <MappingInfo>
+                    <Type>Complete</Type>
+                    <!-- All values match, byt there is nonzero EmptyPartOfInterval-->
+                    <Confidence>0.95</Confidence>
+                </MappingInfo>
+                <Field type="bkef" id="4">
+                    <Metafield metaattribute="trvání úvěru" format="months">
+                        <AllowedValues/>
+                    </Metafield>
+                </Field>
+                <Field type="pmml" id="3">
+                    <DataField name="duration"/>
+                </Field>
+                <IntervalToValueMapping>
+                    
+                    <ValuesWithinInterval fieldid="4" count="6"/>
+                    <ValuesOutsideInterval fieldid="3" count="0"/>
+
+                    <!-- Values in PMML start from 12 and end at 60, while the interval in BKEF starts at 1 ending at 60
+                        there is no PMML value in the <1;12> range, accounting for (11)/60
+                    
+                    -->
+                    <EmptyPartOfInterval>0.1833</EmptyPartOfInterval>
+                </IntervalToValueMapping>
+            </FieldMapping>
+            <FieldMapping>
+                <MappingInfo>
+                    <Type>Partial</Type>
+                    <!-- Some values from BKEF could not be matched -->
+                    <Confidence>0.7</Confidence>
+                    <!-- Maybe we are mapping wrong fields altogether!-->
+                </MappingInfo>
+                <Field type="bkef" id="1">
+                    <Metafield metaattribute="bydliště klienta" format="district">
+                        <AllowedValues/>
+                    </Metafield>
+                </Field>
+                <Field type="pmml" id="2">
+                    <DataField name="district"></DataField>
+                </Field>
+                <!-- The value mapping suggestion covers the case, when the values do not EXACTLY match -->
+                <ValueToValueMapping>                    
+                    <ExactlyMatchingValues count="2"/>
+                    <OrphanValues fieldid="1" count="1">
+                        <Value>Ostatní</Value>
+                    </OrphanValues>
+                    <OrphanValues fieldid="2" count="1">
+                        <Value>Other</Value>
+                    </OrphanValues>                    
+                    <ValueMappingSuggestions count="1">
+                        <!-- Nabídnout na mapování hodnoty, které si zcela na základě řetězcového porovnání neshodují-->
+                        <ValueMapping>
+                            
+                            <Field fieldid="1">
+                                <Value>Praha</Value>
+                            </Field>
+                            <Field fieldid="2">
+                                <Value>Prague</Value>
+                            </Field>
+                        </ValueMapping>
+                    </ValueMappingSuggestions>
+                </ValueToValueMapping>
+            </FieldMapping>
+        </FieldMappings>
+    </BKEFtoPMML>
+</FML>

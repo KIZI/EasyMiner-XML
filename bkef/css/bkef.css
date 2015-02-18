@@ -1,0 +1,417 @@
+/*
+  Author: Daniel Stastny 2009
+  {daniel.stastny@gmail.com}
+  CSS style for BKEF - Mutual Influences HTML output
+ */
+#bkef {
+	background-color : #f7f4f4;
+	color : #000;
+	font-family : Arial, 'Lucida Sans Unicode', 'Lucida Sans', 'Trebuchet MS', 'Lucida Grande', 'Bitstream Sans Vera', Verdana, Arial, Tahoma, Helvetica, Sans-Serif;
+	font-style : normal;
+	padding : 2px 2em;
+	margin : 0 auto;
+	line-height : 1.5em;
+	font-size : 80%;
+	text-align : center;
+	width: 600px;
+}
+
+#bkef #header {
+	background : transparent;
+	margin : 20px 4px 0;
+	padding : 5px 10px;
+}
+#bkef #header h1 {
+	padding : 0;
+	font-size : 2.6em;
+	display : inline;
+	font-weight : normal;
+}
+#bkef #header p {
+	padding : 0;
+	margin : 2px 10px;
+	font-size : 1.1em;
+	display : inline;
+}
+#bkef #content {
+	background-color : white;
+	min-width : 5em;
+	margin : 5px auto;
+	padding : 0 15px 0 15px;
+	text-align : left;
+	border : 1px solid #ccc;
+}
+#bkef #navigation {
+	position : fixed;
+	top : 0.8em;
+	right : 2em;
+	text-align : left;
+	font-size : 1em;
+	background-color : white;
+	padding : 0 7px 0 7px;
+	border : 4px solid #e0e0e0;
+	overflow: auto;
+	max-height: 700px;
+	max-width: 300px;
+}
+#bkef #navigation ul.nav {
+	margin: 0 0 0 -20px;
+	padding-bottom: 10px;
+}
+#bkef #navigation ul.nav li {
+	list-style-type : square;
+}
+#bkef #navigation ul.nav2 {
+	margin: 0 0 0 -20px;
+}
+#bkef #navigation ul.nav2 li {
+	list-style-type : disc;
+}
+#bkef span .strong {
+    font-weight: bold;
+}
+#bkef .metaAttributeBox {
+	background-color : #f6f6f6;
+	padding : 5px 20px 5px 20px;
+	border : 1px dashed silver;
+	margin : 0 0 20px 0;
+}
+#bkef .formatsBox {
+	padding : 5px 20px 5px 20px;
+	margin : 0 0 20px 0;
+	border-top : 1px solid silver;
+	border-bottom : 1px solid silver;
+}
+#bkef .formatBox {
+	background-color : #e0e0e0;
+	padding : 5px 20px 5px 20px;
+	margin : 0 0 20px 0;
+}
+#bkef .formatBox ul {
+	margin : 0 0 0 20px;
+}
+#bkef .formatBox h5, h6 {
+	border-bottom : 1px dotted black;
+}
+#bkef .formatBox table {
+	border-collapse : collapse;
+}
+#bkef .formatBox table tr td {
+	border : 1px dotted #909090;
+}
+#bkef .folding {
+	cursor : pointer;
+	border : 1px solid black;
+	padding : 0 4px 0 4px;
+	font-weight : normal;
+	font-family : sans-serif;
+	margin-left: 10px;
+}
+#bkef .folding:hover {
+	background-color : silver;
+}
+#bkef .hidden {
+	display : none;
+}
+#bkef .formattingTable td {
+	vertical-align : top;
+	text-align : left;
+	border : none;
+}
+#bkef .formattingTable td ul {
+	padding : 0 0 0 5px;
+}
+#bkef .bin {
+	border : 1px dotted gray;
+	margin : 5px 0 5px 0;
+	padding : 0 1em 0 1em;
+}
+#bkef .restrictionBin {
+	border : 1px dotted gray;
+	margin : 0 0 5px 0;
+	padding : 0 10px 0 15px;
+	font-size : 10px;
+}
+#bkef .bin ul {
+	margin : 0;
+}
+#bkef .bin p {
+	margin : 0;
+}
+#bkef table.matrix {
+	color : #111;
+	width : auto;
+	margin: 0 auto;
+	border-collapse : collapse;
+	padding : 0;
+	font-size : 1em;
+	background-color : white;
+}
+#bkef caption {
+	color : #333;
+	font-weight : normal;
+	padding : 5px;
+}
+#bkef td, #bkef th, #bkef tr {
+	padding : 5px;
+	text-align : left;
+	min-width : 80px;
+	min-height : 80px;
+}
+#bkef table.matrix td {
+	border : 1px dotted #909090;
+	width : 65px;
+	text-align : center;
+	height : 65px;
+	vertical-align : middle;
+}
+#bkef .low {
+	height : 10px;
+}
+#bkef .attr {
+	background-color : #f7f4f4;
+}
+#bkef td {
+	border : 1px solid black;
+}
+#bkef a:link, #bkef a:visited {
+	font-weight : normal;
+	color : #600;
+	text-decoration : underline;
+}
+#bkef a:hover, #bkef a:active {
+	color : #666;
+	text-decoration : underline;
+	background-color : #d2d2d2;
+	border : none;
+}
+
+#bkef p {
+	font-size : 1em;
+	font-style : normal;
+	padding : 0;
+}
+
+#bkef h2 {
+	font-size : 2em;
+	border-bottom : 1px solid #ccc;
+	font-weight : normal;
+}
+#bkef h3 {
+	font-size : 1.5em;
+	font-weight : normal;
+	font-family : sans-serif;
+}
+#bkef h4 {
+	font-size : 1.2em;
+	font-family : sans-serif;
+	color : #333;
+	margin : 2px 0 2px 1px;
+	padding : 1px 0 1px 1px;
+	clear : both;
+}
+#bkef h5 {
+	font-size : 1.1em;
+	font-family : sans-serif;
+	color : #333;
+	margin : 4px 0 4px 1px;
+	padding : 1px 0 1px 1px;
+	clear : both;
+}
+#bkef h6 {
+	font-size : 1em;
+	font-family : sans-serif;
+	color : #333;
+	margin : 10px 0 6px 1px;
+	padding : 1px 0 1px 1px;
+	clear : both;
+}
+#bkef h2, #bkef h3, #bkef h1 {
+	font-family : Georgia, 'Trebuchet MS', 'Lucida Sans', 'Lucida Grande', 'Bitstream Sans Vera', Verdana, Arial, Tahoma, Helvetica, Sans-Serif;
+	color : #333;
+	margin : 10px 0;
+	padding : 2px 0;
+	clear : both;
+}
+#bkef .cannotMatch {
+	background-color : #d2d2d2;
+}
+#bkef .displayNone {
+	display : none;
+}
+#bkef a.about {
+	cursor : help;
+	position : relative;
+	z-index : 24;
+	color : #000;
+	text-decoration : none;
+}
+#bkef a.about:hover {
+	z-index : 25;
+	background : none;
+}
+#bkef a.about object {
+	display : none;
+	min-width : 10em;
+}
+#bkef a.about:hover object {
+	display: block;
+	z-index: 12;
+	font-size : small;
+	position: absolute;
+	top : 0;
+	left : -8em;
+	max-width : 20em;
+	border : 3px solid silver;
+	padding : 10px;
+	background-color : white;
+	color : #000;
+	text-align : left;
+	font-size : 12px;
+	line-height : 16px;
+}
+#bkef a.about:hover object h5 {
+	text-align : center;
+}
+#bkef a.about:hover object p {
+	text-align : left;
+	margin : 0;
+}
+#bkef a.about:hover object ul {
+	text-align : left;
+	margin : 0 2px 0 5px;
+	padding : 0;
+}
+#bkef a.about:link, #bkef a.about:visited {
+	text-decoration : none;
+	background : none;
+}
+#bkef a.about:active {
+	text-decoration : none;
+	background : none;
+	border : none;
+}
+#bkef .left {
+	text-align : left;
+}
+#bkef .interval {
+	font-weight : normal;
+	margin : 0 0 -5px 20px;
+}
+#bkef .annotations table tr td ul {
+	margin : 0;
+	padding : 0;
+}
+#bkef .topIndent {
+	padding : 7px 0 0 0;
+	margin-bottom : -5px;
+}
+#bkef .item {
+	color: #A0522D;
+}
+#bkef #tableOverflow {
+	border:1px dashed #C4C0B1;
+	padding: 0;
+	z-index: 1;
+	overflow: auto;
+}
+#bkef img {
+    border: none;
+}
+
+#bkef p.input {
+    text-align: center;
+}
+
+#bkef .inputCheckBox {
+    padding: 3px 0 0 0;
+    margin: 0 2px 0px 0px;
+}
+
+/* ------------------ JUST MATRIX -------------------- */
+
+#bkef-matrix {
+	background-color : #f7f4f4;
+	color : #000;
+	font-family : Arial, 'Lucida Sans Unicode', 'Lucida Sans', 'Trebuchet MS', 'Lucida Grande', 'Bitstream Sans Vera', Verdana, Arial, Tahoma, Helvetica, Sans-Serif;
+	font-style : normal;
+	line-height : 1.5em;
+	font-size : 80%;
+}
+
+#bkef-matrix #content-matrix {
+	background-color : white;
+	text-align : left;
+}
+
+#bkef-matrix table.matrix {
+	color : #111;
+	width : auto;
+	border-collapse : collapse;
+	padding : 0;
+	font-size : 1em;
+	background-color : white;
+}
+#bkef-matrix caption {
+	color : #333;
+	font-weight : normal;
+	padding : 5px;
+}
+#bkef-matrix td, #bkef-matrix th, #bkef-matrix tr {
+	padding : 5px;
+	text-align : left;
+	min-width : 80px;
+	min-height : 80px;
+}
+#bkef-matrix table.matrix td {
+	border : 1px dotted #909090;
+	width : 65px;
+	text-align : center;
+	height : 65px;
+	vertical-align : middle;
+}
+#bkef-matrix .low {
+	height : 10px;
+}
+#bkef-matrix .attr {
+	background-color : #f7f4f4;
+}
+#bkef-matrix td {
+	border : 1px solid black;
+}
+#bkef-matrix a:link, #bkef-matrix a:visited {
+	font-weight : normal;
+	color : #600;
+	text-decoration : underline;
+}
+#bkef-matrix a:hover, #bkef-matrix a:active {
+	color : #666;
+	text-decoration : underline;
+	background-color : #d2d2d2;
+	border : none;
+}
+#bkef-matrix .cannotMatch {
+	background-color : #d2d2d2;
+}
+#bkef-matrix .displayNone {
+	display : none;
+}
+#bkef-matrix a.about {
+	cursor : help;
+	position : relative;
+	z-index : 24;
+	color : #000;
+	text-decoration : none;
+}
+#bkef-matrix a.about:hover {
+	z-index : 25;
+	background : none;
+}
+#bkef-matrix p {
+	font-size : 1em;
+	font-style : normal;
+	padding : 0;
+}
+#bkef-matrix img {
+    border: none;
+}

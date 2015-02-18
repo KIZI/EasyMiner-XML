@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+THIS SCHEMA DEFINES CONFIGURATION FOR ARD 
+THE LIST OF INTEREST MEASURES SHOULD BE CREATED BASED ON  pmml/dict/GUHAQuantifier-InterestMeasureDictionary.xml
+For some interest measures, the dictionary defines multiple possibilities for ThresholdType and CompareType elements.
+1] ONE OPTION SHOULD BE SELECTED AND INSERTED INTO GUHAFeatureList/BuildingBlocks/InterestMeasures/Types/Type
+2] GUHAFeatureList/BuildingBlocks/InterestMeasures/Types/Type/Field/Validation must be adjusted according to the selected option
+The ARD then does not need to "understand" these two elements, it is only required to copy them to PMML//InterestMeasureSetting/InterestMeasureThreshold element
+
+-->
+
+
+<!-- Version 0.8
+  
+  author: Tomas Kliegr
+Change 0.7 to 0.8
+  - added attribute priority on   UserInterface
+  - added element Default on IMList"
+  
+Change 0.6 to 0.7
+  - added DefaultValue on Interest Measure Type
+
+  Change 0.5 to 0.6
+   - changed namespace to  http://keg.vse.cz/ns/arfeatures_02
+   - added attribute scope on Coefficient and allowed multiple Coefficient and allowed multiple coefficients to be defined
+   - added optional element DefaultValue on Field.
+   - added optional attribute hidden on Field.
+   - added AutoSuggest, Name, LocalizedName and Explanation on UserInterface
+  Changes 0.4 to 0.5:
+  - added Validation/Value
+  - added DATATYPE enum
+  
+  Changes 0.3 to 0.4: 
+  - added LocalizedName, Explanation
+  - added Multiple categories coefficient
+  - removed InterestMeasureConstraint
+  
+  Changes 0.2 to 0.3: 
+  - added LocalizedName, Explanation
+  - added Multiple categories coefficient
+  - removed InterestMeasureConstraint
+  
+  
+Changes  0.1 to 0.2: 
+  - elementFormDefault changed to unqualified
+  - The second and other Name element in BuildingBlocks/coefficient and interest measure is renamed to "LocalizedName"
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified"
+  targetNamespace="http://keg.vse.cz/ns/arfeatures_08" xmlns="http://keg.vse.cz/ns/arfeatures_08"
+  xmlns:guha="http://keg.vse.cz/ns/GUHA0.1rev1">
+  <xs:import namespace="http://keg.vse.cz/ns/GUHA0.1rev1"
+    schemaLocation="http://sewebar.vse.cz/schemas/GUHA0.1rev1.xsd"/>
+
+  <xs:element name="GUHAFeatureList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="UserInterface" type="UserInterface"/>
+        <xs:element name="RulePattern" type="RulePattern"/>
+        <xs:element name="SerializationOverride" type="SerializationOverride" minOccurs="0"/>
+        <xs:element name="BuildingBlocks" type="BuildingBlocks"/>        
+      </xs:sequence>
+      <xs:attribute name="mode">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="TaskSetting"/>
+            <xs:enumeration value="ARQuery"/>
+            <xs:enumeration value="AssociationRules"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="procedure">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="4ft"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="UserInterface">
+    <xs:sequence>
+      <xs:element name="AllowMultipleRules" type="xs:boolean"/>
+     <xs:element name="Name" type="xs:string"></xs:element>
+     <xs:element name="LocalizedName" type="LocalizedName" minOccurs="0" maxOccurs="unbounded"></xs:element>
+     <xs:element name="Explanation" type="Explanation"  minOccurs="0" maxOccurs="unbounded"></xs:element>
+     <xs:element name="AutoSuggest" type="AutoSuggest"></xs:element>
+    </xs:sequence>
+    <xs:attribute name="priority" type="xs:integer"></xs:attribute>
+  </xs:complexType>
+<xs:complexType name="AutoSuggest">
+ <xs:sequence>
+  <xs:element name="Option" type="AutoSuggestOption"></xs:element>
+ </xs:sequence>
+</xs:complexType>
+<xs:complexType name="AutoSuggestOption">
+ <xs:sequence>
+  <xs:element name="Name" type="xs:string"></xs:element>
+  <xs:element name="LocalizedName" type="LocalizedName" minOccurs="0" maxOccurs="unbounded"></xs:element>
+  <xs:element name="Explanation" type="Explanation"  minOccurs="0" maxOccurs="unbounded"></xs:element> 
+ </xs:sequence>
+ <xs:attribute name="default" default="false"></xs:attribute>
+</xs:complexType>
+  <xs:complexType name="RulePattern">
+    <xs:sequence>
+      <xs:element name="Antecedent" type="cedent"/>
+
+      <xs:element name="Consequent" type="cedent"/>
+      <xs:element name="Condition" type="cedent"/>
+      <xs:element name="GeneralConstraint" type="cedent"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cedent">
+    <xs:attribute name="maxNumberOfBBAs" type="xs:integer" default="9223372036854775807"/>
+    <xs:attribute name="minNumberOfBBAs" use="required" type="xs:nonNegativeInteger"/>
+  </xs:complexType>
+
+
+  <xs:complexType name="SerializationOverride">
+    <xs:sequence>
+      <xs:element name="Antecedent" type="cedentSerialization" minOccurs="0"/>      
+      <xs:element name="Consequent" type="cedentSerialization" minOccurs="0"/>      
+      <xs:element name="Condition" type="cedentSerialization" minOccurs="0"/>
+      <xs:element name="GeneralConstraint" type="cedentSerialization" minOccurs="0">
+      </xs:element>      
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="cedentSerialization">
+    <xs:attribute name="forceLevels" type="xs:nonNegativeInteger"/>
+  </xs:complexType>
+  
+  
+  <xs:complexType name="BuildingBlocks">
+
+    <xs:sequence>
+      <xs:element name="InterestMeasures" type="InterestMeasures"/>
+      <xs:element name="BasicBooleanAttribute" type="BasicBooleanAttribute"/>
+      <xs:element name="DerivedBooleanAttribute" type="DerivedBooleanAttribute"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="InterestMeasures">
+
+    <xs:sequence>
+      <!-- definition of possible interest measures including the input fields -->
+      <xs:element name="Types" type="Types"/>
+      <!-- possible combinations of interest measures -->
+      <xs:element name="SupportedInterestMeasureCombinations"
+        type="SupportedInterestMeasureCombinations"/>
+
+    </xs:sequence>
+    <xs:attribute name="threshold" use="required" type="mandatoryType"> </xs:attribute>
+  </xs:complexType>
+
+  <xs:simpleType name="mandatoryType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="optional"/>
+      <xs:enumeration value="required"/>
+      <xs:enumeration value="prohibited"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+
+  <xs:complexType name="Types">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="Type" type="IMType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <xs:complexType name="SupportedInterestMeasureCombinations">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="SupportedIMCombination" type="SupportedIMCombination"
+      />
+    </xs:sequence>
+  </xs:complexType>
+
+
+
+  <xs:complexType name="SupportedIMCombination">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="InterestMeasure" type="IMList"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <xs:complexType name="BasicBooleanAttribute">
+    <xs:sequence>
+      <xs:element name="Coefficient" type="Coefficient" maxOccurs="3"/>
+    </xs:sequence>
+    <xs:attribute name="coefficient" use="required" type="mandatoryType"/>
+  </xs:complexType>
+
+
+  <xs:complexType name="Coefficient">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="Type" type="CoefType"/>
+    </xs:sequence>
+   <xs:attribute name="scope" type="RulePart"/>
+  </xs:complexType>
+
+
+  <xs:complexType name="DerivedBooleanAttribute">
+    <xs:sequence>
+      <!-- MaxLevel = 0: means there are no derived boolean attributes allowed -->
+      <!-- MaxLevel = 1: means there is one derived boolean attributes allowed i.e. A ^ B ^ C-->
+      <!-- MaxLevel = 2: i.e. (A v B) ^ C => D or (A v B) => D -->
+      <!-- for example if level 1 allows only conjunction and level 2 conjunction and disjunction,
+          the following is valid -->
+      <!-- MaxLevel = 2: example 2:  (A v B) => D  -->
+      <!-- MaxLevel = 3: i.e. (A v neg(B)) ^ C => D or (A v (B ^ C)) => D -->
+      <!-- if level 3 allows only negation 
+          (A v neg(B)) ^ C => D 
+        -->
+
+      <xs:element name="NestingConstraints" maxOccurs="3">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="MaxLevels" type="xs:nonNegativeInteger"/>
+            <xs:element name="NestingConstraint" type="NestingConstraint" maxOccurs="unbounded"/>
+          </xs:sequence>
+          <xs:attribute name="scope" type="RulePart"/>
+
+
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="RulePart">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="all"/>
+      <xs:enumeration value="antecedent"/>
+      <xs:enumeration value="consequent"/>
+      <xs:enumeration value="condition"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="NestingConstraint">
+
+    <xs:sequence>
+      <xs:element name="Connectives" type="Connectives"/>
+    </xs:sequence>
+    <xs:attribute name="level">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="\d+|remaining"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="Connectives">
+    <xs:sequence>
+      <xs:element name="Conjunction" type="connective"/>
+      <xs:element name="Disjunction" type="connective"/>
+      <xs:element name="Any" type="connective"/>
+      <xs:element name="Negation" type="connective"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+
+  <xs:complexType name="connective">
+    <xs:attribute name="allowed" use="required" type="xs:NCName"/>
+  </xs:complexType>
+
+
+
+
+  <xs:complexType name="IMType">
+    <xs:sequence>
+      <!-- The first name is language independent and must come from a list -->
+      <xs:element name="Name" type="IMList"/>
+      <xs:element name="Default" type="xs:boolean"/>
+     
+      <!-- It might be followed by multiple language specific names -->
+      <xs:element name="LocalizedName" type="LocalizedName" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="ThresholdType" type="guha:ThresholdType"  maxOccurs="1"/>
+      <xs:element name="CompareType" type="guha:CompareType"  maxOccurs="1"/>
+      
+      <xs:element name="Explanation" type="Explanation" minOccurs="0" maxOccurs="unbounded"/>
+
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="Field" type="Field"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--xs:simpleType name="ThresholdType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="% of all"/>
+      <xs:enumeration value="Abs"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CompareType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Equal"/>
+      <xs:enumeration value="Less than"/>
+      <xs:enumeration value="Greater than or equal"/>
+      <xs:enumeration value="Greater than"/>
+      <xs:enumeration value="Greater than or equal"/>
+    </xs:restriction>
+  </xs:simpleType-->
+  <xs:complexType name="CoefType">
+    <xs:sequence>
+      <!-- The first name is language independent and must come from a list -->
+      <xs:element name="Name" type="coefList"/>
+      <!-- It might be followed by multiple language specific names -->
+      <xs:element name="LocalizedName" type="LocalizedName" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Explanation" type="Explanation" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="MaxOccurrences" type="coefMaxOccurrence" minOccurs="0"
+        default="9223372036854775807"/>
+
+      <xs:element maxOccurs="unbounded" name="Field" type="Field"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="coefMaxOccurrence">
+    <xs:restriction base="xs:nonNegativeInteger"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="coefList">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="guha:coefTypes"/>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Multiple categories"/>
+           <xs:enumeration value="Listed exclusively"></xs:enumeration>
+          <xs:enumeration value="Listed non-exclusively"></xs:enumeration>
+          <xs:enumeration value="Any"></xs:enumeration>
+          <xs:enumeration value="At least one from listed"></xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+
+
+
+  <xs:complexType name="LocalizedName">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="lang" type="langEnum" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="Explanation">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="lang" type="langEnum" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+
+
+  <xs:simpleType name="langEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="en"/>
+      <xs:enumeration value="cs"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Field">
+
+    <xs:sequence minOccurs="1">
+      <xs:element name="Name" type="xs:string"/>
+     <xs:element name="DefaultValue" type="xs:string" minOccurs="0"></xs:element>
+      <xs:element name="LocalizedName" type="LocalizedName" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Explanation" type="Explanation" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Validation" type="Validation"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:integer"/>
+   <xs:attribute name="hidden" type="xs:boolean" default="false"></xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="Validation">
+
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Required" type="Required"/>
+     <xs:choice>
+      <xs:group ref="NumericTypeFeatures"></xs:group>
+      <!-- minimum one value for enum type, 0 value for string type -->
+      <xs:element name="Value" type="xs:string"  minOccurs="0" maxOccurs="unbounded"/>
+     </xs:choice>
+      
+      <xs:element name="Datatype" type="DATATYPE"/>
+      <xs:element minOccurs="0" name="Previous" type="Previous"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:group name="NumericTypeFeatures">
+ <xs:sequence>
+  <xs:element name="MinValue" type="Value"/>
+  <xs:element name="MaxValue" type="Value" default="INF"/>
+   
+ </xs:sequence>
+</xs:group>
+
+  <xs:simpleType name="Previous">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="isSmallerOrEqual"/>
+      <xs:enumeration value="isSmaller"/>
+      <xs:enumeration value="isGreater  OrEqual"/>
+      <xs:enumeration value="isGreater"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="Required">
+    <xs:attribute name="value" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="yes"/>
+          <xs:enumeration value="no"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+
+
+  <xs:complexType name="Value">
+    <xs:simpleContent>
+      <xs:extension base="xs:double">
+        <xs:attribute name="inclusive" use="optional" default="yes">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="yes"/>
+              <xs:enumeration value="no"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+      </xs:extension>
+
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="IMList">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="guha:InterestMeasure"/>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Any Interest Measure"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+
+
+  <xs:simpleType name="DATATYPE">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="string"/>
+      <xs:enumeration value="listOfFieldValues"/>
+      <xs:enumeration value="enum"/>
+      <xs:enumeration value="integer"/>
+      <xs:enumeration value="float"/>
+      <xs:enumeration value="double"/>
+      <xs:enumeration value="date"/>
+      <xs:enumeration value="time"/>
+      <xs:enumeration value="dateTime"/>
+      <xs:enumeration value="dateDaysSince[0]"/>
+      <xs:enumeration value="dateDaysSince[1960]"/>
+      <xs:enumeration value="dateDaysSince[1970]"/>
+      <xs:enumeration value="dateDaysSince[1980]"/>
+      <xs:enumeration value="timeSeconds"/>
+      <xs:enumeration value="dateTimeSecondsSince[0]"/>
+      <xs:enumeration value="dateTimeSecondsSince[1960]"/>
+      <xs:enumeration value="dateTimeSecondsSince[1970]"/>
+      <xs:enumeration value="dateTimeSecondsSince[1980]"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

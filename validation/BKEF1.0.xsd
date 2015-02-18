@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  BKEF W3C XML Schema
+  Author: Daniel Stastny
+          daniel@realmind.org
+  Date:   06/2009
+  
+  Update to version 0.91
+  Author: Tomáš Kliegr
+  tomas.kliegr@vse.cz
+  Date:   03/2010
+  
+  Update to version 0.92
+  Author: Tomáš Kliegr
+  tomas.kliegr@vse.cz
+  Date:   07/2010
+  Note: added BackgroundAssociationRulePatternType
+  
+  Update to version 1.0
+  Author: Tomáš Kliegr
+  tomas.kliegr@vse.cz
+  Date:   12/2010
+  Note: 
+  interlink BackgroundAssociationRules with Influences via the newly introduced AtomicConsequences/ARRef construct 
+  promotion to release version
+  
+-->
+
+	<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bkef="http://keg.vse.cz/bkef"
+  xmlns="http://keg.vse.cz/bkef" targetNamespace="http://keg.vse.cz/bkef"
+  elementFormDefault="unqualified" version="0.92" xmlns:guha="http://keg.vse.cz/ns/GUHA0.1rev1">
+
+  <!-- Outline of BKEF -->
+	  <xs:import namespace="http://keg.vse.cz/ns/GUHA0.1rev1" schemaLocation="http://sewebar.vse.cz/schemas/GUHA0.1rev1.xsd"/>
+	  
+  <xs:element name="BKEF" type="BKEFType">
+    <xs:annotation>
+      <xs:documentation>The main element.</xs:documentation>
+    </xs:annotation>
+    <!-- Foreign key from the name of an attribute -->
+    <xs:key name="PKMetaAttributeName">
+      <xs:selector xpath="bkef:MetaAttributes/bkef:MetaAttribute"/>
+      <xs:field xpath="@name"/>
+    </xs:key>
+    <xs:keyref refer="PKMetaAttributeName" name="FKMetaAttributeName">
+      <xs:selector xpath="bkef:Influences/bkef:Influence/bkef:MetaAttribute"/>
+      <xs:field xpath="@name"/>
+    </xs:keyref>
+  </xs:element>
+
+  <xs:complexType name="BKEFType">
+    <xs:sequence>
+      <xs:element name="Header" type="HeaderType"/>
+      <xs:element name="MetaAttributes" type="MetaAttributesType">
+        <xs:annotation>
+          <xs:documentation>Each attribute must be unique (via unique name and id)</xs:documentation>
+        </xs:annotation>
+        <xs:unique name="uniqueMAName">
+          <xs:selector xpath="bkef:MetaAttribute"/>
+          <xs:field xpath="@name"/>
+        </xs:unique>
+        <xs:unique name="uniqueMAId">
+          <xs:selector xpath="bkef:MetaAttribute"/>
+          <xs:field xpath="@id"/>
+        </xs:unique>
+      </xs:element>
+      <xs:element name="Patterns" type="PatternType">
+        <xs:unique name="unique-id">
+          <xs:selector xpath="bkef:AssociationRules/bkef:Influences/bkef:Influence"/>
+          <xs:field xpath="@id"/>
+        </xs:unique>
+      </xs:element>
+
+    </xs:sequence>
+    <xs:attribute name="version" type="xs:decimal"/>
+  </xs:complexType>
+
+  <!-- **** HEADER **** -->
+
+  <xs:complexType name="HeaderType">
+    <xs:sequence>
+      <xs:element name="Application" type="ApplicationType"/>
+      <xs:element name="Title" type="HeaderTitleAttrType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="HeaderTitleAttrType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <xs:complexType name="ApplicationType">
+    <xs:attribute name="name" use="required" type="xs:string"/>
+    <xs:attribute name="version" use="required" type="xs:string"/>
+  </xs:complexType>
+
+  <!-- **** METAATTRIBUTES **** -->
+
+  <xs:complexType name="MetaAttributesType">
+    <xs:annotation>
+      <xs:documentation>Coherent group of meta-attributes. This element could be metaphorically called meta-meta-attribute.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence maxOccurs="unbounded">
+      <xs:element name="MetaAttribute" type="MetaAttributeType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MetaAttributeType">
+    <xs:annotation>
+      <xs:documentation>Attribute describing a "property" of an object.</xs:documentation>
+    </xs:annotation>
+    
+    <xs:sequence>
+      <xs:element name="Variability" type="VariabilityType" minOccurs="0"/>
+      <xs:element name="Annotation" type="AnnotationType" minOccurs="0"/>
+      
+          <xs:element name="ChildMetaAttribute" type="ChildMetaattributeType" minOccurs="0"
+            maxOccurs="unbounded"/>
+
+      <xs:element name="Formats" type="FormatsType" minOccurs="0">
+        <!-- Unique FORMAT name -->
+        <xs:unique name="uniqueFormatName">
+          <xs:selector xpath="bkef:Format"/>
+          <xs:field xpath="@name"/>
+        </xs:unique>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" use="required" type="MetaAttributeIdAttrType"/>
+    <xs:attribute name="name" use="required" type="MetaAttributeNameAttrType"/>
+    <xs:attribute name="level" use="required" type="MetaAttributeLevelAttrType"/>
+  </xs:complexType>
+
+  <xs:simpleType name="MetaAttributeIdAttrType">
+    <xs:restriction base="xs:integer"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="MetaAttributeNameAttrType">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="50"/>
+      <xs:whiteSpace value="preserve"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="MetaAttributeLevelAttrType">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Annotation -->
+
+  <xs:complexType name="AnnotationsType">
+    <xs:annotation>
+      <xs:documentation>Optional annotation</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Annotation" type="AnnotationType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AnnotationType">
+    <xs:all>
+      <xs:element name="Text" type="AnnotationTextType" minOccurs="1"/>
+      <xs:element name="Author" type="AnnotationAuthorType" minOccurs="0"/>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:simpleType name="AnnotationAuthorType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="AnnotationTextType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <!-- /Annotation -->
+
+  <!-- 
+  <xs:simpleType name="ParentMetaattributeType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  -->
+
+  <xs:complexType name="ChildMetaattributeType">
+    <xs:attribute name="id"></xs:attribute>  
+  </xs:complexType>
+
+  <xs:simpleType name="VariabilityType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <!-- Formatting -->
+
+  <xs:complexType name="FormatsType">
+    <xs:annotation>
+      <xs:documentation>Possible concept of formating of the metaattribute which is advised to potential software - independent on the platform nor application</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Format" type="FormatType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="FormatType">
+    <xs:annotation>
+      <xs:documentation>Detailed specification of allowed format of data</xs:documentation>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Author" type="AuthorType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Annotations" type="AnnotationsType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="DataType" type="DataTypeType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ValueType" type="ValueTypeType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ValueAnnotations" type="ValueAnnotationsType" minOccurs="0"/>      
+      <xs:element name="Collation" type="CollationType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PreprocessingHints" type="PreprocessingHintsType" minOccurs="0"
+        maxOccurs="1"/>
+      <xs:element name="AllowedRange" type="AllowedRangeType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ValueDescriptions" type="ValueDescriptionsType" minOccurs="0" maxOccurs="1"
+      />
+      
+    </xs:all>
+    <xs:attribute name="name" use="required"/>
+  </xs:complexType>
+
+  <xs:simpleType name="AuthorType">
+    <xs:annotation>
+      <xs:documentation>The name of an author of the Format</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="DataTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Integer"/>
+      <xs:enumeration value="Float"/>
+      <xs:enumeration value="String"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ValueTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Cardinal"/>
+      <xs:enumeration value="Nominal"/>
+      <xs:enumeration value="Ordinal"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ValueAnnotationsType">
+    <xs:sequence>
+      <xs:element name="ValueAnnotation" type="ValueAnnotationType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ValueAnnotationType">
+    <xs:sequence>
+      <xs:element name="Value" type="ValueType"/>
+      <xs:element name="Annotation" type="AnnotationType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="ValueType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <!-- AllowedRange -->
+
+  <xs:complexType name="AllowedRangeType">
+    <xs:annotation>
+      <xs:documentation>Interesting range of values of particular meta-attribute</xs:documentation>
+    </xs:annotation>
+    <xs:choice minOccurs="0">
+      <xs:element name="Enumeration" type="EnumerationType"/>
+      <xs:element name="Interval" type="IntervalType"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <!-- /AllowedRange -->
+
+  <!-- Collation -->
+
+  <xs:complexType name="CollationType">
+    <xs:annotation>
+      <xs:documentation>Collation of the data - enumeration or interval and sense of its content</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Value" type="ValueType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="type" type="AttrCollationTypeType"/>
+    <xs:attribute name="sense" type="AttrCollationSenseType"/>
+  </xs:complexType>
+
+  <xs:simpleType name="AttrCollationTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Alphabetical"/>
+      <xs:enumeration value="Numerical"/>
+      <xs:enumeration value="Enumeration"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="AttrCollationSenseType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ascending"/>
+      <xs:enumeration value="Descending"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- /Collation -->
+
+  <!-- enumeration -->
+
+  <xs:complexType name="EnumerationType">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:element name="Value" type="EnumValueType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="EnumValueType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <!-- /enumeration -->
+
+  <!-- interval -->
+
+  <xs:complexType name="IntervalType">
+    <xs:sequence>
+      <xs:element name="LeftBound" type="LeftBoundType"/>
+      <xs:element name="RightBound" type="RightBoundType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LeftBoundType">
+    <xs:sequence minOccurs="0">
+      <xs:element name="Annotation" type="AnnotationType"/>
+    </xs:sequence>
+    <xs:attribute name="type" type="AttrType"/>
+    <xs:attribute name="value" type="xs:float"/>
+  </xs:complexType>
+
+  <xs:complexType name="RightBoundType">
+    <xs:sequence minOccurs="0">
+      <xs:element name="Annotation" type="AnnotationType"/>
+    </xs:sequence>
+    <xs:attribute name="type" type="AttrType"/>
+    <xs:attribute name="value" type="xs:float"/>
+  </xs:complexType>
+
+  <xs:simpleType name="AttrType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="open"/>
+      <xs:enumeration value="closed"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- /interval -->
+
+  <!-- PreprocessingHints -->
+
+  <xs:complexType name="PreprocessingHintsType">
+    <xs:annotation>
+      <xs:documentation>The concept of potential preprocessing of the attribute.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="PreprocessingHint" type="PreprocessingHintType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PreprocessingHintType">
+    <xs:sequence>
+      <xs:element name="DiscretizationHint" type="DiscretizationHintType" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="PreprocessingHintAttrType"/>
+  </xs:complexType>
+
+  <xs:simpleType name="PreprocessingHintAttrType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <xs:complexType name="DiscretizationHintType">
+    <xs:annotation>
+      <xs:documentation>The concept of discretization of values of the meta-attribute.</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element name="EachValueOneBin" type="EachValueOneBinType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ExhaustiveEnumeration" type="ExhaustiveEnumerationType"/>
+      <xs:element name="IntervalEnumeration" type="IntervalEnumerationType"/>
+      <xs:element name="EquifrequentInterval" type="EquifrequentIntervalType"/>
+      <xs:element name="Equidistant" type="EquidistantType"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:simpleType name="EachValueOneBinType">
+    <xs:annotation>
+      <xs:documentation>Mapping 1:1 - In the terminology of the LispMiner: Each value one category.
+					The element is empty.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:length value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- exhaustive-enumeration -->
+
+  <xs:complexType name="ExhaustiveEnumerationType">
+    <xs:sequence>
+      <xs:element name="Bin" type="BinType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="BinType">
+    <xs:sequence>
+      <xs:element name="Annotation" type="AnnotationType" minOccurs="0"/>
+      <xs:element name="Value" type="ValueType" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string"/>
+  </xs:complexType>
+
+  <!-- interval-enumeration -->
+
+  <xs:complexType name="IntervalEnumerationType">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:element name="IntervalBin" type="IntervalBinType" maxOccurs="unbounded"/>
+      <xs:element name="Equidistant" type="EquidistantType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="IntervalBinType">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:element name="Annotation" type="AnnotationType" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="Interval" type="IntervalType"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string"/>
+  </xs:complexType>
+
+  <!-- equidistant -->
+
+  <xs:complexType name="EquidistantType">
+    <xs:sequence>
+      <xs:element name="Start" type="StartType"/>
+      <xs:element name="End" type="EndType"/>
+      <xs:element name="Step" type="StepType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="StartType">
+    <xs:simpleContent>
+      <xs:extension base="xs:float">
+        <xs:attribute name="type" type="AttrType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="EndType">
+    <xs:simpleContent>
+      <xs:extension base="xs:float">
+        <xs:attribute name="type" type="AttrType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="StepType">
+    <xs:restriction base="xs:integer"/>
+  </xs:simpleType>
+
+  <!-- equifrequent-interval -->
+
+  <xs:complexType name="EquifrequentIntervalType">
+    <xs:annotation>
+      <xs:documentation>Each interval has the same number of values. Hence the intervals are not of the same range.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Count" type="CountType" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="CountType">
+    <xs:restriction base="xs:integer"/>
+  </xs:simpleType>
+
+  <!-- ValueDescription -->
+
+  <xs:complexType name="ValueDescriptionsType">
+    <xs:annotation>
+      <xs:documentation>Description of values.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ValueDescription" type="ValueDescriptionType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ValueDescriptionType">
+    <xs:sequence>
+      <xs:element name="Annotation" type="AnnotationType" minOccurs="0"/>
+      <xs:choice minOccurs="0">
+        <xs:element name="Value" type="ValueType" maxOccurs="unbounded"/>
+        <xs:element name="Interval" type="IntervalType" maxOccurs="unbounded"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="type" type="ValueDescriptionAttrType"/>
+  </xs:complexType>
+
+  <xs:simpleType name="ValueDescriptionAttrType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Similar"/>
+      <xs:enumeration value="Outliers"/>
+      <xs:enumeration value="Often Missing"/>
+      <xs:enumeration value="Significant"/>
+      <xs:enumeration value="Suspicious"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+	  <!-- **** PATTERNS**** -->
+	  <xs:complexType name="PatternType">
+	    <xs:annotation>
+	      <xs:documentation>Representation of patterns in data.</xs:documentation>
+	    </xs:annotation>
+	    <xs:all>
+	      <xs:element name="AssociationRules" type="AssociationRulePatternType"/>
+	      
+	    </xs:all>
+	  </xs:complexType>
+	  
+	  <xs:complexType name="AssociationRulePatternType">
+	    <xs:all>
+	      <xs:element name="BackgroundAssociationRules" type="guha:AssociationRules" minOccurs="0"></xs:element>
+	      <xs:element name="Influences" type="InfluencesType" minOccurs="0"/>
+	      </xs:all>
+	    </xs:complexType>
+  <!-- **** INFLUENCES **** -->
+
+  <xs:complexType name="InfluencesType">
+    <xs:annotation>
+      <xs:documentation>Representation of influences among particular meta-attributes.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence maxOccurs="unbounded">
+      <xs:element name="Influence" type="InfluenceType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="InfluenceType">
+    <xs:annotation>
+      <xs:documentation>Type of an influence - there are several defined types.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Annotations" type="AnnotationsType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="KnowledgeValidity" type="KnowledgeValidityType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="InfluenceScope" type="InfluenceScopeType" minOccurs="0" maxOccurs="1"/>      
+      <xs:element name="MetaAttribute" type="InfluenceMetaAttributeType" minOccurs="2" maxOccurs="2"/>
+      <xs:element name="AtomicConsequences" type="AtomicConsequences" minOccurs="0"></xs:element>      
+    </xs:sequence>
+    <xs:attribute name="type" type="InfluenceTypeAttrTypeType"/>
+    <xs:attribute name="id" type="InfluenceTypeAttrIdType" use="required"/>
+    <xs:attribute name="arity" type="InfluenceTypeAttrArityType"/>
+  </xs:complexType>
+	  <xs:complexType name="AtomicConsequences">
+	    <xs:sequence>
+	      <xs:element name="ARRef" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+	    </xs:sequence>
+	  </xs:complexType>
+  <xs:simpleType name="InfluenceTypeAttrTypeType">
+    <xs:annotation>
+      <xs:documentation>Predefined types of influences.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Not-set"/>
+      <xs:enumeration value="None"/>
+      <xs:enumeration value="Uninteresting"/>
+      <xs:enumeration value="Some-influence"/>
+      <xs:enumeration value="Unknown"/>
+      <xs:enumeration value="Functional"/>
+      <xs:enumeration value="Positive-growth"/>
+      <xs:enumeration value="Negative-growth"/>
+      <xs:enumeration value="Positive-bool-growth"/>
+      <xs:enumeration value="Negative-bool-growth"/>
+      <xs:enumeration value="Double-bool-growth"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="InfluenceTypeAttrIdType">
+    <xs:restriction base="xs:integer"/>
+  </xs:simpleType>
+
+  <!-- Arity has to be number 2 because of two-dimensional visualization -->
+  <xs:simpleType name="InfluenceTypeAttrArityType">
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="KnowledgeValidityType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Proven"/>
+      <xs:enumeration value="Rejected"/>
+      <xs:enumeration value="Unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="InfluenceScopeType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <xs:complexType name="InfluenceMetaAttributeType">
+    <xs:sequence>
+      <xs:element name="RestrictedTo" type="RestrictedToType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="role" type="InfluenceMetaAttributeAttrRoleType"/>
+    <xs:attribute name="name" type="InfluenceMetaAttributeAttrNameType"/>    
+  </xs:complexType>
+
+  <xs:simpleType name="InfluenceMetaAttributeAttrRoleType">
+    <xs:restriction base="xs:string">
+      <!-- Only for purposes of two-dimensional matrix -->
+      <xs:enumeration value="A"/>
+      <xs:enumeration value="B"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="InfluenceMetaAttributeAttrNameType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <xs:complexType name="RestrictedToType">
+    <xs:annotation>
+      <xs:documentation>Particular influence could be restricted only for a specific part of values of a meta-attribute.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Format" type="RestrictedToFormatType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RestrictedToFormatType">
+    <xs:sequence minOccurs="0">
+      <xs:choice>
+        <xs:element name="Value" type="RestrictedToFormatValueType" maxOccurs="unbounded"/>
+        <xs:element name="Intervals" type="IntervalsType"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="name" type="RestrictedToFormatAttrType"/>
+  </xs:complexType>
+
+  <xs:simpleType name="RestrictedToFormatAttrType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <xs:complexType name="IntervalsType">
+    <xs:sequence>
+      <xs:element name="Interval" type="IntervalType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RestrictedToFormatValueType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="format" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+
+</xs:schema>

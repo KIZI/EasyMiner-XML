@@ -1,0 +1,246 @@
+<?xml version="1.0"?>
+<?xml-model href="http://sewebar.vse.cz/schemas/FDML0_2_Dict.xsd" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<fdmldict:FDMLDictionary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://keg.vse.cz/ns/fdml0_2_dict http://sewebar.vse.cz/schemas/FDML0_2_Dict.xsd"
+ xmlns:fdmldict="http://keg.vse.cz/ns/fdml0_2_dict">
+
+<!-- LMDataSource.Matrix.FDML.Template, version of 2011-7-9 -->
+
+	<Header copyright="Copyright (c) KIZI UEP">
+		<Extension name="subsystem" value="LM Sewebar Exporter"/>
+		<Extension name="module" value="LMSwbExporter.exe"/>
+		<Extension name="format" value="LMDataSource.Matrix"/>		
+		<Application name="LISp-Miner" version="16.02.02 of 04 Jul 2011"/>
+		<Timestamp>9.7.2011 10:57:47</Timestamp>
+		<Author>PowerUser</Author>
+	</Header>
+
+<!-- Matrix -->
+
+	<Dictionary numberOfFields="10" sourceFormat="PMML" sourceDictType="DataDictionary">
+		<Identifier name="Metabase">LM LMBarbora1.mdb MB</Identifier>
+		<Identifier name="Dataset">Loans</Identifier>				
+	 <Field optype="continuous" dataType="integer"> 
+	  <Extension name="Avg" value="43.357386" extender="Avg"/>
+	  <Extension name="StDev" value="-1.000000" extender="StDev"/>
+	  <Name>Age</Name>
+	<Interval leftMargin="21.000000" rightMargin="67.000000" closure="closedClosed"/>
+	 </Field>
+		<Field optype="continuous" dataType="integer"> 
+	  <Extension name="Avg" value="151450.639702" extender="Avg"/>
+	  <Extension name="StDev" value="-1.000000" extender="StDev"/>
+	  <Name>amount</Name>
+	<Interval leftMargin="4980.000000" rightMargin="590820.000000" closure="closedClosed"/>
+	 </Field>
+		<Field optype="continuous" dataType="integer"> 
+	  <Extension name="Avg" value="584550.205792" extender="Avg"/>
+	  <Extension name="StDev" value="-1.000000" extender="StDev"/>
+	  <Name>birth_number</Name>
+	<Interval leftMargin="350129.000000" rightMargin="806207.000000" closure="closedClosed"/>
+	 </Field>
+	 <Field optype="categorical" dataType="string"> 
+	  <Extension name="maxItems" value="1000"/>
+	  <Extension name="Frequency" value="63" extender="Benesov"/>
+	  <Extension name="Frequency" value="63" extender="Beroun"/>
+	  <Extension name="Frequency" value="63" extender="Blansko"/>
+	  <Extension name="Frequency" value="54" extender="Breclav"/>
+	  <Extension name="Frequency" value="207" extender="Brno"/>
+	  <Extension name="Frequency" value="99" extender="Brno - venkov"/>
+	  <Extension name="Frequency" value="55" extender="Bruntal"/>
+	  <Extension name="Frequency" value="54" extender="Ceska Lipa"/>
+	  <Extension name="Frequency" value="81" extender="Ceske Budejovice"/>
+	  <Extension name="Frequency" value="63" extender="Cesky Krumlov"/>
+	  <Extension name="Frequency" value="45" extender="Decin"/>
+	  <Extension name="Frequency" value="18" extender="Domazlice"/>
+	  <Extension name="Frequency" value="135" extender="Frydek - Mistek"/>
+	  <Extension name="Frequency" value="86" extender="Havlickuv Brod"/>
+	  <Extension name="Frequency" value="72" extender="Hodonin"/>
+	  <Extension name="Frequency" value="54" extender="Hradec Kralove"/>
+	  <Extension name="Frequency" value="36" extender="Cheb"/>
+	  <Extension name="Frequency" value="72" extender="Chomutov"/>
+	  <Extension name="Frequency" value="63" extender="Chrudim"/>
+	  <Extension name="Frequency" value="18" extender="Jablonec n. Nisou"/>
+	  <Extension name="Frequency" value="72" extender="Jesenik"/>
+	  <Extension name="Frequency" value="63" extender="Jicin"/>
+	  <Extension name="Frequency" value="54" extender="Jihlava"/>
+	  <Extension name="Frequency" value="99" extender="Jindrichuv Hradec"/>
+	  <Extension name="Frequency" value="54" extender="Karlovy Vary"/>
+	  <Extension name="Frequency" value="225" extender="Karvina"/>
+	  <Extension name="Frequency" value="54" extender="Kladno"/>
+	  <Extension name="Frequency" value="18" extender="Klatovy"/>
+	  <Extension name="Frequency" value="99" extender="Kolin"/>
+	  <Extension name="Frequency" value="99" extender="Kromeriz"/>
+	  <Extension name="Frequency" value="72" extender="Kutna Hora"/>
+	  <Extension name="Frequency" value="63" extender="Liberec"/>
+	  <Extension name="Frequency" value="63" extender="Litomerice"/>
+	  <Extension name="Frequency" value="117" extender="Louny"/>
+	  <Extension name="Frequency" value="45" extender="Melnik"/>
+	  <Extension name="Frequency" value="45" extender="Mlada Boleslav"/>
+	  <Extension name="Frequency" value="61" extender="Most"/>
+	  <Extension name="Frequency" value="72" extender="Nachod"/>
+	  <Extension name="Frequency" value="45" extender="Novy Jicin"/>
+	  <Extension name="Frequency" value="81" extender="Nymburk"/>
+	  <Extension name="Frequency" value="135" extender="Olomouc"/>
+	  <Extension name="Frequency" value="72" extender="Opava"/>
+	  <Extension name="Frequency" value="180" extender="Ostrava - mesto"/>
+	  <Extension name="Frequency" value="90" extender="Pardubice"/>
+	  <Extension name="Frequency" value="54" extender="Pelhrimov"/>
+	  <Extension name="Frequency" value="27" extender="Pisek"/>
+	  <Extension name="Frequency" value="54" extender="Plzen"/>
+	  <Extension name="Frequency" value="81" extender="Plzen - jih"/>
+	  <Extension name="Frequency" value="63" extender="Plzen - sever"/>
+	  <Extension name="Frequency" value="711" extender="Praha"/>
+	  <Extension name="Frequency" value="45" extender="Praha - vychod"/>
+	  <Extension name="Frequency" value="90" extender="Praha - zapad"/>
+	  <Extension name="Frequency" value="108" extender="Prachatice"/>
+	  <Extension name="Frequency" value="27" extender="Prerov"/>
+	  <Extension name="Frequency" value="45" extender="Pribram"/>
+	  <Extension name="Frequency" value="81" extender="Prostejov"/>
+	  <Extension name="Frequency" value="81" extender="Rakovnik"/>
+	  <Extension name="Frequency" value="72" extender="Rokycany"/>
+	  <Extension name="Frequency" value="45" extender="Rychnov nad Kneznou"/>
+	  <Extension name="Frequency" value="27" extender="Semily"/>
+	  <Extension name="Frequency" value="12" extender="Sokolov"/>
+	  <Extension name="Frequency" value="45" extender="Strakonice"/>
+	  <Extension name="Frequency" value="54" extender="Sumperk"/>
+	  <Extension name="Frequency" value="108" extender="Svitavy"/>
+	  <Extension name="Frequency" value="72" extender="Tabor"/>
+	  <Extension name="Frequency" value="99" extender="Tachov"/>
+	  <Extension name="Frequency" value="45" extender="Teplice"/>
+	  <Extension name="Frequency" value="54" extender="Trebic"/>
+	  <Extension name="Frequency" value="63" extender="Trutnov"/>
+	  <Extension name="Frequency" value="81" extender="Uherske Hradiste"/>
+	  <Extension name="Frequency" value="27" extender="Usti nad Labem"/>
+	  <Extension name="Frequency" value="135" extender="Usti nad Orlici"/>
+	  <Extension name="Frequency" value="63" extender="Vsetin"/>
+	  <Extension name="Frequency" value="72" extender="Vyskov"/>
+	  <Extension name="Frequency" value="63" extender="Zdar nad Sazavou"/>
+	  <Extension name="Frequency" value="144" extender="Zlin"/>
+	  <Extension name="Frequency" value="54" extender="Znojmo"/>
+	  <Name>District</Name>
+	  <Category>Benesov</Category>
+	  <Category>Beroun</Category>
+	  <Category>Blansko</Category>
+	  <Category>Breclav</Category>
+	  <Category>Brno</Category>
+	  <Category>Brno - venkov</Category>
+	  <Category>Bruntal</Category>
+	  <Category>Ceska Lipa</Category>
+	  <Category>Ceske Budejovice</Category>
+	  <Category>Cesky Krumlov</Category>
+	  <Category>Decin</Category>
+	  <Category>Domazlice</Category>
+	  <Category>Frydek - Mistek</Category>
+	  <Category>Havlickuv Brod</Category>
+	  <Category>Hodonin</Category>
+	  <Category>Hradec Kralove</Category>
+	  <Category>Cheb</Category>
+	  <Category>Chomutov</Category>
+	  <Category>Chrudim</Category>
+	  <Category>Jablonec n. Nisou</Category>
+	  <Category>Jesenik</Category>
+	  <Category>Jicin</Category>
+	  <Category>Jihlava</Category>
+	  <Category>Jindrichuv Hradec</Category>
+	  <Category>Karlovy Vary</Category>
+	  <Category>Karvina</Category>
+	  <Category>Kladno</Category>
+	  <Category>Klatovy</Category>
+	  <Category>Kolin</Category>
+	  <Category>Kromeriz</Category>
+	  <Category>Kutna Hora</Category>
+	  <Category>Liberec</Category>
+	  <Category>Litomerice</Category>
+	  <Category>Louny</Category>
+	  <Category>Melnik</Category>
+	  <Category>Mlada Boleslav</Category>
+	  <Category>Most</Category>
+	  <Category>Nachod</Category>
+	  <Category>Novy Jicin</Category>
+	  <Category>Nymburk</Category>
+	  <Category>Olomouc</Category>
+	  <Category>Opava</Category>
+	  <Category>Ostrava - mesto</Category>
+	  <Category>Pardubice</Category>
+	  <Category>Pelhrimov</Category>
+	  <Category>Pisek</Category>
+	  <Category>Plzen</Category>
+	  <Category>Plzen - jih</Category>
+	  <Category>Plzen - sever</Category>
+	  <Category>Praha</Category>
+	  <Category>Praha - vychod</Category>
+	  <Category>Praha - zapad</Category>
+	  <Category>Prachatice</Category>
+	  <Category>Prerov</Category>
+	  <Category>Pribram</Category>
+	  <Category>Prostejov</Category>
+	  <Category>Rakovnik</Category>
+	  <Category>Rokycany</Category>
+	  <Category>Rychnov nad Kneznou</Category>
+	  <Category>Semily</Category>
+	  <Category>Sokolov</Category>
+	  <Category>Strakonice</Category>
+	  <Category>Sumperk</Category>
+	  <Category>Svitavy</Category>
+	  <Category>Tabor</Category>
+	  <Category>Tachov</Category>
+	  <Category>Teplice</Category>
+	  <Category>Trebic</Category>
+	  <Category>Trutnov</Category>
+	  <Category>Uherske Hradiste</Category>
+	  <Category>Usti nad Labem</Category>
+	  <Category>Usti nad Orlici</Category>
+	  <Category>Vsetin</Category>
+	  <Category>Vyskov</Category>
+	  <Category>Zdar nad Sazavou</Category>
+	  <Category>Zlin</Category>
+	  <Category>Znojmo</Category>
+	 </Field>
+	 <Field optype="continuous" dataType="integer"> 
+	  <Extension name="Avg" value="36.520466" extender="Avg"/>
+	  <Extension name="StDev" value="-1.000000" extender="StDev"/>
+	  <Name>duration</Name>
+	<Interval leftMargin="12.000000" rightMargin="60.000000" closure="closedClosed"/>
+	 </Field>
+		<Field optype="continuous" dataType="integer"> 
+	  <Extension name="PrimaryKey" value="A" extender="PrimaryKey"/>
+	  <Extension name="PrimaryKeyPosition" value="0" extender="PrimaryKeyPosition"/>
+	  <Extension name="Avg" value="15696.771396" extender="Avg"/>
+	  <Extension name="StDev" value="-1.000000" extender="StDev"/>
+	  <Name>loan_id</Name>
+	<Interval leftMargin="4959.000000" rightMargin="19627.000000" closure="closedClosed"/>
+	 </Field>
+		<Field optype="continuous" dataType="integer"> 
+	  <Extension name="Avg" value="4192.148681" extender="Avg"/>
+	  <Extension name="StDev" value="-1.000000" extender="StDev"/>
+	  <Name>payments</Name>
+	<Interval leftMargin="304.000000" rightMargin="41728.000000" closure="closedClosed"/>
+	 </Field>
+		<Field optype="continuous" dataType="integer"> 
+	  <Extension name="Avg" value="9464.201747" extender="Avg"/>
+	  <Extension name="StDev" value="-1.000000" extender="StDev"/>
+	  <Name>Salary</Name>
+	<Interval leftMargin="8110.000000" rightMargin="12541.000000" closure="closedClosed"/>
+	 </Field>
+	 <Field optype="categorical" dataType="string"> 
+	  <Extension name="maxItems" value="1000"/>
+	  <Extension name="Frequency" value="3145" extender="Yes"/>
+	  <Extension name="Frequency" value="3036" extender="No"/>
+	  <Name>Sex</Name>
+	  <Category>Yes</Category>
+	  <Category>No</Category>
+	 </Field>
+	 <Field optype="categorical" dataType="string"> 
+	  <Extension name="maxItems" value="1000"/>
+	  <Extension name="Frequency" value="1827" extender="A"/>
+	  <Extension name="Frequency" value="289" extender="B"/>
+	  <Extension name="Frequency" value="3627" extender="C"/>
+	  <Extension name="Frequency" value="438" extender="D"/>
+	  <Name>status</Name>
+	  <Category>A</Category>
+	  <Category>B</Category>
+	  <Category>C</Category>
+	  <Category>D</Category>
+	 </Field>
+	</Dictionary>
+</fdmldict:FDMLDictionary>

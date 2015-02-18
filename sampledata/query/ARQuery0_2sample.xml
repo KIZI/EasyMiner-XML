@@ -1,0 +1,73 @@
+<arb:ARBuilder xmlns:arb="http://keg.vse.cz/ns/arbuilder0_2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://keg.vse.cz/ns/arbuilder0_2 http://sewebar.vse.cz/schemas/ARBuilder0_2.xsd">
+    <DataDescription xmlns:pmml="http://www.dmg.org/PMML-4_0"
+        xmlns:guha="http://keg.vse.cz/ns/GUHA0.1rev1">
+        <Dictionary  sourceDictType="TransformationDictionary" sourceFormat="PMML" completeness="UserSelection" id="1">
+            <Field>
+                <Name>Age</Name>
+                <Category>&lt;31;41)</Category>
+            </Field>
+            <Field>
+                <Name>Sex</Name>
+                <Category>M</Category>
+            </Field>
+            <Field>
+                <Name>District</Name>
+                <Category>Havlickuv Brod</Category>
+            </Field>
+            <Field>
+                <Name>Quality</Name>
+                <Category>bad</Category>
+            </Field>
+        </Dictionary>
+    </DataDescription>
+    <ARQuery>
+        <MaxResults>8</MaxResults>
+        <BBASettings>
+            <BBASetting id="BBA_FTLiteralI_275">
+                <Text>Quality(bad)</Text>
+                <FieldRef dictionary="TransformationDictionary">Quality</FieldRef>
+                <Coefficient>
+                    <Type>At least one from listed</Type>
+                    <Category>bad</Category>
+                </Coefficient>
+            </BBASetting>
+            <BBASetting id="BBA_FTLiteralI_276">
+                <Text>District(Bruntal)</Text>
+                <FieldRef dictionary="TransformationDictionary">District</FieldRef>
+                <Coefficient>
+                    <Type>At least one from listed</Type>
+                    <Category>Bruntal</Category>
+                </Coefficient>
+            </BBASetting>
+        </BBASettings>
+        <DBASettings>
+            <DBASetting id="DBA_FTLiteralI_Sign_275" type="Literal">
+                <BASettingRef>BBA_FTLiteralI_275</BASettingRef>
+                <LiteralSign>Both</LiteralSign>
+            </DBASetting>
+            <DBASetting id="DBA_FTLiteralI_Sign_276" type="Literal">
+                <BASettingRef>BBA_FTLiteralI_276</BASettingRef>
+                <LiteralSign>Both</LiteralSign>
+            </DBASetting>
+        </DBASettings>
+        <GeneralSetting>
+            <Scope>
+                <RulePart>Antecedent</RulePart>
+                <RulePart>Consequent</RulePart>
+                <RulePart>Condition</RulePart>
+            </Scope>
+            <ApplyRecursively>true</ApplyRecursively>
+            <MandatoryPresenceConstraint>
+                <MandatoryBA>DBA_FTLiteralI_Sign_275</MandatoryBA>
+                <MandatoryBA>DBA_FTLiteralI_Sign_276</MandatoryBA>
+            </MandatoryPresenceConstraint>
+        </GeneralSetting>
+        <InterestMeasureSetting>
+            <InterestMeasureThreshold id="1">
+                <InterestMeasure>Any Interest Measure</InterestMeasure>
+            </InterestMeasureThreshold>
+        </InterestMeasureSetting>
+    </ARQuery>
+</arb:ARBuilder>

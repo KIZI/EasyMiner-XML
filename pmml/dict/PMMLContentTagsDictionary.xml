@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- For gInclude (?)-->
+<ContentTagsDictionary dictionaryVersion="0.1">
+    <Entry>
+        <name>ListOfContents</name>
+        <type>ListOfContents</type> <!-- Type element Not used at the moment -->
+        <IDbase>ListOfContents</IDbase>
+        <Level>0</Level>
+        <Title lang="cs">Obsah</Title>
+    </Entry>
+
+    <Entry>
+        <name>TaskMetadata</name>
+        <type>Table</type> <!-- Type element Not used at the moment -->
+        <IDbase>TaskMetadata</IDbase>
+        <Level>0</Level>
+        <Title lang="cs">Metadata úlohy</Title>
+    </Entry>
+
+    <!-- DataDescription -->
+    <Entry>
+        <name>DataDescription</name>
+        <type>Section</type> <!-- Type element Not used at the moment -->
+        <IDbase>DataDescription</IDbase>
+        <Level>0</Level>
+        <Title lang="cs">Popis datového souboru</Title>
+    </Entry>
+
+    <Entry>
+        <name>ColumnList</name>
+        <type>Table</type> <!-- Type element Not used at the moment -->
+        <IDbase>ColumnList</IDbase>
+        <Level>1</Level>
+        <Title lang="cs">Přehled sloupců</Title>
+    </Entry>
+
+    <Entry>
+        <name>RecordCount</name>
+        <type>Text</type> <!-- Type element Not used at the moment -->
+        <IDbase>RecordCount</IDbase>
+        <Level>1</Level>
+        <Title lang="cs">Počet záznamů</Title>
+    </Entry>
+
+    <Entry>
+        <name>ColumnDetail</name>
+        <type>Table</type> <!-- Type 'element' not used at the moment -->
+        <IDbase>ColumnDetail</IDbase>
+        <Level>1</Level>
+        <Title lang="cs" append="1">Sloupec </Title>
+    </Entry>
+
+    <!-- Attributes -->
+
+    <Entry>
+        <name>CreatedAttributes</name>
+        <type>Section</type> <!-- Type 'element' not used at the moment -->
+        <IDbase>CreatedAttributes</IDbase>
+        <Level>0</Level>
+        <Title lang="cs">Vytvořené atributy</Title>
+    </Entry>
+
+    <Entry>
+        <name>CreatedAttributes_Contents</name>
+        <type>ListOfContents</type> <!-- Type element Not used at the moment -->
+        <IDbase>CreatedAttributes_Contents</IDbase>
+        <Level>1</Level>
+        <Title lang="cs">Obsah (seznam atributů)</Title>
+    </Entry>
+
+    <Entry>
+        <name>DerivedFieldDetail</name>
+        <type>Table</type> <!-- Type 'element' not used at the moment -->
+        <IDbase>AttributeCategoryFrequency</IDbase>
+        <Level>1</Level>
+        <Title lang="cs" append="1">Atribut </Title>
+    </Entry>
+    <!-- DM Task Setting-->
+
+    <Entry>
+        <name>DMTaskSetting</name>
+        <type>Section</type> <!-- Type 'element' not used at the moment -->
+        <IDbase>DMTaskSetting</IDbase>
+        <Level>0</Level>
+        <Title lang="cs">Zadání DM úlohy </Title>
+    </Entry>
+
+    <Entry>
+        <name>QuantifiersUsed</name>
+        <type>Table</type> <!-- Type 'element' not used at the moment -->
+        <IDbase>QuantifiersUsed</IDbase>
+        <Level>1</Level>
+        <Title lang="cs">Použité kvantifikátory </Title>
+    </Entry>
+
+    <Entry>
+        <name>SoughtRulePattern</name>
+        <type>Text</type> <!-- Type 'element' not used at the moment -->
+        <IDbase>SoughtRulePattern</IDbase>
+        <Level>1</Level>
+        <Title lang="cs">Tvar hledaných asociačních pravidel </Title>
+    </Entry>
+
+    <Entry>
+        <name>BasicBooleanAttributes</name>
+        <type>Table</type> <!-- Type 'element' not used at the moment -->
+        <IDbase>BasicBooleanAttributes</IDbase>
+        <Level>1</Level>
+        <Title lang="cs">Základní booleovské atributy</Title>
+    </Entry>
+    <Entry>
+        <name>DerivedBooleanAttributes</name>
+        <type>Table</type> <!-- Type 'element' not used at the moment -->
+        <IDbase>DerivedBooleanAttributes</IDbase>
+        <Level>1</Level>
+        <Title lang="cs">Odvozené booleovské atributy</Title>
+    </Entry>
+
+    <!-- DM Task Setting-->
+
+    <Entry>
+        <name>DiscoveredARs</name>
+        <type>Section</type> <!-- Type 'element' not used at the moment -->
+        <IDbase>DiscoveredARs</IDbase>
+        <Level>0</Level>
+        <Title lang="cs">Nalezená asociační pravidla </Title>
+    </Entry>
+
+    <Entry>
+        <name>NumberOfRulesFound</name>
+        <type>Text</type> <!-- Type 'element' not used at the moment -->
+        <IDbase>NumberOfRulesFound</IDbase>
+        <Level>1</Level>
+        <Title lang="cs">Počet nalezených pravidel</Title>
+    </Entry>
+
+    <Entry>
+        <name>DiscoveredRules_Contents</name>
+        <type>ListOfContents</type> <!-- Type element Not used at the moment -->
+        <IDbase>DiscoveredRules_Contents</IDbase>
+        <Level>1</Level>
+        <Title lang="cs">Obsah (seznam pravidel)</Title>
+    </Entry>
+
+    <Entry>
+        <name>DiscoveredRule</name>
+        <type>Text</type> <!-- Type 'element' not used at the moment -->
+        <IDbase>DiscoveredRule</IDbase>
+        <Level>1</Level>
+        <Title lang="cs" append="1"></Title>
+    </Entry>
+
+    <Entry>
+        <name>DiscoveredRule_Quantifiers</name>
+        <type>Table</type> <!-- Type 'element' not used at the moment -->
+        <IDbase>DiscoveredRule_Quantifiers</IDbase>
+        <Level>1</Level>
+        <Title lang="cs"> - hodnoty testových kritérií</Title>
+    </Entry>
+    <Entry>
+        <name>ContingencyTable</name>
+        <type>Table</type> <!-- Type 'element' not used at the moment -->
+        <IDbase>ContingencyTable</IDbase>
+        <Level>1</Level>
+        <Title lang="cs"> - čtyřpolní tabulka </Title>
+    </Entry>
+</ContentTagsDictionary>

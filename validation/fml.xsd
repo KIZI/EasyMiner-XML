@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 		xmlns:fml = "http://keg.vse.cz/fml"
+    xmlns = "http://keg.vse.cz/fml" 		targetNamespace="http://keg.vse.cz/fml"
+    elementFormDefault="qualified"
+    >
+
+    <xs:element name="FML">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element name="BKEFtoPMML">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="AppliesTo">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="BKEF">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="Document" type="Document"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="PMML">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element maxOccurs="unbounded" name="Document"
+                                                  type="Document"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="FieldMappings">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element maxOccurs="unbounded" minOccurs="1"
+                                            name="FieldMapping" type="FieldMapping"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="Document">
+        <xs:sequence>
+            <xs:element name="Title"/>
+            <xs:element name="URL"/>
+            <xs:element name="Filename"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="FieldMapping">
+        <xs:sequence>
+            <xs:element name="MappingInfo">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Type" type="MatchingType"/>
+                        <xs:element name="Confidence" type="MacthingConfidence"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element maxOccurs="2" minOccurs="2" name="Field" type="Field"/>
+            <xs:choice>
+                <xs:element name="ValueToValueMapping"/>
+                <xs:element name="IntervalToValueMapping"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="MacthingConfidence">
+        <xs:restriction base="xs:double">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="MatchingType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Partial"/>
+            <xs:enumeration value="Complete"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="Metafield">
+        <xs:choice>
+            <xs:element name="AllowedValues" type="Metafield_AllowedValues"/>
+            <xs:element name="PreprocessingHint" type="Metafield_PreprocessingHint"/>
+        </xs:choice>
+        <xs:attribute name="metaattribute" use="required"/>
+        <xs:attribute name="format" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="Metafield_AllowedValues"> </xs:complexType>
+    <xs:complexType name="Metafield_PreprocessingHint">
+        <xs:attribute name="name"/>
+    </xs:complexType>
+
+
+
+    <xs:complexType name="DataField">
+        <xs:attribute name="name"/>
+    </xs:complexType>
+    <xs:complexType name="DerivedField">
+        <xs:attribute name="name"/>
+    </xs:complexType>
+    <xs:complexType name="Field">
+        <xs:choice>
+            <xs:element name="Metafield" type="Metafield"/>
+            <xs:element name="DataField" type="DataField"/>
+            <xs:element name="DerivedField" type="DerivedField"/>
+        </xs:choice>
+        <xs:attribute name="type" type="FieldType"/>
+        <xs:attribute name="id" type="xs:int"/>
+    </xs:complexType>
+    <xs:complexType name="ValueToValueMapping">
+        <xs:sequence>
+            <xs:element name="ExactlyMatchingValues" type="ExactlyMatchingValues"/>
+            <xs:element maxOccurs="2" minOccurs="2" name="OrphanValues" type="OrphanValues"/>
+            <xs:element name="ValueMappingSuggestions">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="ValueMapping">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="2" minOccurs="2" name="Field">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="Value" type="Value"/>
+                                            </xs:sequence>
+                                            <xs:attribute name="fieldid" type="xs:int"/>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="Count" type="Count"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="FieldType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="bkef"/>
+            <xs:enumeration value="pmml"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="ExactlyMatchingValues">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="Value" type="Value"/>
+        </xs:sequence>
+        <xs:attribute name="count" type="Count"/>
+    </xs:complexType>
+    <xs:simpleType name="Count">
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="OrphanValues">
+        <xs:sequence>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="Value" type="Value"/>
+            </xs:sequence>
+        </xs:sequence>
+        <xs:attribute name="fieldid" type="xs:int"/>
+        <xs:attribute name="count" type="Count"/>
+    </xs:complexType>
+    <xs:simpleType name="Value">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    <xs:complexType name="IntervalToValueMapping">
+        <xs:sequence>
+            <xs:element name="ValuesWithinInterval" type="ValuesIntervalRelationship"/>
+            <xs:element name="ValuesOutsideInterval" type="ValuesIntervalRelationship"/>
+            <xs:element name="EmptyPartOfInterval" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ValuesIntervalRelationship">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="Value" type="Value"/>
+        </xs:sequence>
+        <xs:attribute name="fieldid" type="xs:int"/>
+        <xs:attribute name="count" type="Count"/>
+    </xs:complexType>
+</xs:schema>

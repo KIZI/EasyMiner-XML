@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="bkef-styl.xsl"?>
+<?xml-model href="http://sewebar.vse.cz/schemas/BKEF1_1_Patterns.xsd" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<bkef:BKEFPatterns xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://keg.vse.cz/bkef_patterns http://sewebar.vse.cz/schemas/BKEF1_1_Patterns.xsd"
+ xmlns:bkef="http://keg.vse.cz/bkef_patterns">	
+	<Header>
+		<Application name="BKEF Editor" version="x"/>
+		<Title>Barbora</Title>
+		<Created>
+			<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>				
+			<Author>Testovací anotátor</Author>
+		</Created>
+		<LastModified>
+			<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+			<Author>Testovací anotátor</Author>
+		</LastModified>
+		<BaseBKEF>
+			<DocumentID>Barbora.BKEF</DocumentID>
+			<URI></URI>
+			<LastModified>
+				<Timestamp>2002-10-10T12:00:00-05:00</Timestamp>
+				<Author>Testovací anotátor</Author>
+			</LastModified>	
+		</BaseBKEF>		
+	</Header>
+
+	<DataDescription>
+		<Dictionary id="d0" sourceDictType="Range" completeness="ReferencedFromPatterns">
+			<Identifier name="Metaattribute">kvalita úvěru</Identifier>
+			<Identifier name="Format">Points of International Loan Quality Scale</Identifier>
+			<Field id="f1">
+				<Category id="1">A</Category>
+				<Category id="2">B</Category>
+				<Category id="3">C</Category>
+				<Category id="4">D</Category>
+				<Category id="5">E</Category>
+				<Category id="6">x</Category>
+			</Field>
+			<Field id="f2">
+				<Identifier name="Metaattribute">trvání úvěru</Identifier>
+				<Identifier name="Format">month</Identifier>				
+				<Interval closure="closedClosed" leftMargin="1" rightMargin="60"/>
+			</Field>
+			<Field id="f3">
+				<Identifier name="Metaattribute">bydliště klienta</Identifier>
+				<Identifier name="Format">district</Identifier>				
+				
+				<Category id="1">Praha</Category>
+				<Category id="2">Brno</Category>
+				<Category id="3">Bruntál</Category>
+				<Category id="4">Čáslav</Category>
+			</Field>
+		</Dictionary>
+		<Dictionary id="d1" sourceDictType="DiscretizationHint" completeness="ReferencedFromPatterns">
+			<Field id="f1">
+				<Identifier name="Metaattribute">trvání úvěru</Identifier>
+				<Identifier name="Format">month</Identifier>				
+				<Identifier name="DiscretizationHint">predpriprava pro detailni analyzu</Identifier>
+				<Name>Trvání úvěru</Name>
+				<Category id="c1">Extrémní</Category>
+			</Field>
+			<Field id="f2">
+				<Identifier name="Metaattribute">kvalita úvěru</Identifier>
+				<Identifier name="Format">Points of International Loan Quality Scale</Identifier>				
+				<Identifier name="DiscretizationHint">predpriprava pro detailni analyzu</Identifier>
+				<Name>Kvalita úvěru</Name>
+				<Category id="c1">dobrý</Category>
+				<Category id="c2">nevypadá to dobře</Category>
+			</Field>
+			<Field id="f3">
+				<Identifier name="Metaattribute">bydliště klienta</Identifier>
+				<Identifier name="Format">district</Identifier>				
+				<Identifier name="DiscretizationHint">Bydliště</Identifier>
+				<Name>Bydliště</Name>
+				<Category id="c1">Praha</Category>
+			</Field>
+		</Dictionary>
+		<DictionaryMapping>
+			<FieldMapping>
+				<AppliesTo>
+					<FieldRef id="f1" dictID="d0"/>		
+					
+					<FieldRef id="f2" dictID="d1"/>					
+				</AppliesTo>
+				<ValueMappings>
+					<ValueMapping>
+						<Field id="f1" dictID="d0">
+							<CatRef>A</CatRef>
+							<CatRef>B</CatRef>
+						</Field>
+						<Field id="f2" dictID="d1">
+							<CatRef>dobrý</CatRef>
+						</Field>
+					</ValueMapping>
+					<ValueMapping>
+						<Field id="f1" dictID="d0">
+							<CatRef>C</CatRef>
+							<CatRef>D</CatRef>
+						</Field>
+						<Field id="f2" dictID="d1">
+							<CatRef>nevypadá to dobře</CatRef>
+						</Field>
+					</ValueMapping>
+				</ValueMappings>
+				
+				<!--ValueMapping>
+					<Field>
+					<CatRef>E</CatRef>
+					</Field>
+					<Field>
+					<CatRef>průšvih</CatRef>
+					</Field>
+					</ValueMapping-->
+			</FieldMapping>
+			<FieldMapping>
+				<AppliesTo>
+					<FieldRef id="f3" dictID="d0"/>					
+					<FieldRef id="f3" dictID="d1"/>
+					
+				</AppliesTo>
+				<ValueMappings>
+					<ValueMapping>
+						<Field id="f3" dictID="d0">
+							<CatRef>Praha</CatRef>
+						</Field>
+						<Field id="f3" dictID="d1">
+							<CatRef id="c1">Praha</CatRef>
+						</Field>
+					</ValueMapping>
+				</ValueMappings>
+			</FieldMapping>
+			<FieldMapping>
+				<AppliesTo>
+					<FieldRef id="" dictID="d0"/>
+					<FieldRef id="f1" dictID="d1"/>
+					
+				</AppliesTo>
+				<ValueMappings>
+					<ValueMapping>
+						<Field id="" dictID="d0">
+							<Interval closure="closedClosed" leftMargin="1" rightMargin="20"/>
+							<Interval closure="openClosed" leftMargin="40" rightMargin="60"/>							
+						</Field>
+						<Field id="f1" dictID="d1">
+							<CatRef id="c1">Extrémní</CatRef>
+						</Field>
+					</ValueMapping>
+				</ValueMappings>
+			</FieldMapping>			
+		</DictionaryMapping>		
+	</DataDescription>
+	
+	<!-- Vztahy mezi metaatributy -->
+	<Patterns>
+		<AssociationRules>
+			<BackgroundAssociationRules>
+				<BBA id="1">
+					<FieldRef dictID="d1" fieldID="f1">Trvání úvěru</FieldRef>
+					<CatRef id="c1">Extrémní</CatRef>
+				</BBA>
+				<BBA id="2">
+					<FieldRef dictID="d1" fieldID="f2">Kvalita úvěru</FieldRef>
+					<CatRef id="c1">dobrý</CatRef>
+					<CatRef id="c2">nevypadá to dobře</CatRef>
+				</BBA>
+				<BBA id="3">
+					<FieldRef dictID="d1" fieldID="f3">Bydliště</FieldRef>
+					<CatRef id="c1">Praha</CatRef>
+				</BBA>
+				<DBA id="6" connective="Negation">
+					<BARef>3</BARef>
+				</DBA>
+				<DBA id="7" connective="Conjunction">
+					<BARef>1</BARef>
+					<BARef>6</BARef>
+				</DBA>
+				<AssociationRule antecedent="7" consequent="2">
+					<IMValue name="Support">0.55282316777220514479</IMValue>
+					<IMValue name="Average Difference">0.1414</IMValue>
+				</AssociationRule>
+			</BackgroundAssociationRules>
+		</AssociationRules>
+	</Patterns>
+</bkef:BKEFPatterns>

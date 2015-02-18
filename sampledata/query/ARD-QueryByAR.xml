@@ -1,0 +1,161 @@
+<ar:ARBuilder xmlns:ar="http://keg.vse.cz/ns/arbuilder0_1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://keg.vse.cz/ns/arbuilder0_1 http://sewebar.vse.cz/schemas/ARBuilder0_1.xsd"
+    xmlns:guha="http://keg.vse.cz/ns/GUHA0.1rev1" mode="QueryByAssociationRule">
+    <DataDescription>
+        <Dictionary sourceSubType="DataDictionary" sourceType="PMML" default="true">
+            <Field name="Age">
+                <Interval leftMargin="21" rightMargin="67" closure="closedClosed"/>
+                <Category>&lt;21;31)</Category>
+                <Category>&lt;31;41)</Category>
+                <Category>&lt;41;51)</Category>
+                <Category>&lt;51;61)</Category>
+                <Category>&lt;61;71)</Category>
+            </Field>
+            <Field name="amount">
+                <Interval leftMargin="4980" rightMargin="590820" closure="closedClosed"/>
+                <Category>&lt; 20</Category>
+                <Category>&lt;20;50)</Category>
+                <Category>&lt;50;100)</Category>
+                <Category>&lt;100;250)</Category>
+                <Category>&lt;250;500)</Category>
+                <Category>&gt;= 500</Category>
+            </Field>
+            <Field name="District">
+                <Category>Benesov</Category>
+                <Category>Beroun</Category>
+                <Category>Blansko</Category>
+                <Category>Breclav</Category>
+                <Category>Brno</Category>
+                <Category>Brno - venkov</Category>
+                <Category>Bruntal</Category>
+                <Category>Ceska Lipa</Category>
+                <Category>Ceske Budejovice</Category>
+                <Category>Cesky Krumlov</Category>
+                <Category>Decin</Category>
+                <Category>Domazlice</Category>
+                <Category>Frydek - Mistek</Category>
+                <Category>Havlickuv Brod</Category>
+                <Category>Hodonin</Category>
+                <Category>Hradec Kralove</Category>
+                <Category>Cheb</Category>
+                <Category>Chomutov</Category>
+                <Category>Chrudim</Category>
+                <Category>Jablonec n. Nisou</Category>
+                <Category>Jesenik</Category>
+                <Category>Jicin</Category>
+                <Category>Jihlava</Category>
+                <Category>Jindrichuv Hradec</Category>
+                <Category>Karlovy Vary</Category>
+                <Category>Karvina</Category>
+                <Category>Kladno</Category>
+                <Category>Klatovy</Category>
+                <Category>Kolin</Category>
+                <Category>Kromeriz</Category>
+                <Category>Kutna Hora</Category>
+                <Category>Liberec</Category>
+                <Category>Litomerice</Category>
+                <Category>Louny</Category>
+                <Category>Melnik</Category>
+                <Category>Mlada Boleslav</Category>
+                <Category>Most</Category>
+                <Category>Nachod</Category>
+                <Category>Novy Jicin</Category>
+                <Category>Nymburk</Category>
+                <Category>Olomouc</Category>
+                <Category>Opava</Category>
+                <Category>Ostrava - mesto</Category>
+                <Category>Pardubice</Category>
+                <Category>Pelhrimov</Category>
+                <Category>Pisek</Category>
+                <Category>Plzen</Category>
+                <Category>Plzen - jih</Category>
+                <Category>Plzen - sever</Category>
+                <Category>Praha</Category>
+                <Category>Praha - vychod</Category>
+                <Category>Praha - zapad</Category>
+                <Category>Prachatice</Category>
+                <Category>Prerov</Category>
+                <Category>Pribram</Category>
+                <Category>Prostejov</Category>
+                <Category>Rakovnik</Category>
+                <Category>Rokycany</Category>
+                <Category>Rychnov nad Kneznou</Category>
+                <Category>Semily</Category>
+                <Category>Sokolov</Category>
+                <Category>Strakonice</Category>
+                <Category>Sumperk</Category>
+                <Category>Svitavy</Category>
+                <Category>Tabor</Category>
+                <Category>Tachov</Category>
+                <Category>Teplice</Category>
+                <Category>Trebic</Category>
+                <Category>Trutnov</Category>
+                <Category>Uherske Hradiste</Category>
+                <Category>Usti nad Labem</Category>
+                <Category>Usti nad Orlici</Category>
+                <Category>Vsetin</Category>
+                <Category>Vyskov</Category>
+                <Category>Zdar nad Sazavou</Category>
+                <Category>Zlin</Category>
+                <Category>Znojmo</Category>
+            </Field>
+            <Field name="payments">
+                <Interval leftMargin="304" rightMargin="41728" closure="closedClosed"/>
+                <Category>(0;1&gt;</Category>
+                <Category>(1;2&gt;</Category>
+                <Category>(2;3&gt;</Category>
+                <Category>(3;4&gt;</Category>
+                <Category>(4;5&gt;</Category>
+                <Category>(5;6&gt;</Category>
+                <Category>(6;7&gt;</Category>
+                <Category>(7;8&gt;</Category>
+                <Category>(8;9&gt;</Category>
+                <Category>(9;10&gt;</Category>
+            </Field>
+            <Field name="Salary">
+                <Interval leftMargin="8110" rightMargin="12541" closure="closedClosed"/>
+                <Category>low</Category>
+                <Category>avg</Category>
+                <Category>high</Category>
+            </Field>
+            <Field name="Sex">
+                <Category>Yes</Category>
+                <Category>No</Category>
+            </Field>
+            <Field name="status">
+                <Category>A</Category>
+                <Category>C</Category>
+                <Category>B</Category>
+                <Category>D</Category>
+            </Field>
+        </Dictionary>
+    </DataDescription>
+    <QueryByAssociationRule>
+        <BBA id="1">
+            <Text>Age</Text>
+            <FieldRef>Age</FieldRef>
+            <CatRef>&lt;21;67&gt;</CatRef>
+        </BBA>
+        <BBA id="3">
+            <Text>District</Text>
+            <FieldRef>District</FieldRef>
+            <CatRef>Praha</CatRef>
+        </BBA>
+        <DBA literal="true" connective="Conjunction" id="2">
+            <BARef>1</BARef>
+        </DBA>
+        <DBA literal="true" connective="Conjunction" id="4">
+            <BARef>3</BARef>
+        </DBA>
+        <DBA connective="Conjunction" id="5">
+            <BARef>2</BARef>
+        </DBA>
+        <DBA connective="Conjunction" id="6">
+            <BARef>4</BARef>
+        </DBA>
+        <AssociationRule antecedent="5" consequent="6">
+            <IMValue name="Support">0.6</IMValue>
+        </AssociationRule>
+    </QueryByAssociationRule>
+</ar:ARBuilder>

@@ -1,0 +1,2863 @@
+<?xml version="1.0"?>
+<PMML version="4.0" xmlns="http://www.dmg.org/PMML-4_0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:guha="http://keg.vse.cz/ns/guha"
+xsi:schemaLocation="http://www.dmg.org/PMML-4_0 http://sewebar.vse.cz/schemas/PMML4.0+GUHA0.1.xsd"
+>
+
+<!-- SD4ftMiner.Task.PMML.Template, version of 2010-10-14 -->
+
+	<Header copyright="Copyright (c) KIZI UEP">
+		<Extension name="metabase" value="LM Data DB"/>
+	  	<Extension name="dataset" value="LoanDetail"/>
+		<Extension name="author" value="PowerUser"/>
+		<Extension name="subsystem" value="LM Sewebar Exporter"/>
+		<Extension name="module" value="LMSwbExporter.exe"/>
+		<Extension name="format" value="SD4ftMiner.Task"/>
+		<Application name="LISp-Miner" version="14.06.00 of 14 Oct 2010"/>
+		<Annotation></Annotation>
+		<Timestamp>14.10.2010 22:47:46</Timestamp>
+	</Header>
+
+<!-- Matrix -->
+
+	<DataDictionary numberOfFields="4">
+		<DataField 
+			name="Age" 
+			optype="continuous" 
+		
+			dataType="integer"
+		>
+			<Extension name="Avg" value="49.901760" extender="Avg"/>
+			<Interval leftMargin="28.000000" rightMargin="73.000000" closure="closedClosed"/>
+		</DataField>
+		<DataField 
+			name="District" 
+			optype="categorical" 
+			dataType="string"
+		>
+		</DataField>
+		<DataField 
+			name="Salary" 
+			optype="continuous" 
+			dataType="integer"
+		>
+			<Extension name="Avg" value="9469.230205" extender="Avg"/>
+			<Interval leftMargin="8110.000000" rightMargin="12541.000000" closure="closedClosed"/>
+		</DataField>
+		<DataField 
+			name="status" 
+			optype="categorical" 
+			dataType="string"
+		>
+		</DataField>
+	</DataDictionary>
+
+<!-- Attributes -->
+
+	<TransformationDictionary>
+		<DerivedField 
+			name= "Age"
+			dataType="string" 
+			optype="continuous"
+		>
+			<Discretize field="Age"
+			>
+				<DiscretizeBin binValue="&lt;20;30)">
+					<Extension name="Frequency" value="0" extender="&lt;20;30)"/>
+						<Interval 
+						  closure="closedOpen" 
+						  leftMargin="20" 
+						  rightMargin="30" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="&lt;30;40)">
+					<Extension name="Frequency" value="1287" extender="&lt;30;40)"/>
+						<Interval 
+						  closure="closedOpen" 
+						  leftMargin="30" 
+						  rightMargin="40" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="&lt;40;50)">
+					<Extension name="Frequency" value="1467" extender="&lt;40;50)"/>
+						<Interval 
+						  closure="closedOpen" 
+						  leftMargin="40" 
+						  rightMargin="50" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="&lt;50;60)">
+					<Extension name="Frequency" value="1404" extender="&lt;50;60)"/>
+						<Interval 
+						  closure="closedOpen" 
+						  leftMargin="50" 
+						  rightMargin="60" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="&lt;60;70)">
+					<Extension name="Frequency" value="1314" extender="&lt;60;70)"/>
+						<Interval 
+						  closure="closedOpen" 
+						  leftMargin="60" 
+						  rightMargin="70" 
+						/>
+				</DiscretizeBin>
+			</Discretize>
+
+		</DerivedField>
+		<DerivedField 
+			name= "District"
+			dataType="string" 
+			optype="ordinal"
+		>
+			<MapValues outputColumn="District"
+			>
+				<FieldColumnPair column="District" field="District"/>
+				<InlineTable>
+					<Extension name="Frequency" value="63" extender="Benesov"/>
+					<Extension name="Frequency" value="63" extender="Beroun"/>
+					<Extension name="Frequency" value="63" extender="Blansko"/>
+					<Extension name="Frequency" value="54" extender="Breclav"/>
+					<Extension name="Frequency" value="207" extender="Brno - mesto"/>
+					<Extension name="Frequency" value="99" extender="Brno - venkov"/>
+					<Extension name="Frequency" value="45" extender="Bruntal"/>
+					<Extension name="Frequency" value="54" extender="Ceska Lipa"/>
+					<Extension name="Frequency" value="81" extender="Ceske Budejovice"/>
+					<Extension name="Frequency" value="63" extender="Cesky Krumlov"/>
+					<Extension name="Frequency" value="45" extender="Decin"/>
+					<Extension name="Frequency" value="18" extender="Domazlice"/>
+					<Extension name="Frequency" value="135" extender="Frydek - Mistek"/>
+					<Extension name="Frequency" value="63" extender="Havlickuv Brod"/>
+					<Extension name="Frequency" value="711" extender="Hl.m. Praha"/>
+					<Extension name="Frequency" value="72" extender="Hodonin"/>
+					<Extension name="Frequency" value="54" extender="Hradec Kralove"/>
+					<Extension name="Frequency" value="36" extender="Cheb"/>
+					<Extension name="Frequency" value="72" extender="Chomutov"/>
+					<Extension name="Frequency" value="63" extender="Chrudim"/>
+					<Extension name="Frequency" value="18" extender="Jablonec n. Nisou"/>
+					<Extension name="Frequency" value="72" extender="Jesenik"/>
+					<Extension name="Frequency" value="63" extender="Jicin"/>
+					<Extension name="Frequency" value="54" extender="Jihlava"/>
+					<Extension name="Frequency" value="99" extender="Jindrichuv Hradec"/>
+					<Extension name="Frequency" value="54" extender="Karlovy Vary"/>
+					<Extension name="Frequency" value="225" extender="Karvina"/>
+					<Extension name="Frequency" value="54" extender="Kladno"/>
+					<Extension name="Frequency" value="18" extender="Klatovy"/>
+					<Extension name="Frequency" value="99" extender="Kolin"/>
+					<Extension name="Frequency" value="99" extender="Kromeriz"/>
+					<Extension name="Frequency" value="72" extender="Kutna Hora"/>
+					<Extension name="Frequency" value="63" extender="Liberec"/>
+					<Extension name="Frequency" value="63" extender="Litomerice"/>
+					<Extension name="Frequency" value="117" extender="Louny"/>
+					<Extension name="Frequency" value="45" extender="Melnik"/>
+					<Extension name="Frequency" value="45" extender="Mlada Boleslav"/>
+					<Extension name="Frequency" value="54" extender="Most"/>
+					<Extension name="Frequency" value="72" extender="Nachod"/>
+					<Extension name="Frequency" value="45" extender="Novy Jicin"/>
+					<Extension name="Frequency" value="81" extender="Nymburk"/>
+					<Extension name="Frequency" value="135" extender="Olomouc"/>
+					<Extension name="Frequency" value="72" extender="Opava"/>
+					<Extension name="Frequency" value="180" extender="Ostrava - mesto"/>
+					<Extension name="Frequency" value="90" extender="Pardubice"/>
+					<Extension name="Frequency" value="54" extender="Pelhrimov"/>
+					<Extension name="Frequency" value="27" extender="Pisek"/>
+					<Extension name="Frequency" value="81" extender="Plzen - jih"/>
+					<Extension name="Frequency" value="54" extender="Plzen - mesto"/>
+					<Extension name="Frequency" value="63" extender="Plzen - sever"/>
+					<Extension name="Frequency" value="45" extender="Praha - vychod"/>
+					<Extension name="Frequency" value="90" extender="Praha - zapad"/>
+					<Extension name="Frequency" value="108" extender="Prachatice"/>
+					<Extension name="Frequency" value="27" extender="Prerov"/>
+					<Extension name="Frequency" value="45" extender="Pribram"/>
+					<Extension name="Frequency" value="81" extender="Prostejov"/>
+					<Extension name="Frequency" value="81" extender="Rakovnik"/>
+					<Extension name="Frequency" value="72" extender="Rokycany"/>
+					<Extension name="Frequency" value="45" extender="Rychnov nad Kneznou"/>
+					<Extension name="Frequency" value="27" extender="Semily"/>
+					<Extension name="Frequency" value="9" extender="Sokolov"/>
+					<Extension name="Frequency" value="45" extender="Strakonice"/>
+					<Extension name="Frequency" value="54" extender="Sumperk"/>
+					<Extension name="Frequency" value="108" extender="Svitavy"/>
+					<Extension name="Frequency" value="72" extender="Tabor"/>
+					<Extension name="Frequency" value="99" extender="Tachov"/>
+					<Extension name="Frequency" value="45" extender="Teplice"/>
+					<Extension name="Frequency" value="54" extender="Trebic"/>
+					<Extension name="Frequency" value="63" extender="Trutnov"/>
+					<Extension name="Frequency" value="81" extender="Uherske Hradiste"/>
+					<Extension name="Frequency" value="27" extender="Usti nad Labem"/>
+					<Extension name="Frequency" value="135" extender="Usti nad Orlici"/>
+					<Extension name="Frequency" value="63" extender="Vsetin"/>
+					<Extension name="Frequency" value="72" extender="Vyskov"/>
+					<Extension name="Frequency" value="63" extender="Zdar nad Sazavou"/>
+					<Extension name="Frequency" value="144" extender="Zlin"/>
+					<Extension name="Frequency" value="54" extender="Znojmo"/>
+					<row>
+						<column>Benesov</column>
+						<field>Benesov</field>
+					</row>
+					<row>
+						<column>Beroun</column>
+						<field>Beroun</field>
+					</row>
+					<row>
+						<column>Blansko</column>
+						<field>Blansko</field>
+					</row>
+					<row>
+						<column>Breclav</column>
+						<field>Breclav</field>
+					</row>
+					<row>
+						<column>Brno - mesto</column>
+						<field>Brno - mesto</field>
+					</row>
+					<row>
+						<column>Brno - venkov</column>
+						<field>Brno - venkov</field>
+					</row>
+					<row>
+						<column>Bruntal</column>
+						<field>Bruntal</field>
+					</row>
+					<row>
+						<column>Ceska Lipa</column>
+						<field>Ceska Lipa</field>
+					</row>
+					<row>
+						<column>Ceske Budejovice</column>
+						<field>Ceske Budejovice</field>
+					</row>
+					<row>
+						<column>Cesky Krumlov</column>
+						<field>Cesky Krumlov</field>
+					</row>
+					<row>
+						<column>Decin</column>
+						<field>Decin</field>
+					</row>
+					<row>
+						<column>Domazlice</column>
+						<field>Domazlice</field>
+					</row>
+					<row>
+						<column>Frydek - Mistek</column>
+						<field>Frydek - Mistek</field>
+					</row>
+					<row>
+						<column>Havlickuv Brod</column>
+						<field>Havlickuv Brod</field>
+					</row>
+					<row>
+						<column>Hl.m. Praha</column>
+						<field>Hl.m. Praha</field>
+					</row>
+					<row>
+						<column>Hodonin</column>
+						<field>Hodonin</field>
+					</row>
+					<row>
+						<column>Hradec Kralove</column>
+						<field>Hradec Kralove</field>
+					</row>
+					<row>
+						<column>Cheb</column>
+						<field>Cheb</field>
+					</row>
+					<row>
+						<column>Chomutov</column>
+						<field>Chomutov</field>
+					</row>
+					<row>
+						<column>Chrudim</column>
+						<field>Chrudim</field>
+					</row>
+					<row>
+						<column>Jablonec n. Nisou</column>
+						<field>Jablonec n. Nisou</field>
+					</row>
+					<row>
+						<column>Jesenik</column>
+						<field>Jesenik</field>
+					</row>
+					<row>
+						<column>Jicin</column>
+						<field>Jicin</field>
+					</row>
+					<row>
+						<column>Jihlava</column>
+						<field>Jihlava</field>
+					</row>
+					<row>
+						<column>Jindrichuv Hradec</column>
+						<field>Jindrichuv Hradec</field>
+					</row>
+					<row>
+						<column>Karlovy Vary</column>
+						<field>Karlovy Vary</field>
+					</row>
+					<row>
+						<column>Karvina</column>
+						<field>Karvina</field>
+					</row>
+					<row>
+						<column>Kladno</column>
+						<field>Kladno</field>
+					</row>
+					<row>
+						<column>Klatovy</column>
+						<field>Klatovy</field>
+					</row>
+					<row>
+						<column>Kolin</column>
+						<field>Kolin</field>
+					</row>
+					<row>
+						<column>Kromeriz</column>
+						<field>Kromeriz</field>
+					</row>
+					<row>
+						<column>Kutna Hora</column>
+						<field>Kutna Hora</field>
+					</row>
+					<row>
+						<column>Liberec</column>
+						<field>Liberec</field>
+					</row>
+					<row>
+						<column>Litomerice</column>
+						<field>Litomerice</field>
+					</row>
+					<row>
+						<column>Louny</column>
+						<field>Louny</field>
+					</row>
+					<row>
+						<column>Melnik</column>
+						<field>Melnik</field>
+					</row>
+					<row>
+						<column>Mlada Boleslav</column>
+						<field>Mlada Boleslav</field>
+					</row>
+					<row>
+						<column>Most</column>
+						<field>Most</field>
+					</row>
+					<row>
+						<column>Nachod</column>
+						<field>Nachod</field>
+					</row>
+					<row>
+						<column>Novy Jicin</column>
+						<field>Novy Jicin</field>
+					</row>
+					<row>
+						<column>Nymburk</column>
+						<field>Nymburk</field>
+					</row>
+					<row>
+						<column>Olomouc</column>
+						<field>Olomouc</field>
+					</row>
+					<row>
+						<column>Opava</column>
+						<field>Opava</field>
+					</row>
+					<row>
+						<column>Ostrava - mesto</column>
+						<field>Ostrava - mesto</field>
+					</row>
+					<row>
+						<column>Pardubice</column>
+						<field>Pardubice</field>
+					</row>
+					<row>
+						<column>Pelhrimov</column>
+						<field>Pelhrimov</field>
+					</row>
+					<row>
+						<column>Pisek</column>
+						<field>Pisek</field>
+					</row>
+					<row>
+						<column>Plzen - jih</column>
+						<field>Plzen - jih</field>
+					</row>
+					<row>
+						<column>Plzen - mesto</column>
+						<field>Plzen - mesto</field>
+					</row>
+					<row>
+						<column>Plzen - sever</column>
+						<field>Plzen - sever</field>
+					</row>
+					<row>
+						<column>Praha - vychod</column>
+						<field>Praha - vychod</field>
+					</row>
+					<row>
+						<column>Praha - zapad</column>
+						<field>Praha - zapad</field>
+					</row>
+					<row>
+						<column>Prachatice</column>
+						<field>Prachatice</field>
+					</row>
+					<row>
+						<column>Prerov</column>
+						<field>Prerov</field>
+					</row>
+					<row>
+						<column>Pribram</column>
+						<field>Pribram</field>
+					</row>
+					<row>
+						<column>Prostejov</column>
+						<field>Prostejov</field>
+					</row>
+					<row>
+						<column>Rakovnik</column>
+						<field>Rakovnik</field>
+					</row>
+					<row>
+						<column>Rokycany</column>
+						<field>Rokycany</field>
+					</row>
+					<row>
+						<column>Rychnov nad Kneznou</column>
+						<field>Rychnov nad Kneznou</field>
+					</row>
+					<row>
+						<column>Semily</column>
+						<field>Semily</field>
+					</row>
+					<row>
+						<column>Sokolov</column>
+						<field>Sokolov</field>
+					</row>
+					<row>
+						<column>Strakonice</column>
+						<field>Strakonice</field>
+					</row>
+					<row>
+						<column>Sumperk</column>
+						<field>Sumperk</field>
+					</row>
+					<row>
+						<column>Svitavy</column>
+						<field>Svitavy</field>
+					</row>
+					<row>
+						<column>Tabor</column>
+						<field>Tabor</field>
+					</row>
+					<row>
+						<column>Tachov</column>
+						<field>Tachov</field>
+					</row>
+					<row>
+						<column>Teplice</column>
+						<field>Teplice</field>
+					</row>
+					<row>
+						<column>Trebic</column>
+						<field>Trebic</field>
+					</row>
+					<row>
+						<column>Trutnov</column>
+						<field>Trutnov</field>
+					</row>
+					<row>
+						<column>Uherske Hradiste</column>
+						<field>Uherske Hradiste</field>
+					</row>
+					<row>
+						<column>Usti nad Labem</column>
+						<field>Usti nad Labem</field>
+					</row>
+					<row>
+						<column>Usti nad Orlici</column>
+						<field>Usti nad Orlici</field>
+					</row>
+					<row>
+						<column>Vsetin</column>
+						<field>Vsetin</field>
+					</row>
+					<row>
+						<column>Vyskov</column>
+						<field>Vyskov</field>
+					</row>
+					<row>
+						<column>Zdar nad Sazavou</column>
+						<field>Zdar nad Sazavou</field>
+					</row>
+					<row>
+						<column>Zlin</column>
+						<field>Zlin</field>
+					</row>
+					<row>
+						<column>Znojmo</column>
+						<field>Znojmo</field>
+					</row>
+				</InlineTable>
+			</MapValues>
+
+		</DerivedField>
+		<DerivedField 
+			name= "Quality"
+			dataType="string" 
+			optype="ordinal"
+		>
+			<MapValues outputColumn="Quality"
+			>
+				<FieldColumnPair column="status" field="Quality"/>
+				<InlineTable>
+					<Extension name="Frequency" value="5454" extender="Good"/>
+					<Extension name="Frequency" value="684" extender="Bad"/>
+					<row>
+						<column>A</column>
+						<field>Good</field>
+					</row>
+					<row>
+						<column>C</column>
+						<field>Good</field>
+					</row>
+					<row>
+						<column>B</column>
+						<field>Bad</field>
+					</row>
+					<row>
+						<column>D</column>
+						<field>Bad</field>
+					</row>
+				</InlineTable>
+			</MapValues>
+
+		</DerivedField>
+		<DerivedField 
+			name= "Salary"
+			dataType="string" 
+			optype="continuous"
+		>
+			<Discretize field="Salary"
+			>
+				<DiscretizeBin binValue="Low">
+					<Extension name="Frequency" value="2016" extender="Low"/>
+						<Interval 
+						  closure="closedOpen" 
+						  leftMargin="8110" 
+						  rightMargin="8678" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="Avg">
+					<Extension name="Frequency" value="2034" extender="Avg"/>
+						<Interval 
+						  closure="closedOpen" 
+						  leftMargin="8678" 
+						  rightMargin="9624" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="High">
+					<Extension name="Frequency" value="2088" extender="High"/>
+						<Interval 
+						  closure="closedClosed" 
+						  leftMargin="9624" 
+						  rightMargin="12541" 
+						/>
+				</DiscretizeBin>
+			</Discretize>
+
+		</DerivedField>
+	</TransformationDictionary>
+
+<!-- Task -->
+	<guha:SD4ftModel xmlns="" xsi:schemaLocation="http://keg.vse.cz/ns/GUHA0.1rev1 http://sewebar.vse.cz/schemas/GUHA0.1rev1.xsd"
+			  xmlns:guha="http://keg.vse.cz/ns/GUHA0.1rev1"
+			  modelName="Prvni SD4ft-Task" 
+			  functionName="associationRules" 
+			  algorithmName="SD4ft"
+			  numberOfTransactions="6138" 
+			  numberOfCategories="87" 
+			  numberOfRules="16"
+	>
+		<TaskSetting>
+    		 <Extension name="LISp-Miner">
+			<TaskGroup>01 LAQ Social status x Alcohol drinking</TaskGroup>
+			<NumberOfVerifications>67280</NumberOfVerifications>
+			<TaskStartTime>14.10.2010 22:47:46</TaskStartTime>
+			<TaskDuration>0h 0m 3s</TaskDuration>
+			<JoinedSetFlag>No</JoinedSetFlag>
+			<StrictDisjunctionFlag>No</StrictDisjunctionFlag>
+			<TaskNotice>-</TaskNotice>
+		 </Extension>
+
+			<BBASettings>
+				<BBASetting 
+				   id="Basic_FTLiteralD_69">
+				   <Name>Age(*)</Name>
+				   <FieldRef>Age</FieldRef>
+					<Coefficient>
+					 <Type>Subset</Type>
+					 <MinimalLength>1</MinimalLength>
+					 <MaximalLength>1</MaximalLength>
+					</Coefficient>
+					//<Extension name="CedentType" value="Antecedent"/>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>
+
+				</BBASetting>
+				<BBASetting 
+				   id="Basic_FTLiteralD_73">
+				   <Name>Salary(*)</Name>
+				   <FieldRef>Salary</FieldRef>
+					<Coefficient>
+					 <Type>Subset</Type>
+					 <MinimalLength>1</MinimalLength>
+					 <MaximalLength>1</MaximalLength>
+					</Coefficient>
+					//<Extension name="CedentType" value="Antecedent"/>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>
+
+				</BBASetting>
+				<BBASetting 
+				   id="Basic_FTLiteralD_70">
+				   <Name>Quality( Bad)</Name>
+				   <FieldRef>status</FieldRef>
+					<Coefficient>
+					 <Type>One category</Type>
+					 <MinimalLength>1</MinimalLength>
+					 <MaximalLength>1</MaximalLength>
+					</Coefficient>
+					//<Extension name="CedentType" value="Succedent"/>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>
+
+				</BBASetting>
+				<BBASetting 
+				   id="Basic_FTLiteralD_71">
+				   <Name>District(*)</Name>
+				   <FieldRef>District</FieldRef>
+					<Coefficient>
+					 <Type>Subset</Type>
+					 <MinimalLength>1</MinimalLength>
+					 <MaximalLength>1</MaximalLength>
+					</Coefficient>
+					//<Extension name="CedentType" value="First set"/>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>
+
+				</BBASetting>
+				<BBASetting 
+				   id="Basic_FTLiteralD_72">
+				   <Name>District(*)</Name>
+				   <FieldRef>District</FieldRef>
+					<Coefficient>
+					 <Type>Subset</Type>
+					 <MinimalLength>1</MinimalLength>
+					 <MaximalLength>1</MaximalLength>
+					</Coefficient>
+					//<Extension name="CedentType" value="Second set"/>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>
+
+				</BBASetting>
+			</BBASettings>
+
+			<DBASettings>
+				<DBASetting id="Derived_FTLiteralD_Sign_69" 
+					type="Literal">
+					<Name>Age(*)</Name>
+					<BASettingRef>Basic_FTLiteralD_69</BASettingRef>
+					<LiteralSign>Positive</LiteralSign>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>				   
+				</DBASetting>
+				<DBASetting id="Derived_FTLiteralD_Sign_73" 
+					type="Literal">
+					<Name>Salary(*)</Name>
+					<BASettingRef>Basic_FTLiteralD_73</BASettingRef>
+					<LiteralSign>Positive</LiteralSign>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>				   
+				</DBASetting>
+				<DBASetting id="Derived_FTLiteralD_Sign_70" 
+					type="Literal">
+					<Name>Quality( Bad)</Name>
+					<BASettingRef>Basic_FTLiteralD_70</BASettingRef>
+					<LiteralSign>Positive</LiteralSign>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>				   
+				</DBASetting>
+				<DBASetting id="Derived_FTLiteralD_Sign_71" 
+					type="Literal">
+					<Name>District(*)</Name>
+					<BASettingRef>Basic_FTLiteralD_71</BASettingRef>
+					<LiteralSign>Positive</LiteralSign>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>				   
+				</DBASetting>
+				<DBASetting id="Derived_FTLiteralD_Sign_72" 
+					type="Literal">
+					<Name>District(*)</Name>
+					<BASettingRef>Basic_FTLiteralD_72</BASettingRef>
+					<LiteralSign>Positive</LiteralSign>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>				   
+				</DBASetting>
+
+				<DBASetting 
+					id="Derived_FTCedentD_57"
+					type="Conjunction"
+				>
+					<Name>Antecedent</Name>
+					<BASettingRef>Derived_FTLiteralD_Sign_69</BASettingRef>
+					<BASettingRef>Derived_FTLiteralD_Sign_73</BASettingRef>
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+				<DBASetting 
+					id="Derived_FTCedentD_58"
+					type="Conjunction"
+				>
+					<Name>Succedent</Name>
+					<BASettingRef>Derived_FTLiteralD_Sign_70</BASettingRef>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+				<DBASetting 
+					id="Derived_FTCedentD_59"
+					type="Conjunction"
+				>
+					<Name>First set</Name>
+					<BASettingRef>Derived_FTLiteralD_Sign_71</BASettingRef>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+				<DBASetting 
+					id="Derived_FTCedentD_60"
+					type="Conjunction"
+				>
+					<Name>Second set</Name>
+					<BASettingRef>Derived_FTLiteralD_Sign_72</BASettingRef>
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+
+				<DBASetting id="Derived_FTCedentBagD_53" type="Conjunction">
+					<Name>Antecedent</Name>
+					<BASettingRef>Derived_FTCedentD_57</BASettingRef>
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+				<DBASetting id="Derived_FTCedentBagD_54" type="Conjunction">
+					<Name>Succedent</Name>
+					<BASettingRef>Derived_FTCedentD_58</BASettingRef>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+				<DBASetting id="Derived_FTCedentBagD_55" type="Conjunction">
+					<Name>First set</Name>
+					<BASettingRef>Derived_FTCedentD_59</BASettingRef>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+				<DBASetting id="Derived_FTCedentBagD_56" type="Conjunction">
+					<Name>Second set</Name>
+					<BASettingRef>Derived_FTCedentD_60</BASettingRef>
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+			</DBASettings>
+
+
+			<AntecedentSetting>Derived_FTCedentBagD_53</AntecedentSetting>
+			<ConsequentSetting>Derived_FTCedentBagD_54</ConsequentSetting>
+			<FirstSetSetting>Derived_FTCedentBagD_55</FirstSetSetting>
+			<SecondSetSetting>Derived_FTCedentBagD_56</SecondSetSetting>
+			<ConditionSetting>Derived_FTCedentBagD_52</ConditionSetting>
+
+			<InterestMeasureSetting>
+				<InterestMeasureThreshold id="3">
+					<Extension name="ShortName">BASE</Extension>
+					<Extension name="Description">Value of frequency &quot;a&quot; from contingency table</Extension>
+					<Extension name="Order">2</Extension>		
+					<InterestMeasure>BASE</InterestMeasure>
+					<SourceType>First set frequencies</SourceType>			
+					<Threshold>50.000000</Threshold>						
+					<CompareType>Greater than or equal</CompareType>
+				</InterestMeasureThreshold>		
+				<InterestMeasureThreshold id="6">
+					<Extension name="ShortName">BASE</Extension>
+					<Extension name="Description">Value of frequency &quot;a&quot; from contingency table</Extension>
+					<Extension name="Order">4</Extension>		
+					<InterestMeasure>BASE</InterestMeasure>
+					<SourceType>Second set frequencies</SourceType>			
+					<Threshold>10.000000</Threshold>						
+					<CompareType>Greater than or equal</CompareType>
+				</InterestMeasureThreshold>		
+				<InterestMeasureThreshold id="1">
+					<Extension name="ShortName">FUI</Extension>
+					<Extension name="Description">a/(a+b) &gt;= p ... at least 100*p [%] of objects satisfying A satisfy also S</Extension>
+					<Extension name="Order">5</Extension>		
+					<InterestMeasure>Founded Implication</InterestMeasure>
+					<SourceType>Absolute difference of quantifier values</SourceType>			
+					<Threshold>0.100000</Threshold>						
+					<CompareType>Greater than or equal</CompareType>
+				</InterestMeasureThreshold>		
+				<InterestMeasureThreshold id="11">
+					<Extension name="ShortName">SUM</Extension>
+					<Extension name="Description">Sum of values from source contingency table</Extension>
+					<Extension name="Order">6</Extension>		
+					<InterestMeasure>Sum of values</InterestMeasure>
+					<SourceType>Differences of absolute frequencies</SourceType>			
+					<Threshold>0.000000</Threshold>						
+					<CompareType>Greater than or equal</CompareType>
+				</InterestMeasureThreshold>		
+			</InterestMeasureSetting>
+		</TaskSetting>
+
+	<!-- MiningSchema -->
+
+
+	<SD4ftRules>
+
+	<!-- BasicBooleanAttribute a DerivedBooleanAttribute -->
+
+		 <BBA id="BBA_FTLiteralI_24952" 		      
+		      literal= "true"
+		>
+			<Text>Quality(Bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>Bad</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24953" 		      
+		      literal= "true"
+		>
+			<Text>District(Hl.m. Praha)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Hl.m. Praha</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24954" 		      
+		      literal= "true"
+		>
+			<Text>District(Beroun)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Beroun</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24955" 		      
+		      literal= "true"
+		>
+			<Text>Quality(Bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>Bad</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24956" 		      
+		      literal= "true"
+		>
+			<Text>District(Hl.m. Praha)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Hl.m. Praha</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24957" 		      
+		      literal= "true"
+		>
+			<Text>District(Brno - mesto)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Brno - mesto</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24958" 		      
+		      literal= "true"
+		>
+			<Text>Salary(High)</Text>
+			<FieldRef>Salary</FieldRef>
+			<CatRef>High</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24959" 		      
+		      literal= "true"
+		>
+			<Text>Quality(Bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>Bad</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24960" 		      
+		      literal= "true"
+		>
+			<Text>District(Hl.m. Praha)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Hl.m. Praha</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24961" 		      
+		      literal= "true"
+		>
+			<Text>District(Brno - mesto)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Brno - mesto</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24962" 		      
+		      literal= "true"
+		>
+			<Text>Quality(Bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>Bad</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24963" 		      
+		      literal= "true"
+		>
+			<Text>District(Hl.m. Praha)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Hl.m. Praha</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24964" 		      
+		      literal= "true"
+		>
+			<Text>District(Chrudim)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Chrudim</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24965" 		      
+		      literal= "true"
+		>
+			<Text>Quality(Bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>Bad</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24966" 		      
+		      literal= "true"
+		>
+			<Text>District(Hl.m. Praha)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Hl.m. Praha</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24967" 		      
+		      literal= "true"
+		>
+			<Text>District(Jesenik)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Jesenik</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24968" 		      
+		      literal= "true"
+		>
+			<Text>Quality(Bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>Bad</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24969" 		      
+		      literal= "true"
+		>
+			<Text>District(Hl.m. Praha)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Hl.m. Praha</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24970" 		      
+		      literal= "true"
+		>
+			<Text>District(Karlovy Vary)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Karlovy Vary</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24971" 		      
+		      literal= "true"
+		>
+			<Text>Quality(Bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>Bad</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24972" 		      
+		      literal= "true"
+		>
+			<Text>District(Hl.m. Praha)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Hl.m. Praha</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24973" 		      
+		      literal= "true"
+		>
+			<Text>District(Kladno)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Kladno</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24974" 		      
+		      literal= "true"
+		>
+			<Text>Salary(High)</Text>
+			<FieldRef>Salary</FieldRef>
+			<CatRef>High</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24975" 		      
+		      literal= "true"
+		>
+			<Text>Quality(Bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>Bad</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24976" 		      
+		      literal= "true"
+		>
+			<Text>District(Hl.m. Praha)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Hl.m. Praha</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24977" 		      
+		      literal= "true"
+		>
+			<Text>District(Kladno)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Kladno</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24978" 		      
+		      literal= "true"
+		>
+			<Text>Quality(Bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>Bad</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24979" 		      
+		      literal= "true"
+		>
+			<Text>District(Hl.m. Praha)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Hl.m. Praha</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24980" 		      
+		      literal= "true"
+		>
+			<Text>District(Kromeriz)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Kromeriz</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24981" 		      
+		      literal= "true"
+		>
+			<Text>Quality(Bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>Bad</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24982" 		      
+		      literal= "true"
+		>
+			<Text>District(Hl.m. Praha)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Hl.m. Praha</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24983" 		      
+		      literal= "true"
+		>
+			<Text>District(Kutna Hora)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Kutna Hora</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24984" 		      
+		      literal= "true"
+		>
+			<Text>Quality(Bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>Bad</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24985" 		      
+		      literal= "true"
+		>
+			<Text>District(Hl.m. Praha)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Hl.m. Praha</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24986" 		      
+		      literal= "true"
+		>
+			<Text>District(Olomouc)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Olomouc</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24987" 		      
+		      literal= "true"
+		>
+			<Text>Quality(Bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>Bad</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24988" 		      
+		      literal= "true"
+		>
+			<Text>District(Hl.m. Praha)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Hl.m. Praha</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24989" 		      
+		      literal= "true"
+		>
+			<Text>District(Opava)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Opava</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24990" 		      
+		      literal= "true"
+		>
+			<Text>Quality(Bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>Bad</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24991" 		      
+		      literal= "true"
+		>
+			<Text>District(Hl.m. Praha)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Hl.m. Praha</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24992" 		      
+		      literal= "true"
+		>
+			<Text>District(Prostejov)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Prostejov</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24993" 		      
+		      literal= "true"
+		>
+			<Text>Quality(Bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>Bad</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24994" 		      
+		      literal= "true"
+		>
+			<Text>District(Hl.m. Praha)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Hl.m. Praha</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24995" 		      
+		      literal= "true"
+		>
+			<Text>District(Svitavy)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Svitavy</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24996" 		      
+		      literal= "true"
+		>
+			<Text>Quality(Bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>Bad</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24997" 		      
+		      literal= "true"
+		>
+			<Text>District(Hl.m. Praha)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Hl.m. Praha</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24998" 		      
+		      literal= "true"
+		>
+			<Text>District(Tabor)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Tabor</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_24999" 		      
+		      literal= "true"
+		>
+			<Text>Quality(Bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>Bad</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_25000" 		      
+		      literal= "true"
+		>
+			<Text>District(Hl.m. Praha)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Hl.m. Praha</CatRef>
+		 </BBA>
+		 <BBA id="BBA_FTLiteralI_25001" 		      
+		      literal= "true"
+		>
+			<Text>District(Tachov)</Text>
+			<FieldRef>District</FieldRef>
+			<CatRef>Tachov</CatRef>
+		 </BBA>
+
+
+		 <DBA id="DBA_FTCedentI_10832" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>BBA_FTLiteralI_24952</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10833" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>BBA_FTLiteralI_24953</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10834" connective="Conjunction">
+			<Text>District(Beroun)</Text>
+			<BARef>BBA_FTLiteralI_24954</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10835" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>BBA_FTLiteralI_24955</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10836" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>BBA_FTLiteralI_24956</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10837" connective="Conjunction">
+			<Text>District(Brno - mesto)</Text>
+			<BARef>BBA_FTLiteralI_24957</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10838" connective="Conjunction">
+			<Text>Salary(High)</Text>
+			<BARef>BBA_FTLiteralI_24958</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10839" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>BBA_FTLiteralI_24959</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10840" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>BBA_FTLiteralI_24960</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10841" connective="Conjunction">
+			<Text>District(Brno - mesto)</Text>
+			<BARef>BBA_FTLiteralI_24961</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10842" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>BBA_FTLiteralI_24962</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10843" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>BBA_FTLiteralI_24963</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10844" connective="Conjunction">
+			<Text>District(Chrudim)</Text>
+			<BARef>BBA_FTLiteralI_24964</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10845" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>BBA_FTLiteralI_24965</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10846" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>BBA_FTLiteralI_24966</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10847" connective="Conjunction">
+			<Text>District(Jesenik)</Text>
+			<BARef>BBA_FTLiteralI_24967</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10848" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>BBA_FTLiteralI_24968</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10849" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>BBA_FTLiteralI_24969</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10850" connective="Conjunction">
+			<Text>District(Karlovy Vary)</Text>
+			<BARef>BBA_FTLiteralI_24970</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10851" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>BBA_FTLiteralI_24971</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10852" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>BBA_FTLiteralI_24972</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10853" connective="Conjunction">
+			<Text>District(Kladno)</Text>
+			<BARef>BBA_FTLiteralI_24973</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10854" connective="Conjunction">
+			<Text>Salary(High)</Text>
+			<BARef>BBA_FTLiteralI_24974</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10855" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>BBA_FTLiteralI_24975</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10856" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>BBA_FTLiteralI_24976</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10857" connective="Conjunction">
+			<Text>District(Kladno)</Text>
+			<BARef>BBA_FTLiteralI_24977</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10858" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>BBA_FTLiteralI_24978</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10859" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>BBA_FTLiteralI_24979</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10860" connective="Conjunction">
+			<Text>District(Kromeriz)</Text>
+			<BARef>BBA_FTLiteralI_24980</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10861" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>BBA_FTLiteralI_24981</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10862" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>BBA_FTLiteralI_24982</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10863" connective="Conjunction">
+			<Text>District(Kutna Hora)</Text>
+			<BARef>BBA_FTLiteralI_24983</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10864" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>BBA_FTLiteralI_24984</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10865" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>BBA_FTLiteralI_24985</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10866" connective="Conjunction">
+			<Text>District(Olomouc)</Text>
+			<BARef>BBA_FTLiteralI_24986</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10867" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>BBA_FTLiteralI_24987</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10868" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>BBA_FTLiteralI_24988</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10869" connective="Conjunction">
+			<Text>District(Opava)</Text>
+			<BARef>BBA_FTLiteralI_24989</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10870" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>BBA_FTLiteralI_24990</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10871" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>BBA_FTLiteralI_24991</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10872" connective="Conjunction">
+			<Text>District(Prostejov)</Text>
+			<BARef>BBA_FTLiteralI_24992</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10873" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>BBA_FTLiteralI_24993</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10874" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>BBA_FTLiteralI_24994</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10875" connective="Conjunction">
+			<Text>District(Svitavy)</Text>
+			<BARef>BBA_FTLiteralI_24995</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10876" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>BBA_FTLiteralI_24996</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10877" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>BBA_FTLiteralI_24997</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10878" connective="Conjunction">
+			<Text>District(Tabor)</Text>
+			<BARef>BBA_FTLiteralI_24998</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10879" connective="Conjunction">
+			<Text>Quality(Bad)</Text>
+			<BARef>BBA_FTLiteralI_24999</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10880" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>BBA_FTLiteralI_25000</BARef>
+		 </DBA>
+		 <DBA id="DBA_FTCedentI_10881" connective="Conjunction">
+			<Text>District(Tachov)</Text>
+			<BARef>BBA_FTLiteralI_25001</BARef>
+		 </DBA>
+
+
+		 <DBA id="DBA_Antecedent_8595" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		  
+		 <DBA id="DBA_Succedent_8595" connective="Conjunction">
+			 <Text>Quality(Bad)</Text>
+			 <BARef>DBA_FTCedentI_10832</BARef>
+		 </DBA>
+		   
+
+		<DBA id="DBA_FirstSet_8595" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>DBA_FTCedentI_10833</BARef>
+		</DBA>
+
+		<DBA id="DBA_SecondSet_8595" connective="Conjunction">
+			<Text>District(Beroun)</Text>
+			<BARef>DBA_FTCedentI_10834</BARef>
+		</DBA>
+
+		 <DBA id="DBA_Antecedent_8596" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		  
+		 <DBA id="DBA_Succedent_8596" connective="Conjunction">
+			 <Text>Quality(Bad)</Text>
+			 <BARef>DBA_FTCedentI_10835</BARef>
+		 </DBA>
+		   
+
+		<DBA id="DBA_FirstSet_8596" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>DBA_FTCedentI_10836</BARef>
+		</DBA>
+
+		<DBA id="DBA_SecondSet_8596" connective="Conjunction">
+			<Text>District(Brno - mesto)</Text>
+			<BARef>DBA_FTCedentI_10837</BARef>
+		</DBA>
+
+		 <DBA id="DBA_Antecedent_8597" connective="Conjunction">
+			 <Text>Salary(High)</Text>
+			 <BARef>DBA_FTCedentI_10838</BARef>
+		 </DBA>
+		  
+		 <DBA id="DBA_Succedent_8597" connective="Conjunction">
+			 <Text>Quality(Bad)</Text>
+			 <BARef>DBA_FTCedentI_10839</BARef>
+		 </DBA>
+		   
+
+		<DBA id="DBA_FirstSet_8597" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>DBA_FTCedentI_10840</BARef>
+		</DBA>
+
+		<DBA id="DBA_SecondSet_8597" connective="Conjunction">
+			<Text>District(Brno - mesto)</Text>
+			<BARef>DBA_FTCedentI_10841</BARef>
+		</DBA>
+
+		 <DBA id="DBA_Antecedent_8598" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		  
+		 <DBA id="DBA_Succedent_8598" connective="Conjunction">
+			 <Text>Quality(Bad)</Text>
+			 <BARef>DBA_FTCedentI_10842</BARef>
+		 </DBA>
+		   
+
+		<DBA id="DBA_FirstSet_8598" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>DBA_FTCedentI_10843</BARef>
+		</DBA>
+
+		<DBA id="DBA_SecondSet_8598" connective="Conjunction">
+			<Text>District(Chrudim)</Text>
+			<BARef>DBA_FTCedentI_10844</BARef>
+		</DBA>
+
+		 <DBA id="DBA_Antecedent_8599" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		  
+		 <DBA id="DBA_Succedent_8599" connective="Conjunction">
+			 <Text>Quality(Bad)</Text>
+			 <BARef>DBA_FTCedentI_10845</BARef>
+		 </DBA>
+		   
+
+		<DBA id="DBA_FirstSet_8599" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>DBA_FTCedentI_10846</BARef>
+		</DBA>
+
+		<DBA id="DBA_SecondSet_8599" connective="Conjunction">
+			<Text>District(Jesenik)</Text>
+			<BARef>DBA_FTCedentI_10847</BARef>
+		</DBA>
+
+		 <DBA id="DBA_Antecedent_8600" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		  
+		 <DBA id="DBA_Succedent_8600" connective="Conjunction">
+			 <Text>Quality(Bad)</Text>
+			 <BARef>DBA_FTCedentI_10848</BARef>
+		 </DBA>
+		   
+
+		<DBA id="DBA_FirstSet_8600" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>DBA_FTCedentI_10849</BARef>
+		</DBA>
+
+		<DBA id="DBA_SecondSet_8600" connective="Conjunction">
+			<Text>District(Karlovy Vary)</Text>
+			<BARef>DBA_FTCedentI_10850</BARef>
+		</DBA>
+
+		 <DBA id="DBA_Antecedent_8601" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		  
+		 <DBA id="DBA_Succedent_8601" connective="Conjunction">
+			 <Text>Quality(Bad)</Text>
+			 <BARef>DBA_FTCedentI_10851</BARef>
+		 </DBA>
+		   
+
+		<DBA id="DBA_FirstSet_8601" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>DBA_FTCedentI_10852</BARef>
+		</DBA>
+
+		<DBA id="DBA_SecondSet_8601" connective="Conjunction">
+			<Text>District(Kladno)</Text>
+			<BARef>DBA_FTCedentI_10853</BARef>
+		</DBA>
+
+		 <DBA id="DBA_Antecedent_8602" connective="Conjunction">
+			 <Text>Salary(High)</Text>
+			 <BARef>DBA_FTCedentI_10854</BARef>
+		 </DBA>
+		  
+		 <DBA id="DBA_Succedent_8602" connective="Conjunction">
+			 <Text>Quality(Bad)</Text>
+			 <BARef>DBA_FTCedentI_10855</BARef>
+		 </DBA>
+		   
+
+		<DBA id="DBA_FirstSet_8602" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>DBA_FTCedentI_10856</BARef>
+		</DBA>
+
+		<DBA id="DBA_SecondSet_8602" connective="Conjunction">
+			<Text>District(Kladno)</Text>
+			<BARef>DBA_FTCedentI_10857</BARef>
+		</DBA>
+
+		 <DBA id="DBA_Antecedent_8603" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		  
+		 <DBA id="DBA_Succedent_8603" connective="Conjunction">
+			 <Text>Quality(Bad)</Text>
+			 <BARef>DBA_FTCedentI_10858</BARef>
+		 </DBA>
+		   
+
+		<DBA id="DBA_FirstSet_8603" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>DBA_FTCedentI_10859</BARef>
+		</DBA>
+
+		<DBA id="DBA_SecondSet_8603" connective="Conjunction">
+			<Text>District(Kromeriz)</Text>
+			<BARef>DBA_FTCedentI_10860</BARef>
+		</DBA>
+
+		 <DBA id="DBA_Antecedent_8604" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		  
+		 <DBA id="DBA_Succedent_8604" connective="Conjunction">
+			 <Text>Quality(Bad)</Text>
+			 <BARef>DBA_FTCedentI_10861</BARef>
+		 </DBA>
+		   
+
+		<DBA id="DBA_FirstSet_8604" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>DBA_FTCedentI_10862</BARef>
+		</DBA>
+
+		<DBA id="DBA_SecondSet_8604" connective="Conjunction">
+			<Text>District(Kutna Hora)</Text>
+			<BARef>DBA_FTCedentI_10863</BARef>
+		</DBA>
+
+		 <DBA id="DBA_Antecedent_8605" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		  
+		 <DBA id="DBA_Succedent_8605" connective="Conjunction">
+			 <Text>Quality(Bad)</Text>
+			 <BARef>DBA_FTCedentI_10864</BARef>
+		 </DBA>
+		   
+
+		<DBA id="DBA_FirstSet_8605" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>DBA_FTCedentI_10865</BARef>
+		</DBA>
+
+		<DBA id="DBA_SecondSet_8605" connective="Conjunction">
+			<Text>District(Olomouc)</Text>
+			<BARef>DBA_FTCedentI_10866</BARef>
+		</DBA>
+
+		 <DBA id="DBA_Antecedent_8606" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		  
+		 <DBA id="DBA_Succedent_8606" connective="Conjunction">
+			 <Text>Quality(Bad)</Text>
+			 <BARef>DBA_FTCedentI_10867</BARef>
+		 </DBA>
+		   
+
+		<DBA id="DBA_FirstSet_8606" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>DBA_FTCedentI_10868</BARef>
+		</DBA>
+
+		<DBA id="DBA_SecondSet_8606" connective="Conjunction">
+			<Text>District(Opava)</Text>
+			<BARef>DBA_FTCedentI_10869</BARef>
+		</DBA>
+
+		 <DBA id="DBA_Antecedent_8607" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		  
+		 <DBA id="DBA_Succedent_8607" connective="Conjunction">
+			 <Text>Quality(Bad)</Text>
+			 <BARef>DBA_FTCedentI_10870</BARef>
+		 </DBA>
+		   
+
+		<DBA id="DBA_FirstSet_8607" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>DBA_FTCedentI_10871</BARef>
+		</DBA>
+
+		<DBA id="DBA_SecondSet_8607" connective="Conjunction">
+			<Text>District(Prostejov)</Text>
+			<BARef>DBA_FTCedentI_10872</BARef>
+		</DBA>
+
+		 <DBA id="DBA_Antecedent_8608" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		  
+		 <DBA id="DBA_Succedent_8608" connective="Conjunction">
+			 <Text>Quality(Bad)</Text>
+			 <BARef>DBA_FTCedentI_10873</BARef>
+		 </DBA>
+		   
+
+		<DBA id="DBA_FirstSet_8608" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>DBA_FTCedentI_10874</BARef>
+		</DBA>
+
+		<DBA id="DBA_SecondSet_8608" connective="Conjunction">
+			<Text>District(Svitavy)</Text>
+			<BARef>DBA_FTCedentI_10875</BARef>
+		</DBA>
+
+		 <DBA id="DBA_Antecedent_8609" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		  
+		 <DBA id="DBA_Succedent_8609" connective="Conjunction">
+			 <Text>Quality(Bad)</Text>
+			 <BARef>DBA_FTCedentI_10876</BARef>
+		 </DBA>
+		   
+
+		<DBA id="DBA_FirstSet_8609" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>DBA_FTCedentI_10877</BARef>
+		</DBA>
+
+		<DBA id="DBA_SecondSet_8609" connective="Conjunction">
+			<Text>District(Tabor)</Text>
+			<BARef>DBA_FTCedentI_10878</BARef>
+		</DBA>
+
+		 <DBA id="DBA_Antecedent_8610" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		  
+		 <DBA id="DBA_Succedent_8610" connective="Conjunction">
+			 <Text>Quality(Bad)</Text>
+			 <BARef>DBA_FTCedentI_10879</BARef>
+		 </DBA>
+		   
+
+		<DBA id="DBA_FirstSet_8610" connective="Conjunction">
+			<Text>District(Hl.m. Praha)</Text>
+			<BARef>DBA_FTCedentI_10880</BARef>
+		</DBA>
+
+		<DBA id="DBA_SecondSet_8610" connective="Conjunction">
+			<Text>District(Tachov)</Text>
+			<BARef>DBA_FTCedentI_10881</BARef>
+		</DBA>
+
+
+<!-- Hypothesis -->
+
+		<SD4ftRule 
+			antecedent="DBA_Antecedent_8595"
+			consequent="DBA_Succedent_8595"
+		>
+			<Text>(empty) ::: Quality(Bad) : District(Hl.m. Praha)  District(Beroun)</Text>
+	
+			<IMValue imSettingRef="3" name="BASE" sourceMode="FirstSet">54</IMValue>
+			<IMValue imSettingRef="6" name="BASE" sourceMode="SecondSet">18</IMValue>
+			<IMValue imSettingRef="1" name="FUI" sourceMode="DiffValAbs">0.2097649186</IMValue>
+			<IMValue imSettingRef="11" name="SUM" sourceMode="DiffAbs">648</IMValue>
+
+			<FirstSet set="DBA_FirstSet_8595">
+				<Text>(empty) ::: Quality(Bad) / District(Hl.m. Praha)</Text>				
+				<IMValue name="a">54.0000000000</IMValue>
+				<IMValue name="b">657.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">711.0000000000</IMValue>
+				<IMValue name="n">711.0000000000</IMValue>
+				<IMValue name="Conf">0.0759493671</IMValue>
+				<IMValue name="DConf">0.0759493671</IMValue>
+				<IMValue name="EConf">0.0759493671</IMValue>
+				<IMValue name="Supp">0.0759493671</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.0771388499</IMValue>
+				<IMValue name="bVAR">0.0771388499</IMValue>
+				<IMValue name="bStDev">0.0099851744</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="54" b="657" c="0" d="0"/>
+			</FirstSet>
+			 
+			<SecondSet set="DBA_SecondSet_8595">
+				<Text>(empty) ::: Quality(Bad) / District(Beroun)</Text>				
+				<IMValue name="a">18.0000000000</IMValue>
+				<IMValue name="b">45.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">63.0000000000</IMValue>
+				<IMValue name="n">63.0000000000</IMValue>
+				<IMValue name="Conf">0.2857142857</IMValue>
+				<IMValue name="DConf">0.2857142857</IMValue>
+				<IMValue name="EConf">0.2857142857</IMValue>
+				<IMValue name="Supp">0.2857142857</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.2923076923</IMValue>
+				<IMValue name="bVAR">0.2923076923</IMValue>
+				<IMValue name="bStDev">0.0559848336</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="18" b="45" c="0" d="0"/>				
+			 </SecondSet>
+			 
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="DBA_Antecedent_8596"
+			consequent="DBA_Succedent_8596"
+		>
+			<Text>(empty) ::: Quality(Bad) : District(Hl.m. Praha)  District(Brno - mesto)</Text>
+	
+			<IMValue imSettingRef="3" name="BASE" sourceMode="FirstSet">54</IMValue>
+			<IMValue imSettingRef="6" name="BASE" sourceMode="SecondSet">45</IMValue>
+			<IMValue imSettingRef="1" name="FUI" sourceMode="DiffValAbs">0.1414419373</IMValue>
+			<IMValue imSettingRef="11" name="SUM" sourceMode="DiffAbs">504</IMValue>
+
+			<FirstSet set="DBA_FirstSet_8596">
+				<Text>(empty) ::: Quality(Bad) / District(Hl.m. Praha)</Text>				
+				<IMValue name="a">54.0000000000</IMValue>
+				<IMValue name="b">657.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">711.0000000000</IMValue>
+				<IMValue name="n">711.0000000000</IMValue>
+				<IMValue name="Conf">0.0759493671</IMValue>
+				<IMValue name="DConf">0.0759493671</IMValue>
+				<IMValue name="EConf">0.0759493671</IMValue>
+				<IMValue name="Supp">0.0759493671</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.0771388499</IMValue>
+				<IMValue name="bVAR">0.0771388499</IMValue>
+				<IMValue name="bStDev">0.0099851744</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="54" b="657" c="0" d="0"/>
+			</FirstSet>
+			 
+			<SecondSet set="DBA_SecondSet_8596">
+				<Text>(empty) ::: Quality(Bad) / District(Brno - mesto)</Text>				
+				<IMValue name="a">45.0000000000</IMValue>
+				<IMValue name="b">162.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">207.0000000000</IMValue>
+				<IMValue name="n">207.0000000000</IMValue>
+				<IMValue name="Conf">0.2173913043</IMValue>
+				<IMValue name="DConf">0.2173913043</IMValue>
+				<IMValue name="EConf">0.2173913043</IMValue>
+				<IMValue name="Supp">0.2173913043</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.2200956938</IMValue>
+				<IMValue name="bVAR">0.2200956938</IMValue>
+				<IMValue name="bStDev">0.0285901731</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="45" b="162" c="0" d="0"/>				
+			 </SecondSet>
+			 
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="DBA_Antecedent_8597"
+			consequent="DBA_Succedent_8597"
+		>
+			<Text>Salary(High) ::: Quality(Bad) : District(Hl.m. Praha)  District(Brno - mesto)</Text>
+	
+			<IMValue imSettingRef="3" name="BASE" sourceMode="FirstSet">54</IMValue>
+			<IMValue imSettingRef="6" name="BASE" sourceMode="SecondSet">45</IMValue>
+			<IMValue imSettingRef="1" name="FUI" sourceMode="DiffValAbs">0.1414419373</IMValue>
+			<IMValue imSettingRef="11" name="SUM" sourceMode="DiffAbs">504</IMValue>
+
+			<FirstSet set="DBA_FirstSet_8597">
+				<Text>Salary(High) ::: Quality(Bad) / District(Hl.m. Praha)</Text>				
+				<IMValue name="a">54.0000000000</IMValue>
+				<IMValue name="b">657.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">711.0000000000</IMValue>
+				<IMValue name="n">711.0000000000</IMValue>
+				<IMValue name="Conf">0.0759493671</IMValue>
+				<IMValue name="DConf">0.0759493671</IMValue>
+				<IMValue name="EConf">0.0759493671</IMValue>
+				<IMValue name="Supp">0.0759493671</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.0771388499</IMValue>
+				<IMValue name="bVAR">0.0771388499</IMValue>
+				<IMValue name="bStDev">0.0099851744</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="54" b="657" c="0" d="0"/>
+			</FirstSet>
+			 
+			<SecondSet set="DBA_SecondSet_8597">
+				<Text>Salary(High) ::: Quality(Bad) / District(Brno - mesto)</Text>				
+				<IMValue name="a">45.0000000000</IMValue>
+				<IMValue name="b">162.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">207.0000000000</IMValue>
+				<IMValue name="n">207.0000000000</IMValue>
+				<IMValue name="Conf">0.2173913043</IMValue>
+				<IMValue name="DConf">0.2173913043</IMValue>
+				<IMValue name="EConf">0.2173913043</IMValue>
+				<IMValue name="Supp">0.2173913043</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.2200956938</IMValue>
+				<IMValue name="bVAR">0.2200956938</IMValue>
+				<IMValue name="bStDev">0.0285901731</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="45" b="162" c="0" d="0"/>				
+			 </SecondSet>
+			 
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="DBA_Antecedent_8598"
+			consequent="DBA_Succedent_8598"
+		>
+			<Text>(empty) ::: Quality(Bad) : District(Hl.m. Praha)  District(Chrudim)</Text>
+	
+			<IMValue imSettingRef="3" name="BASE" sourceMode="FirstSet">54</IMValue>
+			<IMValue imSettingRef="6" name="BASE" sourceMode="SecondSet">18</IMValue>
+			<IMValue imSettingRef="1" name="FUI" sourceMode="DiffValAbs">0.2097649186</IMValue>
+			<IMValue imSettingRef="11" name="SUM" sourceMode="DiffAbs">648</IMValue>
+
+			<FirstSet set="DBA_FirstSet_8598">
+				<Text>(empty) ::: Quality(Bad) / District(Hl.m. Praha)</Text>				
+				<IMValue name="a">54.0000000000</IMValue>
+				<IMValue name="b">657.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">711.0000000000</IMValue>
+				<IMValue name="n">711.0000000000</IMValue>
+				<IMValue name="Conf">0.0759493671</IMValue>
+				<IMValue name="DConf">0.0759493671</IMValue>
+				<IMValue name="EConf">0.0759493671</IMValue>
+				<IMValue name="Supp">0.0759493671</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.0771388499</IMValue>
+				<IMValue name="bVAR">0.0771388499</IMValue>
+				<IMValue name="bStDev">0.0099851744</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="54" b="657" c="0" d="0"/>
+			</FirstSet>
+			 
+			<SecondSet set="DBA_SecondSet_8598">
+				<Text>(empty) ::: Quality(Bad) / District(Chrudim)</Text>				
+				<IMValue name="a">18.0000000000</IMValue>
+				<IMValue name="b">45.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">63.0000000000</IMValue>
+				<IMValue name="n">63.0000000000</IMValue>
+				<IMValue name="Conf">0.2857142857</IMValue>
+				<IMValue name="DConf">0.2857142857</IMValue>
+				<IMValue name="EConf">0.2857142857</IMValue>
+				<IMValue name="Supp">0.2857142857</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.2923076923</IMValue>
+				<IMValue name="bVAR">0.2923076923</IMValue>
+				<IMValue name="bStDev">0.0559848336</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="18" b="45" c="0" d="0"/>				
+			 </SecondSet>
+			 
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="DBA_Antecedent_8599"
+			consequent="DBA_Succedent_8599"
+		>
+			<Text>(empty) ::: Quality(Bad) : District(Hl.m. Praha)  District(Jesenik)</Text>
+	
+			<IMValue imSettingRef="3" name="BASE" sourceMode="FirstSet">54</IMValue>
+			<IMValue imSettingRef="6" name="BASE" sourceMode="SecondSet">18</IMValue>
+			<IMValue imSettingRef="1" name="FUI" sourceMode="DiffValAbs">0.1740506329</IMValue>
+			<IMValue imSettingRef="11" name="SUM" sourceMode="DiffAbs">639</IMValue>
+
+			<FirstSet set="DBA_FirstSet_8599">
+				<Text>(empty) ::: Quality(Bad) / District(Hl.m. Praha)</Text>				
+				<IMValue name="a">54.0000000000</IMValue>
+				<IMValue name="b">657.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">711.0000000000</IMValue>
+				<IMValue name="n">711.0000000000</IMValue>
+				<IMValue name="Conf">0.0759493671</IMValue>
+				<IMValue name="DConf">0.0759493671</IMValue>
+				<IMValue name="EConf">0.0759493671</IMValue>
+				<IMValue name="Supp">0.0759493671</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.0771388499</IMValue>
+				<IMValue name="bVAR">0.0771388499</IMValue>
+				<IMValue name="bStDev">0.0099851744</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="54" b="657" c="0" d="0"/>
+			</FirstSet>
+			 
+			<SecondSet set="DBA_SecondSet_8599">
+				<Text>(empty) ::: Quality(Bad) / District(Jesenik)</Text>				
+				<IMValue name="a">18.0000000000</IMValue>
+				<IMValue name="b">54.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">72.0000000000</IMValue>
+				<IMValue name="n">72.0000000000</IMValue>
+				<IMValue name="Conf">0.2500000000</IMValue>
+				<IMValue name="DConf">0.2500000000</IMValue>
+				<IMValue name="EConf">0.2500000000</IMValue>
+				<IMValue name="Supp">0.2500000000</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.2567567568</IMValue>
+				<IMValue name="bVAR">0.2567567568</IMValue>
+				<IMValue name="bStDev">0.0504424061</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="18" b="54" c="0" d="0"/>				
+			 </SecondSet>
+			 
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="DBA_Antecedent_8600"
+			consequent="DBA_Succedent_8600"
+		>
+			<Text>(empty) ::: Quality(Bad) : District(Hl.m. Praha)  District(Karlovy Vary)</Text>
+	
+			<IMValue imSettingRef="3" name="BASE" sourceMode="FirstSet">54</IMValue>
+			<IMValue imSettingRef="6" name="BASE" sourceMode="SecondSet">18</IMValue>
+			<IMValue imSettingRef="1" name="FUI" sourceMode="DiffValAbs">0.2573839662</IMValue>
+			<IMValue imSettingRef="11" name="SUM" sourceMode="DiffAbs">657</IMValue>
+
+			<FirstSet set="DBA_FirstSet_8600">
+				<Text>(empty) ::: Quality(Bad) / District(Hl.m. Praha)</Text>				
+				<IMValue name="a">54.0000000000</IMValue>
+				<IMValue name="b">657.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">711.0000000000</IMValue>
+				<IMValue name="n">711.0000000000</IMValue>
+				<IMValue name="Conf">0.0759493671</IMValue>
+				<IMValue name="DConf">0.0759493671</IMValue>
+				<IMValue name="EConf">0.0759493671</IMValue>
+				<IMValue name="Supp">0.0759493671</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.0771388499</IMValue>
+				<IMValue name="bVAR">0.0771388499</IMValue>
+				<IMValue name="bStDev">0.0099851744</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="54" b="657" c="0" d="0"/>
+			</FirstSet>
+			 
+			<SecondSet set="DBA_SecondSet_8600">
+				<Text>(empty) ::: Quality(Bad) / District(Karlovy Vary)</Text>				
+				<IMValue name="a">18.0000000000</IMValue>
+				<IMValue name="b">36.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">54.0000000000</IMValue>
+				<IMValue name="n">54.0000000000</IMValue>
+				<IMValue name="Conf">0.3333333333</IMValue>
+				<IMValue name="DConf">0.3333333333</IMValue>
+				<IMValue name="EConf">0.3333333333</IMValue>
+				<IMValue name="Supp">0.3333333333</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.3392857143</IMValue>
+				<IMValue name="bVAR">0.3392857143</IMValue>
+				<IMValue name="bStDev">0.0627122247</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="18" b="36" c="0" d="0"/>				
+			 </SecondSet>
+			 
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="DBA_Antecedent_8601"
+			consequent="DBA_Succedent_8601"
+		>
+			<Text>(empty) ::: Quality(Bad) : District(Hl.m. Praha)  District(Kladno)</Text>
+	
+			<IMValue imSettingRef="3" name="BASE" sourceMode="FirstSet">54</IMValue>
+			<IMValue imSettingRef="6" name="BASE" sourceMode="SecondSet">18</IMValue>
+			<IMValue imSettingRef="1" name="FUI" sourceMode="DiffValAbs">0.2573839662</IMValue>
+			<IMValue imSettingRef="11" name="SUM" sourceMode="DiffAbs">657</IMValue>
+
+			<FirstSet set="DBA_FirstSet_8601">
+				<Text>(empty) ::: Quality(Bad) / District(Hl.m. Praha)</Text>				
+				<IMValue name="a">54.0000000000</IMValue>
+				<IMValue name="b">657.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">711.0000000000</IMValue>
+				<IMValue name="n">711.0000000000</IMValue>
+				<IMValue name="Conf">0.0759493671</IMValue>
+				<IMValue name="DConf">0.0759493671</IMValue>
+				<IMValue name="EConf">0.0759493671</IMValue>
+				<IMValue name="Supp">0.0759493671</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.0771388499</IMValue>
+				<IMValue name="bVAR">0.0771388499</IMValue>
+				<IMValue name="bStDev">0.0099851744</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="54" b="657" c="0" d="0"/>
+			</FirstSet>
+			 
+			<SecondSet set="DBA_SecondSet_8601">
+				<Text>(empty) ::: Quality(Bad) / District(Kladno)</Text>				
+				<IMValue name="a">18.0000000000</IMValue>
+				<IMValue name="b">36.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">54.0000000000</IMValue>
+				<IMValue name="n">54.0000000000</IMValue>
+				<IMValue name="Conf">0.3333333333</IMValue>
+				<IMValue name="DConf">0.3333333333</IMValue>
+				<IMValue name="EConf">0.3333333333</IMValue>
+				<IMValue name="Supp">0.3333333333</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.3392857143</IMValue>
+				<IMValue name="bVAR">0.3392857143</IMValue>
+				<IMValue name="bStDev">0.0627122247</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="18" b="36" c="0" d="0"/>				
+			 </SecondSet>
+			 
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="DBA_Antecedent_8602"
+			consequent="DBA_Succedent_8602"
+		>
+			<Text>Salary(High) ::: Quality(Bad) : District(Hl.m. Praha)  District(Kladno)</Text>
+	
+			<IMValue imSettingRef="3" name="BASE" sourceMode="FirstSet">54</IMValue>
+			<IMValue imSettingRef="6" name="BASE" sourceMode="SecondSet">18</IMValue>
+			<IMValue imSettingRef="1" name="FUI" sourceMode="DiffValAbs">0.2573839662</IMValue>
+			<IMValue imSettingRef="11" name="SUM" sourceMode="DiffAbs">657</IMValue>
+
+			<FirstSet set="DBA_FirstSet_8602">
+				<Text>Salary(High) ::: Quality(Bad) / District(Hl.m. Praha)</Text>				
+				<IMValue name="a">54.0000000000</IMValue>
+				<IMValue name="b">657.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">711.0000000000</IMValue>
+				<IMValue name="n">711.0000000000</IMValue>
+				<IMValue name="Conf">0.0759493671</IMValue>
+				<IMValue name="DConf">0.0759493671</IMValue>
+				<IMValue name="EConf">0.0759493671</IMValue>
+				<IMValue name="Supp">0.0759493671</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.0771388499</IMValue>
+				<IMValue name="bVAR">0.0771388499</IMValue>
+				<IMValue name="bStDev">0.0099851744</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="54" b="657" c="0" d="0"/>
+			</FirstSet>
+			 
+			<SecondSet set="DBA_SecondSet_8602">
+				<Text>Salary(High) ::: Quality(Bad) / District(Kladno)</Text>				
+				<IMValue name="a">18.0000000000</IMValue>
+				<IMValue name="b">36.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">54.0000000000</IMValue>
+				<IMValue name="n">54.0000000000</IMValue>
+				<IMValue name="Conf">0.3333333333</IMValue>
+				<IMValue name="DConf">0.3333333333</IMValue>
+				<IMValue name="EConf">0.3333333333</IMValue>
+				<IMValue name="Supp">0.3333333333</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.3392857143</IMValue>
+				<IMValue name="bVAR">0.3392857143</IMValue>
+				<IMValue name="bStDev">0.0627122247</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="18" b="36" c="0" d="0"/>				
+			 </SecondSet>
+			 
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="DBA_Antecedent_8603"
+			consequent="DBA_Succedent_8603"
+		>
+			<Text>(empty) ::: Quality(Bad) : District(Hl.m. Praha)  District(Kromeriz)</Text>
+	
+			<IMValue imSettingRef="3" name="BASE" sourceMode="FirstSet">54</IMValue>
+			<IMValue imSettingRef="6" name="BASE" sourceMode="SecondSet">18</IMValue>
+			<IMValue imSettingRef="1" name="FUI" sourceMode="DiffValAbs">0.1058688147</IMValue>
+			<IMValue imSettingRef="11" name="SUM" sourceMode="DiffAbs">612</IMValue>
+
+			<FirstSet set="DBA_FirstSet_8603">
+				<Text>(empty) ::: Quality(Bad) / District(Hl.m. Praha)</Text>				
+				<IMValue name="a">54.0000000000</IMValue>
+				<IMValue name="b">657.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">711.0000000000</IMValue>
+				<IMValue name="n">711.0000000000</IMValue>
+				<IMValue name="Conf">0.0759493671</IMValue>
+				<IMValue name="DConf">0.0759493671</IMValue>
+				<IMValue name="EConf">0.0759493671</IMValue>
+				<IMValue name="Supp">0.0759493671</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.0771388499</IMValue>
+				<IMValue name="bVAR">0.0771388499</IMValue>
+				<IMValue name="bStDev">0.0099851744</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="54" b="657" c="0" d="0"/>
+			</FirstSet>
+			 
+			<SecondSet set="DBA_SecondSet_8603">
+				<Text>(empty) ::: Quality(Bad) / District(Kromeriz)</Text>				
+				<IMValue name="a">18.0000000000</IMValue>
+				<IMValue name="b">81.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">99.0000000000</IMValue>
+				<IMValue name="n">99.0000000000</IMValue>
+				<IMValue name="Conf">0.1818181818</IMValue>
+				<IMValue name="DConf">0.1818181818</IMValue>
+				<IMValue name="EConf">0.1818181818</IMValue>
+				<IMValue name="Supp">0.1818181818</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.1881188119</IMValue>
+				<IMValue name="bVAR">0.1881188119</IMValue>
+				<IMValue name="bStDev">0.0386956608</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="18" b="81" c="0" d="0"/>				
+			 </SecondSet>
+			 
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="DBA_Antecedent_8604"
+			consequent="DBA_Succedent_8604"
+		>
+			<Text>(empty) ::: Quality(Bad) : District(Hl.m. Praha)  District(Kutna Hora)</Text>
+	
+			<IMValue imSettingRef="3" name="BASE" sourceMode="FirstSet">54</IMValue>
+			<IMValue imSettingRef="6" name="BASE" sourceMode="SecondSet">18</IMValue>
+			<IMValue imSettingRef="1" name="FUI" sourceMode="DiffValAbs">0.1740506329</IMValue>
+			<IMValue imSettingRef="11" name="SUM" sourceMode="DiffAbs">639</IMValue>
+
+			<FirstSet set="DBA_FirstSet_8604">
+				<Text>(empty) ::: Quality(Bad) / District(Hl.m. Praha)</Text>				
+				<IMValue name="a">54.0000000000</IMValue>
+				<IMValue name="b">657.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">711.0000000000</IMValue>
+				<IMValue name="n">711.0000000000</IMValue>
+				<IMValue name="Conf">0.0759493671</IMValue>
+				<IMValue name="DConf">0.0759493671</IMValue>
+				<IMValue name="EConf">0.0759493671</IMValue>
+				<IMValue name="Supp">0.0759493671</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.0771388499</IMValue>
+				<IMValue name="bVAR">0.0771388499</IMValue>
+				<IMValue name="bStDev">0.0099851744</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="54" b="657" c="0" d="0"/>
+			</FirstSet>
+			 
+			<SecondSet set="DBA_SecondSet_8604">
+				<Text>(empty) ::: Quality(Bad) / District(Kutna Hora)</Text>				
+				<IMValue name="a">18.0000000000</IMValue>
+				<IMValue name="b">54.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">72.0000000000</IMValue>
+				<IMValue name="n">72.0000000000</IMValue>
+				<IMValue name="Conf">0.2500000000</IMValue>
+				<IMValue name="DConf">0.2500000000</IMValue>
+				<IMValue name="EConf">0.2500000000</IMValue>
+				<IMValue name="Supp">0.2500000000</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.2567567568</IMValue>
+				<IMValue name="bVAR">0.2567567568</IMValue>
+				<IMValue name="bStDev">0.0504424061</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="18" b="54" c="0" d="0"/>				
+			 </SecondSet>
+			 
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="DBA_Antecedent_8605"
+			consequent="DBA_Succedent_8605"
+		>
+			<Text>(empty) ::: Quality(Bad) : District(Hl.m. Praha)  District(Olomouc)</Text>
+	
+			<IMValue imSettingRef="3" name="BASE" sourceMode="FirstSet">54</IMValue>
+			<IMValue imSettingRef="6" name="BASE" sourceMode="SecondSet">27</IMValue>
+			<IMValue imSettingRef="1" name="FUI" sourceMode="DiffValAbs">0.1240506329</IMValue>
+			<IMValue imSettingRef="11" name="SUM" sourceMode="DiffAbs">576</IMValue>
+
+			<FirstSet set="DBA_FirstSet_8605">
+				<Text>(empty) ::: Quality(Bad) / District(Hl.m. Praha)</Text>				
+				<IMValue name="a">54.0000000000</IMValue>
+				<IMValue name="b">657.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">711.0000000000</IMValue>
+				<IMValue name="n">711.0000000000</IMValue>
+				<IMValue name="Conf">0.0759493671</IMValue>
+				<IMValue name="DConf">0.0759493671</IMValue>
+				<IMValue name="EConf">0.0759493671</IMValue>
+				<IMValue name="Supp">0.0759493671</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.0771388499</IMValue>
+				<IMValue name="bVAR">0.0771388499</IMValue>
+				<IMValue name="bStDev">0.0099851744</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="54" b="657" c="0" d="0"/>
+			</FirstSet>
+			 
+			<SecondSet set="DBA_SecondSet_8605">
+				<Text>(empty) ::: Quality(Bad) / District(Olomouc)</Text>				
+				<IMValue name="a">27.0000000000</IMValue>
+				<IMValue name="b">108.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">135.0000000000</IMValue>
+				<IMValue name="n">135.0000000000</IMValue>
+				<IMValue name="Conf">0.2000000000</IMValue>
+				<IMValue name="DConf">0.2000000000</IMValue>
+				<IMValue name="EConf">0.2000000000</IMValue>
+				<IMValue name="Supp">0.2000000000</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.2043795620</IMValue>
+				<IMValue name="bVAR">0.2043795620</IMValue>
+				<IMValue name="bStDev">0.0343267079</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="27" b="108" c="0" d="0"/>				
+			 </SecondSet>
+			 
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="DBA_Antecedent_8606"
+			consequent="DBA_Succedent_8606"
+		>
+			<Text>(empty) ::: Quality(Bad) : District(Hl.m. Praha)  District(Opava)</Text>
+	
+			<IMValue imSettingRef="3" name="BASE" sourceMode="FirstSet">54</IMValue>
+			<IMValue imSettingRef="6" name="BASE" sourceMode="SecondSet">27</IMValue>
+			<IMValue imSettingRef="1" name="FUI" sourceMode="DiffValAbs">0.2990506329</IMValue>
+			<IMValue imSettingRef="11" name="SUM" sourceMode="DiffAbs">639</IMValue>
+
+			<FirstSet set="DBA_FirstSet_8606">
+				<Text>(empty) ::: Quality(Bad) / District(Hl.m. Praha)</Text>				
+				<IMValue name="a">54.0000000000</IMValue>
+				<IMValue name="b">657.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">711.0000000000</IMValue>
+				<IMValue name="n">711.0000000000</IMValue>
+				<IMValue name="Conf">0.0759493671</IMValue>
+				<IMValue name="DConf">0.0759493671</IMValue>
+				<IMValue name="EConf">0.0759493671</IMValue>
+				<IMValue name="Supp">0.0759493671</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.0771388499</IMValue>
+				<IMValue name="bVAR">0.0771388499</IMValue>
+				<IMValue name="bStDev">0.0099851744</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="54" b="657" c="0" d="0"/>
+			</FirstSet>
+			 
+			<SecondSet set="DBA_SecondSet_8606">
+				<Text>(empty) ::: Quality(Bad) / District(Opava)</Text>				
+				<IMValue name="a">27.0000000000</IMValue>
+				<IMValue name="b">45.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">72.0000000000</IMValue>
+				<IMValue name="n">72.0000000000</IMValue>
+				<IMValue name="Conf">0.3750000000</IMValue>
+				<IMValue name="DConf">0.3750000000</IMValue>
+				<IMValue name="EConf">0.3750000000</IMValue>
+				<IMValue name="Supp">0.3750000000</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.3783783784</IMValue>
+				<IMValue name="bVAR">0.3783783784</IMValue>
+				<IMValue name="bStDev">0.0560009739</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="27" b="45" c="0" d="0"/>				
+			 </SecondSet>
+			 
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="DBA_Antecedent_8607"
+			consequent="DBA_Succedent_8607"
+		>
+			<Text>(empty) ::: Quality(Bad) : District(Hl.m. Praha)  District(Prostejov)</Text>
+	
+			<IMValue imSettingRef="3" name="BASE" sourceMode="FirstSet">54</IMValue>
+			<IMValue imSettingRef="6" name="BASE" sourceMode="SecondSet">18</IMValue>
+			<IMValue imSettingRef="1" name="FUI" sourceMode="DiffValAbs">0.1462728551</IMValue>
+			<IMValue imSettingRef="11" name="SUM" sourceMode="DiffAbs">630</IMValue>
+
+			<FirstSet set="DBA_FirstSet_8607">
+				<Text>(empty) ::: Quality(Bad) / District(Hl.m. Praha)</Text>				
+				<IMValue name="a">54.0000000000</IMValue>
+				<IMValue name="b">657.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">711.0000000000</IMValue>
+				<IMValue name="n">711.0000000000</IMValue>
+				<IMValue name="Conf">0.0759493671</IMValue>
+				<IMValue name="DConf">0.0759493671</IMValue>
+				<IMValue name="EConf">0.0759493671</IMValue>
+				<IMValue name="Supp">0.0759493671</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.0771388499</IMValue>
+				<IMValue name="bVAR">0.0771388499</IMValue>
+				<IMValue name="bStDev">0.0099851744</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="54" b="657" c="0" d="0"/>
+			</FirstSet>
+			 
+			<SecondSet set="DBA_SecondSet_8607">
+				<Text>(empty) ::: Quality(Bad) / District(Prostejov)</Text>				
+				<IMValue name="a">18.0000000000</IMValue>
+				<IMValue name="b">63.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">81.0000000000</IMValue>
+				<IMValue name="n">81.0000000000</IMValue>
+				<IMValue name="Conf">0.2222222222</IMValue>
+				<IMValue name="DConf">0.2222222222</IMValue>
+				<IMValue name="EConf">0.2222222222</IMValue>
+				<IMValue name="Supp">0.2222222222</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.2289156627</IMValue>
+				<IMValue name="bVAR">0.2289156627</IMValue>
+				<IMValue name="bStDev">0.0458404690</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="18" b="63" c="0" d="0"/>				
+			 </SecondSet>
+			 
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="DBA_Antecedent_8608"
+			consequent="DBA_Succedent_8608"
+		>
+			<Text>(empty) ::: Quality(Bad) : District(Hl.m. Praha)  District(Svitavy)</Text>
+	
+			<IMValue imSettingRef="3" name="BASE" sourceMode="FirstSet">54</IMValue>
+			<IMValue imSettingRef="6" name="BASE" sourceMode="SecondSet">27</IMValue>
+			<IMValue imSettingRef="1" name="FUI" sourceMode="DiffValAbs">0.1740506329</IMValue>
+			<IMValue imSettingRef="11" name="SUM" sourceMode="DiffAbs">603</IMValue>
+
+			<FirstSet set="DBA_FirstSet_8608">
+				<Text>(empty) ::: Quality(Bad) / District(Hl.m. Praha)</Text>				
+				<IMValue name="a">54.0000000000</IMValue>
+				<IMValue name="b">657.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">711.0000000000</IMValue>
+				<IMValue name="n">711.0000000000</IMValue>
+				<IMValue name="Conf">0.0759493671</IMValue>
+				<IMValue name="DConf">0.0759493671</IMValue>
+				<IMValue name="EConf">0.0759493671</IMValue>
+				<IMValue name="Supp">0.0759493671</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.0771388499</IMValue>
+				<IMValue name="bVAR">0.0771388499</IMValue>
+				<IMValue name="bStDev">0.0099851744</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="54" b="657" c="0" d="0"/>
+			</FirstSet>
+			 
+			<SecondSet set="DBA_SecondSet_8608">
+				<Text>(empty) ::: Quality(Bad) / District(Svitavy)</Text>				
+				<IMValue name="a">27.0000000000</IMValue>
+				<IMValue name="b">81.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">108.0000000000</IMValue>
+				<IMValue name="n">108.0000000000</IMValue>
+				<IMValue name="Conf">0.2500000000</IMValue>
+				<IMValue name="DConf">0.2500000000</IMValue>
+				<IMValue name="EConf">0.2500000000</IMValue>
+				<IMValue name="Supp">0.2500000000</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.2545454545</IMValue>
+				<IMValue name="bVAR">0.2545454545</IMValue>
+				<IMValue name="bStDev">0.0413458350</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="27" b="81" c="0" d="0"/>				
+			 </SecondSet>
+			 
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="DBA_Antecedent_8609"
+			consequent="DBA_Succedent_8609"
+		>
+			<Text>(empty) ::: Quality(Bad) : District(Hl.m. Praha)  District(Tabor)</Text>
+	
+			<IMValue imSettingRef="3" name="BASE" sourceMode="FirstSet">54</IMValue>
+			<IMValue imSettingRef="6" name="BASE" sourceMode="SecondSet">18</IMValue>
+			<IMValue imSettingRef="1" name="FUI" sourceMode="DiffValAbs">0.1740506329</IMValue>
+			<IMValue imSettingRef="11" name="SUM" sourceMode="DiffAbs">639</IMValue>
+
+			<FirstSet set="DBA_FirstSet_8609">
+				<Text>(empty) ::: Quality(Bad) / District(Hl.m. Praha)</Text>				
+				<IMValue name="a">54.0000000000</IMValue>
+				<IMValue name="b">657.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">711.0000000000</IMValue>
+				<IMValue name="n">711.0000000000</IMValue>
+				<IMValue name="Conf">0.0759493671</IMValue>
+				<IMValue name="DConf">0.0759493671</IMValue>
+				<IMValue name="EConf">0.0759493671</IMValue>
+				<IMValue name="Supp">0.0759493671</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.0771388499</IMValue>
+				<IMValue name="bVAR">0.0771388499</IMValue>
+				<IMValue name="bStDev">0.0099851744</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="54" b="657" c="0" d="0"/>
+			</FirstSet>
+			 
+			<SecondSet set="DBA_SecondSet_8609">
+				<Text>(empty) ::: Quality(Bad) / District(Tabor)</Text>				
+				<IMValue name="a">18.0000000000</IMValue>
+				<IMValue name="b">54.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">72.0000000000</IMValue>
+				<IMValue name="n">72.0000000000</IMValue>
+				<IMValue name="Conf">0.2500000000</IMValue>
+				<IMValue name="DConf">0.2500000000</IMValue>
+				<IMValue name="EConf">0.2500000000</IMValue>
+				<IMValue name="Supp">0.2500000000</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.2567567568</IMValue>
+				<IMValue name="bVAR">0.2567567568</IMValue>
+				<IMValue name="bStDev">0.0504424061</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="18" b="54" c="0" d="0"/>				
+			 </SecondSet>
+			 
+		</SD4ftRule>
+		<SD4ftRule 
+			antecedent="DBA_Antecedent_8610"
+			consequent="DBA_Succedent_8610"
+		>
+			<Text>(empty) ::: Quality(Bad) : District(Hl.m. Praha)  District(Tachov)</Text>
+	
+			<IMValue imSettingRef="3" name="BASE" sourceMode="FirstSet">54</IMValue>
+			<IMValue imSettingRef="6" name="BASE" sourceMode="SecondSet">18</IMValue>
+			<IMValue imSettingRef="1" name="FUI" sourceMode="DiffValAbs">0.1058688147</IMValue>
+			<IMValue imSettingRef="11" name="SUM" sourceMode="DiffAbs">612</IMValue>
+
+			<FirstSet set="DBA_FirstSet_8610">
+				<Text>(empty) ::: Quality(Bad) / District(Hl.m. Praha)</Text>				
+				<IMValue name="a">54.0000000000</IMValue>
+				<IMValue name="b">657.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">711.0000000000</IMValue>
+				<IMValue name="n">711.0000000000</IMValue>
+				<IMValue name="Conf">0.0759493671</IMValue>
+				<IMValue name="DConf">0.0759493671</IMValue>
+				<IMValue name="EConf">0.0759493671</IMValue>
+				<IMValue name="Supp">0.0759493671</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.0771388499</IMValue>
+				<IMValue name="bVAR">0.0771388499</IMValue>
+				<IMValue name="bStDev">0.0099851744</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="54" b="657" c="0" d="0"/>
+			</FirstSet>
+			 
+			<SecondSet set="DBA_SecondSet_8610">
+				<Text>(empty) ::: Quality(Bad) / District(Tachov)</Text>				
+				<IMValue name="a">18.0000000000</IMValue>
+				<IMValue name="b">81.0000000000</IMValue>
+				<IMValue name="c">0.0000000000</IMValue>
+				<IMValue name="d">0.0000000000</IMValue>
+				<IMValue name="r">99.0000000000</IMValue>
+				<IMValue name="n">99.0000000000</IMValue>
+				<IMValue name="Conf">0.1818181818</IMValue>
+				<IMValue name="DConf">0.1818181818</IMValue>
+				<IMValue name="EConf">0.1818181818</IMValue>
+				<IMValue name="Supp">0.1818181818</IMValue>
+				<IMValue name="Cmplt">1.0000000000</IMValue>
+				<IMValue name="AvgDf">0.0000000000</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000000</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">1.0000000000</IMValue>
+				<IMValue name="Chi-Sq">0.0000000000</IMValue>
+				<IMValue name="bMean">0.1881188119</IMValue>
+				<IMValue name="bVAR">0.1881188119</IMValue>
+				<IMValue name="bStDev">0.0386956608</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="18" b="81" c="0" d="0"/>				
+			 </SecondSet>
+			 
+		</SD4ftRule>
+
+	</SD4ftRules>
+
+</guha:SD4ftModel>
+</PMML>

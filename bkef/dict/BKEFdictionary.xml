@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dictionary type="BKEF">
+    <Author>Daniel Šťastný</Author>
+    <Date>2009</Date>
+	<Entry id="1">
+        <str lang="en" name="Navigation">Navigation</str>
+        <str lang="cs" name="Navigation">Navigace</str>
+        </Entry>
+	<Entry id="2">        
+        <str lang="en" name="Meta attributes">Meta attributes</str>
+        <str lang="cs" name="Meta attributes">Meta-atributy</str>
+                </Entry>
+	<Entry id="3">
+        <str lang="en" name="Mutual influences">Mutual influences</str>
+        <str lang="cs" name="Mutual influences">Vzájemné vztahy</str>
+        </Entry>
+	<Entry id="4">        
+        <str lang="en" name="Generate matrix">Generate matrix</str>
+        <str lang="cs" name="Generate matrix">Generovat matici</str>
+        </Entry>
+	<Entry id="5">        
+        <str lang="en" name="level">level</str>
+        <str lang="cs" name="level">úroveň</str>
+        </Entry>
+	<Entry id="6">        
+        <str lang="en" name="Author">Author</str>
+        <str lang="cs" name="Author">Autor</str>
+        </Entry>
+	<Entry id="7">        
+        <str lang="en" name="Author-format">Author of this format</str>
+        <str lang="cs" name="Author-format">Autor formátu</str>
+        </Entry>
+	<Entry id="8">        
+        <str lang="en" name="Annotation">Annotation</str>
+        <str lang="cs" name="Annotation">Anotace</str>
+        </Entry>
+	<Entry id="9">        
+        <str lang="en" name="Parent-metaattribute">Parent-metaattribute</str>
+        <str lang="cs" name="Patent-metaattribute">Rodičovský meta-atribut</str>
+        </Entry>
+	<Entry id="10">        
+        <str lang="en" name="Variability">Variability</str>
+        <str lang="cs" name="Variability">Variabilita</str>
+        </Entry>
+	<Entry id ="11">        
+        <str lang="en" name="Formats">Formats</str>
+        <str lang="cs" name="Formats">Formáty</str>
+        </Entry>
+	<Entry id="12">        
+        <str lang="en" name="Name">Name</str>
+        <str lang="cs" name="Name">Jméno</str>
+        </Entry>
+	<Entry id="13">        
+        <str lang="en" name="Data type">Data type</str>
+        <str lang="cs" name="Data type">Datový typ</str>
+        </Entry>
+	<Entry id="14">        
+        <str lang="en" name="Value type">Value type</str>
+        <str lang="cs" name="Value type">Hodnotový typ</str>
+        </Entry>
+	<Entry id="15">        
+        <str lang="en" name="Value annotations">Value annotations</str>
+        <str lang="cs" name="Value annotations">Anotace hodnot</str>
+        </Entry>
+	<Entry id="16">        
+        <str lang="en" name="Value">Value</str>
+        <str lang="cs" name="Value">Hodnota</str>
+        </Entry>
+	<Entry id="17">        
+        <str lang="en" name="Allowed range">Allowed range</str>
+        <str lang="cs" name="Allowed range">Přípustný rozsah</str>
+        </Entry>
+	<Entry id="18">        
+        <str lang="en" name="Enumeration">Enumeration</str>
+        <str lang="cs" name="Enumeration">Výčet hodnot</str>
+        </Entry>
+	<Entry id="19">        
+        <str lang="en" name="Interval">Interval</str>
+        <str lnag="cs" name="Interval">Interval</str>
+        </Entry>
+	<Entry id="20">        
+        <str lang="en" name="Collation">Collation</str>
+        <str lang="cs" name="Collation">Pořadí hodnot</str>
+        </Entry>
+	<Entry id="21">        
+        <str lang="en" name="Type-collation">Type</str>
+        <str lang="cs" name="Type-collation">Druh pořadí</str>
+        </Entry>
+	<Entry id="22">        
+        <str lang="en" name="Sense">Sense</str>
+        <str lang="cs" name="Sense">Smysl</str>
+        </Entry>
+	<Entry id="23">        
+        <str lang="en" name="Values">Values</str>
+        <str lang="cs" name="Values">Hodnoty</str>
+        </Entry>
+	<Entry id="24">         
+        <str lang="en" name="Preprocessing hints">Preprocessing hints</str>
+        <str lang="cs" name="Preprocessing hints">Příprava meta-atributů</str>
+        </Entry>
+	<Entry id="25">        
+        <str lang="en" name="Characteristics">Characteristics ~ list of appropriate values</str>
+        <str lang="cs" name="Characteristics">Charakteristika - seznam přípustných hodnot</str>
+        </Entry>
+	<Entry id="26">        
+        <str lang="en" name="Intervals">Intervals</str>
+        <str lang="cs" name="Intervals">Intervaly</str>
+        </Entry>
+	<Entry id="27">        
+        <str lang="en" name="Equidistant">Equidistant</str>
+        <str lang="cs" name="Equidistant">Rozdělení na stejné části</str>
+        </Entry>
+	<Entry id="28">        
+        <str lang="en" name="Range">Range</str>
+        <str lang="cs" name="Range">Rozsah</str>
+        </Entry>
+	<Entry id="29">        
+        <str lang="en" name="Step">Step</str>
+        <str lang="cs" name="Step">Krok</str>
+        </Entry>
+	<Entry id="30">        
+        <str lang="en" name="Equifrequent interval">Equifrequent interval</str>
+        <str lang="cs" name="Equifrequent interval">Ekvifrekventní interval</str>
+        </Entry>
+	<Entry id="31">        
+        <str lang="en" name="Count">Count (number of groups)</str>
+        <str lang="cs" name="Count">Počet skupin</str>
+        </Entry>
+	<Entry id="32">        
+        <str lang="en" name="Value descriptions">Value descriptions</str>
+        <str lang="cs" name="Value descriptions">Popis hodnot</str>
+        </Entry>
+	<Entry id="33">        
+        <str lang="en" name="Type-desc">Type</str>
+        <str lang="cs" name="Type-desc">Druh</str>
+        </Entry>
+	<Entry id="34">        
+        <str lang="en" name="Attributes">Attributes</str>
+        <str lang="cs" name="Attributes">Atributy</str>
+        </Entry>
+	<Entry id="35">        
+        <str lang="en" name="Influence scope">Influence scope</str>
+        <str lang="cs" name="Influence scope">Rámec vztahu</str>
+        </Entry>
+	<Entry id="36">        
+        <str lang="en" name="Knowledge validity">Knowledge validity</str>
+        <str lang="cs" name="Knowledge validity">Ověření znalosti</str>
+        </Entry>
+	<Entry id="37">        
+        <str lang="en" name="Format name">Format name</str>
+        <str lang="cs" name="Format name">Jméno formátu</str>
+	</Entry>
+    
+    <Entry id="38">        
+        <str lang="en" name="Formats">Formats</str>
+        <str lang="cs" name="Formats">Formáty</str>
+    </Entry>
+    
+    <!-- Defined mutual influences -->
+    
+    <Entry id="39">        
+        <str lang="en" name="Defined mutual influences">Defined mutual influecnes</str>
+        <str lang="cs" name="Defined mutual influences">Definované vzájemné vztahy</str>
+    </Entry>
+    
+    <Entry id="100">        
+        <str lang="en" name="Verbal explanation">Verbal explanation</str>
+        <str lang="cs" name="Verbal explanation">Popis vztahu</str>
+    </Entry>
+    
+    <Entry id="101">        
+        <str lang="en" name="Shortened explanation">Shortened explanation</str>
+        <str lang="cs" name="Graphical explanation">Symbolické znázornění</str>
+    </Entry>
+    
+    <!-- Common -->
+    
+    <Entry id="200">        
+        <str lang="en" name="DMF-and">and</str>
+        <str lang="cs" name="DMF-and">a</str>
+    </Entry>
+    
+    <Entry id="201">        
+        <str lang="en" name="DMF-format">Format</str>
+        <str lang="cs" name="DMF-format">Formát</str>
+    </Entry>
+    
+    
+    <!-- ******** Relationships ******** -->
+    
+    <!-- Uninteresting -->
+    <Entry id="110">        
+        <str lang="en" name="Uninteresting_1">There can be some undefined influence between </str>
+        <str lang="cs" name="Uninteresting_1">Mezi následujícími meta-atributy je nevýznamný vztah: </str>
+    </Entry>
+    
+    <!-- Some undefined -->
+    <Entry id="120">        
+        <str lang="en" name="Some_1">There can be some uninteresting influence between </str>
+        <str lang="cs" name="Some_1">Mezi následujícími meta-atributy může být nějaký nedefinovaný vztah: </str>
+    </Entry>
+    
+    <!-- Positive -->
+    <Entry id="130">        
+        <str lang="en" name="Positive_1">If the relative frequency of meta-attribute </str>
+        <str lang="cs" name="Positive_1">Pokud relativní frekvence meta-atributu </str>
+    </Entry>
+    
+    <Entry id="131">        
+        <str lang="en" name="Positive_2"> increases, then the relative frequency of meta-attribute </str>
+        <str lang="cs" name="Positive_2"> roste, potom relativní frekvence meta-atributu </str>
+    </Entry>
+    
+    <Entry id="132">        
+        <str lang="en" name="Positive_3">  increases too.</str>
+        <str lang="cs" name="Positive_3"> roste také.</str>
+    </Entry>
+    
+    <!-- Negative -->
+    
+    <Entry id="140">        
+        <str lang="en" name="Negative_1">If the relative frequency of meta-attribute </str>
+        <str lang="cs" name="Negative_1">Pokud relativní frekvence meta-atributu </str>
+    </Entry>
+    
+    <Entry id="141">        
+        <str lang="en" name="Negative_2"> increases, then the relative frequency of meta-attribute </str>
+        <str lang="cs" name="Negative_2"> roste, potom relativní frekvence meta-atributu </str>
+    </Entry>
+    
+    <Entry id="142">        
+        <str lang="en" name="Negative_3"> decreases.</str>
+        <str lang="cs" name="Negative_3"> klesá.</str>
+    </Entry>
+    
+    <!-- Positive boolean -->
+    <Entry id="150">        
+        <str lang="en" name="PF_1">If the relative frequency of meta-attribute </str>
+        <str lang="cs" name="PF_1">Pokud relativní frekvence meta-atributu </str>
+    </Entry>
+    
+    <Entry id="151">        
+        <str lang="en" name="PF_2"> increases, then the relative frequency of boolean meta-attribute </str>
+        <str lang="cs" name="PF_2"> roste, potom relativní frekvence booleovského meta-atributu </str>
+    </Entry>
+    
+    <Entry id="152">        
+        <str lang="en" name="PF_3"> increases.</str>
+        <str lang="cs" name="PF_3"> roste.</str>
+    </Entry>
+    
+    <!-- Negative frequency -->
+    <Entry id="160">        
+        <str lang="en" name="NF_1">If the relative frequency of meta-attribute </str>
+        <str lang="cs" name="NF_1">Pokud relativní frekvence meta-atributu </str>
+    </Entry>
+    
+    <Entry id="161">        
+        <str lang="en" name="NF_2"> increases, then the relative frequency of value </str>
+        <str lang="cs" name="NF_2"> roste, potom relativní frekvence hodnoty </str>
+    </Entry>
+
+    <Entry id="162">        
+        <str lang="en" name="PB_2"> of boolean metaattribute </str>
+        <str lang="cs" name="PB_2"> booleovského meta-atributu </str>
+    </Entry>
+
+    <Entry id="163">        
+        <str lang="en" name="PB_2"> decreases.</str>
+        <str lang="cs" name="PB_2"> klesá. </str>
+    </Entry>
+    
+    <!-- Positive frequency -->
+    
+    <Entry id="170">        
+        <str lang="en" name="PB_1">If the relative frequency of boolean meta-attribute </str>
+        <str lang="cs" name="PB_1">Pokud relativní frekvence booleovského meta-atributu </str>
+    </Entry>
+    
+    <Entry id="171">        
+        <str lang="en" name="PB_2"> increases, then the relative frequency of value </str>
+        <str lang="cs" name="PB_2"> roste, potom relativní frekvence hodnoty </str>
+    </Entry>
+
+    <Entry id="172">        
+        <str lang="en" name="PB_2"> of boolean metaattribute </str>
+        <str lang="cs" name="PB_2"> booleovského meta-atributu </str>
+    </Entry>
+
+    <Entry id="173">        
+        <str lang="en" name="PB_2"> increases.</str>
+        <str lang="cs" name="PB_2"> roste. </str>
+    </Entry>
+
+    
+    <!-- None -->
+    <Entry id="180">        
+        <str lang="en" name="None_1">There is no influence between </str>
+        <str lang="cs" name="None_1">Následující meta-atributy se vzájemně nijak neovlivňují: </str>
+    </Entry>
+    
+    <!-- Functional -->
+    <Entry id="185">        
+        <str lang="en" name="F_1">There is functional influence between meta-attribute </str>
+        <str lang="cs" name="F_1">Mezi následujícími meta-atributy je funkční vztah: </str>
+    </Entry>
+    
+    <!-- Unknown -->
+    <Entry id="190">        
+        <str lang="en" name="UK_1">There is unknown influence between meta-attribute </str>
+        <str lang="cs" name="UK_1">Mezi následujícími meta-atributy je neznámý vztah: </str>
+    </Entry>
+    
+  
+   
+    
+    
+    
+</Dictionary>

@@ -1,0 +1,3483 @@
+<?xml version="1.0"?>
+<PMML version="3.0" xmlns="http://www.dmg.org/PMML-3_2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dmg.org/PMML-3_2 http://www.dmg.org/v3-2/pmml-3-2.xsd">
+<!-- 4ftResult.Task.PMML.Template, version of 2010-01-16 -->
+
+	<Header copyright="Copyright (c) KIZI UEP">
+		<Extension name="metabase" value="LM Adamek_A1.LMMB.mdb MB"/>
+		<Extension name="author" value="PowerUser"/>
+		<Extension name="subsystem" value="4ft-Miner"/>
+		<Extension name="module" value="4ftResult.exe"/>
+		<Extension name="format" value="4ftResult.Task"/>
+		<Application name="LISp-Miner" version="12.02.00 of 30 Mar 2010"/>
+		<Annotation>Exported to PMML using the LISp-Miner software</Annotation>
+	</Header>
+
+<!-- Matrix -->
+
+	<DataDictionary numberOfFields="8">
+		<DataField 
+			name="BMI" 
+			optype="continuous" 
+			dataType="float"
+		>
+			<Extension name="Min" value="16.455046" extender="Min"/>
+			<Extension name="Max" value="44.789940" extender="Max"/>
+			<Extension name="Avg" value="26.514072" extender="Avg"/>
+		</DataField>
+		<DataField 
+			name="Koureni" 
+			optype="categorical" 
+			dataType="string"
+		>
+		</DataField>
+		<DataField 
+			name="Pohl" 
+			optype="categorical" 
+			dataType="string"
+		>
+		</DataField>
+		<DataField 
+			name="PsychZat" 
+			optype="categorical" 
+			dataType="string"
+		>
+		</DataField>
+		<DataField 
+			name="Rod" 
+			optype="categorical" 
+			dataType="string"
+		>
+		</DataField>
+		<DataField 
+			name="Sam" 
+			optype="categorical" 
+			dataType="string"
+		>
+		</DataField>
+		<DataField 
+			name="Vzd" 
+			optype="categorical" 
+			dataType="string"
+		>
+		</DataField>
+		<DataField 
+			name="WHR" 
+			optype="continuous" 
+			dataType="float"
+		>
+			<Extension name="Min" value="0.481481" extender="Min"/>
+			<Extension name="Max" value="1.264368" extender="Max"/>
+			<Extension name="Avg" value="0.858570" extender="Avg"/>
+		</DataField>
+	</DataDictionary>
+
+<!-- Attributes -->
+
+	<TransformationDictionary>
+		<DerivedField 
+			name= "Bmi"
+			dataType="string" 
+			optype="continuous"
+		>
+			<Discretize field="BMI"
+			>
+				<DiscretizeBin binValue="(16;19&gt;">
+					<Extension name="Frequency" value="14" extender="(16;19&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="16" 
+						  rightMargin="17" 
+						/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="17" 
+						  rightMargin="18" 
+						/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="18" 
+						  rightMargin="19" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="(19;20&gt;">
+					<Extension name="Frequency" value="14" extender="(19;20&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="19" 
+						  rightMargin="20" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="(20;21&gt;">
+					<Extension name="Frequency" value="34" extender="(20;21&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="20" 
+						  rightMargin="21" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="(21;22&gt;">
+					<Extension name="Frequency" value="40" extender="(21;22&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="21" 
+						  rightMargin="22" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="(22;23&gt;">
+					<Extension name="Frequency" value="53" extender="(22;23&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="22" 
+						  rightMargin="23" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="(23;24&gt;">
+					<Extension name="Frequency" value="73" extender="(23;24&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="23" 
+						  rightMargin="24" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="(24;25&gt;">
+					<Extension name="Frequency" value="77" extender="(24;25&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="24" 
+						  rightMargin="25" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="(25;26&gt;">
+					<Extension name="Frequency" value="62" extender="(25;26&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="25" 
+						  rightMargin="26" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="(26;27&gt;">
+					<Extension name="Frequency" value="45" extender="(26;27&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="26" 
+						  rightMargin="27" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="(27;28&gt;">
+					<Extension name="Frequency" value="53" extender="(27;28&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="27" 
+						  rightMargin="28" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="(28;29&gt;">
+					<Extension name="Frequency" value="56" extender="(28;29&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="28" 
+						  rightMargin="29" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="(29;30&gt;">
+					<Extension name="Frequency" value="44" extender="(29;30&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="29" 
+						  rightMargin="30" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="(30;31&gt;">
+					<Extension name="Frequency" value="31" extender="(30;31&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="30" 
+						  rightMargin="31" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="(31;32&gt;">
+					<Extension name="Frequency" value="17" extender="(31;32&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="31" 
+						  rightMargin="32" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="(32;33&gt;">
+					<Extension name="Frequency" value="22" extender="(32;33&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="32" 
+						  rightMargin="33" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="(33;34&gt;">
+					<Extension name="Frequency" value="17" extender="(33;34&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="33" 
+						  rightMargin="34" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="(34;35&gt;">
+					<Extension name="Frequency" value="16" extender="(34;35&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="34" 
+						  rightMargin="35" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="(35;36&gt;">
+					<Extension name="Frequency" value="9" extender="(35;36&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="35" 
+						  rightMargin="36" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="(36;37&gt;">
+					<Extension name="Frequency" value="9" extender="(36;37&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="36" 
+						  rightMargin="37" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="(37;38&gt;">
+					<Extension name="Frequency" value="6" extender="(37;38&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="37" 
+						  rightMargin="38" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="(38;45&gt;">
+					<Extension name="Frequency" value="11" extender="(38;45&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="38" 
+						  rightMargin="39" 
+						/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="39" 
+						  rightMargin="40" 
+						/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="40" 
+						  rightMargin="41" 
+						/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="41" 
+						  rightMargin="42" 
+						/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="42" 
+						  rightMargin="43" 
+						/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="43" 
+						  rightMargin="44" 
+						/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="44" 
+						  rightMargin="45" 
+						/>
+				</DiscretizeBin>
+			</Discretize>
+
+		</DerivedField>
+		<DerivedField 
+			name= "Kouření"
+			dataType="string" 
+			optype="ordinal"
+		>
+			<MapValues outputColumn="Kouření"
+			>
+				<FieldColumnPair column="Koureni" field="Kouření"/>
+				<InlineTable>
+					<Extension name="Frequency" value="96" extender="exkuřák"/>
+					<Extension name="Frequency" value="87" extender="kuřák"/>
+					<Extension name="Frequency" value="489" extender="nekuřák"/>
+					<Extension name="Frequency" value="10" extender="příležitostný kuřák"/>
+					<row>
+						<column>exkuřák</column>
+						<field>exkuřák</field>
+					</row>
+					<row>
+						<column>kuřák</column>
+						<field>kuřák</field>
+					</row>
+					<row>
+						<column>nekuřák</column>
+						<field>nekuřák</field>
+					</row>
+					<row>
+						<column>příležitostný kuřák</column>
+						<field>příležitostný kuřák</field>
+					</row>
+				</InlineTable>
+			</MapValues>
+
+		</DerivedField>
+		<DerivedField 
+			name= "Pohlaví"
+			dataType="string" 
+			optype="ordinal"
+		>
+			<MapValues outputColumn="Pohlaví"
+			>
+				<FieldColumnPair column="Pohl" field="Pohlaví"/>
+				<InlineTable>
+					<Extension name="Frequency" value="287" extender="muž"/>
+					<Extension name="Frequency" value="424" extender="žena"/>
+					<row>
+						<column>muž</column>
+						<field>muž</field>
+					</row>
+					<row>
+						<column>žena</column>
+						<field>žena</field>
+					</row>
+				</InlineTable>
+			</MapValues>
+
+		</DerivedField>
+		<DerivedField 
+			name= "PsychZat"
+			dataType="string" 
+			optype="ordinal"
+		>
+			<MapValues outputColumn="PsychZat"
+			>
+				<FieldColumnPair column="PsychZat" field="PsychZat"/>
+				<InlineTable>
+					<Extension name="Frequency" value="49" extender="žádná"/>
+					<Extension name="Frequency" value="201" extender="mírná"/>
+					<Extension name="Frequency" value="302" extender="střední"/>
+					<Extension name="Frequency" value="122" extender="vysoká"/>
+					<row>
+						<column>žádná</column>
+						<field>žádná</field>
+					</row>
+					<row>
+						<column>mírná</column>
+						<field>mírná</field>
+					</row>
+					<row>
+						<column>střední</column>
+						<field>střední</field>
+					</row>
+					<row>
+						<column>vysoká</column>
+						<field>vysoká</field>
+					</row>
+				</InlineTable>
+			</MapValues>
+
+		</DerivedField>
+		<DerivedField 
+			name= "Rodinný stav"
+			dataType="string" 
+			optype="ordinal"
+		>
+			<MapValues outputColumn="Rodinný stav"
+			>
+				<FieldColumnPair column="Rod" field="Rodinný stav"/>
+				<InlineTable>
+					<Extension name="Frequency" value="97" extender="rozvedený"/>
+					<Extension name="Frequency" value="118" extender="svobodný"/>
+					<Extension name="Frequency" value="45" extender="vdovec"/>
+					<Extension name="Frequency" value="422" extender="ženatý"/>
+					<row>
+						<column>rozvedený</column>
+						<field>rozvedený</field>
+					</row>
+					<row>
+						<column>svobodný</column>
+						<field>svobodný</field>
+					</row>
+					<row>
+						<column>vdovec</column>
+						<field>vdovec</field>
+					</row>
+					<row>
+						<column>ženatý</column>
+						<field>ženatý</field>
+					</row>
+				</InlineTable>
+			</MapValues>
+
+		</DerivedField>
+		<DerivedField 
+			name= "Vzdělání"
+			dataType="string" 
+			optype="ordinal"
+		>
+			<MapValues outputColumn="Vzdělání"
+			>
+				<FieldColumnPair column="Vzd" field="Vzdělání"/>
+				<InlineTable>
+					<Extension name="Frequency" value="54" extender="základní"/>
+					<Extension name="Frequency" value="342" extender="středoškolské"/>
+					<Extension name="Frequency" value="287" extender="vysokoškolské"/>
+					<row>
+						<column>základní</column>
+						<field>základní</field>
+					</row>
+					<row>
+						<column>středoškolské</column>
+						<field>středoškolské</field>
+					</row>
+					<row>
+						<column>vysokoškolské</column>
+						<field>vysokoškolské</field>
+					</row>
+				</InlineTable>
+			</MapValues>
+
+		</DerivedField>
+		<DerivedField 
+			name= "Whr"
+			dataType="string" 
+			optype="continuous"
+		>
+			<Discretize field="WHR"
+			>
+				<DiscretizeBin binValue="(0.45;0.75&gt;">
+					<Extension name="Frequency" value="68" extender="(0.45;0.75&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="0.45" 
+						  rightMargin="0.5" 
+						/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="0.5" 
+						  rightMargin="0.55" 
+						/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="0.55" 
+						  rightMargin="0.6" 
+						/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="0.6" 
+						  rightMargin="0.65" 
+						/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="0.65" 
+						  rightMargin="0.7" 
+						/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="0.7" 
+						  rightMargin="0.75" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="(0.75;0.8&gt;">
+					<Extension name="Frequency" value="117" extender="(0.75;0.8&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="0.75" 
+						  rightMargin="0.8" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="(0.8;0.85&gt;">
+					<Extension name="Frequency" value="151" extender="(0.8;0.85&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="0.8" 
+						  rightMargin="0.85" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="(0.85;0.9&gt;">
+					<Extension name="Frequency" value="136" extender="(0.85;0.9&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="0.85" 
+						  rightMargin="0.9" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="(0.9;0.95&gt;">
+					<Extension name="Frequency" value="97" extender="(0.9;0.95&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="0.9" 
+						  rightMargin="0.95" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="(0.95;1&gt;">
+					<Extension name="Frequency" value="80" extender="(0.95;1&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="0.95" 
+						  rightMargin="1" 
+						/>
+				</DiscretizeBin>
+				<DiscretizeBin binValue="(1;1.3&gt;">
+					<Extension name="Frequency" value="33" extender="(1;1.3&gt;"/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="1" 
+						  rightMargin="1.05" 
+						/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="1.05" 
+						  rightMargin="1.1" 
+						/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="1.1" 
+						  rightMargin="1.15" 
+						/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="1.15" 
+						  rightMargin="1.2" 
+						/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="1.2" 
+						  rightMargin="1.25" 
+						/>
+						<Interval 
+						  closure="openClosed" 
+						  leftMargin="1.25" 
+						  rightMargin="1.3" 
+						/>
+				</DiscretizeBin>
+			</Discretize>
+
+		</DerivedField>
+		<DerivedField 
+			name= "Žije sám"
+			dataType="string" 
+			optype="ordinal"
+		>
+			<MapValues outputColumn="Žije sám"
+			>
+				<FieldColumnPair column="Sam" field="Žije sám"/>
+				<InlineTable>
+					<Extension name="Frequency" value="144" extender="ano"/>
+					<Extension name="Frequency" value="527" extender="ne"/>
+					<row>
+						<column>ano</column>
+						<field>ano</field>
+					</row>
+					<row>
+						<column>ne</column>
+						<field>ne</field>
+					</row>
+				</InlineTable>
+			</MapValues>
+
+		</DerivedField>
+	</TransformationDictionary>
+
+<!-- Task -->
+
+	<AssociationModel modelName="ZIZ  Social + Sex =&gt;+  Miry " 
+			  functionName="associationRules" 
+			  numberOfTransactions="711" 
+			  numberOfItems="47" 
+			  numberOfRules="28"
+			  minimumSupport="0.042194" 
+			  minimumConfidence="-1" 
+			  maxNumberOfItemsPerTA="1" avgNumberOfItemsPerTA="1" 
+			  numberOfItemsets="0" 
+	>
+		<Extension name="TaskSetting" >
+			<Metabase>LM Adamek_A1.LMMB.mdb MB</Metabase>
+			<Matrix>Adamek_2_A1</Matrix>
+			<TaskGroup>Default group of tasks</TaskGroup>
+			<NumberOfVerifications>29040</NumberOfVerifications>
+			<TaskTime>10.4.2010 13:13:24</TaskTime>
+			<TaskDuration>0h 0m 0s</TaskDuration>
+			<FTMissingsType>Delete</FTMissingsType>
+			<FTTaskParamProlong100AFlag>Yes</FTTaskParamProlong100AFlag>
+			<FTTaskParamProlong100SFlag>Yes</FTTaskParamProlong100SFlag>
+			<FTTaskParamPrimeCheckMinLen>Yes</FTTaskParamPrimeCheckMinLen>
+			<FTTaskParamPrimeCheck>No</FTTaskParamPrimeCheck>
+			<FTTaskParamIncludeSymetricFlag>Yes</FTTaskParamIncludeSymetricFlag>
+			<TaskDescription>-</TaskDescription>
+			<TaskNotice>-</TaskNotice>
+
+			<BasicBooleanAttributeSettings>
+				<BasicBooleanAttributeSetting 
+				   id="Basic_FTLiteralD_12"
+				   name="Rodinný stav (subset), 1 - 1">
+					<Attribute>Rod</Attribute>
+					<CoefficientType>Subset</CoefficientType>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>1</MaximalLength>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>
+				</BasicBooleanAttributeSetting>
+				<BasicBooleanAttributeSetting 
+				   id="Basic_FTLiteralD_14"
+				   name="Žije sám (subset), 1 - 1">
+					<Attribute>Sam</Attribute>
+					<CoefficientType>Subset</CoefficientType>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>1</MaximalLength>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>
+				</BasicBooleanAttributeSetting>
+				<BasicBooleanAttributeSetting 
+				   id="Basic_FTLiteralD_9"
+				   name="Kouření (subset), 1 - 1">
+					<Attribute>Koureni</Attribute>
+					<CoefficientType>Subset</CoefficientType>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>1</MaximalLength>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>
+				</BasicBooleanAttributeSetting>
+				<BasicBooleanAttributeSetting 
+				   id="Basic_FTLiteralD_11"
+				   name="PsychZat (int), 1 - 2">
+					<Attribute>PsychZat</Attribute>
+					<CoefficientType>Interval</CoefficientType>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>2</MaximalLength>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>
+				</BasicBooleanAttributeSetting>
+				<BasicBooleanAttributeSetting 
+				   id="Basic_FTLiteralD_13"
+				   name="Vzdělání (cut), 1 - 2">
+					<Attribute>Vzd</Attribute>
+					<CoefficientType>Cut</CoefficientType>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>2</MaximalLength>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>
+				</BasicBooleanAttributeSetting>
+				<BasicBooleanAttributeSetting 
+				   id="Basic_FTLiteralD_10"
+				   name="Pohlaví (subset), 1 - 1">
+					<Attribute>Pohl</Attribute>
+					<CoefficientType>Subset</CoefficientType>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>1</MaximalLength>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>
+				</BasicBooleanAttributeSetting>
+				<BasicBooleanAttributeSetting 
+				   id="Basic_FTLiteralD_15"
+				   name="Bmi (cut), 1 - 7">
+					<Attribute>BMI</Attribute>
+					<CoefficientType>Cut</CoefficientType>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>7</MaximalLength>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>
+				</BasicBooleanAttributeSetting>
+				<BasicBooleanAttributeSetting 
+				   id="Basic_FTLiteralD_16"
+				   name="Whr (cut), 1 - 3">
+					<Attribute>WHR</Attribute>
+					<CoefficientType>Cut</CoefficientType>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>3</MaximalLength>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>
+				</BasicBooleanAttributeSetting>
+			</BasicBooleanAttributeSettings>
+
+			<DerivedBooleanAttributeSettings>
+
+				<DerivedBooleanAttributeSetting 
+					name="Rodinný stav (subset), 1 - 1"
+					id="Derived_FTLiteralD_Sign_12"
+					type="Sign" 
+				>
+					<BooleanAttributeId>Basic_FTLiteralD_12</BooleanAttributeId>
+					<Type>Positive</Type>
+				</DerivedBooleanAttributeSetting>
+				<DerivedBooleanAttributeSetting 
+					name="Žije sám (subset), 1 - 1"
+					id="Derived_FTLiteralD_Sign_14"
+					type="Sign" 
+				>
+					<BooleanAttributeId>Basic_FTLiteralD_14</BooleanAttributeId>
+					<Type>Positive</Type>
+				</DerivedBooleanAttributeSetting>
+				<DerivedBooleanAttributeSetting 
+					name="Kouření (subset), 1 - 1"
+					id="Derived_FTLiteralD_Sign_9"
+					type="Sign" 
+				>
+					<BooleanAttributeId>Basic_FTLiteralD_9</BooleanAttributeId>
+					<Type>Positive</Type>
+				</DerivedBooleanAttributeSetting>
+				<DerivedBooleanAttributeSetting 
+					name="PsychZat (int), 1 - 2"
+					id="Derived_FTLiteralD_Sign_11"
+					type="Sign" 
+				>
+					<BooleanAttributeId>Basic_FTLiteralD_11</BooleanAttributeId>
+					<Type>Positive</Type>
+				</DerivedBooleanAttributeSetting>
+				<DerivedBooleanAttributeSetting 
+					name="Vzdělání (cut), 1 - 2"
+					id="Derived_FTLiteralD_Sign_13"
+					type="Sign" 
+				>
+					<BooleanAttributeId>Basic_FTLiteralD_13</BooleanAttributeId>
+					<Type>Positive</Type>
+				</DerivedBooleanAttributeSetting>
+				<DerivedBooleanAttributeSetting 
+					name="Pohlaví (subset), 1 - 1"
+					id="Derived_FTLiteralD_Sign_10"
+					type="Sign" 
+				>
+					<BooleanAttributeId>Basic_FTLiteralD_10</BooleanAttributeId>
+					<Type>Positive</Type>
+				</DerivedBooleanAttributeSetting>
+				<DerivedBooleanAttributeSetting 
+					name="Bmi (cut), 1 - 7"
+					id="Derived_FTLiteralD_Sign_15"
+					type="Sign" 
+				>
+					<BooleanAttributeId>Basic_FTLiteralD_15</BooleanAttributeId>
+					<Type>Positive</Type>
+				</DerivedBooleanAttributeSetting>
+				<DerivedBooleanAttributeSetting 
+					name="Whr (cut), 1 - 3"
+					id="Derived_FTLiteralD_Sign_16"
+					type="Sign" 
+				>
+					<BooleanAttributeId>Basic_FTLiteralD_16</BooleanAttributeId>
+					<Type>Positive</Type>
+				</DerivedBooleanAttributeSetting>
+
+				<DerivedBooleanAttributeSetting 
+					name="Social + sex"
+					id="Derived_FTCedentD_4"
+					type="Conjunction"
+				> 
+					<BooleanAttributeId>Derived_FTLiteralD_Sign_12</BooleanAttributeId>
+					<BooleanAttributeId>Derived_FTLiteralD_Sign_14</BooleanAttributeId>
+					<BooleanAttributeId>Derived_FTLiteralD_Sign_9</BooleanAttributeId>
+					<BooleanAttributeId>Derived_FTLiteralD_Sign_11</BooleanAttributeId>
+					<BooleanAttributeId>Derived_FTLiteralD_Sign_13</BooleanAttributeId>
+					<BooleanAttributeId>Derived_FTLiteralD_Sign_10</BooleanAttributeId>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>3</MaximalLength>
+				</DerivedBooleanAttributeSetting>
+				<DerivedBooleanAttributeSetting 
+					name="BMI+WHR"
+					id="Derived_FTCedentD_5"
+					type="Conjunction"
+				> 
+					<BooleanAttributeId>Derived_FTLiteralD_Sign_15</BooleanAttributeId>
+					<BooleanAttributeId>Derived_FTLiteralD_Sign_16</BooleanAttributeId>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>2</MaximalLength>
+				</DerivedBooleanAttributeSetting>
+				<DerivedBooleanAttributeSetting 
+					name="Condition"
+					id="Derived_FTCedentD_6"
+					type="Conjunction"
+				> 
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DerivedBooleanAttributeSetting>
+
+				<DerivedBooleanAttributeSetting 
+					name="Antecedent"
+					id="Derived_FTCedentBagD_5"
+					type="Conjunction"
+				>
+					<BooleanAttributeId>Derived_FTCedentD_4</BooleanAttributeId>
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DerivedBooleanAttributeSetting>
+				<DerivedBooleanAttributeSetting 
+					name="Succedent"
+					id="Derived_FTCedentBagD_6"
+					type="Conjunction"
+				>
+					<BooleanAttributeId>Derived_FTCedentD_5</BooleanAttributeId>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DerivedBooleanAttributeSetting>
+				<DerivedBooleanAttributeSetting 
+					name="Condition"
+					id="Derived_FTCedentBagD_4"
+					type="Conjunction"
+				>
+					<BooleanAttributeId>Derived_FTCedentD_6</BooleanAttributeId>
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DerivedBooleanAttributeSetting>
+
+			</DerivedBooleanAttributeSettings>
+
+
+			<Antecedent>Derived_FTCedentBagD_5</Antecedent>
+			<Consequent>Derived_FTCedentBagD_6</Consequent>
+			<Condition>Derived_FTCedentBagD_4</Condition>
+
+		</Extension>
+
+		<Extension name="QuantifierThreshold" value="BASE">
+			<Threshold>0.042194</Threshold>
+			<CompareType>Greater than or equal</CompareType>
+		</Extension>		
+		<Extension name="QuantifierThreshold" value="Above Average Dependence">
+			<Threshold>1.500000</Threshold>
+			<CompareType>Greater than or equal</CompareType>
+		</Extension>		
+
+	<!-- MiningSchema -->
+
+		<MiningSchema>
+			<MiningField name="BMI"/>
+			<MiningField name="Koureni"/>
+			<MiningField name="Pohl"/>
+			<MiningField name="PsychZat"/>
+			<MiningField name="Rod"/>
+			<MiningField name="Sam"/>
+			<MiningField name="Vzd"/>
+			<MiningField name="WHR"/>
+		</MiningSchema>
+
+	<!-- Item a Itemset -->
+
+		<Item id="Item_FTLiteralI_431" 
+		      value="Rodinný stav(svobodný)"
+		>
+			<Extension name="attribute" value="Rodinný stav"/>
+			<Extension name="value" value="svobodný"/>
+		</Item>
+		<Item id="Item_FTLiteralI_432" 
+		      value="Kouření(nekuřák)"
+		>
+			<Extension name="attribute" value="Kouření"/>
+			<Extension name="value" value="nekuřák"/>
+		</Item>
+		<Item id="Item_FTLiteralI_433" 
+		      value="Vzdělání(vysokoškolské)"
+		>
+			<Extension name="attribute" value="Vzdělání"/>
+			<Extension name="value" value="vysokoškolské"/>
+		</Item>
+		<Item id="Item_FTLiteralI_434" 
+		      value="Bmi(&lt;= (22;23&gt;)"
+		>
+			<Extension name="attribute" value="Bmi"/>
+			<Extension name="value" value="(16;19&gt;"/>
+			<Extension name="value" value="(19;20&gt;"/>
+			<Extension name="value" value="(20;21&gt;"/>
+			<Extension name="value" value="(21;22&gt;"/>
+			<Extension name="value" value="(22;23&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_435" 
+		      value="Rodinný stav(svobodný)"
+		>
+			<Extension name="attribute" value="Rodinný stav"/>
+			<Extension name="value" value="svobodný"/>
+		</Item>
+		<Item id="Item_FTLiteralI_436" 
+		      value="Pohlaví(žena)"
+		>
+			<Extension name="attribute" value="Pohlaví"/>
+			<Extension name="value" value="žena"/>
+		</Item>
+		<Item id="Item_FTLiteralI_437" 
+		      value="Bmi(&lt;= (23;24&gt;)"
+		>
+			<Extension name="attribute" value="Bmi"/>
+			<Extension name="value" value="(16;19&gt;"/>
+			<Extension name="value" value="(19;20&gt;"/>
+			<Extension name="value" value="(20;21&gt;"/>
+			<Extension name="value" value="(21;22&gt;"/>
+			<Extension name="value" value="(22;23&gt;"/>
+			<Extension name="value" value="(23;24&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_438" 
+		      value="Whr(&lt;= (0.8;0.85&gt;)"
+		>
+			<Extension name="attribute" value="Whr"/>
+			<Extension name="value" value="(0.45;0.75&gt;"/>
+			<Extension name="value" value="(0.75;0.8&gt;"/>
+			<Extension name="value" value="(0.8;0.85&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_439" 
+		      value="Rodinný stav(ženatý)"
+		>
+			<Extension name="attribute" value="Rodinný stav"/>
+			<Extension name="value" value="ženatý"/>
+		</Item>
+		<Item id="Item_FTLiteralI_440" 
+		      value="Žije sám(ne)"
+		>
+			<Extension name="attribute" value="Žije sám"/>
+			<Extension name="value" value="ne"/>
+		</Item>
+		<Item id="Item_FTLiteralI_441" 
+		      value="Pohlaví(muž)"
+		>
+			<Extension name="attribute" value="Pohlaví"/>
+			<Extension name="value" value="muž"/>
+		</Item>
+		<Item id="Item_FTLiteralI_442" 
+		      value="Whr((0.95;1&gt;, (1;1.3&gt;)"
+		>
+			<Extension name="attribute" value="Whr"/>
+			<Extension name="value" value="(0.95;1&gt;"/>
+			<Extension name="value" value="(1;1.3&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_443" 
+		      value="Rodinný stav(ženatý)"
+		>
+			<Extension name="attribute" value="Rodinný stav"/>
+			<Extension name="value" value="ženatý"/>
+		</Item>
+		<Item id="Item_FTLiteralI_444" 
+		      value="PsychZat(střední, vysoká)"
+		>
+			<Extension name="attribute" value="PsychZat"/>
+			<Extension name="value" value="střední"/>
+			<Extension name="value" value="vysoká"/>
+		</Item>
+		<Item id="Item_FTLiteralI_445" 
+		      value="Pohlaví(muž)"
+		>
+			<Extension name="attribute" value="Pohlaví"/>
+			<Extension name="value" value="muž"/>
+		</Item>
+		<Item id="Item_FTLiteralI_446" 
+		      value="Whr((0.95;1&gt;, (1;1.3&gt;)"
+		>
+			<Extension name="attribute" value="Whr"/>
+			<Extension name="value" value="(0.95;1&gt;"/>
+			<Extension name="value" value="(1;1.3&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_447" 
+		      value="Rodinný stav(ženatý)"
+		>
+			<Extension name="attribute" value="Rodinný stav"/>
+			<Extension name="value" value="ženatý"/>
+		</Item>
+		<Item id="Item_FTLiteralI_448" 
+		      value="Vzdělání(základní, středoškolské)"
+		>
+			<Extension name="attribute" value="Vzdělání"/>
+			<Extension name="value" value="základní"/>
+			<Extension name="value" value="středoškolské"/>
+		</Item>
+		<Item id="Item_FTLiteralI_449" 
+		      value="Pohlaví(muž)"
+		>
+			<Extension name="attribute" value="Pohlaví"/>
+			<Extension name="value" value="muž"/>
+		</Item>
+		<Item id="Item_FTLiteralI_450" 
+		      value="Whr((0.95;1&gt;, (1;1.3&gt;)"
+		>
+			<Extension name="attribute" value="Whr"/>
+			<Extension name="value" value="(0.95;1&gt;"/>
+			<Extension name="value" value="(1;1.3&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_451" 
+		      value="Rodinný stav(ženatý)"
+		>
+			<Extension name="attribute" value="Rodinný stav"/>
+			<Extension name="value" value="ženatý"/>
+		</Item>
+		<Item id="Item_FTLiteralI_452" 
+		      value="Vzdělání(základní, středoškolské)"
+		>
+			<Extension name="attribute" value="Vzdělání"/>
+			<Extension name="value" value="základní"/>
+			<Extension name="value" value="středoškolské"/>
+		</Item>
+		<Item id="Item_FTLiteralI_453" 
+		      value="Pohlaví(muž)"
+		>
+			<Extension name="attribute" value="Pohlaví"/>
+			<Extension name="value" value="muž"/>
+		</Item>
+		<Item id="Item_FTLiteralI_454" 
+		      value="Whr(&gt;= (0.9;0.95&gt;)"
+		>
+			<Extension name="attribute" value="Whr"/>
+			<Extension name="value" value="(0.9;0.95&gt;"/>
+			<Extension name="value" value="(0.95;1&gt;"/>
+			<Extension name="value" value="(1;1.3&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_455" 
+		      value="Rodinný stav(ženatý)"
+		>
+			<Extension name="attribute" value="Rodinný stav"/>
+			<Extension name="value" value="ženatý"/>
+		</Item>
+		<Item id="Item_FTLiteralI_456" 
+		      value="Vzdělání(středoškolské, vysokoškolské)"
+		>
+			<Extension name="attribute" value="Vzdělání"/>
+			<Extension name="value" value="středoškolské"/>
+			<Extension name="value" value="vysokoškolské"/>
+		</Item>
+		<Item id="Item_FTLiteralI_457" 
+		      value="Pohlaví(muž)"
+		>
+			<Extension name="attribute" value="Pohlaví"/>
+			<Extension name="value" value="muž"/>
+		</Item>
+		<Item id="Item_FTLiteralI_458" 
+		      value="Whr((0.95;1&gt;, (1;1.3&gt;)"
+		>
+			<Extension name="attribute" value="Whr"/>
+			<Extension name="value" value="(0.95;1&gt;"/>
+			<Extension name="value" value="(1;1.3&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_459" 
+		      value="Rodinný stav(ženatý)"
+		>
+			<Extension name="attribute" value="Rodinný stav"/>
+			<Extension name="value" value="ženatý"/>
+		</Item>
+		<Item id="Item_FTLiteralI_460" 
+		      value="Pohlaví(muž)"
+		>
+			<Extension name="attribute" value="Pohlaví"/>
+			<Extension name="value" value="muž"/>
+		</Item>
+		<Item id="Item_FTLiteralI_461" 
+		      value="Whr((0.95;1&gt;, (1;1.3&gt;)"
+		>
+			<Extension name="attribute" value="Whr"/>
+			<Extension name="value" value="(0.95;1&gt;"/>
+			<Extension name="value" value="(1;1.3&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_462" 
+		      value="Žije sám(ne)"
+		>
+			<Extension name="attribute" value="Žije sám"/>
+			<Extension name="value" value="ne"/>
+		</Item>
+		<Item id="Item_FTLiteralI_463" 
+		      value="Vzdělání(základní, středoškolské)"
+		>
+			<Extension name="attribute" value="Vzdělání"/>
+			<Extension name="value" value="základní"/>
+			<Extension name="value" value="středoškolské"/>
+		</Item>
+		<Item id="Item_FTLiteralI_464" 
+		      value="Pohlaví(muž)"
+		>
+			<Extension name="attribute" value="Pohlaví"/>
+			<Extension name="value" value="muž"/>
+		</Item>
+		<Item id="Item_FTLiteralI_465" 
+		      value="Whr((0.95;1&gt;, (1;1.3&gt;)"
+		>
+			<Extension name="attribute" value="Whr"/>
+			<Extension name="value" value="(0.95;1&gt;"/>
+			<Extension name="value" value="(1;1.3&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_466" 
+		      value="Žije sám(ne)"
+		>
+			<Extension name="attribute" value="Žije sám"/>
+			<Extension name="value" value="ne"/>
+		</Item>
+		<Item id="Item_FTLiteralI_467" 
+		      value="Vzdělání(vysokoškolské)"
+		>
+			<Extension name="attribute" value="Vzdělání"/>
+			<Extension name="value" value="vysokoškolské"/>
+		</Item>
+		<Item id="Item_FTLiteralI_468" 
+		      value="Pohlaví(žena)"
+		>
+			<Extension name="attribute" value="Pohlaví"/>
+			<Extension name="value" value="žena"/>
+		</Item>
+		<Item id="Item_FTLiteralI_469" 
+		      value="Bmi(&lt;= (21;22&gt;)"
+		>
+			<Extension name="attribute" value="Bmi"/>
+			<Extension name="value" value="(16;19&gt;"/>
+			<Extension name="value" value="(19;20&gt;"/>
+			<Extension name="value" value="(20;21&gt;"/>
+			<Extension name="value" value="(21;22&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_470" 
+		      value="Žije sám(ne)"
+		>
+			<Extension name="attribute" value="Žije sám"/>
+			<Extension name="value" value="ne"/>
+		</Item>
+		<Item id="Item_FTLiteralI_471" 
+		      value="Vzdělání(vysokoškolské)"
+		>
+			<Extension name="attribute" value="Vzdělání"/>
+			<Extension name="value" value="vysokoškolské"/>
+		</Item>
+		<Item id="Item_FTLiteralI_472" 
+		      value="Pohlaví(žena)"
+		>
+			<Extension name="attribute" value="Pohlaví"/>
+			<Extension name="value" value="žena"/>
+		</Item>
+		<Item id="Item_FTLiteralI_473" 
+		      value="Bmi(&lt;= (21;22&gt;)"
+		>
+			<Extension name="attribute" value="Bmi"/>
+			<Extension name="value" value="(16;19&gt;"/>
+			<Extension name="value" value="(19;20&gt;"/>
+			<Extension name="value" value="(20;21&gt;"/>
+			<Extension name="value" value="(21;22&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_474" 
+		      value="Whr(&lt;= (0.8;0.85&gt;)"
+		>
+			<Extension name="attribute" value="Whr"/>
+			<Extension name="value" value="(0.45;0.75&gt;"/>
+			<Extension name="value" value="(0.75;0.8&gt;"/>
+			<Extension name="value" value="(0.8;0.85&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_475" 
+		      value="Žije sám(ne)"
+		>
+			<Extension name="attribute" value="Žije sám"/>
+			<Extension name="value" value="ne"/>
+		</Item>
+		<Item id="Item_FTLiteralI_476" 
+		      value="Vzdělání(vysokoškolské)"
+		>
+			<Extension name="attribute" value="Vzdělání"/>
+			<Extension name="value" value="vysokoškolské"/>
+		</Item>
+		<Item id="Item_FTLiteralI_477" 
+		      value="Pohlaví(žena)"
+		>
+			<Extension name="attribute" value="Pohlaví"/>
+			<Extension name="value" value="žena"/>
+		</Item>
+		<Item id="Item_FTLiteralI_478" 
+		      value="Bmi(&lt;= (22;23&gt;)"
+		>
+			<Extension name="attribute" value="Bmi"/>
+			<Extension name="value" value="(16;19&gt;"/>
+			<Extension name="value" value="(19;20&gt;"/>
+			<Extension name="value" value="(20;21&gt;"/>
+			<Extension name="value" value="(21;22&gt;"/>
+			<Extension name="value" value="(22;23&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_479" 
+		      value="Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"
+		>
+			<Extension name="attribute" value="Whr"/>
+			<Extension name="value" value="(0.45;0.75&gt;"/>
+			<Extension name="value" value="(0.75;0.8&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_480" 
+		      value="Žije sám(ne)"
+		>
+			<Extension name="attribute" value="Žije sám"/>
+			<Extension name="value" value="ne"/>
+		</Item>
+		<Item id="Item_FTLiteralI_481" 
+		      value="Vzdělání(vysokoškolské)"
+		>
+			<Extension name="attribute" value="Vzdělání"/>
+			<Extension name="value" value="vysokoškolské"/>
+		</Item>
+		<Item id="Item_FTLiteralI_482" 
+		      value="Pohlaví(žena)"
+		>
+			<Extension name="attribute" value="Pohlaví"/>
+			<Extension name="value" value="žena"/>
+		</Item>
+		<Item id="Item_FTLiteralI_483" 
+		      value="Bmi(&lt;= (22;23&gt;)"
+		>
+			<Extension name="attribute" value="Bmi"/>
+			<Extension name="value" value="(16;19&gt;"/>
+			<Extension name="value" value="(19;20&gt;"/>
+			<Extension name="value" value="(20;21&gt;"/>
+			<Extension name="value" value="(21;22&gt;"/>
+			<Extension name="value" value="(22;23&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_484" 
+		      value="Whr(&lt;= (0.8;0.85&gt;)"
+		>
+			<Extension name="attribute" value="Whr"/>
+			<Extension name="value" value="(0.45;0.75&gt;"/>
+			<Extension name="value" value="(0.75;0.8&gt;"/>
+			<Extension name="value" value="(0.8;0.85&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_485" 
+		      value="Žije sám(ne)"
+		>
+			<Extension name="attribute" value="Žije sám"/>
+			<Extension name="value" value="ne"/>
+		</Item>
+		<Item id="Item_FTLiteralI_486" 
+		      value="Vzdělání(vysokoškolské)"
+		>
+			<Extension name="attribute" value="Vzdělání"/>
+			<Extension name="value" value="vysokoškolské"/>
+		</Item>
+		<Item id="Item_FTLiteralI_487" 
+		      value="Pohlaví(žena)"
+		>
+			<Extension name="attribute" value="Pohlaví"/>
+			<Extension name="value" value="žena"/>
+		</Item>
+		<Item id="Item_FTLiteralI_488" 
+		      value="Bmi(&lt;= (24;25&gt;)"
+		>
+			<Extension name="attribute" value="Bmi"/>
+			<Extension name="value" value="(16;19&gt;"/>
+			<Extension name="value" value="(19;20&gt;"/>
+			<Extension name="value" value="(20;21&gt;"/>
+			<Extension name="value" value="(21;22&gt;"/>
+			<Extension name="value" value="(22;23&gt;"/>
+			<Extension name="value" value="(23;24&gt;"/>
+			<Extension name="value" value="(24;25&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_489" 
+		      value="Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"
+		>
+			<Extension name="attribute" value="Whr"/>
+			<Extension name="value" value="(0.45;0.75&gt;"/>
+			<Extension name="value" value="(0.75;0.8&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_490" 
+		      value="Kouření(nekuřák)"
+		>
+			<Extension name="attribute" value="Kouření"/>
+			<Extension name="value" value="nekuřák"/>
+		</Item>
+		<Item id="Item_FTLiteralI_491" 
+		      value="PsychZat(střední)"
+		>
+			<Extension name="attribute" value="PsychZat"/>
+			<Extension name="value" value="střední"/>
+		</Item>
+		<Item id="Item_FTLiteralI_492" 
+		      value="Pohlaví(žena)"
+		>
+			<Extension name="attribute" value="Pohlaví"/>
+			<Extension name="value" value="žena"/>
+		</Item>
+		<Item id="Item_FTLiteralI_493" 
+		      value="Bmi(&lt;= (22;23&gt;)"
+		>
+			<Extension name="attribute" value="Bmi"/>
+			<Extension name="value" value="(16;19&gt;"/>
+			<Extension name="value" value="(19;20&gt;"/>
+			<Extension name="value" value="(20;21&gt;"/>
+			<Extension name="value" value="(21;22&gt;"/>
+			<Extension name="value" value="(22;23&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_494" 
+		      value="Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"
+		>
+			<Extension name="attribute" value="Whr"/>
+			<Extension name="value" value="(0.45;0.75&gt;"/>
+			<Extension name="value" value="(0.75;0.8&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_495" 
+		      value="Kouření(nekuřák)"
+		>
+			<Extension name="attribute" value="Kouření"/>
+			<Extension name="value" value="nekuřák"/>
+		</Item>
+		<Item id="Item_FTLiteralI_496" 
+		      value="Vzdělání(vysokoškolské)"
+		>
+			<Extension name="attribute" value="Vzdělání"/>
+			<Extension name="value" value="vysokoškolské"/>
+		</Item>
+		<Item id="Item_FTLiteralI_497" 
+		      value="Pohlaví(žena)"
+		>
+			<Extension name="attribute" value="Pohlaví"/>
+			<Extension name="value" value="žena"/>
+		</Item>
+		<Item id="Item_FTLiteralI_498" 
+		      value="Bmi(&lt;= (21;22&gt;)"
+		>
+			<Extension name="attribute" value="Bmi"/>
+			<Extension name="value" value="(16;19&gt;"/>
+			<Extension name="value" value="(19;20&gt;"/>
+			<Extension name="value" value="(20;21&gt;"/>
+			<Extension name="value" value="(21;22&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_499" 
+		      value="Kouření(nekuřák)"
+		>
+			<Extension name="attribute" value="Kouření"/>
+			<Extension name="value" value="nekuřák"/>
+		</Item>
+		<Item id="Item_FTLiteralI_500" 
+		      value="Vzdělání(vysokoškolské)"
+		>
+			<Extension name="attribute" value="Vzdělání"/>
+			<Extension name="value" value="vysokoškolské"/>
+		</Item>
+		<Item id="Item_FTLiteralI_501" 
+		      value="Pohlaví(žena)"
+		>
+			<Extension name="attribute" value="Pohlaví"/>
+			<Extension name="value" value="žena"/>
+		</Item>
+		<Item id="Item_FTLiteralI_502" 
+		      value="Bmi(&lt;= (21;22&gt;)"
+		>
+			<Extension name="attribute" value="Bmi"/>
+			<Extension name="value" value="(16;19&gt;"/>
+			<Extension name="value" value="(19;20&gt;"/>
+			<Extension name="value" value="(20;21&gt;"/>
+			<Extension name="value" value="(21;22&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_503" 
+		      value="Whr(&lt;= (0.8;0.85&gt;)"
+		>
+			<Extension name="attribute" value="Whr"/>
+			<Extension name="value" value="(0.45;0.75&gt;"/>
+			<Extension name="value" value="(0.75;0.8&gt;"/>
+			<Extension name="value" value="(0.8;0.85&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_504" 
+		      value="Kouření(nekuřák)"
+		>
+			<Extension name="attribute" value="Kouření"/>
+			<Extension name="value" value="nekuřák"/>
+		</Item>
+		<Item id="Item_FTLiteralI_505" 
+		      value="Vzdělání(vysokoškolské)"
+		>
+			<Extension name="attribute" value="Vzdělání"/>
+			<Extension name="value" value="vysokoškolské"/>
+		</Item>
+		<Item id="Item_FTLiteralI_506" 
+		      value="Pohlaví(žena)"
+		>
+			<Extension name="attribute" value="Pohlaví"/>
+			<Extension name="value" value="žena"/>
+		</Item>
+		<Item id="Item_FTLiteralI_507" 
+		      value="Bmi(&lt;= (22;23&gt;)"
+		>
+			<Extension name="attribute" value="Bmi"/>
+			<Extension name="value" value="(16;19&gt;"/>
+			<Extension name="value" value="(19;20&gt;"/>
+			<Extension name="value" value="(20;21&gt;"/>
+			<Extension name="value" value="(21;22&gt;"/>
+			<Extension name="value" value="(22;23&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_508" 
+		      value="Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"
+		>
+			<Extension name="attribute" value="Whr"/>
+			<Extension name="value" value="(0.45;0.75&gt;"/>
+			<Extension name="value" value="(0.75;0.8&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_509" 
+		      value="Kouření(nekuřák)"
+		>
+			<Extension name="attribute" value="Kouření"/>
+			<Extension name="value" value="nekuřák"/>
+		</Item>
+		<Item id="Item_FTLiteralI_510" 
+		      value="Vzdělání(vysokoškolské)"
+		>
+			<Extension name="attribute" value="Vzdělání"/>
+			<Extension name="value" value="vysokoškolské"/>
+		</Item>
+		<Item id="Item_FTLiteralI_511" 
+		      value="Pohlaví(žena)"
+		>
+			<Extension name="attribute" value="Pohlaví"/>
+			<Extension name="value" value="žena"/>
+		</Item>
+		<Item id="Item_FTLiteralI_512" 
+		      value="Bmi(&lt;= (22;23&gt;)"
+		>
+			<Extension name="attribute" value="Bmi"/>
+			<Extension name="value" value="(16;19&gt;"/>
+			<Extension name="value" value="(19;20&gt;"/>
+			<Extension name="value" value="(20;21&gt;"/>
+			<Extension name="value" value="(21;22&gt;"/>
+			<Extension name="value" value="(22;23&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_513" 
+		      value="Whr(&lt;= (0.8;0.85&gt;)"
+		>
+			<Extension name="attribute" value="Whr"/>
+			<Extension name="value" value="(0.45;0.75&gt;"/>
+			<Extension name="value" value="(0.75;0.8&gt;"/>
+			<Extension name="value" value="(0.8;0.85&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_514" 
+		      value="Kouření(nekuřák)"
+		>
+			<Extension name="attribute" value="Kouření"/>
+			<Extension name="value" value="nekuřák"/>
+		</Item>
+		<Item id="Item_FTLiteralI_515" 
+		      value="Vzdělání(vysokoškolské)"
+		>
+			<Extension name="attribute" value="Vzdělání"/>
+			<Extension name="value" value="vysokoškolské"/>
+		</Item>
+		<Item id="Item_FTLiteralI_516" 
+		      value="Pohlaví(žena)"
+		>
+			<Extension name="attribute" value="Pohlaví"/>
+			<Extension name="value" value="žena"/>
+		</Item>
+		<Item id="Item_FTLiteralI_517" 
+		      value="Bmi(&lt;= (23;24&gt;)"
+		>
+			<Extension name="attribute" value="Bmi"/>
+			<Extension name="value" value="(16;19&gt;"/>
+			<Extension name="value" value="(19;20&gt;"/>
+			<Extension name="value" value="(20;21&gt;"/>
+			<Extension name="value" value="(21;22&gt;"/>
+			<Extension name="value" value="(22;23&gt;"/>
+			<Extension name="value" value="(23;24&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_518" 
+		      value="Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"
+		>
+			<Extension name="attribute" value="Whr"/>
+			<Extension name="value" value="(0.45;0.75&gt;"/>
+			<Extension name="value" value="(0.75;0.8&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_519" 
+		      value="Kouření(nekuřák)"
+		>
+			<Extension name="attribute" value="Kouření"/>
+			<Extension name="value" value="nekuřák"/>
+		</Item>
+		<Item id="Item_FTLiteralI_520" 
+		      value="Vzdělání(vysokoškolské)"
+		>
+			<Extension name="attribute" value="Vzdělání"/>
+			<Extension name="value" value="vysokoškolské"/>
+		</Item>
+		<Item id="Item_FTLiteralI_521" 
+		      value="Pohlaví(žena)"
+		>
+			<Extension name="attribute" value="Pohlaví"/>
+			<Extension name="value" value="žena"/>
+		</Item>
+		<Item id="Item_FTLiteralI_522" 
+		      value="Bmi(&lt;= (24;25&gt;)"
+		>
+			<Extension name="attribute" value="Bmi"/>
+			<Extension name="value" value="(16;19&gt;"/>
+			<Extension name="value" value="(19;20&gt;"/>
+			<Extension name="value" value="(20;21&gt;"/>
+			<Extension name="value" value="(21;22&gt;"/>
+			<Extension name="value" value="(22;23&gt;"/>
+			<Extension name="value" value="(23;24&gt;"/>
+			<Extension name="value" value="(24;25&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_523" 
+		      value="Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"
+		>
+			<Extension name="attribute" value="Whr"/>
+			<Extension name="value" value="(0.45;0.75&gt;"/>
+			<Extension name="value" value="(0.75;0.8&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_524" 
+		      value="PsychZat(mírná, střední)"
+		>
+			<Extension name="attribute" value="PsychZat"/>
+			<Extension name="value" value="mírná"/>
+			<Extension name="value" value="střední"/>
+		</Item>
+		<Item id="Item_FTLiteralI_525" 
+		      value="Vzdělání(vysokoškolské)"
+		>
+			<Extension name="attribute" value="Vzdělání"/>
+			<Extension name="value" value="vysokoškolské"/>
+		</Item>
+		<Item id="Item_FTLiteralI_526" 
+		      value="Pohlaví(žena)"
+		>
+			<Extension name="attribute" value="Pohlaví"/>
+			<Extension name="value" value="žena"/>
+		</Item>
+		<Item id="Item_FTLiteralI_527" 
+		      value="Bmi(&lt;= (21;22&gt;)"
+		>
+			<Extension name="attribute" value="Bmi"/>
+			<Extension name="value" value="(16;19&gt;"/>
+			<Extension name="value" value="(19;20&gt;"/>
+			<Extension name="value" value="(20;21&gt;"/>
+			<Extension name="value" value="(21;22&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_528" 
+		      value="Whr(&lt;= (0.8;0.85&gt;)"
+		>
+			<Extension name="attribute" value="Whr"/>
+			<Extension name="value" value="(0.45;0.75&gt;"/>
+			<Extension name="value" value="(0.75;0.8&gt;"/>
+			<Extension name="value" value="(0.8;0.85&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_529" 
+		      value="PsychZat(mírná, střední)"
+		>
+			<Extension name="attribute" value="PsychZat"/>
+			<Extension name="value" value="mírná"/>
+			<Extension name="value" value="střední"/>
+		</Item>
+		<Item id="Item_FTLiteralI_530" 
+		      value="Vzdělání(vysokoškolské)"
+		>
+			<Extension name="attribute" value="Vzdělání"/>
+			<Extension name="value" value="vysokoškolské"/>
+		</Item>
+		<Item id="Item_FTLiteralI_531" 
+		      value="Pohlaví(žena)"
+		>
+			<Extension name="attribute" value="Pohlaví"/>
+			<Extension name="value" value="žena"/>
+		</Item>
+		<Item id="Item_FTLiteralI_532" 
+		      value="Bmi(&lt;= (24;25&gt;)"
+		>
+			<Extension name="attribute" value="Bmi"/>
+			<Extension name="value" value="(16;19&gt;"/>
+			<Extension name="value" value="(19;20&gt;"/>
+			<Extension name="value" value="(20;21&gt;"/>
+			<Extension name="value" value="(21;22&gt;"/>
+			<Extension name="value" value="(22;23&gt;"/>
+			<Extension name="value" value="(23;24&gt;"/>
+			<Extension name="value" value="(24;25&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_533" 
+		      value="Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"
+		>
+			<Extension name="attribute" value="Whr"/>
+			<Extension name="value" value="(0.45;0.75&gt;"/>
+			<Extension name="value" value="(0.75;0.8&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_534" 
+		      value="PsychZat(střední, vysoká)"
+		>
+			<Extension name="attribute" value="PsychZat"/>
+			<Extension name="value" value="střední"/>
+			<Extension name="value" value="vysoká"/>
+		</Item>
+		<Item id="Item_FTLiteralI_535" 
+		      value="Vzdělání(vysokoškolské)"
+		>
+			<Extension name="attribute" value="Vzdělání"/>
+			<Extension name="value" value="vysokoškolské"/>
+		</Item>
+		<Item id="Item_FTLiteralI_536" 
+		      value="Pohlaví(žena)"
+		>
+			<Extension name="attribute" value="Pohlaví"/>
+			<Extension name="value" value="žena"/>
+		</Item>
+		<Item id="Item_FTLiteralI_537" 
+		      value="Bmi(&lt;= (21;22&gt;)"
+		>
+			<Extension name="attribute" value="Bmi"/>
+			<Extension name="value" value="(16;19&gt;"/>
+			<Extension name="value" value="(19;20&gt;"/>
+			<Extension name="value" value="(20;21&gt;"/>
+			<Extension name="value" value="(21;22&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_538" 
+		      value="Whr(&lt;= (0.8;0.85&gt;)"
+		>
+			<Extension name="attribute" value="Whr"/>
+			<Extension name="value" value="(0.45;0.75&gt;"/>
+			<Extension name="value" value="(0.75;0.8&gt;"/>
+			<Extension name="value" value="(0.8;0.85&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_539" 
+		      value="PsychZat(střední, vysoká)"
+		>
+			<Extension name="attribute" value="PsychZat"/>
+			<Extension name="value" value="střední"/>
+			<Extension name="value" value="vysoká"/>
+		</Item>
+		<Item id="Item_FTLiteralI_540" 
+		      value="Vzdělání(vysokoškolské)"
+		>
+			<Extension name="attribute" value="Vzdělání"/>
+			<Extension name="value" value="vysokoškolské"/>
+		</Item>
+		<Item id="Item_FTLiteralI_541" 
+		      value="Pohlaví(žena)"
+		>
+			<Extension name="attribute" value="Pohlaví"/>
+			<Extension name="value" value="žena"/>
+		</Item>
+		<Item id="Item_FTLiteralI_542" 
+		      value="Bmi(&lt;= (22;23&gt;)"
+		>
+			<Extension name="attribute" value="Bmi"/>
+			<Extension name="value" value="(16;19&gt;"/>
+			<Extension name="value" value="(19;20&gt;"/>
+			<Extension name="value" value="(20;21&gt;"/>
+			<Extension name="value" value="(21;22&gt;"/>
+			<Extension name="value" value="(22;23&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_543" 
+		      value="Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"
+		>
+			<Extension name="attribute" value="Whr"/>
+			<Extension name="value" value="(0.45;0.75&gt;"/>
+			<Extension name="value" value="(0.75;0.8&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_544" 
+		      value="Vzdělání(základní, středoškolské)"
+		>
+			<Extension name="attribute" value="Vzdělání"/>
+			<Extension name="value" value="základní"/>
+			<Extension name="value" value="středoškolské"/>
+		</Item>
+		<Item id="Item_FTLiteralI_545" 
+		      value="Pohlaví(muž)"
+		>
+			<Extension name="attribute" value="Pohlaví"/>
+			<Extension name="value" value="muž"/>
+		</Item>
+		<Item id="Item_FTLiteralI_546" 
+		      value="Whr((0.95;1&gt;, (1;1.3&gt;)"
+		>
+			<Extension name="attribute" value="Whr"/>
+			<Extension name="value" value="(0.95;1&gt;"/>
+			<Extension name="value" value="(1;1.3&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_547" 
+		      value="Vzdělání(vysokoškolské)"
+		>
+			<Extension name="attribute" value="Vzdělání"/>
+			<Extension name="value" value="vysokoškolské"/>
+		</Item>
+		<Item id="Item_FTLiteralI_548" 
+		      value="Pohlaví(žena)"
+		>
+			<Extension name="attribute" value="Pohlaví"/>
+			<Extension name="value" value="žena"/>
+		</Item>
+		<Item id="Item_FTLiteralI_549" 
+		      value="Bmi(&lt;= (21;22&gt;)"
+		>
+			<Extension name="attribute" value="Bmi"/>
+			<Extension name="value" value="(16;19&gt;"/>
+			<Extension name="value" value="(19;20&gt;"/>
+			<Extension name="value" value="(20;21&gt;"/>
+			<Extension name="value" value="(21;22&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_550" 
+		      value="Whr(&lt;= (0.8;0.85&gt;)"
+		>
+			<Extension name="attribute" value="Whr"/>
+			<Extension name="value" value="(0.45;0.75&gt;"/>
+			<Extension name="value" value="(0.75;0.8&gt;"/>
+			<Extension name="value" value="(0.8;0.85&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_551" 
+		      value="Vzdělání(vysokoškolské)"
+		>
+			<Extension name="attribute" value="Vzdělání"/>
+			<Extension name="value" value="vysokoškolské"/>
+		</Item>
+		<Item id="Item_FTLiteralI_552" 
+		      value="Pohlaví(žena)"
+		>
+			<Extension name="attribute" value="Pohlaví"/>
+			<Extension name="value" value="žena"/>
+		</Item>
+		<Item id="Item_FTLiteralI_553" 
+		      value="Bmi(&lt;= (22;23&gt;)"
+		>
+			<Extension name="attribute" value="Bmi"/>
+			<Extension name="value" value="(16;19&gt;"/>
+			<Extension name="value" value="(19;20&gt;"/>
+			<Extension name="value" value="(20;21&gt;"/>
+			<Extension name="value" value="(21;22&gt;"/>
+			<Extension name="value" value="(22;23&gt;"/>
+		</Item>
+		<Item id="Item_FTLiteralI_554" 
+		      value="Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"
+		>
+			<Extension name="attribute" value="Whr"/>
+			<Extension name="value" value="(0.45;0.75&gt;"/>
+			<Extension name="value" value="(0.75;0.8&gt;"/>
+		</Item>
+
+
+		<Itemset id="Itemset_FTCedentI_81">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Rodinný stav(svobodný) &amp; Kouření(nekuřák) &amp; Vzdělání(vysokoškolské)"/>
+			<ItemRef itemRef="Item_FTLiteralI_431"/>
+			<ItemRef itemRef="Item_FTLiteralI_432"/>
+			<ItemRef itemRef="Item_FTLiteralI_433"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_82">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (22;23&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_434"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_83">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Rodinný stav(svobodný) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Item_FTLiteralI_435"/>
+			<ItemRef itemRef="Item_FTLiteralI_436"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_84">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (23;24&gt;) &amp; Whr(&lt;= (0.8;0.85&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_437"/>
+			<ItemRef itemRef="Item_FTLiteralI_438"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_85">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Rodinný stav(ženatý) &amp; Žije sám(ne) &amp; Pohlaví(muž)"/>
+			<ItemRef itemRef="Item_FTLiteralI_439"/>
+			<ItemRef itemRef="Item_FTLiteralI_440"/>
+			<ItemRef itemRef="Item_FTLiteralI_441"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_86">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Whr((0.95;1&gt;, (1;1.3&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_442"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_87">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Rodinný stav(ženatý) &amp; PsychZat(střední, vysoká) &amp; Pohlaví(muž)"/>
+			<ItemRef itemRef="Item_FTLiteralI_443"/>
+			<ItemRef itemRef="Item_FTLiteralI_444"/>
+			<ItemRef itemRef="Item_FTLiteralI_445"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_88">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Whr((0.95;1&gt;, (1;1.3&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_446"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_89">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Rodinný stav(ženatý) &amp; Vzdělání(základní, středoškolské) &amp; Pohlaví(muž)"/>
+			<ItemRef itemRef="Item_FTLiteralI_447"/>
+			<ItemRef itemRef="Item_FTLiteralI_448"/>
+			<ItemRef itemRef="Item_FTLiteralI_449"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_90">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Whr((0.95;1&gt;, (1;1.3&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_450"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_91">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Rodinný stav(ženatý) &amp; Vzdělání(základní, středoškolské) &amp; Pohlaví(muž)"/>
+			<ItemRef itemRef="Item_FTLiteralI_451"/>
+			<ItemRef itemRef="Item_FTLiteralI_452"/>
+			<ItemRef itemRef="Item_FTLiteralI_453"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_92">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Whr(&gt;= (0.9;0.95&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_454"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_93">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Rodinný stav(ženatý) &amp; Vzdělání(středoškolské, vysokoškolské) &amp; Pohlaví(muž)"/>
+			<ItemRef itemRef="Item_FTLiteralI_455"/>
+			<ItemRef itemRef="Item_FTLiteralI_456"/>
+			<ItemRef itemRef="Item_FTLiteralI_457"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_94">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Whr((0.95;1&gt;, (1;1.3&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_458"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_95">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Rodinný stav(ženatý) &amp; Pohlaví(muž)"/>
+			<ItemRef itemRef="Item_FTLiteralI_459"/>
+			<ItemRef itemRef="Item_FTLiteralI_460"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_96">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Whr((0.95;1&gt;, (1;1.3&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_461"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_97">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Žije sám(ne) &amp; Vzdělání(základní, středoškolské) &amp; Pohlaví(muž)"/>
+			<ItemRef itemRef="Item_FTLiteralI_462"/>
+			<ItemRef itemRef="Item_FTLiteralI_463"/>
+			<ItemRef itemRef="Item_FTLiteralI_464"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_98">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Whr((0.95;1&gt;, (1;1.3&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_465"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_99">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Žije sám(ne) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Item_FTLiteralI_466"/>
+			<ItemRef itemRef="Item_FTLiteralI_467"/>
+			<ItemRef itemRef="Item_FTLiteralI_468"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_100">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (21;22&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_469"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_101">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Žije sám(ne) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Item_FTLiteralI_470"/>
+			<ItemRef itemRef="Item_FTLiteralI_471"/>
+			<ItemRef itemRef="Item_FTLiteralI_472"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_102">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (21;22&gt;) &amp; Whr(&lt;= (0.8;0.85&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_473"/>
+			<ItemRef itemRef="Item_FTLiteralI_474"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_103">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Žije sám(ne) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Item_FTLiteralI_475"/>
+			<ItemRef itemRef="Item_FTLiteralI_476"/>
+			<ItemRef itemRef="Item_FTLiteralI_477"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_104">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (22;23&gt;) &amp; Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_478"/>
+			<ItemRef itemRef="Item_FTLiteralI_479"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_105">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Žije sám(ne) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Item_FTLiteralI_480"/>
+			<ItemRef itemRef="Item_FTLiteralI_481"/>
+			<ItemRef itemRef="Item_FTLiteralI_482"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_106">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (22;23&gt;) &amp; Whr(&lt;= (0.8;0.85&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_483"/>
+			<ItemRef itemRef="Item_FTLiteralI_484"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_107">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Žije sám(ne) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Item_FTLiteralI_485"/>
+			<ItemRef itemRef="Item_FTLiteralI_486"/>
+			<ItemRef itemRef="Item_FTLiteralI_487"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_108">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (24;25&gt;) &amp; Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_488"/>
+			<ItemRef itemRef="Item_FTLiteralI_489"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_109">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Kouření(nekuřák) &amp; PsychZat(střední) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Item_FTLiteralI_490"/>
+			<ItemRef itemRef="Item_FTLiteralI_491"/>
+			<ItemRef itemRef="Item_FTLiteralI_492"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_110">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (22;23&gt;) &amp; Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_493"/>
+			<ItemRef itemRef="Item_FTLiteralI_494"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_111">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Kouření(nekuřák) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Item_FTLiteralI_495"/>
+			<ItemRef itemRef="Item_FTLiteralI_496"/>
+			<ItemRef itemRef="Item_FTLiteralI_497"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_112">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (21;22&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_498"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_113">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Kouření(nekuřák) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Item_FTLiteralI_499"/>
+			<ItemRef itemRef="Item_FTLiteralI_500"/>
+			<ItemRef itemRef="Item_FTLiteralI_501"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_114">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (21;22&gt;) &amp; Whr(&lt;= (0.8;0.85&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_502"/>
+			<ItemRef itemRef="Item_FTLiteralI_503"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_115">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Kouření(nekuřák) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Item_FTLiteralI_504"/>
+			<ItemRef itemRef="Item_FTLiteralI_505"/>
+			<ItemRef itemRef="Item_FTLiteralI_506"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_116">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (22;23&gt;) &amp; Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_507"/>
+			<ItemRef itemRef="Item_FTLiteralI_508"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_117">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Kouření(nekuřák) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Item_FTLiteralI_509"/>
+			<ItemRef itemRef="Item_FTLiteralI_510"/>
+			<ItemRef itemRef="Item_FTLiteralI_511"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_118">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (22;23&gt;) &amp; Whr(&lt;= (0.8;0.85&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_512"/>
+			<ItemRef itemRef="Item_FTLiteralI_513"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_119">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Kouření(nekuřák) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Item_FTLiteralI_514"/>
+			<ItemRef itemRef="Item_FTLiteralI_515"/>
+			<ItemRef itemRef="Item_FTLiteralI_516"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_120">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (23;24&gt;) &amp; Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_517"/>
+			<ItemRef itemRef="Item_FTLiteralI_518"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_121">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Kouření(nekuřák) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Item_FTLiteralI_519"/>
+			<ItemRef itemRef="Item_FTLiteralI_520"/>
+			<ItemRef itemRef="Item_FTLiteralI_521"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_122">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (24;25&gt;) &amp; Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_522"/>
+			<ItemRef itemRef="Item_FTLiteralI_523"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_123">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="PsychZat(mírná, střední) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Item_FTLiteralI_524"/>
+			<ItemRef itemRef="Item_FTLiteralI_525"/>
+			<ItemRef itemRef="Item_FTLiteralI_526"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_124">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (21;22&gt;) &amp; Whr(&lt;= (0.8;0.85&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_527"/>
+			<ItemRef itemRef="Item_FTLiteralI_528"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_125">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="PsychZat(mírná, střední) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Item_FTLiteralI_529"/>
+			<ItemRef itemRef="Item_FTLiteralI_530"/>
+			<ItemRef itemRef="Item_FTLiteralI_531"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_126">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (24;25&gt;) &amp; Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_532"/>
+			<ItemRef itemRef="Item_FTLiteralI_533"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_127">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="PsychZat(střední, vysoká) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Item_FTLiteralI_534"/>
+			<ItemRef itemRef="Item_FTLiteralI_535"/>
+			<ItemRef itemRef="Item_FTLiteralI_536"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_128">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (21;22&gt;) &amp; Whr(&lt;= (0.8;0.85&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_537"/>
+			<ItemRef itemRef="Item_FTLiteralI_538"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_129">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="PsychZat(střední, vysoká) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Item_FTLiteralI_539"/>
+			<ItemRef itemRef="Item_FTLiteralI_540"/>
+			<ItemRef itemRef="Item_FTLiteralI_541"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_130">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (22;23&gt;) &amp; Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_542"/>
+			<ItemRef itemRef="Item_FTLiteralI_543"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_131">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Vzdělání(základní, středoškolské) &amp; Pohlaví(muž)"/>
+			<ItemRef itemRef="Item_FTLiteralI_544"/>
+			<ItemRef itemRef="Item_FTLiteralI_545"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_132">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Whr((0.95;1&gt;, (1;1.3&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_546"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_133">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Item_FTLiteralI_547"/>
+			<ItemRef itemRef="Item_FTLiteralI_548"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_134">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (21;22&gt;) &amp; Whr(&lt;= (0.8;0.85&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_549"/>
+			<ItemRef itemRef="Item_FTLiteralI_550"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_135">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Item_FTLiteralI_551"/>
+			<ItemRef itemRef="Item_FTLiteralI_552"/>
+		</Itemset>
+		<Itemset id="Itemset_FTCedentI_136">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (22;23&gt;) &amp; Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"/>
+			<ItemRef itemRef="Item_FTLiteralI_553"/>
+			<ItemRef itemRef="Item_FTLiteralI_554"/>
+		</Itemset>
+
+		<Itemset id="Itemset_Antecedent_126">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Kouření(nekuřák) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_115"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_126">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (22;23&gt;) &amp; Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_116"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_113">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Rodinný stav(ženatý) &amp; Vzdělání(základní, středoškolské) &amp; Pohlaví(muž)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_89"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_113">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Whr((0.95;1&gt;, (1;1.3&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_90"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_125">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Kouření(nekuřák) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_113"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_125">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (21;22&gt;) &amp; Whr(&lt;= (0.8;0.85&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_114"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_120">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Žije sám(ne) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_103"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_120">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (22;23&gt;) &amp; Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_104"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_133">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="PsychZat(střední, vysoká) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_129"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_133">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (22;23&gt;) &amp; Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_130"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_119">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Žije sám(ne) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_101"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_119">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (21;22&gt;) &amp; Whr(&lt;= (0.8;0.85&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_102"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_136">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_135"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_136">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (22;23&gt;) &amp; Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_136"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_128">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Kouření(nekuřák) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_119"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_128">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (23;24&gt;) &amp; Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_120"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_112">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Rodinný stav(ženatý) &amp; PsychZat(střední, vysoká) &amp; Pohlaví(muž)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_87"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_112">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Whr((0.95;1&gt;, (1;1.3&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_88"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_127">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Kouření(nekuřák) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_117"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_127">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (22;23&gt;) &amp; Whr(&lt;= (0.8;0.85&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_118"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_130">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="PsychZat(mírná, střední) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_123"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_130">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (21;22&gt;) &amp; Whr(&lt;= (0.8;0.85&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_124"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_117">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Žije sám(ne) &amp; Vzdělání(základní, středoškolské) &amp; Pohlaví(muž)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_97"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_117">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Whr((0.95;1&gt;, (1;1.3&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_98"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_129">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Kouření(nekuřák) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_121"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_129">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (24;25&gt;) &amp; Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_122"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_134">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Vzdělání(základní, středoškolské) &amp; Pohlaví(muž)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_131"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_134">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Whr((0.95;1&gt;, (1;1.3&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_132"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_132">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="PsychZat(střední, vysoká) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_127"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_132">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (21;22&gt;) &amp; Whr(&lt;= (0.8;0.85&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_128"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_124">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Kouření(nekuřák) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_111"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_124">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (21;22&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_112"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_135">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_133"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_135">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (21;22&gt;) &amp; Whr(&lt;= (0.8;0.85&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_134"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_116">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Rodinný stav(ženatý) &amp; Pohlaví(muž)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_95"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_116">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Whr((0.95;1&gt;, (1;1.3&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_96"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_111">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Rodinný stav(ženatý) &amp; Žije sám(ne) &amp; Pohlaví(muž)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_85"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_111">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Whr((0.95;1&gt;, (1;1.3&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_86"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_121">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Žije sám(ne) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_105"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_121">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (22;23&gt;) &amp; Whr(&lt;= (0.8;0.85&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_106"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_109">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Rodinný stav(svobodný) &amp; Kouření(nekuřák) &amp; Vzdělání(vysokoškolské)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_81"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_109">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (22;23&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_82"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_115">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Rodinný stav(ženatý) &amp; Vzdělání(středoškolské, vysokoškolské) &amp; Pohlaví(muž)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_93"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_115">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Whr((0.95;1&gt;, (1;1.3&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_94"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_114">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Rodinný stav(ženatý) &amp; Vzdělání(základní, středoškolské) &amp; Pohlaví(muž)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_91"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_114">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Whr(&gt;= (0.9;0.95&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_92"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_110">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Rodinný stav(svobodný) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_83"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_110">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (23;24&gt;) &amp; Whr(&lt;= (0.8;0.85&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_84"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_122">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Žije sám(ne) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_107"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_122">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (24;25&gt;) &amp; Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_108"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_123">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Kouření(nekuřák) &amp; PsychZat(střední) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_109"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_123">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (22;23&gt;) &amp; Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_110"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_118">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Žije sám(ne) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_99"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_118">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (21;22&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_100"/>
+		</Itemset>
+		<Itemset id="Itemset_Antecedent_131">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="PsychZat(mírná, střední) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_125"/>
+		</Itemset>
+		<Itemset id="Itemset_Succedent_131">
+			<Extension name="Connective" value="Conjunction"/>
+			<Extension name="Text" value="Bmi(&lt;= (24;25&gt;) &amp; Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"/>
+			<ItemRef itemRef="Itemset_FTCedentI_126"/>
+		</Itemset>
+
+	<!-- Hypothesis -->
+
+		<AssociationRule 
+			confidence="0.367347" 
+			support="0.053412"
+			antecedent="Itemset_Antecedent_126"
+			consequent="Itemset_Succedent_126"
+		>
+			<Extension name="Text" value="Kouření(nekuřák) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena) ::: Bmi(&lt;= (22;23&gt;) &amp; Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"/>
+
+			<Extension name="Quantifier" value="36.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="62.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="35.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="541.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="98.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="674.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.3673469388" extender="Conf"/>
+			<Extension name="Quantifier" value="0.2706766917" extender="DConf"/>
+			<Extension name="Quantifier" value="0.8560830861" extender="EConf"/>
+			<Extension name="Quantifier" value="0.0534124629" extender="Supp"/>
+			<Extension name="Quantifier" value="0.5070422535" extender="Cmplt"/>
+			<Extension name="Quantifier" value="2.4872089681" extender="AvgDf"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+			<Extension name="Quantifier" value="0.9998761624" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0001930653" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="Fisher"/>
+			<Extension name="Quantifier" value="83.5274215809" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.3700000000" extender="bMean"/>
+			<Extension name="Quantifier" value="0.3700000000" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0480408242" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="36" extender="a"/>
+			<Extension name="4ftFrequency" value="62" extender="b"/>
+			<Extension name="4ftFrequency" value="35" extender="c"/>
+			<Extension name="4ftFrequency" value="541" extender="d"/>
+
+		</AssociationRule>
+		<AssociationRule 
+			confidence="0.526316" 
+			support="0.059347"
+			antecedent="Itemset_Antecedent_113"
+			consequent="Itemset_Succedent_113"
+		>
+			<Extension name="Text" value="Rodinný stav(ženatý) &amp; Vzdělání(základní, středoškolské) &amp; Pohlaví(muž) ::: Whr((0.95;1&gt;, (1;1.3&gt;)"/>
+
+			<Extension name="Quantifier" value="40.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="36.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="70.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="528.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="76.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="674.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.5263157895" extender="Conf"/>
+			<Extension name="Quantifier" value="0.2739726027" extender="DConf"/>
+			<Extension name="Quantifier" value="0.8427299703" extender="EConf"/>
+			<Extension name="Quantifier" value="0.0593471810" extender="Supp"/>
+			<Extension name="Quantifier" value="0.3636363636" extender="Cmplt"/>
+			<Extension name="Quantifier" value="2.2248803828" extender="AvgDf"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+			<Extension name="Quantifier" value="0.9999986139" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0000023845" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="Fisher"/>
+			<Extension name="Quantifier" value="82.6988022445" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.5256410256" extender="bMean"/>
+			<Extension name="Quantifier" value="0.5256410256" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0561803761" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="40" extender="a"/>
+			<Extension name="4ftFrequency" value="36" extender="b"/>
+			<Extension name="4ftFrequency" value="70" extender="c"/>
+			<Extension name="4ftFrequency" value="528" extender="d"/>
+
+		</AssociationRule>
+		<AssociationRule 
+			confidence="0.367347" 
+			support="0.053254"
+			antecedent="Itemset_Antecedent_125"
+			consequent="Itemset_Succedent_125"
+		>
+			<Extension name="Text" value="Kouření(nekuřák) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena) ::: Bmi(&lt;= (21;22&gt;) &amp; Whr(&lt;= (0.8;0.85&gt;)"/>
+
+			<Extension name="Quantifier" value="36.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="62.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="44.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="534.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="98.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="676.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.3673469388" extender="Conf"/>
+			<Extension name="Quantifier" value="0.2535211268" extender="DConf"/>
+			<Extension name="Quantifier" value="0.8431952663" extender="EConf"/>
+			<Extension name="Quantifier" value="0.0532544379" extender="Supp"/>
+			<Extension name="Quantifier" value="0.4500000000" extender="Cmplt"/>
+			<Extension name="Quantifier" value="2.1040816327" extender="AvgDf"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+			<Extension name="Quantifier" value="0.9999984075" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0000027303" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="Fisher"/>
+			<Extension name="Quantifier" value="68.1104627560" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.3700000000" extender="bMean"/>
+			<Extension name="Quantifier" value="0.3700000000" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0480408242" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="36" extender="a"/>
+			<Extension name="4ftFrequency" value="62" extender="b"/>
+			<Extension name="4ftFrequency" value="44" extender="c"/>
+			<Extension name="4ftFrequency" value="534" extender="d"/>
+
+		</AssociationRule>
+		<AssociationRule 
+			confidence="0.337079" 
+			support="0.044577"
+			antecedent="Itemset_Antecedent_120"
+			consequent="Itemset_Succedent_120"
+		>
+			<Extension name="Text" value="Žije sám(ne) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena) ::: Bmi(&lt;= (22;23&gt;) &amp; Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"/>
+
+			<Extension name="Quantifier" value="30.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="59.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="44.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="540.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="89.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="673.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.3370786517" extender="Conf"/>
+			<Extension name="Quantifier" value="0.2255639098" extender="DConf"/>
+			<Extension name="Quantifier" value="0.8469539376" extender="EConf"/>
+			<Extension name="Quantifier" value="0.0445765230" extender="Supp"/>
+			<Extension name="Quantifier" value="0.4054054054" extender="Cmplt"/>
+			<Extension name="Quantifier" value="2.0655936836" extender="AvgDf"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+			<Extension name="Quantifier" value="0.9999935946" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0000106876" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000002" extender="Fisher"/>
+			<Extension name="Quantifier" value="54.0613535264" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.3406593407" extender="bMean"/>
+			<Extension name="Quantifier" value="0.3406593407" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0494107182" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="30" extender="a"/>
+			<Extension name="4ftFrequency" value="59" extender="b"/>
+			<Extension name="4ftFrequency" value="44" extender="c"/>
+			<Extension name="4ftFrequency" value="540" extender="d"/>
+
+		</AssociationRule>
+		<AssociationRule 
+			confidence="0.333333" 
+			support="0.045655"
+			antecedent="Itemset_Antecedent_133"
+			consequent="Itemset_Succedent_133"
+		>
+			<Extension name="Text" value="PsychZat(střední, vysoká) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena) ::: Bmi(&lt;= (22;23&gt;) &amp; Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"/>
+
+			<Extension name="Quantifier" value="31.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="62.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="43.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="543.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="93.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="679.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.3333333333" extender="Conf"/>
+			<Extension name="Quantifier" value="0.2279411765" extender="DConf"/>
+			<Extension name="Quantifier" value="0.8453608247" extender="EConf"/>
+			<Extension name="Quantifier" value="0.0456553756" extender="Supp"/>
+			<Extension name="Quantifier" value="0.4189189189" extender="Cmplt"/>
+			<Extension name="Quantifier" value="2.0585585586" extender="AvgDf"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+			<Extension name="Quantifier" value="0.9999966615" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0000056342" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000001" extender="Fisher"/>
+			<Extension name="Quantifier" value="55.8544658796" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.3368421053" extender="bMean"/>
+			<Extension name="Quantifier" value="0.3368421053" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0482376389" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="31" extender="a"/>
+			<Extension name="4ftFrequency" value="62" extender="b"/>
+			<Extension name="4ftFrequency" value="43" extender="c"/>
+			<Extension name="4ftFrequency" value="543" extender="d"/>
+
+		</AssociationRule>
+		<AssociationRule 
+			confidence="0.359551" 
+			support="0.047407"
+			antecedent="Itemset_Antecedent_119"
+			consequent="Itemset_Succedent_119"
+		>
+			<Extension name="Text" value="Žije sám(ne) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena) ::: Bmi(&lt;= (21;22&gt;) &amp; Whr(&lt;= (0.8;0.85&gt;)"/>
+
+			<Extension name="Quantifier" value="32.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="57.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="50.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="536.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="89.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="675.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.3595505618" extender="Conf"/>
+			<Extension name="Quantifier" value="0.2302158273" extender="DConf"/>
+			<Extension name="Quantifier" value="0.8414814815" extender="EConf"/>
+			<Extension name="Quantifier" value="0.0474074074" extender="Supp"/>
+			<Extension name="Quantifier" value="0.3902439024" extender="Cmplt"/>
+			<Extension name="Quantifier" value="1.9597149904" extender="AvgDf"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+			<Extension name="Quantifier" value="0.9999991439" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0000014859" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000001" extender="Fisher"/>
+			<Extension name="Quantifier" value="54.4428876142" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.3626373626" extender="bMean"/>
+			<Extension name="Quantifier" value="0.3626373626" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0501228389" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="32" extender="a"/>
+			<Extension name="4ftFrequency" value="57" extender="b"/>
+			<Extension name="4ftFrequency" value="50" extender="c"/>
+			<Extension name="4ftFrequency" value="536" extender="d"/>
+
+		</AssociationRule>
+		<AssociationRule 
+			confidence="0.312000" 
+			support="0.057437"
+			antecedent="Itemset_Antecedent_136"
+			consequent="Itemset_Succedent_136"
+		>
+			<Extension name="Text" value="Vzdělání(vysokoškolské) &amp; Pohlaví(žena) ::: Bmi(&lt;= (22;23&gt;) &amp; Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"/>
+
+			<Extension name="Quantifier" value="39.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="86.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="34.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="520.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="125.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="679.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.3120000000" extender="Conf"/>
+			<Extension name="Quantifier" value="0.2452830189" extender="DConf"/>
+			<Extension name="Quantifier" value="0.8232695140" extender="EConf"/>
+			<Extension name="Quantifier" value="0.0574374080" extender="Supp"/>
+			<Extension name="Quantifier" value="0.5342465753" extender="Cmplt"/>
+			<Extension name="Quantifier" value="1.9020273973" extender="AvgDf"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+			<Extension name="Quantifier" value="0.9999999996" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0000000007" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="Fisher"/>
+			<Extension name="Quantifier" value="66.7657597227" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.3149606299" extender="bMean"/>
+			<Extension name="Quantifier" value="0.3149606299" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0410564048" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="39" extender="a"/>
+			<Extension name="4ftFrequency" value="86" extender="b"/>
+			<Extension name="4ftFrequency" value="34" extender="c"/>
+			<Extension name="4ftFrequency" value="520" extender="d"/>
+
+		</AssociationRule>
+		<AssociationRule 
+			confidence="0.406250" 
+			support="0.058209"
+			antecedent="Itemset_Antecedent_128"
+			consequent="Itemset_Succedent_128"
+		>
+			<Extension name="Text" value="Kouření(nekuřák) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena) ::: Bmi(&lt;= (23;24&gt;) &amp; Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"/>
+
+			<Extension name="Quantifier" value="39.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="57.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="56.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="518.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="96.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="670.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.4062500000" extender="Conf"/>
+			<Extension name="Quantifier" value="0.2565789474" extender="DConf"/>
+			<Extension name="Quantifier" value="0.8313432836" extender="EConf"/>
+			<Extension name="Quantifier" value="0.0582089552" extender="Supp"/>
+			<Extension name="Quantifier" value="0.4105263158" extender="Cmplt"/>
+			<Extension name="Quantifier" value="1.8651315789" extender="AvgDf"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+			<Extension name="Quantifier" value="0.9999999833" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0000000311" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="Fisher"/>
+			<Extension name="Quantifier" value="64.4034087738" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.4081632653" extender="bMean"/>
+			<Extension name="Quantifier" value="0.4081632653" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0493969711" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="39" extender="a"/>
+			<Extension name="4ftFrequency" value="57" extender="b"/>
+			<Extension name="4ftFrequency" value="56" extender="c"/>
+			<Extension name="4ftFrequency" value="518" extender="d"/>
+
+		</AssociationRule>
+		<AssociationRule 
+			confidence="0.455357" 
+			support="0.075893"
+			antecedent="Itemset_Antecedent_112"
+			consequent="Itemset_Succedent_112"
+		>
+			<Extension name="Text" value="Rodinný stav(ženatý) &amp; PsychZat(střední, vysoká) &amp; Pohlaví(muž) ::: Whr((0.95;1&gt;, (1;1.3&gt;)"/>
+
+			<Extension name="Quantifier" value="51.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="61.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="57.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="503.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="112.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="672.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.4553571429" extender="Conf"/>
+			<Extension name="Quantifier" value="0.3017751479" extender="DConf"/>
+			<Extension name="Quantifier" value="0.8244047619" extender="EConf"/>
+			<Extension name="Quantifier" value="0.0758928571" extender="Supp"/>
+			<Extension name="Quantifier" value="0.4722222222" extender="Cmplt"/>
+			<Extension name="Quantifier" value="1.8333333333" extender="AvgDf"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+			<Extension name="Quantifier" value="0.9999999992" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0000000015" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="Fisher"/>
+			<Extension name="Quantifier" value="86.5021276596" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.4561403509" extender="bMean"/>
+			<Extension name="Quantifier" value="0.4561403509" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0464455110" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="51" extender="a"/>
+			<Extension name="4ftFrequency" value="61" extender="b"/>
+			<Extension name="4ftFrequency" value="57" extender="c"/>
+			<Extension name="4ftFrequency" value="503" extender="d"/>
+
+		</AssociationRule>
+		<AssociationRule 
+			confidence="0.479592" 
+			support="0.069733"
+			antecedent="Itemset_Antecedent_127"
+			consequent="Itemset_Succedent_127"
+		>
+			<Extension name="Text" value="Kouření(nekuřák) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena) ::: Bmi(&lt;= (22;23&gt;) &amp; Whr(&lt;= (0.8;0.85&gt;)"/>
+
+			<Extension name="Quantifier" value="47.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="51.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="68.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="508.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="98.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="674.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.4795918367" extender="Conf"/>
+			<Extension name="Quantifier" value="0.2831325301" extender="DConf"/>
+			<Extension name="Quantifier" value="0.8234421365" extender="EConf"/>
+			<Extension name="Quantifier" value="0.0697329377" extender="Supp"/>
+			<Extension name="Quantifier" value="0.4086956522" extender="Cmplt"/>
+			<Extension name="Quantifier" value="1.8108251996" extender="AvgDf"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+			<Extension name="Quantifier" value="0.9999999995" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0000000009" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="Fisher"/>
+			<Extension name="Quantifier" value="77.3575274999" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.4800000000" extender="bMean"/>
+			<Extension name="Quantifier" value="0.4800000000" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0497120421" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="47" extender="a"/>
+			<Extension name="4ftFrequency" value="51" extender="b"/>
+			<Extension name="4ftFrequency" value="68" extender="c"/>
+			<Extension name="4ftFrequency" value="508" extender="d"/>
+
+		</AssociationRule>
+		<AssociationRule 
+			confidence="0.333333" 
+			support="0.044183"
+			antecedent="Itemset_Antecedent_130"
+			consequent="Itemset_Succedent_130"
+		>
+			<Extension name="Text" value="PsychZat(mírná, střední) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena) ::: Bmi(&lt;= (21;22&gt;) &amp; Whr(&lt;= (0.8;0.85&gt;)"/>
+
+			<Extension name="Quantifier" value="30.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="60.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="51.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="538.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="90.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="679.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.3333333333" extender="Conf"/>
+			<Extension name="Quantifier" value="0.2127659574" extender="DConf"/>
+			<Extension name="Quantifier" value="0.8365243004" extender="EConf"/>
+			<Extension name="Quantifier" value="0.0441826215" extender="Supp"/>
+			<Extension name="Quantifier" value="0.3703703704" extender="Cmplt"/>
+			<Extension name="Quantifier" value="1.7942386831" extender="AvgDf"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+			<Extension name="Quantifier" value="0.9999998842" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0000002081" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000037" extender="Fisher"/>
+			<Extension name="Quantifier" value="45.2419437208" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.3369565217" extender="bMean"/>
+			<Extension name="Quantifier" value="0.3369565217" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0490135843" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="30" extender="a"/>
+			<Extension name="4ftFrequency" value="60" extender="b"/>
+			<Extension name="4ftFrequency" value="51" extender="c"/>
+			<Extension name="4ftFrequency" value="538" extender="d"/>
+
+		</AssociationRule>
+		<AssociationRule 
+			confidence="0.453608" 
+			support="0.065282"
+			antecedent="Itemset_Antecedent_117"
+			consequent="Itemset_Succedent_117"
+		>
+			<Extension name="Text" value="Žije sám(ne) &amp; Vzdělání(základní, středoškolské) &amp; Pohlaví(muž) ::: Whr((0.95;1&gt;, (1;1.3&gt;)"/>
+
+			<Extension name="Quantifier" value="44.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="53.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="66.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="511.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="97.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="674.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.4536082474" extender="Conf"/>
+			<Extension name="Quantifier" value="0.2699386503" extender="DConf"/>
+			<Extension name="Quantifier" value="0.8234421365" extender="EConf"/>
+			<Extension name="Quantifier" value="0.0652818991" extender="Supp"/>
+			<Extension name="Quantifier" value="0.4000000000" extender="Cmplt"/>
+			<Extension name="Quantifier" value="1.7793814433" extender="AvgDf"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+			<Extension name="Quantifier" value="0.9999999995" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0000000009" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="Fisher"/>
+			<Extension name="Quantifier" value="69.9692974163" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.4545454545" extender="bMean"/>
+			<Extension name="Quantifier" value="0.4545454545" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0497929598" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="44" extender="a"/>
+			<Extension name="4ftFrequency" value="53" extender="b"/>
+			<Extension name="4ftFrequency" value="66" extender="c"/>
+			<Extension name="4ftFrequency" value="511" extender="d"/>
+
+		</AssociationRule>
+		<AssociationRule 
+			confidence="0.468750" 
+			support="0.067365"
+			antecedent="Itemset_Antecedent_129"
+			consequent="Itemset_Succedent_129"
+		>
+			<Extension name="Text" value="Kouření(nekuřák) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena) ::: Bmi(&lt;= (24;25&gt;) &amp; Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"/>
+
+			<Extension name="Quantifier" value="45.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="51.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="70.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="502.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="96.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="668.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.4687500000" extender="Conf"/>
+			<Extension name="Quantifier" value="0.2710843373" extender="DConf"/>
+			<Extension name="Quantifier" value="0.8188622754" extender="EConf"/>
+			<Extension name="Quantifier" value="0.0673652695" extender="Supp"/>
+			<Extension name="Quantifier" value="0.3913043478" extender="Cmplt"/>
+			<Extension name="Quantifier" value="1.7228260870" extender="AvgDf"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+			<Extension name="Quantifier" value="0.9999999999" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0000000001" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="Fisher"/>
+			<Extension name="Quantifier" value="69.2001847904" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.4693877551" extender="bMean"/>
+			<Extension name="Quantifier" value="0.4693877551" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0501576193" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="45" extender="a"/>
+			<Extension name="4ftFrequency" value="51" extender="b"/>
+			<Extension name="4ftFrequency" value="70" extender="c"/>
+			<Extension name="4ftFrequency" value="502" extender="d"/>
+
+		</AssociationRule>
+		<AssociationRule 
+			confidence="0.446429" 
+			support="0.074184"
+			antecedent="Itemset_Antecedent_134"
+			consequent="Itemset_Succedent_134"
+		>
+			<Extension name="Text" value="Vzdělání(základní, středoškolské) &amp; Pohlaví(muž) ::: Whr((0.95;1&gt;, (1;1.3&gt;)"/>
+
+			<Extension name="Quantifier" value="50.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="62.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="61.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="501.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="112.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="674.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.4464285714" extender="Conf"/>
+			<Extension name="Quantifier" value="0.2890173410" extender="DConf"/>
+			<Extension name="Quantifier" value="0.8175074184" extender="EConf"/>
+			<Extension name="Quantifier" value="0.0741839763" extender="Supp"/>
+			<Extension name="Quantifier" value="0.4504504505" extender="Cmplt"/>
+			<Extension name="Quantifier" value="1.7107464607" extender="AvgDf"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0000000001" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="Fisher"/>
+			<Extension name="Quantifier" value="77.5046015566" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.4473684211" extender="bMean"/>
+			<Extension name="Quantifier" value="0.4473684211" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0463662093" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="50" extender="a"/>
+			<Extension name="4ftFrequency" value="62" extender="b"/>
+			<Extension name="4ftFrequency" value="61" extender="c"/>
+			<Extension name="4ftFrequency" value="501" extender="d"/>
+
+		</AssociationRule>
+		<AssociationRule 
+			confidence="0.322581" 
+			support="0.044053"
+			antecedent="Itemset_Antecedent_132"
+			consequent="Itemset_Succedent_132"
+		>
+			<Extension name="Text" value="PsychZat(střední, vysoká) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena) ::: Bmi(&lt;= (21;22&gt;) &amp; Whr(&lt;= (0.8;0.85&gt;)"/>
+
+			<Extension name="Quantifier" value="30.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="63.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="52.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="536.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="93.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="681.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.3225806452" extender="Conf"/>
+			<Extension name="Quantifier" value="0.2068965517" extender="DConf"/>
+			<Extension name="Quantifier" value="0.8311306902" extender="EConf"/>
+			<Extension name="Quantifier" value="0.0440528634" extender="Supp"/>
+			<Extension name="Quantifier" value="0.3658536585" extender="Cmplt"/>
+			<Extension name="Quantifier" value="1.6789929190" extender="AvgDf"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+			<Extension name="Quantifier" value="0.9999999882" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0000000221" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000124" extender="Fisher"/>
+			<Extension name="Quantifier" value="41.5659291924" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.3263157895" extender="bMean"/>
+			<Extension name="Quantifier" value="0.3263157895" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0478532691" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="30" extender="a"/>
+			<Extension name="4ftFrequency" value="63" extender="b"/>
+			<Extension name="4ftFrequency" value="52" extender="c"/>
+			<Extension name="4ftFrequency" value="536" extender="d"/>
+
+		</AssociationRule>
+		<AssociationRule 
+			confidence="0.373737" 
+			support="0.054492"
+			antecedent="Itemset_Antecedent_124"
+			consequent="Itemset_Succedent_124"
+		>
+			<Extension name="Text" value="Kouření(nekuřák) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena) ::: Bmi(&lt;= (21;22&gt;)"/>
+
+			<Extension name="Quantifier" value="37.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="62.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="59.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="521.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="99.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="679.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.3737373737" extender="Conf"/>
+			<Extension name="Quantifier" value="0.2341772152" extender="DConf"/>
+			<Extension name="Quantifier" value="0.8217967599" extender="EConf"/>
+			<Extension name="Quantifier" value="0.0544918999" extender="Supp"/>
+			<Extension name="Quantifier" value="0.3854166667" extender="Cmplt"/>
+			<Extension name="Quantifier" value="1.6434132997" extender="AvgDf"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+			<Extension name="Quantifier" value="0.9999999998" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0000000004" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000002" extender="Fisher"/>
+			<Extension name="Quantifier" value="51.5434219860" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.3762376238" extender="bMean"/>
+			<Extension name="Quantifier" value="0.3762376238" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0479667853" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="37" extender="a"/>
+			<Extension name="4ftFrequency" value="62" extender="b"/>
+			<Extension name="4ftFrequency" value="59" extender="c"/>
+			<Extension name="4ftFrequency" value="521" extender="d"/>
+
+		</AssociationRule>
+		<AssociationRule 
+			confidence="0.312000" 
+			support="0.057269"
+			antecedent="Itemset_Antecedent_135"
+			consequent="Itemset_Succedent_135"
+		>
+			<Extension name="Text" value="Vzdělání(vysokoškolské) &amp; Pohlaví(žena) ::: Bmi(&lt;= (21;22&gt;) &amp; Whr(&lt;= (0.8;0.85&gt;)"/>
+
+			<Extension name="Quantifier" value="39.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="86.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="43.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="513.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="125.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="681.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.3120000000" extender="Conf"/>
+			<Extension name="Quantifier" value="0.2321428571" extender="DConf"/>
+			<Extension name="Quantifier" value="0.8105726872" extender="EConf"/>
+			<Extension name="Quantifier" value="0.0572687225" extender="Supp"/>
+			<Extension name="Quantifier" value="0.4756097561" extender="Cmplt"/>
+			<Extension name="Quantifier" value="1.5911219512" extender="AvgDf"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000001" extender="Fisher"/>
+			<Extension name="Quantifier" value="53.0611059847" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.3149606299" extender="bMean"/>
+			<Extension name="Quantifier" value="0.3149606299" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0410564048" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="39" extender="a"/>
+			<Extension name="4ftFrequency" value="86" extender="b"/>
+			<Extension name="4ftFrequency" value="43" extender="c"/>
+			<Extension name="4ftFrequency" value="513" extender="d"/>
+
+		</AssociationRule>
+		<AssociationRule 
+			confidence="0.414365" 
+			support="0.111111"
+			antecedent="Itemset_Antecedent_116"
+			consequent="Itemset_Succedent_116"
+		>
+			<Extension name="Text" value="Rodinný stav(ženatý) &amp; Pohlaví(muž) ::: Whr((0.95;1&gt;, (1;1.3&gt;)"/>
+
+			<Extension name="Quantifier" value="75.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="106.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="33.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="461.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="181.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="675.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.4143646409" extender="Conf"/>
+			<Extension name="Quantifier" value="0.3504672897" extender="DConf"/>
+			<Extension name="Quantifier" value="0.7940740741" extender="EConf"/>
+			<Extension name="Quantifier" value="0.1111111111" extender="Supp"/>
+			<Extension name="Quantifier" value="0.6944444444" extender="Cmplt"/>
+			<Extension name="Quantifier" value="1.5897790055" extender="AvgDf"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="Fisher"/>
+			<Extension name="Quantifier" value="119.0610231220" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.4153005464" extender="bMean"/>
+			<Extension name="Quantifier" value="0.4153005464" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0363277654" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="75" extender="a"/>
+			<Extension name="4ftFrequency" value="106" extender="b"/>
+			<Extension name="4ftFrequency" value="33" extender="c"/>
+			<Extension name="4ftFrequency" value="461" extender="d"/>
+
+		</AssociationRule>
+		<AssociationRule 
+			confidence="0.416185" 
+			support="0.107303"
+			antecedent="Itemset_Antecedent_111"
+			consequent="Itemset_Succedent_111"
+		>
+			<Extension name="Text" value="Rodinný stav(ženatý) &amp; Žije sám(ne) &amp; Pohlaví(muž) ::: Whr((0.95;1&gt;, (1;1.3&gt;)"/>
+
+			<Extension name="Quantifier" value="72.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="101.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="36.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="462.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="173.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="671.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.4161849711" extender="Conf"/>
+			<Extension name="Quantifier" value="0.3444976077" extender="DConf"/>
+			<Extension name="Quantifier" value="0.7958271237" extender="EConf"/>
+			<Extension name="Quantifier" value="0.1073025335" extender="Supp"/>
+			<Extension name="Quantifier" value="0.6666666667" extender="Cmplt"/>
+			<Extension name="Quantifier" value="1.5857418112" extender="AvgDf"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="Fisher"/>
+			<Extension name="Quantifier" value="112.4396786934" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.4171428571" extender="bMean"/>
+			<Extension name="Quantifier" value="0.4171428571" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0371678238" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="72" extender="a"/>
+			<Extension name="4ftFrequency" value="101" extender="b"/>
+			<Extension name="4ftFrequency" value="36" extender="c"/>
+			<Extension name="4ftFrequency" value="462" extender="d"/>
+
+		</AssociationRule>
+		<AssociationRule 
+			confidence="0.449438" 
+			support="0.059435"
+			antecedent="Itemset_Antecedent_121"
+			consequent="Itemset_Succedent_121"
+		>
+			<Extension name="Text" value="Žije sám(ne) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena) ::: Bmi(&lt;= (22;23&gt;) &amp; Whr(&lt;= (0.8;0.85&gt;)"/>
+
+			<Extension name="Quantifier" value="40.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="49.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="77.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="507.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="89.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="673.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.4494382022" extender="Conf"/>
+			<Extension name="Quantifier" value="0.2409638554" extender="DConf"/>
+			<Extension name="Quantifier" value="0.8127786033" extender="EConf"/>
+			<Extension name="Quantifier" value="0.0594353640" extender="Supp"/>
+			<Extension name="Quantifier" value="0.3418803419" extender="Cmplt"/>
+			<Extension name="Quantifier" value="1.5852300010" extender="AvgDf"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="Fisher"/>
+			<Extension name="Quantifier" value="54.2360259319" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.4505494505" extender="bMean"/>
+			<Extension name="Quantifier" value="0.4505494505" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0518730309" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="40" extender="a"/>
+			<Extension name="4ftFrequency" value="49" extender="b"/>
+			<Extension name="4ftFrequency" value="77" extender="c"/>
+			<Extension name="4ftFrequency" value="507" extender="d"/>
+
+		</AssociationRule>
+		<AssociationRule 
+			confidence="0.555556" 
+			support="0.043860"
+			antecedent="Itemset_Antecedent_109"
+			consequent="Itemset_Succedent_109"
+		>
+			<Extension name="Text" value="Rodinný stav(svobodný) &amp; Kouření(nekuřák) &amp; Vzdělání(vysokoškolské) ::: Bmi(&lt;= (22;23&gt;)"/>
+
+			<Extension name="Quantifier" value="30.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="24.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="118.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="512.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="54.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="684.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.5555555556" extender="Conf"/>
+			<Extension name="Quantifier" value="0.1744186047" extender="DConf"/>
+			<Extension name="Quantifier" value="0.7923976608" extender="EConf"/>
+			<Extension name="Quantifier" value="0.0438596491" extender="Supp"/>
+			<Extension name="Quantifier" value="0.2027027027" extender="Cmplt"/>
+			<Extension name="Quantifier" value="1.5675675676" extender="AvgDf"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0000000001" extender="UBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000120" extender="Fisher"/>
+			<Extension name="Quantifier" value="39.7794502392" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.5535714286" extender="bMean"/>
+			<Extension name="Quantifier" value="0.5535714286" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0658453933" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="30" extender="a"/>
+			<Extension name="4ftFrequency" value="24" extender="b"/>
+			<Extension name="4ftFrequency" value="118" extender="c"/>
+			<Extension name="4ftFrequency" value="512" extender="d"/>
+
+		</AssociationRule>
+		<AssociationRule 
+			confidence="0.412121" 
+			support="0.101190"
+			antecedent="Itemset_Antecedent_115"
+			consequent="Itemset_Succedent_115"
+		>
+			<Extension name="Text" value="Rodinný stav(ženatý) &amp; Vzdělání(středoškolské, vysokoškolské) &amp; Pohlaví(muž) ::: Whr((0.95;1&gt;, (1;1.3&gt;)"/>
+
+			<Extension name="Quantifier" value="68.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="97.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="40.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="467.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="165.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="672.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.4121212121" extender="Conf"/>
+			<Extension name="Quantifier" value="0.3317073171" extender="DConf"/>
+			<Extension name="Quantifier" value="0.7961309524" extender="EConf"/>
+			<Extension name="Quantifier" value="0.1011904762" extender="Supp"/>
+			<Extension name="Quantifier" value="0.6296296296" extender="Cmplt"/>
+			<Extension name="Quantifier" value="1.5643097643" extender="AvgDf"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="Fisher"/>
+			<Extension name="Quantifier" value="102.4791280975" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.4131736527" extender="bMean"/>
+			<Extension name="Quantifier" value="0.4131736527" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0379897531" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="68" extender="a"/>
+			<Extension name="4ftFrequency" value="97" extender="b"/>
+			<Extension name="4ftFrequency" value="40" extender="c"/>
+			<Extension name="4ftFrequency" value="467" extender="d"/>
+
+		</AssociationRule>
+		<AssociationRule 
+			confidence="0.776316" 
+			support="0.087537"
+			antecedent="Itemset_Antecedent_114"
+			consequent="Itemset_Succedent_114"
+		>
+			<Extension name="Text" value="Rodinný stav(ženatý) &amp; Vzdělání(základní, středoškolské) &amp; Pohlaví(muž) ::: Whr(&gt;= (0.9;0.95&gt;)"/>
+
+			<Extension name="Quantifier" value="59.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="17.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="146.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="452.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="76.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="674.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.7763157895" extender="Conf"/>
+			<Extension name="Quantifier" value="0.2657657658" extender="DConf"/>
+			<Extension name="Quantifier" value="0.7581602374" extender="EConf"/>
+			<Extension name="Quantifier" value="0.0875370920" extender="Supp"/>
+			<Extension name="Quantifier" value="0.2878048780" extender="Cmplt"/>
+			<Extension name="Quantifier" value="1.5523748395" extender="AvgDf"/>
+			<Extension name="Quantifier" value="0.9995857624" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0011774427" extender="UBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="Fisher"/>
+			<Extension name="Quantifier" value="90.2290767510" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.7692307692" extender="bMean"/>
+			<Extension name="Quantifier" value="0.7692307692" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0474027710" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0004905633" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000361" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="59" extender="a"/>
+			<Extension name="4ftFrequency" value="17" extender="b"/>
+			<Extension name="4ftFrequency" value="146" extender="c"/>
+			<Extension name="4ftFrequency" value="452" extender="d"/>
+
+		</AssociationRule>
+		<AssociationRule 
+			confidence="0.612245" 
+			support="0.044248"
+			antecedent="Itemset_Antecedent_110"
+			consequent="Itemset_Succedent_110"
+		>
+			<Extension name="Text" value="Rodinný stav(svobodný) &amp; Pohlaví(žena) ::: Bmi(&lt;= (23;24&gt;) &amp; Whr(&lt;= (0.8;0.85&gt;)"/>
+
+			<Extension name="Quantifier" value="30.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="19.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="133.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="496.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="49.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="678.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.6122448980" extender="Conf"/>
+			<Extension name="Quantifier" value="0.1648351648" extender="DConf"/>
+			<Extension name="Quantifier" value="0.7758112094" extender="EConf"/>
+			<Extension name="Quantifier" value="0.0442477876" extender="Supp"/>
+			<Extension name="Quantifier" value="0.1840490798" extender="Cmplt"/>
+			<Extension name="Quantifier" value="1.5466382872" extender="AvgDf"/>
+			<Extension name="Quantifier" value="0.9999999843" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0000000956" extender="UBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000080" extender="Fisher"/>
+			<Extension name="Quantifier" value="39.9883070141" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.6078431373" extender="bMean"/>
+			<Extension name="Quantifier" value="0.6078431373" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0677055074" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0000000237" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="30" extender="a"/>
+			<Extension name="4ftFrequency" value="19" extender="b"/>
+			<Extension name="4ftFrequency" value="133" extender="c"/>
+			<Extension name="4ftFrequency" value="496" extender="d"/>
+
+		</AssociationRule>
+		<AssociationRule 
+			confidence="0.448276" 
+			support="0.058383"
+			antecedent="Itemset_Antecedent_122"
+			consequent="Itemset_Succedent_122"
+		>
+			<Extension name="Text" value="Žije sám(ne) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena) ::: Bmi(&lt;= (24;25&gt;) &amp; Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"/>
+
+			<Extension name="Quantifier" value="39.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="48.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="79.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="502.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="87.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="668.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.4482758621" extender="Conf"/>
+			<Extension name="Quantifier" value="0.2349397590" extender="DConf"/>
+			<Extension name="Quantifier" value="0.8098802395" extender="EConf"/>
+			<Extension name="Quantifier" value="0.0583832335" extender="Supp"/>
+			<Extension name="Quantifier" value="0.3305084746" extender="Cmplt"/>
+			<Extension name="Quantifier" value="1.5376972531" extender="AvgDf"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000001" extender="Fisher"/>
+			<Extension name="Quantifier" value="50.7435185200" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.4494382022" extender="bMean"/>
+			<Extension name="Quantifier" value="0.4494382022" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0524344569" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="39" extender="a"/>
+			<Extension name="4ftFrequency" value="48" extender="b"/>
+			<Extension name="4ftFrequency" value="79" extender="c"/>
+			<Extension name="4ftFrequency" value="502" extender="d"/>
+
+		</AssociationRule>
+		<AssociationRule 
+			confidence="0.273438" 
+			support="0.052161"
+			antecedent="Itemset_Antecedent_123"
+			consequent="Itemset_Succedent_123"
+		>
+			<Extension name="Text" value="Kouření(nekuřák) &amp; PsychZat(střední) &amp; Pohlaví(žena) ::: Bmi(&lt;= (22;23&gt;) &amp; Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"/>
+
+			<Extension name="Quantifier" value="35.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="93.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="38.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="505.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="128.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="671.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.2734375000" extender="Conf"/>
+			<Extension name="Quantifier" value="0.2108433735" extender="DConf"/>
+			<Extension name="Quantifier" value="0.8047690015" extender="EConf"/>
+			<Extension name="Quantifier" value="0.0521609538" extender="Supp"/>
+			<Extension name="Quantifier" value="0.4794520548" extender="Cmplt"/>
+			<Extension name="Quantifier" value="1.5133775685" extender="AvgDf"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000020" extender="Fisher"/>
+			<Extension name="Quantifier" value="44.2230733617" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.2769230769" extender="bMean"/>
+			<Extension name="Quantifier" value="0.2769230769" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0390963467" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="35" extender="a"/>
+			<Extension name="4ftFrequency" value="93" extender="b"/>
+			<Extension name="4ftFrequency" value="38" extender="c"/>
+			<Extension name="4ftFrequency" value="505" extender="d"/>
+
+		</AssociationRule>
+		<AssociationRule 
+			confidence="0.359551" 
+			support="0.047267"
+			antecedent="Itemset_Antecedent_118"
+			consequent="Itemset_Succedent_118"
+		>
+			<Extension name="Text" value="Žije sám(ne) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena) ::: Bmi(&lt;= (21;22&gt;)"/>
+
+			<Extension name="Quantifier" value="32.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="57.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="65.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="523.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="89.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="677.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.3595505618" extender="Conf"/>
+			<Extension name="Quantifier" value="0.2077922078" extender="DConf"/>
+			<Extension name="Quantifier" value="0.8197932053" extender="EConf"/>
+			<Extension name="Quantifier" value="0.0472673560" extender="Supp"/>
+			<Extension name="Quantifier" value="0.3298969072" extender="Cmplt"/>
+			<Extension name="Quantifier" value="1.5094405189" extender="AvgDf"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+			<Extension name="Quantifier" value="0.9999999999" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0000000002" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000222" extender="Fisher"/>
+			<Extension name="Quantifier" value="39.0460492475" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.3626373626" extender="bMean"/>
+			<Extension name="Quantifier" value="0.3626373626" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0501228389" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="32" extender="a"/>
+			<Extension name="4ftFrequency" value="57" extender="b"/>
+			<Extension name="4ftFrequency" value="65" extender="c"/>
+			<Extension name="4ftFrequency" value="523" extender="d"/>
+
+		</AssociationRule>
+		<AssociationRule 
+			confidence="0.436782" 
+			support="0.056632"
+			antecedent="Itemset_Antecedent_131"
+			consequent="Itemset_Succedent_131"
+		>
+			<Extension name="Text" value="PsychZat(mírná, střední) &amp; Vzdělání(vysokoškolské) &amp; Pohlaví(žena) ::: Bmi(&lt;= (24;25&gt;) &amp; Whr((0.45;0.75&gt;, (0.75;0.8&gt;)"/>
+
+			<Extension name="Quantifier" value="38.0000000000" extender="a"/>
+			<Extension name="Quantifier" value="49.0000000000" extender="b"/>
+			<Extension name="Quantifier" value="79.0000000000" extender="c"/>
+			<Extension name="Quantifier" value="505.0000000000" extender="d"/>
+			<Extension name="Quantifier" value="87.0000000000" extender="r"/>
+			<Extension name="Quantifier" value="671.0000000000" extender="n"/>
+			<Extension name="Quantifier" value="0.4367816092" extender="Conf"/>
+			<Extension name="Quantifier" value="0.2289156627" extender="DConf"/>
+			<Extension name="Quantifier" value="0.8092399404" extender="EConf"/>
+			<Extension name="Quantifier" value="0.0566318927" extender="Supp"/>
+			<Extension name="Quantifier" value="0.3247863248" extender="Cmplt"/>
+			<Extension name="Quantifier" value="1.5049611946" extender="AvgDf"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="LBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="UBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="ELBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="EUBound"/>
+			<Extension name="Quantifier" value="1.0000000000" extender="DLBound"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="DUBound"/>
+			<Extension name="Quantifier" value="0.0000000004" extender="Fisher"/>
+			<Extension name="Quantifier" value="47.8140604525" extender="Chi-Sq"/>
+			<Extension name="Quantifier" value="0.4382022472" extender="bMean"/>
+			<Extension name="Quantifier" value="0.4382022472" extender="bVAR"/>
+			<Extension name="Quantifier" value="0.0523005245" extender="bStDev"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=90%)"/>
+			<Extension name="Quantifier" value="0.0000000000" extender="P(&gt;=95%)"/>
+
+			<Extension name="4ftFrequency" value="38" extender="a"/>
+			<Extension name="4ftFrequency" value="49" extender="b"/>
+			<Extension name="4ftFrequency" value="79" extender="c"/>
+			<Extension name="4ftFrequency" value="505" extender="d"/>
+
+		</AssociationRule>
+
+	</AssociationModel>
+</PMML>

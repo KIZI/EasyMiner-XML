@@ -1,0 +1,360 @@
+<?xml version="1.0"?>
+<?oxygen SCHSchema="http://sewebar.vse.cz/schemas/GUHARestr0_1.sch"?>
+<PMML version="4.0" xmlns="http://www.dmg.org/PMML-4_0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:pmml="http://www.dmg.org/PMML-4_0"
+    xsi:schemaLocation="http://www.dmg.org/PMML-4_0 http://sewebar.vse.cz/schemas/PMML4.0+GUHA0.1.xsd">
+
+<!-- LMDataSource.Matrix.PMML.Template, version of 2011-03-13 -->
+
+	<Header copyright="Copyright (c) KIZI UEP">
+		<Extension name="metabase" value="LM LM Barbora.mdb MB"/>
+		<Extension name="dataset" value="Loans"/>
+		<Extension name="author" value="PowerUser"/>
+		<Extension name="subsystem" value="LM Sewebar Exporter"/>
+		<Extension name="module" value="LMSwbExporter.exe"/>
+		<Extension name="format" value="LMDataSource.Matrix"/>		
+		<Application name="LISp-Miner" version="15.05.00 of 14 Mar 2011"/>
+		<Timestamp>18.3.2011 09:53:29</Timestamp>
+	</Header>
+
+<!-- Matrix -->
+
+	<DataDictionary numberOfFields="10">
+		<DataField 
+			name="Age" 
+			optype="continuous" 
+			dataType="integer"
+		>
+			<Extension name="Avg" value="43.357386" extender="Avg"/>
+			<Extension name="StDev" value="-1.000000" extender="StDev"/>
+			<Interval leftMargin="21.000000" rightMargin="67.000000" closure="closedClosed"/>
+		</DataField>
+		<DataField 
+			name="amount" 
+			optype="continuous" 
+			dataType="integer"
+		>
+			<Extension name="Avg" value="151450.639702" extender="Avg"/>
+			<Extension name="StDev" value="-1.000000" extender="StDev"/>
+			<Interval leftMargin="4980.000000" rightMargin="590820.000000" closure="closedClosed"/>
+		</DataField>
+		<DataField 
+			name="birth_number" 
+			optype="continuous" 
+			dataType="integer"
+		>
+			<Extension name="Avg" value="584550.205792" extender="Avg"/>
+			<Extension name="StDev" value="-1.000000" extender="StDev"/>
+			<Interval leftMargin="350129.000000" rightMargin="806207.000000" closure="closedClosed"/>
+		</DataField>
+		<DataField 
+			name="District" 
+			optype="categorical" 
+			dataType="string"
+		>
+			<Extension name="maxItems" value="1000"/>
+				<Value value="Benesov">
+				 <Extension name="Frequency" value="63" extender="Benesov"/>				
+			  </Value>
+				<Value value="Beroun">
+				 <Extension name="Frequency" value="63" extender="Beroun"/>				
+			  </Value>
+				<Value value="Blansko">
+				 <Extension name="Frequency" value="63" extender="Blansko"/>				
+			  </Value>
+				<Value value="Breclav">
+				 <Extension name="Frequency" value="54" extender="Breclav"/>				
+			  </Value>
+				<Value value="Brno">
+				 <Extension name="Frequency" value="207" extender="Brno"/>				
+			  </Value>
+				<Value value="Brno - venkov">
+				 <Extension name="Frequency" value="99" extender="Brno - venkov"/>				
+			  </Value>
+				<Value value="Bruntal">
+				 <Extension name="Frequency" value="55" extender="Bruntal"/>				
+			  </Value>
+				<Value value="Ceska Lipa">
+				 <Extension name="Frequency" value="54" extender="Ceska Lipa"/>				
+			  </Value>
+				<Value value="Ceske Budejovice">
+				 <Extension name="Frequency" value="81" extender="Ceske Budejovice"/>				
+			  </Value>
+				<Value value="Cesky Krumlov">
+				 <Extension name="Frequency" value="63" extender="Cesky Krumlov"/>				
+			  </Value>
+				<Value value="Decin">
+				 <Extension name="Frequency" value="45" extender="Decin"/>				
+			  </Value>
+				<Value value="Domazlice">
+				 <Extension name="Frequency" value="18" extender="Domazlice"/>				
+			  </Value>
+				<Value value="Frydek - Mistek">
+				 <Extension name="Frequency" value="135" extender="Frydek - Mistek"/>				
+			  </Value>
+				<Value value="Havlickuv Brod">
+				 <Extension name="Frequency" value="86" extender="Havlickuv Brod"/>				
+			  </Value>
+				<Value value="Hodonin">
+				 <Extension name="Frequency" value="72" extender="Hodonin"/>				
+			  </Value>
+				<Value value="Hradec Kralove">
+				 <Extension name="Frequency" value="54" extender="Hradec Kralove"/>				
+			  </Value>
+				<Value value="Cheb">
+				 <Extension name="Frequency" value="36" extender="Cheb"/>				
+			  </Value>
+				<Value value="Chomutov">
+				 <Extension name="Frequency" value="72" extender="Chomutov"/>				
+			  </Value>
+				<Value value="Chrudim">
+				 <Extension name="Frequency" value="63" extender="Chrudim"/>				
+			  </Value>
+				<Value value="Jablonec n. Nisou">
+				 <Extension name="Frequency" value="18" extender="Jablonec n. Nisou"/>				
+			  </Value>
+				<Value value="Jesenik">
+				 <Extension name="Frequency" value="72" extender="Jesenik"/>				
+			  </Value>
+				<Value value="Jicin">
+				 <Extension name="Frequency" value="63" extender="Jicin"/>				
+			  </Value>
+				<Value value="Jihlava">
+				 <Extension name="Frequency" value="54" extender="Jihlava"/>				
+			  </Value>
+				<Value value="Jindrichuv Hradec">
+				 <Extension name="Frequency" value="99" extender="Jindrichuv Hradec"/>				
+			  </Value>
+				<Value value="Karlovy Vary">
+				 <Extension name="Frequency" value="54" extender="Karlovy Vary"/>				
+			  </Value>
+				<Value value="Karvina">
+				 <Extension name="Frequency" value="225" extender="Karvina"/>				
+			  </Value>
+				<Value value="Kladno">
+				 <Extension name="Frequency" value="54" extender="Kladno"/>				
+			  </Value>
+				<Value value="Klatovy">
+				 <Extension name="Frequency" value="18" extender="Klatovy"/>				
+			  </Value>
+				<Value value="Kolin">
+				 <Extension name="Frequency" value="99" extender="Kolin"/>				
+			  </Value>
+				<Value value="Kromeriz">
+				 <Extension name="Frequency" value="99" extender="Kromeriz"/>				
+			  </Value>
+				<Value value="Kutna Hora">
+				 <Extension name="Frequency" value="72" extender="Kutna Hora"/>				
+			  </Value>
+				<Value value="Liberec">
+				 <Extension name="Frequency" value="63" extender="Liberec"/>				
+			  </Value>
+				<Value value="Litomerice">
+				 <Extension name="Frequency" value="63" extender="Litomerice"/>				
+			  </Value>
+				<Value value="Louny">
+				 <Extension name="Frequency" value="117" extender="Louny"/>				
+			  </Value>
+				<Value value="Melnik">
+				 <Extension name="Frequency" value="45" extender="Melnik"/>				
+			  </Value>
+				<Value value="Mlada Boleslav">
+				 <Extension name="Frequency" value="45" extender="Mlada Boleslav"/>				
+			  </Value>
+				<Value value="Most">
+				 <Extension name="Frequency" value="61" extender="Most"/>				
+			  </Value>
+				<Value value="Nachod">
+				 <Extension name="Frequency" value="72" extender="Nachod"/>				
+			  </Value>
+				<Value value="Novy Jicin">
+				 <Extension name="Frequency" value="45" extender="Novy Jicin"/>				
+			  </Value>
+				<Value value="Nymburk">
+				 <Extension name="Frequency" value="81" extender="Nymburk"/>				
+			  </Value>
+				<Value value="Olomouc">
+				 <Extension name="Frequency" value="135" extender="Olomouc"/>				
+			  </Value>
+				<Value value="Opava">
+				 <Extension name="Frequency" value="72" extender="Opava"/>				
+			  </Value>
+				<Value value="Ostrava - mesto">
+				 <Extension name="Frequency" value="180" extender="Ostrava - mesto"/>				
+			  </Value>
+				<Value value="Pardubice">
+				 <Extension name="Frequency" value="90" extender="Pardubice"/>				
+			  </Value>
+				<Value value="Pelhrimov">
+				 <Extension name="Frequency" value="54" extender="Pelhrimov"/>				
+			  </Value>
+				<Value value="Pisek">
+				 <Extension name="Frequency" value="27" extender="Pisek"/>				
+			  </Value>
+				<Value value="Plzen">
+				 <Extension name="Frequency" value="54" extender="Plzen"/>				
+			  </Value>
+				<Value value="Plzen - jih">
+				 <Extension name="Frequency" value="81" extender="Plzen - jih"/>				
+			  </Value>
+				<Value value="Plzen - sever">
+				 <Extension name="Frequency" value="63" extender="Plzen - sever"/>				
+			  </Value>
+				<Value value="Praha">
+				 <Extension name="Frequency" value="711" extender="Praha"/>				
+			  </Value>
+				<Value value="Praha - vychod">
+				 <Extension name="Frequency" value="45" extender="Praha - vychod"/>				
+			  </Value>
+				<Value value="Praha - zapad">
+				 <Extension name="Frequency" value="90" extender="Praha - zapad"/>				
+			  </Value>
+				<Value value="Prachatice">
+				 <Extension name="Frequency" value="108" extender="Prachatice"/>				
+			  </Value>
+				<Value value="Prerov">
+				 <Extension name="Frequency" value="27" extender="Prerov"/>				
+			  </Value>
+				<Value value="Pribram">
+				 <Extension name="Frequency" value="45" extender="Pribram"/>				
+			  </Value>
+				<Value value="Prostejov">
+				 <Extension name="Frequency" value="81" extender="Prostejov"/>				
+			  </Value>
+				<Value value="Rakovnik">
+				 <Extension name="Frequency" value="81" extender="Rakovnik"/>				
+			  </Value>
+				<Value value="Rokycany">
+				 <Extension name="Frequency" value="72" extender="Rokycany"/>				
+			  </Value>
+				<Value value="Rychnov nad Kneznou">
+				 <Extension name="Frequency" value="45" extender="Rychnov nad Kneznou"/>				
+			  </Value>
+				<Value value="Semily">
+				 <Extension name="Frequency" value="27" extender="Semily"/>				
+			  </Value>
+				<Value value="Sokolov">
+				 <Extension name="Frequency" value="12" extender="Sokolov"/>				
+			  </Value>
+				<Value value="Strakonice">
+				 <Extension name="Frequency" value="45" extender="Strakonice"/>				
+			  </Value>
+				<Value value="Sumperk">
+				 <Extension name="Frequency" value="54" extender="Sumperk"/>				
+			  </Value>
+				<Value value="Svitavy">
+				 <Extension name="Frequency" value="108" extender="Svitavy"/>				
+			  </Value>
+				<Value value="Tabor">
+				 <Extension name="Frequency" value="72" extender="Tabor"/>				
+			  </Value>
+				<Value value="Tachov">
+				 <Extension name="Frequency" value="99" extender="Tachov"/>				
+			  </Value>
+				<Value value="Teplice">
+				 <Extension name="Frequency" value="45" extender="Teplice"/>				
+			  </Value>
+				<Value value="Trebic">
+				 <Extension name="Frequency" value="54" extender="Trebic"/>				
+			  </Value>
+				<Value value="Trutnov">
+				 <Extension name="Frequency" value="63" extender="Trutnov"/>				
+			  </Value>
+				<Value value="Uherske Hradiste">
+				 <Extension name="Frequency" value="81" extender="Uherske Hradiste"/>				
+			  </Value>
+				<Value value="Usti nad Labem">
+				 <Extension name="Frequency" value="27" extender="Usti nad Labem"/>				
+			  </Value>
+				<Value value="Usti nad Orlici">
+				 <Extension name="Frequency" value="135" extender="Usti nad Orlici"/>				
+			  </Value>
+				<Value value="Vsetin">
+				 <Extension name="Frequency" value="63" extender="Vsetin"/>				
+			  </Value>
+				<Value value="Vyskov">
+				 <Extension name="Frequency" value="72" extender="Vyskov"/>				
+			  </Value>
+				<Value value="Zdar nad Sazavou">
+				 <Extension name="Frequency" value="63" extender="Zdar nad Sazavou"/>				
+			  </Value>
+				<Value value="Zlin">
+				 <Extension name="Frequency" value="144" extender="Zlin"/>				
+			  </Value>
+				<Value value="Znojmo">
+				 <Extension name="Frequency" value="54" extender="Znojmo"/>				
+			  </Value>
+		</DataField>
+		<DataField 
+			name="duration" 
+			optype="continuous" 
+			dataType="integer"
+		>
+			<Extension name="Avg" value="36.520466" extender="Avg"/>
+			<Extension name="StDev" value="-1.000000" extender="StDev"/>
+			<Interval leftMargin="12.000000" rightMargin="60.000000" closure="closedClosed"/>
+		</DataField>
+		<DataField 
+			name="loan_id" 
+			optype="continuous" 
+			dataType="integer"
+		>
+			<Extension name="PrimaryKey" value="A" extender="PrimaryKey"/>
+			<Extension name="PrimaryKeyPosition" value="0" extender="PrimaryKeyPosition"/>
+			<Extension name="Avg" value="15696.771396" extender="Avg"/>
+			<Extension name="StDev" value="-1.000000" extender="StDev"/>
+			<Interval leftMargin="4959.000000" rightMargin="19627.000000" closure="closedClosed"/>
+		</DataField>
+		<DataField 
+			name="payments" 
+			optype="continuous" 
+			dataType="integer"
+		>
+			<Extension name="Avg" value="4192.148681" extender="Avg"/>
+			<Extension name="StDev" value="-1.000000" extender="StDev"/>
+			<Interval leftMargin="304.000000" rightMargin="41728.000000" closure="closedClosed"/>
+		</DataField>
+		<DataField 
+			name="Salary" 
+			optype="continuous" 
+			dataType="integer"
+		>
+			<Extension name="Avg" value="9464.201747" extender="Avg"/>
+			<Extension name="StDev" value="-1.000000" extender="StDev"/>
+			<Interval leftMargin="8110.000000" rightMargin="12541.000000" closure="closedClosed"/>
+		</DataField>
+		<DataField 
+			name="Sex" 
+			optype="categorical" 
+			dataType="string"
+		>
+			<Extension name="maxItems" value="1000"/>
+				<Value value="Yes">
+				 <Extension name="Frequency" value="3145" extender="Yes"/>				
+			  </Value>
+				<Value value="No">
+				 <Extension name="Frequency" value="3036" extender="No"/>				
+			  </Value>
+		</DataField>
+		<DataField 
+			name="status" 
+			optype="categorical" 
+			dataType="string"
+		>
+			<Extension name="maxItems" value="1000"/>
+				<Value value="A">
+				 <Extension name="Frequency" value="1827" extender="A"/>				
+			  </Value>
+				<Value value="B">
+				 <Extension name="Frequency" value="289" extender="B"/>				
+			  </Value>
+				<Value value="C">
+				 <Extension name="Frequency" value="3627" extender="C"/>				
+			  </Value>
+				<Value value="D">
+				 <Extension name="Frequency" value="438" extender="D"/>				
+			  </Value>
+		</DataField>
+	</DataDictionary>
+
+</PMML>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ARBuilder output - background association rules  -->
+<ar:ARBuilder mode="AssociationRules" xmlns:ar="http://keg.vse.cz/ns/arbuilder0_1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://keg.vse.cz/ns/arbuilder0_1 http://sewebar.vse.cz/schemas/ARBuilder0_1.xsd">
+    <!-- Copy of datadictionary -->
+    <DataDescription>
+    <Dictionary  numberOfFields="4"  sourceType="PMML"  sourceName="Barbora">    
+        <Field name="statusAgregovane" optype="categorical" dataType="string" derived="true">       
+            <Category frequency="2116">dobry</Category>         
+            <Category frequency="4065">stredni</Category>        
+            <Category frequency="289">spatny</Category>                
+        </Field>
+        <Field name="duration" optype="continuous" dataType="integer" derived="true">        
+            <Category frequency="4999">Nad 2 roky vcetne</Category>        
+            <Category frequency="1243">13 az 23</Category>        
+            <Category frequency="1181">Rok</Category>        
+        </Field>
+        <Field dataType="string" optype="categorical" name="district" derived="true">
+            <Category frequency="209">Brno</Category>        
+            <Category frequency="710">Praha</Category>        
+            <Category frequency="5262">Other</Category>        
+        </Field>
+        <Field dataType="string" optype="categorical" name="sex" derived="true">
+            <Category frequency="6181">F</Category>        
+        </Field>
+    </Dictionary>    
+        </DataDescription>
+    <AssociationRules>
+        <BBA id="1">
+            <Text>duration(Nad 2 roky vcetne)</Text>
+            <FieldRef>duration</FieldRef>
+            <CatRef>Nad 2 roky vcetne</CatRef>
+        </BBA>
+        <BBA id="2">
+            <Text>statusAgregovane(dobry,stredni)</Text>
+            <FieldRef>statusAgregovane</FieldRef>
+            <CatRef>dobry</CatRef>
+            <CatRef>stredni</CatRef>
+        </BBA>
+        <BBA id="3">
+            <Text>district(Praha)</Text>
+            <FieldRef>district</FieldRef>
+            <CatRef>Praha</CatRef>
+        </BBA>
+        <BBA id="4">
+            <Text>sex(female)</Text>
+            <FieldRef>sex</FieldRef>
+            <CatRef>female</CatRef>
+        </BBA>
+        <BBA id="5">
+            <Text>duration(rok)</Text>
+            <FieldRef>duration</FieldRef>
+            <CatRef>rok</CatRef>
+        </BBA>
+        <DBA id="6" connective="Negation">
+            <BARef>3</BARef>
+        </DBA>
+        <DBA id="7" connective="Conjunction">
+            <BARef>1</BARef>
+            <BARef>6</BARef>
+        </DBA>
+        <AssociationRule antecedent="7" consequent="2">
+            <IMValue name="Support">0.55282316777220514479</IMValue>
+            <IMValue name="Average Difference">0.1414</IMValue>
+            <IMValue name="Kulczynski">0.8138</IMValue>
+            <FourFtTable a="3586" b="874" c="768" d="953"/>
+        </AssociationRule>
+    </AssociationRules>
+</ar:ARBuilder>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:simpleType name="searchAlg">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="xquery"/>
+            <xs:enumeration value="tolog"/>
+            <xs:enumeration value="lucene"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="SearchResult">
+        
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Metadata">
+                    <xs:complexType>
+                        <xs:sequence>
+                        <xs:element name="SearchTimestamp" type="xs:dateTime"></xs:element>
+                        <xs:element name="LastIndexUpdate" type="xs:dateTime"></xs:element>
+                        <xs:element name="SearchAlgorithm" type="searchAlg"/>
+                        <xs:element name="SearchAlgorithmVersion" type="xs:string"></xs:element>
+                            
+                        
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Statistics">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ExecutionTime" >
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:nonNegativeInteger">
+                                            <xs:attribute name="unit" fixed="ms"></xs:attribute>        
+                                        </xs:extension>
+                                    </xs:simpleContent>                                    
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="DocumentsSearched" type="xs:nonNegativeInteger"/>
+                            <xs:element name="RulesSearched" type="xs:nonNegativeInteger"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Hits">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Hit" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Text" type="xs:string"/>
+                                        <xs:element name="Details"> </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="docID" type="xs:string" use="required"/>
+                                    <xs:attribute name="ruleID" type="xs:string" use="optional"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

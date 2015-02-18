@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://keg.vse.cz/ns/arbuilder0_1" xmlns:ar="http://keg.vse.cz/ns/arbuilder0_1"
+    xmlns:arf="http://keg.vse.cz/ns/arfeatures_01" xmlns:guha="http://keg.vse.cz/ns/GUHA0.1rev1"
+    xmlns:data="http://keg.vse.cz/ns/datadescription0_1" elementFormDefault="unqualified">
+    <xs:import namespace="http://keg.vse.cz/ns/GUHA0.1rev1"
+        schemaLocation="http://sewebar.vse.cz/schemas/GUHA0.1rev1.xsd"/>
+    <xs:import namespace="http://keg.vse.cz/ns/datadescription0_1"
+        schemaLocation="http://sewebar.vse.cz/schemas/DataDescription0_1.xsd"/>
+    <xs:import namespace="http://keg.vse.cz/ns/arfeatures_01"
+        schemaLocation="http://sewebar.vse.cz/schemas/GUHAARfeature.xsd"/>
+    <xs:element name="ARBuilder">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="DataDescription" type="data:DataDescription"/>
+                <xs:choice>
+                    <xs:element name="ARQuery" type="ar:ARQuery"/>
+                    <xs:element name="TaskSetting" type="guha:TaskSetting4ft"/>
+                    <xs:element name="AssociationRules" type="guha:AssociationRules"/>
+                    <xs:element name="QueryByAssociationRule" type="ar:QueryByAssociationRule"/>
+                </xs:choice>
+            </xs:sequence>
+            <xs:attribute name="mode">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="TaskSetting"/>
+                        <xs:enumeration value="ARQuery"/>
+                        <xs:enumeration value="AssociationRules"/>
+                        <xs:enumeration value="QueryByAssociationRule"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="procedure">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="4ft"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:annotation>
+        <xs:documentation> Very similar to guha:TaskSetting, but some elements had to be redefined
+            to make the schema more loose as what information is required </xs:documentation>
+    </xs:annotation>
+    <xs:complexType name="QueryByAssociationRule">
+        <!-- it looks like guha AssociationRules element, but
+             [1] DBA and BBA can be listed in mixed order
+             [2] only one association rule allowed
+        -->
+        <xs:sequence>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element type="ar:BBA" name="BBA"/>
+                <xs:element type="guha:DBA" name="DBA"/>
+            </xs:choice>
+            <xs:element name="AssociationRule" type="ar:AssociationRule" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AssociationRule">
+        <!-- redefine  guha:AssociationRule  so that consequent is not mandatory-->
+        <!-- redefine  guha:AssociationRule  so that IMValue is not mandatory-->
+        <!-- redefine  guha:AssociationRule  so that FourFtTable is not present-->
+        <xs:sequence>
+            <xs:element name="Text" type="guha:Text" minOccurs="0"/>
+            <xs:element name="IMValue" type="guha:IMValue" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="antecedent" type="guha:BARef"/>
+        <xs:attribute name="consequent" type="guha:BARef"/>
+        <xs:attribute name="condition" type="guha:BARef"/>
+        <xs:attribute name="id" type="xs:NMTOKEN"/>
+    </xs:complexType>
+    <xs:complexType name="BBA">
+        <xs:sequence>
+            <xs:element name="Extension" type="guha:Extension" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="Text" type="guha:Text" minOccurs="0"/>
+            <xs:element name="FieldRef" type="guha:FieldRef" minOccurs="1"/>
+            <xs:element name="CatRef" type="guha:CatRef" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:NMTOKEN" use="required"/>
+        <xs:attribute name="literal" type="xs:boolean" default="true"/>
+        <xs:attribute name="weight" type="xs:double"/>
+    </xs:complexType>
+
+    <xs:complexType name="ARQuery">
+        <xs:sequence>
+            <xs:element name="BBASettings">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="BBASetting" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="Text" type="guha:Text" minOccurs="0"/>
+                                    <xs:element name="Name" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="FieldRef" type="guha:FieldRef"/>
+                                    <xs:element name="Coefficient" minOccurs="1" maxOccurs="1">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="Type" minOccurs="0"
+                                                  type="arf:coefList"/>
+                                                <xs:element name="Category" type="xs:string"
+                                                  minOccurs="0" maxOccurs="unbounded"/>
+                                            </xs:sequence>
+                                            <xs:attribute name="match" type="ar:match">
+                                                <!-- requireListed_exclusive, requireListed_notexclusive - complementWithUnlisted, traverseOnly (DBASetting only)- no match required but proceed to children, requirePresence (DBA Only)-->
+                                            </xs:attribute>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                                <xs:attribute name="id" type="xs:NMTOKEN"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DBASettings">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="DBASetting" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:complexContent>
+                                    <xs:extension base="guha:DBASetting">
+                                        <xs:attribute name="match" type="ar:match"/>
+                                        <xs:attribute name="baRefsRecursive" default="false"
+                                            type="xs:boolean"/>
+                                    </xs:extension>
+                                </xs:complexContent>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="AntecedentSetting" type="guha:BASettingRef" minOccurs="0"/>
+            <xs:element name="ConsequentSetting" type="guha:BASettingRef" minOccurs="0"/>
+            <xs:element name="ConditionSetting" type="guha:BASettingRef" minOccurs="0"/>
+            <xs:element name="GeneralSetting" type="guha:GeneralSetting" minOccurs="0"
+                maxOccurs="unbounded"/>
+            <!-- The  InterestMeasureSetting type from GUHA namespace cannot be reused, because it asserts that interest measures are mandatory,
+                but they are optional-->
+            <xs:element name="InterestMeasureSetting" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="InterestMeasureThreshold" maxOccurs="unbounded"
+                            minOccurs="0">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:choice>
+                                        <xs:element name="InterestMeasure" type="arf:IMList"/>
+                                        <xs:element name="Formula" type="guha:Formula"/>
+                                    </xs:choice>
+                                    <xs:element name="Threshold" type="xs:decimal" minOccurs="0"/>
+                                    <xs:element name="CompareType" type="guha:CompareType"
+                                        minOccurs="0"/>
+                                    <xs:element name="SignificanceLevel" type="xs:decimal"
+                                        minOccurs="0"/>
+                                </xs:sequence>
+                                <xs:attribute name="id" type="xs:NMTOKEN" use="required"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="match">
+        <xs:restriction base="xs:string">
+            <!-- all referenced BAs need to appear together in one DBA and this DBA must not contain any other BAs -->
+            <xs:enumeration value="requireListed_exclusive"/>
+            <!-- all referenced BAs need to appear together in one DBA, but this DBA can contain other BAs.  -->
+            <xs:enumeration value="requireListed_notexclusive"/>
+            <!-- DBA complying to this DBASetting must link via BARefs to BAs referenced via BASettingRefs either directly or indirectly, via several intermediate BBAs  -->
+            <xs:enumeration value="traverseOnly"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    
+</xs:schema>

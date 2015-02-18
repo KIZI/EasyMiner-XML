@@ -1,0 +1,135 @@
+<SearchResult xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://sewebar.vse.cz/schemas/SearchResult0_2.xsd">
+    <Metadata>
+        <SearchTimestamp>2002-05-30T09:00:00</SearchTimestamp>
+        <LastIndexUpdate>2002-05-30T09:00:00</LastIndexUpdate>
+        <SearchAlgorithm>xquery</SearchAlgorithm>
+        <SearchAlgorithmVersion>xquery 3/4/2011</SearchAlgorithmVersion>
+    </Metadata>
+    <Statistics>
+        <ExecutionTime>3332</ExecutionTime>
+        <DocumentsSearched>50</DocumentsSearched>
+        <RulesSearched>500</RulesSearched>
+    </Statistics>        
+    <DataDescription>
+        <Dictionary sourceDictType="DataDictionary" sourceFormat="PMML" default="true" completeness="ReferencedFromPatterns" id="DataDictionary">
+            <Field id="f1">
+                <Name>amount</Name>
+                <Interval leftMargin="4980" rightMargin="590820" closure="closedClosed"/>
+                <Category>&lt;50;100)</Category>
+            </Field>           
+            <Field id="f2">
+                <Name>Sex</Name>
+                <Category>No</Category>
+            </Field>
+            <Field id="f3">
+                <Name>status</Name>
+                <Category>A</Category>
+                <Category>C</Category>
+            </Field>
+        </Dictionary>
+        <Dictionary sourceDictType="DiscretizationHint" sourceFormat="PMML" default="true" completeness="ReferencedFromPatterns" id="TransformationDictionary">
+            <Field id="f1">
+                <Name>Sex</Name>
+                <Category>M</Category>
+            </Field>
+            <Field id="f2">
+                <Name>Amount</Name>
+                <Category>&lt;50;100</Category>
+            </Field>
+            <Field id="f3">
+                <Name>Quality</Name>
+                <Category>good</Category>
+            </Field>            
+        </Dictionary>
+        <DictionaryMapping>
+            <FieldMapping>
+                <AppliesTo>
+                    <FieldRef id="f3" dictID="DataDictionary"/>
+                    
+                    <FieldRef id="f3" dictID="TransformationDictionary"/>
+                    
+                </AppliesTo>     
+                <ValueMappings>
+                    <ValueMapping>
+                        <Field id="f3" dictID="DataDictionary">
+                            <CatRef>A</CatRef>
+                            <CatRef>C</CatRef>
+                        </Field>
+                        <Field id="f3" dictID="TransformationDictionary">
+                            <CatRef>good</CatRef>
+                        </Field>
+                    </ValueMapping>
+                </ValueMappings>
+
+            </FieldMapping>
+            <FieldMapping>
+                <AppliesTo>
+                    <FieldRef id="f2" dictID="DataDictionary"/>	
+
+                    <FieldRef id="f1" dictID="TransformationDictionary"/>
+                    
+                </AppliesTo>   
+                <ValueMappings>
+                    <ValueMapping>
+                        <Field id="f2" dictID="DataDictionary">
+                            <CatRef>No</CatRef>
+                        </Field>
+                        <Field id="f1" dictID="TransformationDictionary">
+                            <CatRef>M</CatRef>
+                        </Field>
+                    </ValueMapping>
+                </ValueMappings>
+
+            </FieldMapping>
+            <FieldMapping>
+                <AppliesTo>
+                    <FieldRef id="f1" dictID="DataDictionary"/>					
+                    
+                    <FieldRef id="f2" dictID="TransformationDictionary"/>                    
+                </AppliesTo>                               
+                <IntervalMapping/>
+            </FieldMapping>
+            </DictionaryMapping>
+    </DataDescription>
+    <Hits>
+        <BBA id="1">
+            <Text>Amount(&lt;50;100)</Text>
+            <FieldRef>Amount</FieldRef>
+            <CatRef>&lt;50;100</CatRef>
+        </BBA>
+        <BBA id="2">
+            <Text>Sex(M)</Text>
+            <FieldRef>Sex</FieldRef>
+            <CatRef>M</CatRef>
+        </BBA>
+        <BBA id="3">
+            <Text>Quality(good)</Text>
+            <FieldRef>Quality</FieldRef>
+            <CatRef>good</CatRef>
+        </BBA>
+        <DBA literal="true" connective="Conjunction" id="4">
+            <BARef>1</BARef>
+        </DBA>
+        <DBA literal="true" connective="Conjunction" id="5">
+            <BARef>2</BARef>
+        </DBA>
+        <DBA literal="true" connective="Conjunction" id="6">
+            <BARef>3</BARef>
+        </DBA>
+        <DBA connective="Conjunction" id="7">
+            <BARef>1</BARef>
+            <BARef>2</BARef>            
+        </DBA>
+        <DBA connective="Conjunction" id="8">
+            <BARef>3</BARef>
+        </DBA>
+        <Hit docID="1" ruleID="1" docName="dx.xml" database="Barbora" reportURI="http://sewbar.vse.cz/cardio/foo-dx-1.html">
+            <AssociationRule antecedent="7" consequent="68">
+                <Text>Sex(M) &amp; Amount(&lt;50;100)=>Quality(good)</Text>
+                <IMValue name="Support">0.6</IMValue>
+            </AssociationRule>            
+        </Hit>
+
+    </Hits>
+</SearchResult>

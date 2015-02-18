@@ -1,0 +1,2667 @@
+<?xml version="1.0"?>
+<PMML version="4.0" xmlns="http://www.dmg.org/PMML-4_0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:pmml="http://www.dmg.org/PMML-4_0"
+xsi:schemaLocation="http://www.dmg.org/PMML-4_0 http://sewebar.vse.cz/schemas/PMML4.0+GUHA0.1.xsd">
+
+<!-- Ac4ftMiner.Task.PMML.Template, version of 2010-11-30 -->
+
+	<Header copyright="Copyright (c) KIZI UEP">
+		<Extension name="metabase" value="LM LM Barbora.mdb MB"/>
+	  	<Extension name="dataset" value="Loans"/>
+		<Extension name="author" value="PowerUser"/>
+		<Extension name="subsystem" value="SD4ft-Miner"/>
+		<Extension name="module" value="Ac4ftResult.exe"/>
+		<Extension name="format" value="Ac4ftMiner.Task"/>
+		<Application name="LISp-Miner" version="14.09.01 of 30 Nov 2010"/>
+		<Annotation>-</Annotation>
+		<Timestamp>12.1.2010 13:07:56</Timestamp>
+	</Header>
+
+<!-- Matrix -->
+
+	<DataDictionary numberOfFields="4">
+		<DataField 
+			name="Age" 
+			optype="continuous" 
+			dataType="integer"
+		>
+			<Extension name="Avg" value="43.357386" extender="Avg"/>
+			<Extension name="StDev" value="-1.000000" extender="StDev"/>
+            <Interval leftMargin="21.000000" rightMargin="67.000000" closure="closedClosed"/>			
+		</DataField>
+		<DataField 
+			name="District" 
+			optype="categorical" 
+			dataType="string"
+		>
+		</DataField>
+		<DataField 
+			name="duration" 
+			optype="continuous" 
+			dataType="integer"
+		>
+			<Extension name="Avg" value="36.520466" extender="Avg"/>
+			<Extension name="StDev" value="-1.000000" extender="StDev"/>
+            <Interval leftMargin="12.000000" rightMargin="60.000000" closure="closedClosed"/>			
+		</DataField>
+		<DataField 
+			name="status" 
+			optype="categorical" 
+			dataType="string"
+		>
+		</DataField>
+	</DataDictionary>
+
+<!-- Attributes -->
+
+	<TransformationDictionary>
+		<DerivedField 
+			name= "Age "
+			dataType="string" 
+			optype="ordinal"
+		>
+			<MapValues outputColumn="Age "
+			>
+				<FieldColumnPair column="Age" field="Age "/>
+				<InlineTable>
+					<Extension name="Frequency" value="0" extender="21"/>
+					<Extension name="Frequency" value="0" extender="22"/>
+					<Extension name="Frequency" value="0" extender="23"/>
+					<Extension name="Frequency" value="0" extender="24"/>
+					<Extension name="Frequency" value="0" extender="25"/>
+					<Extension name="Frequency" value="0" extender="26"/>
+					<Extension name="Frequency" value="0" extender="27"/>
+					<Extension name="Frequency" value="0" extender="28"/>
+					<Extension name="Frequency" value="117" extender="29"/>
+					<Extension name="Frequency" value="108" extender="30"/>
+					<Extension name="Frequency" value="135" extender="31"/>
+					<Extension name="Frequency" value="126" extender="32"/>
+					<Extension name="Frequency" value="99" extender="33"/>
+					<Extension name="Frequency" value="117" extender="34"/>
+					<Extension name="Frequency" value="90" extender="35"/>
+					<Extension name="Frequency" value="144" extender="36"/>
+					<Extension name="Frequency" value="63" extender="37"/>
+					<Extension name="Frequency" value="198" extender="38"/>
+					<Extension name="Frequency" value="220" extender="39"/>
+					<Extension name="Frequency" value="99" extender="40"/>
+					<Extension name="Frequency" value="126" extender="41"/>
+					<Extension name="Frequency" value="144" extender="42"/>
+					<Extension name="Frequency" value="180" extender="43"/>
+					<Extension name="Frequency" value="144" extender="44"/>
+					<Extension name="Frequency" value="153" extender="45"/>
+					<Extension name="Frequency" value="207" extender="46"/>
+					<Extension name="Frequency" value="99" extender="47"/>
+					<Extension name="Frequency" value="153" extender="48"/>
+					<Extension name="Frequency" value="135" extender="49"/>
+					<Extension name="Frequency" value="99" extender="50"/>
+					<Extension name="Frequency" value="124" extender="51"/>
+					<Extension name="Frequency" value="234" extender="52"/>
+					<Extension name="Frequency" value="162" extender="53"/>
+					<Extension name="Frequency" value="135" extender="54"/>
+					<Extension name="Frequency" value="90" extender="55"/>
+					<Extension name="Frequency" value="99" extender="56"/>
+					<Extension name="Frequency" value="153" extender="57"/>
+					<Extension name="Frequency" value="172" extender="58"/>
+					<Extension name="Frequency" value="171" extender="59"/>
+					<Extension name="Frequency" value="108" extender="60"/>
+					<Extension name="Frequency" value="162" extender="61"/>
+					<Extension name="Frequency" value="93" extender="62"/>
+					<Extension name="Frequency" value="180" extender="63"/>
+					<Extension name="Frequency" value="153" extender="64"/>
+					<Extension name="Frequency" value="126" extender="65"/>
+					<Extension name="Frequency" value="99" extender="66"/>
+					<Extension name="Frequency" value="144" extender="67"/>
+					<row>
+						<column>21</column>
+						<field>21</field>
+					</row>
+					<row>
+						<column>22</column>
+						<field>22</field>
+					</row>
+					<row>
+						<column>23</column>
+						<field>23</field>
+					</row>
+					<row>
+						<column>24</column>
+						<field>24</field>
+					</row>
+					<row>
+						<column>25</column>
+						<field>25</field>
+					</row>
+					<row>
+						<column>26</column>
+						<field>26</field>
+					</row>
+					<row>
+						<column>27</column>
+						<field>27</field>
+					</row>
+					<row>
+						<column>28</column>
+						<field>28</field>
+					</row>
+					<row>
+						<column>29</column>
+						<field>29</field>
+					</row>
+					<row>
+						<column>30</column>
+						<field>30</field>
+					</row>
+					<row>
+						<column>31</column>
+						<field>31</field>
+					</row>
+					<row>
+						<column>32</column>
+						<field>32</field>
+					</row>
+					<row>
+						<column>33</column>
+						<field>33</field>
+					</row>
+					<row>
+						<column>34</column>
+						<field>34</field>
+					</row>
+					<row>
+						<column>35</column>
+						<field>35</field>
+					</row>
+					<row>
+						<column>36</column>
+						<field>36</field>
+					</row>
+					<row>
+						<column>37</column>
+						<field>37</field>
+					</row>
+					<row>
+						<column>38</column>
+						<field>38</field>
+					</row>
+					<row>
+						<column>39</column>
+						<field>39</field>
+					</row>
+					<row>
+						<column>40</column>
+						<field>40</field>
+					</row>
+					<row>
+						<column>41</column>
+						<field>41</field>
+					</row>
+					<row>
+						<column>42</column>
+						<field>42</field>
+					</row>
+					<row>
+						<column>43</column>
+						<field>43</field>
+					</row>
+					<row>
+						<column>44</column>
+						<field>44</field>
+					</row>
+					<row>
+						<column>45</column>
+						<field>45</field>
+					</row>
+					<row>
+						<column>46</column>
+						<field>46</field>
+					</row>
+					<row>
+						<column>47</column>
+						<field>47</field>
+					</row>
+					<row>
+						<column>48</column>
+						<field>48</field>
+					</row>
+					<row>
+						<column>49</column>
+						<field>49</field>
+					</row>
+					<row>
+						<column>50</column>
+						<field>50</field>
+					</row>
+					<row>
+						<column>51</column>
+						<field>51</field>
+					</row>
+					<row>
+						<column>52</column>
+						<field>52</field>
+					</row>
+					<row>
+						<column>53</column>
+						<field>53</field>
+					</row>
+					<row>
+						<column>54</column>
+						<field>54</field>
+					</row>
+					<row>
+						<column>55</column>
+						<field>55</field>
+					</row>
+					<row>
+						<column>56</column>
+						<field>56</field>
+					</row>
+					<row>
+						<column>57</column>
+						<field>57</field>
+					</row>
+					<row>
+						<column>58</column>
+						<field>58</field>
+					</row>
+					<row>
+						<column>59</column>
+						<field>59</field>
+					</row>
+					<row>
+						<column>60</column>
+						<field>60</field>
+					</row>
+					<row>
+						<column>61</column>
+						<field>61</field>
+					</row>
+					<row>
+						<column>62</column>
+						<field>62</field>
+					</row>
+					<row>
+						<column>63</column>
+						<field>63</field>
+					</row>
+					<row>
+						<column>64</column>
+						<field>64</field>
+					</row>
+					<row>
+						<column>65</column>
+						<field>65</field>
+					</row>
+					<row>
+						<column>66</column>
+						<field>66</field>
+					</row>
+					<row>
+						<column>67</column>
+						<field>67</field>
+					</row>
+				</InlineTable>
+			</MapValues>
+
+		</DerivedField>
+		<DerivedField 
+			name= "District"
+			dataType="string" 
+			optype="ordinal"
+		>
+			<MapValues outputColumn="District"
+			>
+				<FieldColumnPair column="District" field="District"/>
+				<InlineTable>
+					<Extension name="Frequency" value="63" extender="Benesov"/>
+					<Extension name="Frequency" value="63" extender="Beroun"/>
+					<Extension name="Frequency" value="63" extender="Blansko"/>
+					<Extension name="Frequency" value="54" extender="Breclav"/>
+					<Extension name="Frequency" value="207" extender="Brno"/>
+					<Extension name="Frequency" value="99" extender="Brno - venkov"/>
+					<Extension name="Frequency" value="55" extender="Bruntal"/>
+					<Extension name="Frequency" value="54" extender="Ceska Lipa"/>
+					<Extension name="Frequency" value="81" extender="Ceske Budejovice"/>
+					<Extension name="Frequency" value="63" extender="Cesky Krumlov"/>
+					<Extension name="Frequency" value="45" extender="Decin"/>
+					<Extension name="Frequency" value="18" extender="Domazlice"/>
+					<Extension name="Frequency" value="135" extender="Frydek - Mistek"/>
+					<Extension name="Frequency" value="86" extender="Havlickuv Brod"/>
+					<Extension name="Frequency" value="72" extender="Hodonin"/>
+					<Extension name="Frequency" value="54" extender="Hradec Kralove"/>
+					<Extension name="Frequency" value="36" extender="Cheb"/>
+					<Extension name="Frequency" value="72" extender="Chomutov"/>
+					<Extension name="Frequency" value="63" extender="Chrudim"/>
+					<Extension name="Frequency" value="18" extender="Jablonec n. Nisou"/>
+					<Extension name="Frequency" value="72" extender="Jesenik"/>
+					<Extension name="Frequency" value="63" extender="Jicin"/>
+					<Extension name="Frequency" value="54" extender="Jihlava"/>
+					<Extension name="Frequency" value="99" extender="Jindrichuv Hradec"/>
+					<Extension name="Frequency" value="54" extender="Karlovy Vary"/>
+					<Extension name="Frequency" value="225" extender="Karvina"/>
+					<Extension name="Frequency" value="54" extender="Kladno"/>
+					<Extension name="Frequency" value="18" extender="Klatovy"/>
+					<Extension name="Frequency" value="99" extender="Kolin"/>
+					<Extension name="Frequency" value="99" extender="Kromeriz"/>
+					<Extension name="Frequency" value="72" extender="Kutna Hora"/>
+					<Extension name="Frequency" value="63" extender="Liberec"/>
+					<Extension name="Frequency" value="63" extender="Litomerice"/>
+					<Extension name="Frequency" value="117" extender="Louny"/>
+					<Extension name="Frequency" value="45" extender="Melnik"/>
+					<Extension name="Frequency" value="45" extender="Mlada Boleslav"/>
+					<Extension name="Frequency" value="61" extender="Most"/>
+					<Extension name="Frequency" value="72" extender="Nachod"/>
+					<Extension name="Frequency" value="45" extender="Novy Jicin"/>
+					<Extension name="Frequency" value="81" extender="Nymburk"/>
+					<Extension name="Frequency" value="135" extender="Olomouc"/>
+					<Extension name="Frequency" value="72" extender="Opava"/>
+					<Extension name="Frequency" value="180" extender="Ostrava - mesto"/>
+					<Extension name="Frequency" value="90" extender="Pardubice"/>
+					<Extension name="Frequency" value="54" extender="Pelhrimov"/>
+					<Extension name="Frequency" value="27" extender="Pisek"/>
+					<Extension name="Frequency" value="54" extender="Plzen"/>
+					<Extension name="Frequency" value="81" extender="Plzen - jih"/>
+					<Extension name="Frequency" value="63" extender="Plzen - sever"/>
+					<Extension name="Frequency" value="711" extender="Praha"/>
+					<Extension name="Frequency" value="45" extender="Praha - vychod"/>
+					<Extension name="Frequency" value="90" extender="Praha - zapad"/>
+					<Extension name="Frequency" value="108" extender="Prachatice"/>
+					<Extension name="Frequency" value="27" extender="Prerov"/>
+					<Extension name="Frequency" value="45" extender="Pribram"/>
+					<Extension name="Frequency" value="81" extender="Prostejov"/>
+					<Extension name="Frequency" value="81" extender="Rakovnik"/>
+					<Extension name="Frequency" value="72" extender="Rokycany"/>
+					<Extension name="Frequency" value="45" extender="Rychnov nad Kneznou"/>
+					<Extension name="Frequency" value="27" extender="Semily"/>
+					<Extension name="Frequency" value="12" extender="Sokolov"/>
+					<Extension name="Frequency" value="45" extender="Strakonice"/>
+					<Extension name="Frequency" value="54" extender="Sumperk"/>
+					<Extension name="Frequency" value="108" extender="Svitavy"/>
+					<Extension name="Frequency" value="72" extender="Tabor"/>
+					<Extension name="Frequency" value="99" extender="Tachov"/>
+					<Extension name="Frequency" value="45" extender="Teplice"/>
+					<Extension name="Frequency" value="54" extender="Trebic"/>
+					<Extension name="Frequency" value="63" extender="Trutnov"/>
+					<Extension name="Frequency" value="81" extender="Uherske Hradiste"/>
+					<Extension name="Frequency" value="27" extender="Usti nad Labem"/>
+					<Extension name="Frequency" value="135" extender="Usti nad Orlici"/>
+					<Extension name="Frequency" value="63" extender="Vsetin"/>
+					<Extension name="Frequency" value="72" extender="Vyskov"/>
+					<Extension name="Frequency" value="63" extender="Zdar nad Sazavou"/>
+					<Extension name="Frequency" value="144" extender="Zlin"/>
+					<Extension name="Frequency" value="54" extender="Znojmo"/>
+					<row>
+						<column>Benesov</column>
+						<field>Benesov</field>
+					</row>
+					<row>
+						<column>Beroun</column>
+						<field>Beroun</field>
+					</row>
+					<row>
+						<column>Blansko</column>
+						<field>Blansko</field>
+					</row>
+					<row>
+						<column>Breclav</column>
+						<field>Breclav</field>
+					</row>
+					<row>
+						<column>Brno</column>
+						<field>Brno</field>
+					</row>
+					<row>
+						<column>Brno - venkov</column>
+						<field>Brno - venkov</field>
+					</row>
+					<row>
+						<column>Bruntal</column>
+						<field>Bruntal</field>
+					</row>
+					<row>
+						<column>Ceska Lipa</column>
+						<field>Ceska Lipa</field>
+					</row>
+					<row>
+						<column>Ceske Budejovice</column>
+						<field>Ceske Budejovice</field>
+					</row>
+					<row>
+						<column>Cesky Krumlov</column>
+						<field>Cesky Krumlov</field>
+					</row>
+					<row>
+						<column>Decin</column>
+						<field>Decin</field>
+					</row>
+					<row>
+						<column>Domazlice</column>
+						<field>Domazlice</field>
+					</row>
+					<row>
+						<column>Frydek - Mistek</column>
+						<field>Frydek - Mistek</field>
+					</row>
+					<row>
+						<column>Havlickuv Brod</column>
+						<field>Havlickuv Brod</field>
+					</row>
+					<row>
+						<column>Hodonin</column>
+						<field>Hodonin</field>
+					</row>
+					<row>
+						<column>Hradec Kralove</column>
+						<field>Hradec Kralove</field>
+					</row>
+					<row>
+						<column>Cheb</column>
+						<field>Cheb</field>
+					</row>
+					<row>
+						<column>Chomutov</column>
+						<field>Chomutov</field>
+					</row>
+					<row>
+						<column>Chrudim</column>
+						<field>Chrudim</field>
+					</row>
+					<row>
+						<column>Jablonec n. Nisou</column>
+						<field>Jablonec n. Nisou</field>
+					</row>
+					<row>
+						<column>Jesenik</column>
+						<field>Jesenik</field>
+					</row>
+					<row>
+						<column>Jicin</column>
+						<field>Jicin</field>
+					</row>
+					<row>
+						<column>Jihlava</column>
+						<field>Jihlava</field>
+					</row>
+					<row>
+						<column>Jindrichuv Hradec</column>
+						<field>Jindrichuv Hradec</field>
+					</row>
+					<row>
+						<column>Karlovy Vary</column>
+						<field>Karlovy Vary</field>
+					</row>
+					<row>
+						<column>Karvina</column>
+						<field>Karvina</field>
+					</row>
+					<row>
+						<column>Kladno</column>
+						<field>Kladno</field>
+					</row>
+					<row>
+						<column>Klatovy</column>
+						<field>Klatovy</field>
+					</row>
+					<row>
+						<column>Kolin</column>
+						<field>Kolin</field>
+					</row>
+					<row>
+						<column>Kromeriz</column>
+						<field>Kromeriz</field>
+					</row>
+					<row>
+						<column>Kutna Hora</column>
+						<field>Kutna Hora</field>
+					</row>
+					<row>
+						<column>Liberec</column>
+						<field>Liberec</field>
+					</row>
+					<row>
+						<column>Litomerice</column>
+						<field>Litomerice</field>
+					</row>
+					<row>
+						<column>Louny</column>
+						<field>Louny</field>
+					</row>
+					<row>
+						<column>Melnik</column>
+						<field>Melnik</field>
+					</row>
+					<row>
+						<column>Mlada Boleslav</column>
+						<field>Mlada Boleslav</field>
+					</row>
+					<row>
+						<column>Most</column>
+						<field>Most</field>
+					</row>
+					<row>
+						<column>Nachod</column>
+						<field>Nachod</field>
+					</row>
+					<row>
+						<column>Novy Jicin</column>
+						<field>Novy Jicin</field>
+					</row>
+					<row>
+						<column>Nymburk</column>
+						<field>Nymburk</field>
+					</row>
+					<row>
+						<column>Olomouc</column>
+						<field>Olomouc</field>
+					</row>
+					<row>
+						<column>Opava</column>
+						<field>Opava</field>
+					</row>
+					<row>
+						<column>Ostrava - mesto</column>
+						<field>Ostrava - mesto</field>
+					</row>
+					<row>
+						<column>Pardubice</column>
+						<field>Pardubice</field>
+					</row>
+					<row>
+						<column>Pelhrimov</column>
+						<field>Pelhrimov</field>
+					</row>
+					<row>
+						<column>Pisek</column>
+						<field>Pisek</field>
+					</row>
+					<row>
+						<column>Plzen</column>
+						<field>Plzen</field>
+					</row>
+					<row>
+						<column>Plzen - jih</column>
+						<field>Plzen - jih</field>
+					</row>
+					<row>
+						<column>Plzen - sever</column>
+						<field>Plzen - sever</field>
+					</row>
+					<row>
+						<column>Praha</column>
+						<field>Praha</field>
+					</row>
+					<row>
+						<column>Praha - vychod</column>
+						<field>Praha - vychod</field>
+					</row>
+					<row>
+						<column>Praha - zapad</column>
+						<field>Praha - zapad</field>
+					</row>
+					<row>
+						<column>Prachatice</column>
+						<field>Prachatice</field>
+					</row>
+					<row>
+						<column>Prerov</column>
+						<field>Prerov</field>
+					</row>
+					<row>
+						<column>Pribram</column>
+						<field>Pribram</field>
+					</row>
+					<row>
+						<column>Prostejov</column>
+						<field>Prostejov</field>
+					</row>
+					<row>
+						<column>Rakovnik</column>
+						<field>Rakovnik</field>
+					</row>
+					<row>
+						<column>Rokycany</column>
+						<field>Rokycany</field>
+					</row>
+					<row>
+						<column>Rychnov nad Kneznou</column>
+						<field>Rychnov nad Kneznou</field>
+					</row>
+					<row>
+						<column>Semily</column>
+						<field>Semily</field>
+					</row>
+					<row>
+						<column>Sokolov</column>
+						<field>Sokolov</field>
+					</row>
+					<row>
+						<column>Strakonice</column>
+						<field>Strakonice</field>
+					</row>
+					<row>
+						<column>Sumperk</column>
+						<field>Sumperk</field>
+					</row>
+					<row>
+						<column>Svitavy</column>
+						<field>Svitavy</field>
+					</row>
+					<row>
+						<column>Tabor</column>
+						<field>Tabor</field>
+					</row>
+					<row>
+						<column>Tachov</column>
+						<field>Tachov</field>
+					</row>
+					<row>
+						<column>Teplice</column>
+						<field>Teplice</field>
+					</row>
+					<row>
+						<column>Trebic</column>
+						<field>Trebic</field>
+					</row>
+					<row>
+						<column>Trutnov</column>
+						<field>Trutnov</field>
+					</row>
+					<row>
+						<column>Uherske Hradiste</column>
+						<field>Uherske Hradiste</field>
+					</row>
+					<row>
+						<column>Usti nad Labem</column>
+						<field>Usti nad Labem</field>
+					</row>
+					<row>
+						<column>Usti nad Orlici</column>
+						<field>Usti nad Orlici</field>
+					</row>
+					<row>
+						<column>Vsetin</column>
+						<field>Vsetin</field>
+					</row>
+					<row>
+						<column>Vyskov</column>
+						<field>Vyskov</field>
+					</row>
+					<row>
+						<column>Zdar nad Sazavou</column>
+						<field>Zdar nad Sazavou</field>
+					</row>
+					<row>
+						<column>Zlin</column>
+						<field>Zlin</field>
+					</row>
+					<row>
+						<column>Znojmo</column>
+						<field>Znojmo</field>
+					</row>
+				</InlineTable>
+			</MapValues>
+
+		</DerivedField>
+		<DerivedField 
+			name= "Duration"
+			dataType="string" 
+			optype="ordinal"
+		>
+			<MapValues outputColumn="Duration"
+			>
+				<FieldColumnPair column="duration" field="Duration"/>
+				<InlineTable>
+					<Extension name="Frequency" value="1181" extender="1 year"/>
+					<Extension name="Frequency" value="1243" extender="2 years"/>
+					<Extension name="Frequency" value="1194" extender="3 years"/>
+					<Extension name="Frequency" value="1252" extender="4 years"/>
+					<Extension name="Frequency" value="1311" extender="5 years"/>
+					<row>
+						<column>12</column>
+						<field>1 year</field>
+					</row>
+					<row>
+						<column>13</column>
+						<field>2 years</field>
+					</row>
+					<row>
+						<column>24</column>
+						<field>2 years</field>
+					</row>
+					<row>
+						<column>36</column>
+						<field>3 years</field>
+					</row>
+					<row>
+						<column>48</column>
+						<field>4 years</field>
+					</row>
+					<row>
+						<column>60</column>
+						<field>5 years</field>
+					</row>
+				</InlineTable>
+			</MapValues>
+
+		</DerivedField>
+		<DerivedField 
+			name= "Quality"
+			dataType="string" 
+			optype="ordinal"
+		>
+			<MapValues outputColumn="Quality"
+			>
+				<FieldColumnPair column="status" field="Quality"/>
+				<InlineTable>
+					<Extension name="Frequency" value="5454" extender="good"/>
+					<Extension name="Frequency" value="727" extender="bad"/>
+					<row>
+						<column>A</column>
+						<field>good</field>
+					</row>
+					<row>
+						<column>C</column>
+						<field>good</field>
+					</row>
+					<row>
+						<column>B</column>
+						<field>bad</field>
+					</row>
+					<row>
+						<column>D</column>
+						<field>bad</field>
+					</row>
+				</InlineTable>
+			</MapValues>
+
+		</DerivedField>
+	</TransformationDictionary>
+
+<!-- Task -->
+
+	<guha:Ac4ftModel xmlns="" xsi:schemaLocation="http://keg.vse.cz/ns/GUHA0.1rev1 http://sewebar.vse.cz/schemas/GUHA0.1rev1.xsd"
+			  xmlns:guha="http://keg.vse.cz/ns/GUHA0.1rev1"
+			  modelName="? - Action4ft-Task" 
+			  functionName="associationRules" 
+			  algorithmName="Ac4ft"
+			  numberOfTransactions="6181" 
+			  numberOfCategories="131" 
+			  numberOfRules="10"
+	>
+		<TaskSetting>
+    		 <Extension name="LIS-Miner">
+			<TaskGroup>Default task-group</TaskGroup>
+			<NumberOfVerifications>10</NumberOfVerifications>
+			<TaskStartTime>12.1.2010 13:07:56</TaskStartTime>
+			<TaskDuration>0h 0m 8s</TaskDuration>
+			<StrictDisjunctionFlag>Yes</StrictDisjunctionFlag>
+			<StrictActionFlag>Yes</StrictActionFlag>
+			<HypothesesCountMax>10</HypothesesCountMax>
+			<TaskNotice>-</TaskNotice>
+		 </Extension>
+
+			<BBASettings>
+				<BBASetting 
+				   id="Basic_FTLiteralD_96">
+				   <Name>Age (*)</Name>
+				   <FieldRef>Age </FieldRef>
+					<Coefficient>
+					 <Type>Subset</Type>
+					 <MinimalLength>1</MinimalLength>
+					 <MaximalLength>1</MaximalLength>
+					</Coefficient>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>
+
+				</BBASetting>
+				<BBASetting 
+				   id="Basic_FTLiteralD_97">
+				   <Name>District(*)</Name>
+				   <FieldRef>District</FieldRef>
+					<Coefficient>
+					 <Type>Subset</Type>
+					 <MinimalLength>1</MinimalLength>
+					 <MaximalLength>1</MaximalLength>
+					</Coefficient>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>
+
+				</BBASetting>
+				<BBASetting 
+				   id="Basic_FTLiteralD_98">
+				   <Name>Quality(*)</Name>
+				   <FieldRef>Quality</FieldRef>
+					<Coefficient>
+					 <Type>Subset</Type>
+					 <MinimalLength>1</MinimalLength>
+					 <MaximalLength>1</MaximalLength>
+					</Coefficient>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>
+
+				</BBASetting>
+				<BBASetting 
+				   id="Basic_FTLiteralD_99">
+				   <Name>Duration(*)</Name>
+				   <FieldRef>Duration</FieldRef>
+					<Coefficient>
+					 <Type>Subset</Type>
+					 <MinimalLength>1</MinimalLength>
+					 <MaximalLength>1</MaximalLength>
+					</Coefficient>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>
+
+				</BBASetting>
+			</BBASettings>
+
+			<DBASettings>
+				<DBASetting id="Derived_FTLiteralD_Sign_96" 
+					type="Literal">
+					<Name>Age (*)</Name>
+					<BASettingRef>Basic_FTLiteralD_96</BASettingRef>
+					<LiteralSign>Positive</LiteralSign>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>				   
+				</DBASetting>
+				<DBASetting id="Derived_FTLiteralD_Sign_97" 
+					type="Literal">
+					<Name>District(*)</Name>
+					<BASettingRef>Basic_FTLiteralD_97</BASettingRef>
+					<LiteralSign>Positive</LiteralSign>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>				   
+				</DBASetting>
+				<DBASetting id="Derived_FTLiteralD_Sign_98" 
+					type="Literal">
+					<Name>Quality(*)</Name>
+					<BASettingRef>Basic_FTLiteralD_98</BASettingRef>
+					<LiteralSign>Positive</LiteralSign>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>				   
+				</DBASetting>
+				<DBASetting id="Derived_FTLiteralD_Sign_99" 
+					type="Literal">
+					<Name>Duration(*)</Name>
+					<BASettingRef>Basic_FTLiteralD_99</BASettingRef>
+					<LiteralSign>Positive</LiteralSign>
+					<LiteralType>Basic</LiteralType>
+					<EquivalenceClass>NULL</EquivalenceClass>				   
+				</DBASetting>
+
+				<DBASetting 
+					id="Derived_FTCedentD_47"
+					type="Conjunction"
+				>
+					<Name>Antecedent</Name>
+					<BASettingRef>Derived_FTLiteralD_Sign_96</BASettingRef>
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+				<DBASetting 
+					id="Derived_FTCedentD_48"
+					type="Conjunction"
+				>
+					<Name>Succedent</Name>
+					<BASettingRef>Derived_FTLiteralD_Sign_97</BASettingRef>
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+				<DBASetting 
+					id="Derived_FTCedentD_49"
+					type="Conjunction"
+				>
+					<Name>Ant Variable</Name>
+					<BASettingRef>Derived_FTLiteralD_Sign_98</BASettingRef>
+					<MinimalLength>1</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+				<DBASetting 
+					id="Derived_FTCedentD_50"
+					type="Conjunction"
+				>
+					<Name>Suc Variable</Name>
+					<BASettingRef>Derived_FTLiteralD_Sign_99</BASettingRef>
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+
+				<DBASetting id="Derived_FTCedentBagD_28" type="Conjunction">
+					<Name>Antecedent</Name>
+					<BASettingRef>Derived_FTCedentD_47</BASettingRef>
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+				<DBASetting id="Derived_FTCedentBagD_29" type="Conjunction">
+					<Name>Succedent</Name>
+					<BASettingRef>Derived_FTCedentD_48</BASettingRef>
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+				<DBASetting id="Derived_FTCedentBagD_30" type="Conjunction">
+					<Name>Ant Variable</Name>
+					<BASettingRef>Derived_FTCedentD_49</BASettingRef>
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+				<DBASetting id="Derived_FTCedentBagD_31" type="Conjunction">
+					<Name>Suc Variable</Name>
+					<BASettingRef>Derived_FTCedentD_50</BASettingRef>
+					<MinimalLength>0</MinimalLength>
+					<MaximalLength>99</MaximalLength>
+				</DBASetting>
+
+			</DBASettings>
+
+
+			<AntecedentSetting>Derived_FTCedentBagD_28</AntecedentSetting>
+			<ConsequentSetting>Derived_FTCedentBagD_29</ConsequentSetting>
+			<AntecedentVarSetting>Derived_FTCedentBagD_30</AntecedentVarSetting>
+			<ConsequentVarSetting>Derived_FTCedentBagD_31</ConsequentVarSetting>
+			<ConditionSetting>Derived_FTCedentBagD_27</ConditionSetting>
+
+			<InterestMeasureSetting>
+				<InterestMeasureThreshold id="1">
+					<Extension name="ShortName">BASE</Extension>
+					<Extension name="Description">Value of frequency &quot;a&quot; from contingency table</Extension>
+					<Extension name="Order">0</Extension>		
+					<InterestMeasure>BASE (a-freq)</InterestMeasure>
+					<SourceType>&quot;State before&quot; frequencies</SourceType>			
+					<Threshold>1.000000</Threshold>						
+					<CompareType>Greater than or equal</CompareType>
+				</InterestMeasureThreshold>		
+				<InterestMeasureThreshold id="2">
+					<Extension name="ShortName">BASE</Extension>
+					<Extension name="Description">Value of frequency &quot;a&quot; from contingency table</Extension>
+					<Extension name="Order">0</Extension>		
+					<InterestMeasure>BASE (a-freq)</InterestMeasure>
+					<SourceType>&quot;State after&quot; frequencies</SourceType>			
+					<Threshold>1.000000</Threshold>						
+					<CompareType>Greater than or equal</CompareType>
+				</InterestMeasureThreshold>		
+			</InterestMeasureSetting>
+		</TaskSetting>
+
+	<!-- MiningSchema -->
+
+		<pmml:MiningSchema>
+			<pmml:MiningField name="duration"/>
+			<pmml:MiningField name="status"/>
+		</pmml:MiningSchema>
+
+	<Ac4ftRules>
+
+	<!-- Item a DBA -->
+		    <BBA id="BBA_FTLiteralI_1710" literal="false">
+			<Text>Quality(good)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>good</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1711" literal="false">
+			<Text>Quality(bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1712" literal="false">
+			<Text>Duration(1 year)</Text>
+			<FieldRef>Duration</FieldRef>
+			<CatRef>1 year</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1713" literal="false">
+			<Text>Duration(2 years)</Text>
+			<FieldRef>Duration</FieldRef>
+			<CatRef>2 years</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1714" literal="false">
+			<Text>Quality(good)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>good</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1715" literal="false">
+			<Text>Quality(bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1716" literal="false">
+			<Text>Duration(1 year)</Text>
+			<FieldRef>Duration</FieldRef>
+			<CatRef>1 year</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1717" literal="false">
+			<Text>Duration(3 years)</Text>
+			<FieldRef>Duration</FieldRef>
+			<CatRef>3 years</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1718" literal="false">
+			<Text>Quality(good)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>good</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1719" literal="false">
+			<Text>Quality(bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1720" literal="false">
+			<Text>Duration(1 year)</Text>
+			<FieldRef>Duration</FieldRef>
+			<CatRef>1 year</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1721" literal="false">
+			<Text>Duration(4 years)</Text>
+			<FieldRef>Duration</FieldRef>
+			<CatRef>4 years</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1722" literal="false">
+			<Text>Quality(good)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>good</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1723" literal="false">
+			<Text>Quality(bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1724" literal="false">
+			<Text>Duration(1 year)</Text>
+			<FieldRef>Duration</FieldRef>
+			<CatRef>1 year</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1725" literal="false">
+			<Text>Duration(5 years)</Text>
+			<FieldRef>Duration</FieldRef>
+			<CatRef>5 years</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1726" literal="false">
+			<Text>Quality(good)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>good</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1727" literal="false">
+			<Text>Quality(bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1728" literal="false">
+			<Text>Duration(2 years)</Text>
+			<FieldRef>Duration</FieldRef>
+			<CatRef>2 years</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1729" literal="false">
+			<Text>Duration(1 year)</Text>
+			<FieldRef>Duration</FieldRef>
+			<CatRef>1 year</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1730" literal="false">
+			<Text>Quality(good)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>good</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1731" literal="false">
+			<Text>Quality(bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1732" literal="false">
+			<Text>Duration(2 years)</Text>
+			<FieldRef>Duration</FieldRef>
+			<CatRef>2 years</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1733" literal="false">
+			<Text>Duration(3 years)</Text>
+			<FieldRef>Duration</FieldRef>
+			<CatRef>3 years</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1734" literal="false">
+			<Text>Quality(good)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>good</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1735" literal="false">
+			<Text>Quality(bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1736" literal="false">
+			<Text>Duration(2 years)</Text>
+			<FieldRef>Duration</FieldRef>
+			<CatRef>2 years</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1737" literal="false">
+			<Text>Duration(4 years)</Text>
+			<FieldRef>Duration</FieldRef>
+			<CatRef>4 years</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1738" literal="false">
+			<Text>Quality(good)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>good</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1739" literal="false">
+			<Text>Quality(bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1740" literal="false">
+			<Text>Duration(2 years)</Text>
+			<FieldRef>Duration</FieldRef>
+			<CatRef>2 years</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1741" literal="false">
+			<Text>Duration(5 years)</Text>
+			<FieldRef>Duration</FieldRef>
+			<CatRef>5 years</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1742" literal="false">
+			<Text>Quality(good)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>good</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1743" literal="false">
+			<Text>Quality(bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1744" literal="false">
+			<Text>Duration(3 years)</Text>
+			<FieldRef>Duration</FieldRef>
+			<CatRef>3 years</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1745" literal="false">
+			<Text>Duration(1 year)</Text>
+			<FieldRef>Duration</FieldRef>
+			<CatRef>1 year</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1746" literal="false">
+			<Text>Quality(good)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>good</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1747" literal="false">
+			<Text>Quality(bad)</Text>
+			<FieldRef>Quality</FieldRef>
+			<CatRef>bad</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1748" literal="false">
+			<Text>Duration(3 years)</Text>
+			<FieldRef>Duration</FieldRef>
+			<CatRef>3 years</CatRef>
+		    </BBA>
+		    <BBA id="BBA_FTLiteralI_1749" literal="false">
+			<Text>Duration(2 years)</Text>
+			<FieldRef>Duration</FieldRef>
+			<CatRef>2 years</CatRef>
+		    </BBA>
+
+		   <DBA id="DBA_FTLiteralI_Sign_1710" connective="Conjunction" literal="true">
+			<Text>Quality(good)</Text>
+			<BARef>BBA_FTLiteralI_1710</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1711" connective="Conjunction" literal="true">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_1711</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1712" connective="Conjunction" literal="true">
+			<Text>Duration(1 year)</Text>
+			<BARef>BBA_FTLiteralI_1712</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1713" connective="Conjunction" literal="true">
+			<Text>Duration(2 years)</Text>
+			<BARef>BBA_FTLiteralI_1713</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1714" connective="Conjunction" literal="true">
+			<Text>Quality(good)</Text>
+			<BARef>BBA_FTLiteralI_1714</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1715" connective="Conjunction" literal="true">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_1715</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1716" connective="Conjunction" literal="true">
+			<Text>Duration(1 year)</Text>
+			<BARef>BBA_FTLiteralI_1716</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1717" connective="Conjunction" literal="true">
+			<Text>Duration(3 years)</Text>
+			<BARef>BBA_FTLiteralI_1717</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1718" connective="Conjunction" literal="true">
+			<Text>Quality(good)</Text>
+			<BARef>BBA_FTLiteralI_1718</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1719" connective="Conjunction" literal="true">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_1719</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1720" connective="Conjunction" literal="true">
+			<Text>Duration(1 year)</Text>
+			<BARef>BBA_FTLiteralI_1720</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1721" connective="Conjunction" literal="true">
+			<Text>Duration(4 years)</Text>
+			<BARef>BBA_FTLiteralI_1721</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1722" connective="Conjunction" literal="true">
+			<Text>Quality(good)</Text>
+			<BARef>BBA_FTLiteralI_1722</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1723" connective="Conjunction" literal="true">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_1723</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1724" connective="Conjunction" literal="true">
+			<Text>Duration(1 year)</Text>
+			<BARef>BBA_FTLiteralI_1724</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1725" connective="Conjunction" literal="true">
+			<Text>Duration(5 years)</Text>
+			<BARef>BBA_FTLiteralI_1725</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1726" connective="Conjunction" literal="true">
+			<Text>Quality(good)</Text>
+			<BARef>BBA_FTLiteralI_1726</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1727" connective="Conjunction" literal="true">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_1727</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1728" connective="Conjunction" literal="true">
+			<Text>Duration(2 years)</Text>
+			<BARef>BBA_FTLiteralI_1728</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1729" connective="Conjunction" literal="true">
+			<Text>Duration(1 year)</Text>
+			<BARef>BBA_FTLiteralI_1729</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1730" connective="Conjunction" literal="true">
+			<Text>Quality(good)</Text>
+			<BARef>BBA_FTLiteralI_1730</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1731" connective="Conjunction" literal="true">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_1731</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1732" connective="Conjunction" literal="true">
+			<Text>Duration(2 years)</Text>
+			<BARef>BBA_FTLiteralI_1732</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1733" connective="Conjunction" literal="true">
+			<Text>Duration(3 years)</Text>
+			<BARef>BBA_FTLiteralI_1733</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1734" connective="Conjunction" literal="true">
+			<Text>Quality(good)</Text>
+			<BARef>BBA_FTLiteralI_1734</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1735" connective="Conjunction" literal="true">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_1735</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1736" connective="Conjunction" literal="true">
+			<Text>Duration(2 years)</Text>
+			<BARef>BBA_FTLiteralI_1736</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1737" connective="Conjunction" literal="true">
+			<Text>Duration(4 years)</Text>
+			<BARef>BBA_FTLiteralI_1737</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1738" connective="Conjunction" literal="true">
+			<Text>Quality(good)</Text>
+			<BARef>BBA_FTLiteralI_1738</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1739" connective="Conjunction" literal="true">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_1739</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1740" connective="Conjunction" literal="true">
+			<Text>Duration(2 years)</Text>
+			<BARef>BBA_FTLiteralI_1740</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1741" connective="Conjunction" literal="true">
+			<Text>Duration(5 years)</Text>
+			<BARef>BBA_FTLiteralI_1741</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1742" connective="Conjunction" literal="true">
+			<Text>Quality(good)</Text>
+			<BARef>BBA_FTLiteralI_1742</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1743" connective="Conjunction" literal="true">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_1743</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1744" connective="Conjunction" literal="true">
+			<Text>Duration(3 years)</Text>
+			<BARef>BBA_FTLiteralI_1744</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1745" connective="Conjunction" literal="true">
+			<Text>Duration(1 year)</Text>
+			<BARef>BBA_FTLiteralI_1745</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1746" connective="Conjunction" literal="true">
+			<Text>Quality(good)</Text>
+			<BARef>BBA_FTLiteralI_1746</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1747" connective="Conjunction" literal="true">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_1747</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1748" connective="Conjunction" literal="true">
+			<Text>Duration(3 years)</Text>
+			<BARef>BBA_FTLiteralI_1748</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1749" connective="Conjunction" literal="true">
+			<Text>Duration(2 years)</Text>
+			<BARef>BBA_FTLiteralI_1749</BARef>
+		   </DBA>
+
+		   <DBA id="DBA_FTLiteralI_Sign_1710" connective="Conjunction" literal="true">
+			<Text>Quality(good)</Text>
+			<BARef>BBA_FTLiteralI_1710</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1711" connective="Conjunction" literal="true">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_1711</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1712" connective="Conjunction" literal="true">
+			<Text>Duration(1 year)</Text>
+			<BARef>BBA_FTLiteralI_1712</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1713" connective="Conjunction" literal="true">
+			<Text>Duration(2 years)</Text>
+			<BARef>BBA_FTLiteralI_1713</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1714" connective="Conjunction" literal="true">
+			<Text>Quality(good)</Text>
+			<BARef>BBA_FTLiteralI_1714</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1715" connective="Conjunction" literal="true">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_1715</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1716" connective="Conjunction" literal="true">
+			<Text>Duration(1 year)</Text>
+			<BARef>BBA_FTLiteralI_1716</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1717" connective="Conjunction" literal="true">
+			<Text>Duration(3 years)</Text>
+			<BARef>BBA_FTLiteralI_1717</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1718" connective="Conjunction" literal="true">
+			<Text>Quality(good)</Text>
+			<BARef>BBA_FTLiteralI_1718</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1719" connective="Conjunction" literal="true">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_1719</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1720" connective="Conjunction" literal="true">
+			<Text>Duration(1 year)</Text>
+			<BARef>BBA_FTLiteralI_1720</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1721" connective="Conjunction" literal="true">
+			<Text>Duration(4 years)</Text>
+			<BARef>BBA_FTLiteralI_1721</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1722" connective="Conjunction" literal="true">
+			<Text>Quality(good)</Text>
+			<BARef>BBA_FTLiteralI_1722</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1723" connective="Conjunction" literal="true">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_1723</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1724" connective="Conjunction" literal="true">
+			<Text>Duration(1 year)</Text>
+			<BARef>BBA_FTLiteralI_1724</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1725" connective="Conjunction" literal="true">
+			<Text>Duration(5 years)</Text>
+			<BARef>BBA_FTLiteralI_1725</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1726" connective="Conjunction" literal="true">
+			<Text>Quality(good)</Text>
+			<BARef>BBA_FTLiteralI_1726</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1727" connective="Conjunction" literal="true">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_1727</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1728" connective="Conjunction" literal="true">
+			<Text>Duration(2 years)</Text>
+			<BARef>BBA_FTLiteralI_1728</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1729" connective="Conjunction" literal="true">
+			<Text>Duration(1 year)</Text>
+			<BARef>BBA_FTLiteralI_1729</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1730" connective="Conjunction" literal="true">
+			<Text>Quality(good)</Text>
+			<BARef>BBA_FTLiteralI_1730</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1731" connective="Conjunction" literal="true">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_1731</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1732" connective="Conjunction" literal="true">
+			<Text>Duration(2 years)</Text>
+			<BARef>BBA_FTLiteralI_1732</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1733" connective="Conjunction" literal="true">
+			<Text>Duration(3 years)</Text>
+			<BARef>BBA_FTLiteralI_1733</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1734" connective="Conjunction" literal="true">
+			<Text>Quality(good)</Text>
+			<BARef>BBA_FTLiteralI_1734</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1735" connective="Conjunction" literal="true">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_1735</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1736" connective="Conjunction" literal="true">
+			<Text>Duration(2 years)</Text>
+			<BARef>BBA_FTLiteralI_1736</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1737" connective="Conjunction" literal="true">
+			<Text>Duration(4 years)</Text>
+			<BARef>BBA_FTLiteralI_1737</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1738" connective="Conjunction" literal="true">
+			<Text>Quality(good)</Text>
+			<BARef>BBA_FTLiteralI_1738</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1739" connective="Conjunction" literal="true">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_1739</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1740" connective="Conjunction" literal="true">
+			<Text>Duration(2 years)</Text>
+			<BARef>BBA_FTLiteralI_1740</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1741" connective="Conjunction" literal="true">
+			<Text>Duration(5 years)</Text>
+			<BARef>BBA_FTLiteralI_1741</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1742" connective="Conjunction" literal="true">
+			<Text>Quality(good)</Text>
+			<BARef>BBA_FTLiteralI_1742</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1743" connective="Conjunction" literal="true">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_1743</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1744" connective="Conjunction" literal="true">
+			<Text>Duration(3 years)</Text>
+			<BARef>BBA_FTLiteralI_1744</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1745" connective="Conjunction" literal="true">
+			<Text>Duration(1 year)</Text>
+			<BARef>BBA_FTLiteralI_1745</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1746" connective="Conjunction" literal="true">
+			<Text>Quality(good)</Text>
+			<BARef>BBA_FTLiteralI_1746</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1747" connective="Conjunction" literal="true">
+			<Text>Quality(bad)</Text>
+			<BARef>BBA_FTLiteralI_1747</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1748" connective="Conjunction" literal="true">
+			<Text>Duration(3 years)</Text>
+			<BARef>BBA_FTLiteralI_1748</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTLiteralI_Sign_1749" connective="Conjunction" literal="true">
+			<Text>Duration(2 years)</Text>
+			<BARef>BBA_FTLiteralI_1749</BARef>
+		   </DBA>
+
+		   <DBA id="DBA_FTCedentI_908" connective="Conjunction">
+			<Text>Quality(good)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1710</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_909" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1711</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_910" connective="Conjunction">
+			<Text>Duration(1 year)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1712</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_911" connective="Conjunction">
+			<Text>Duration(2 years)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1713</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_912" connective="Conjunction">
+			<Text>Quality(good)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1714</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_913" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1715</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_914" connective="Conjunction">
+			<Text>Duration(1 year)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1716</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_915" connective="Conjunction">
+			<Text>Duration(3 years)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1717</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_916" connective="Conjunction">
+			<Text>Quality(good)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1718</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_917" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1719</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_918" connective="Conjunction">
+			<Text>Duration(1 year)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1720</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_919" connective="Conjunction">
+			<Text>Duration(4 years)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1721</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_920" connective="Conjunction">
+			<Text>Quality(good)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1722</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_921" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1723</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_922" connective="Conjunction">
+			<Text>Duration(1 year)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1724</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_923" connective="Conjunction">
+			<Text>Duration(5 years)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1725</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_924" connective="Conjunction">
+			<Text>Quality(good)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1726</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_925" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1727</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_926" connective="Conjunction">
+			<Text>Duration(2 years)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1728</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_927" connective="Conjunction">
+			<Text>Duration(1 year)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1729</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_928" connective="Conjunction">
+			<Text>Quality(good)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1730</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_929" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1731</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_930" connective="Conjunction">
+			<Text>Duration(2 years)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1732</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_931" connective="Conjunction">
+			<Text>Duration(3 years)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1733</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_932" connective="Conjunction">
+			<Text>Quality(good)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1734</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_933" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1735</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_934" connective="Conjunction">
+			<Text>Duration(2 years)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1736</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_935" connective="Conjunction">
+			<Text>Duration(4 years)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1737</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_936" connective="Conjunction">
+			<Text>Quality(good)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1738</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_937" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1739</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_938" connective="Conjunction">
+			<Text>Duration(2 years)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1740</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_939" connective="Conjunction">
+			<Text>Duration(5 years)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1741</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_940" connective="Conjunction">
+			<Text>Quality(good)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1742</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_941" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1743</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_942" connective="Conjunction">
+			<Text>Duration(3 years)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1744</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_943" connective="Conjunction">
+			<Text>Duration(1 year)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1745</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_944" connective="Conjunction">
+			<Text>Quality(good)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1746</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_945" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1747</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_946" connective="Conjunction">
+			<Text>Duration(3 years)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1748</BARef>
+		   </DBA>
+		   <DBA id="DBA_FTCedentI_947" connective="Conjunction">
+			<Text>Duration(2 years)</Text>
+			<BARef>DBA_FTLiteralI_Sign_1749</BARef>
+		   </DBA>
+
+
+		 <DBA id="DBA_Antecedent_359" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		 <DBA id="DBA_Succedent_359" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		 <DBA id="DBA_AntecedentVarBefore_359" connective="Conjunction">
+			<Text>Quality(good)</Text>
+			<BARef>DBA_FTCedentI_908</BARef>
+		 </DBA>
+		 <DBA id="DBA_AntecedentVarAfter_359" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTCedentI_909</BARef>
+		 </DBA>
+		 <DBA id="DBA_SuccedentVarBefore_359" connective="Conjunction">
+			<Text>Duration(1 year)</Text>
+			<BARef>DBA_FTCedentI_910</BARef>
+		 </DBA>
+		 <DBA id="DBA_SuccedentVarAfter_359" connective="Conjunction">
+			<Text>Duration(2 years)</Text>
+			<BARef>DBA_FTCedentI_911</BARef>
+		 </DBA>
+		 <DBA id="DBA_Antecedent_360" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		 <DBA id="DBA_Succedent_360" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		 <DBA id="DBA_AntecedentVarBefore_360" connective="Conjunction">
+			<Text>Quality(good)</Text>
+			<BARef>DBA_FTCedentI_912</BARef>
+		 </DBA>
+		 <DBA id="DBA_AntecedentVarAfter_360" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTCedentI_913</BARef>
+		 </DBA>
+		 <DBA id="DBA_SuccedentVarBefore_360" connective="Conjunction">
+			<Text>Duration(1 year)</Text>
+			<BARef>DBA_FTCedentI_914</BARef>
+		 </DBA>
+		 <DBA id="DBA_SuccedentVarAfter_360" connective="Conjunction">
+			<Text>Duration(3 years)</Text>
+			<BARef>DBA_FTCedentI_915</BARef>
+		 </DBA>
+		 <DBA id="DBA_Antecedent_361" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		 <DBA id="DBA_Succedent_361" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		 <DBA id="DBA_AntecedentVarBefore_361" connective="Conjunction">
+			<Text>Quality(good)</Text>
+			<BARef>DBA_FTCedentI_916</BARef>
+		 </DBA>
+		 <DBA id="DBA_AntecedentVarAfter_361" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTCedentI_917</BARef>
+		 </DBA>
+		 <DBA id="DBA_SuccedentVarBefore_361" connective="Conjunction">
+			<Text>Duration(1 year)</Text>
+			<BARef>DBA_FTCedentI_918</BARef>
+		 </DBA>
+		 <DBA id="DBA_SuccedentVarAfter_361" connective="Conjunction">
+			<Text>Duration(4 years)</Text>
+			<BARef>DBA_FTCedentI_919</BARef>
+		 </DBA>
+		 <DBA id="DBA_Antecedent_362" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		 <DBA id="DBA_Succedent_362" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		 <DBA id="DBA_AntecedentVarBefore_362" connective="Conjunction">
+			<Text>Quality(good)</Text>
+			<BARef>DBA_FTCedentI_920</BARef>
+		 </DBA>
+		 <DBA id="DBA_AntecedentVarAfter_362" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTCedentI_921</BARef>
+		 </DBA>
+		 <DBA id="DBA_SuccedentVarBefore_362" connective="Conjunction">
+			<Text>Duration(1 year)</Text>
+			<BARef>DBA_FTCedentI_922</BARef>
+		 </DBA>
+		 <DBA id="DBA_SuccedentVarAfter_362" connective="Conjunction">
+			<Text>Duration(5 years)</Text>
+			<BARef>DBA_FTCedentI_923</BARef>
+		 </DBA>
+		 <DBA id="DBA_Antecedent_363" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		 <DBA id="DBA_Succedent_363" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		 <DBA id="DBA_AntecedentVarBefore_363" connective="Conjunction">
+			<Text>Quality(good)</Text>
+			<BARef>DBA_FTCedentI_924</BARef>
+		 </DBA>
+		 <DBA id="DBA_AntecedentVarAfter_363" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTCedentI_925</BARef>
+		 </DBA>
+		 <DBA id="DBA_SuccedentVarBefore_363" connective="Conjunction">
+			<Text>Duration(2 years)</Text>
+			<BARef>DBA_FTCedentI_926</BARef>
+		 </DBA>
+		 <DBA id="DBA_SuccedentVarAfter_363" connective="Conjunction">
+			<Text>Duration(1 year)</Text>
+			<BARef>DBA_FTCedentI_927</BARef>
+		 </DBA>
+		 <DBA id="DBA_Antecedent_364" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		 <DBA id="DBA_Succedent_364" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		 <DBA id="DBA_AntecedentVarBefore_364" connective="Conjunction">
+			<Text>Quality(good)</Text>
+			<BARef>DBA_FTCedentI_928</BARef>
+		 </DBA>
+		 <DBA id="DBA_AntecedentVarAfter_364" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTCedentI_929</BARef>
+		 </DBA>
+		 <DBA id="DBA_SuccedentVarBefore_364" connective="Conjunction">
+			<Text>Duration(2 years)</Text>
+			<BARef>DBA_FTCedentI_930</BARef>
+		 </DBA>
+		 <DBA id="DBA_SuccedentVarAfter_364" connective="Conjunction">
+			<Text>Duration(3 years)</Text>
+			<BARef>DBA_FTCedentI_931</BARef>
+		 </DBA>
+		 <DBA id="DBA_Antecedent_365" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		 <DBA id="DBA_Succedent_365" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		 <DBA id="DBA_AntecedentVarBefore_365" connective="Conjunction">
+			<Text>Quality(good)</Text>
+			<BARef>DBA_FTCedentI_932</BARef>
+		 </DBA>
+		 <DBA id="DBA_AntecedentVarAfter_365" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTCedentI_933</BARef>
+		 </DBA>
+		 <DBA id="DBA_SuccedentVarBefore_365" connective="Conjunction">
+			<Text>Duration(2 years)</Text>
+			<BARef>DBA_FTCedentI_934</BARef>
+		 </DBA>
+		 <DBA id="DBA_SuccedentVarAfter_365" connective="Conjunction">
+			<Text>Duration(4 years)</Text>
+			<BARef>DBA_FTCedentI_935</BARef>
+		 </DBA>
+		 <DBA id="DBA_Antecedent_366" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		 <DBA id="DBA_Succedent_366" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		 <DBA id="DBA_AntecedentVarBefore_366" connective="Conjunction">
+			<Text>Quality(good)</Text>
+			<BARef>DBA_FTCedentI_936</BARef>
+		 </DBA>
+		 <DBA id="DBA_AntecedentVarAfter_366" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTCedentI_937</BARef>
+		 </DBA>
+		 <DBA id="DBA_SuccedentVarBefore_366" connective="Conjunction">
+			<Text>Duration(2 years)</Text>
+			<BARef>DBA_FTCedentI_938</BARef>
+		 </DBA>
+		 <DBA id="DBA_SuccedentVarAfter_366" connective="Conjunction">
+			<Text>Duration(5 years)</Text>
+			<BARef>DBA_FTCedentI_939</BARef>
+		 </DBA>
+		 <DBA id="DBA_Antecedent_367" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		 <DBA id="DBA_Succedent_367" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		 <DBA id="DBA_AntecedentVarBefore_367" connective="Conjunction">
+			<Text>Quality(good)</Text>
+			<BARef>DBA_FTCedentI_940</BARef>
+		 </DBA>
+		 <DBA id="DBA_AntecedentVarAfter_367" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTCedentI_941</BARef>
+		 </DBA>
+		 <DBA id="DBA_SuccedentVarBefore_367" connective="Conjunction">
+			<Text>Duration(3 years)</Text>
+			<BARef>DBA_FTCedentI_942</BARef>
+		 </DBA>
+		 <DBA id="DBA_SuccedentVarAfter_367" connective="Conjunction">
+			<Text>Duration(1 year)</Text>
+			<BARef>DBA_FTCedentI_943</BARef>
+		 </DBA>
+		 <DBA id="DBA_Antecedent_368" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		 <DBA id="DBA_Succedent_368" connective="Conjunction">
+			 <Text>(empty)</Text>
+		 </DBA>
+		 <DBA id="DBA_AntecedentVarBefore_368" connective="Conjunction">
+			<Text>Quality(good)</Text>
+			<BARef>DBA_FTCedentI_944</BARef>
+		 </DBA>
+		 <DBA id="DBA_AntecedentVarAfter_368" connective="Conjunction">
+			<Text>Quality(bad)</Text>
+			<BARef>DBA_FTCedentI_945</BARef>
+		 </DBA>
+		 <DBA id="DBA_SuccedentVarBefore_368" connective="Conjunction">
+			<Text>Duration(3 years)</Text>
+			<BARef>DBA_FTCedentI_946</BARef>
+		 </DBA>
+		 <DBA id="DBA_SuccedentVarAfter_368" connective="Conjunction">
+			<Text>Duration(2 years)</Text>
+			<BARef>DBA_FTCedentI_947</BARef>
+		 </DBA>
+
+<!-- Hypothesis -->
+
+		<Ac4ftRule 
+			antecedent="DBA_Antecedent_359"
+			consequent="DBA_Succedent_359"
+		>
+			<Text>(Quality(good)  -&gt;  Quality(bad)) ::: (Duration(1 year)  -&gt;  Duration(2 years))</Text>
+	
+			<IMValue imSettingRef="1" name="BASE" sourceMode="Before">1080</IMValue>
+			<IMValue imSettingRef="2" name="BASE" sourceMode="After">154</IMValue>
+
+			<StateBefore 
+				antecedentVarBefore="DBA_AntcedentVarBefore_359"
+			        consequentVarBefore="DBA_SuccedentVarBefore_359"
+			>
+				<Text>Quality(good) ::: Duration(1 year)</Text>				
+				<IMValue name="a">1080.0000000000</IMValue>
+				<IMValue name="b">4374.0000000000</IMValue>
+				<IMValue name="c">101.0000000000</IMValue>
+				<IMValue name="d">626.0000000000</IMValue>
+				<IMValue name="r">5454.0000000000</IMValue>
+				<IMValue name="n">6181.0000000000</IMValue>
+				<IMValue name="Conf">0.1980198020</IMValue>
+				<IMValue name="DConf">0.1944194419</IMValue>
+				<IMValue name="EConf">0.2760071186</IMValue>
+				<IMValue name="Supp">0.1747290083</IMValue>
+				<IMValue name="Cmplt">0.9144792549</IMValue>
+				<IMValue name="AvgDf">0.0363762879</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000001</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">0.0000528561</IMValue>
+				<IMValue name="Chi-Sq">14.4929274133</IMValue>
+				<IMValue name="bMean">0.1981304985</IMValue>
+				<IMValue name="bVAR">0.1981304985</IMValue>
+				<IMValue name="bStDev">0.0053957341</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="1080" b="4374" c="101" d="626"/>
+			</StateBefore>
+			 
+			<StateAfter 				    
+				antecedentVarAfter="DBA_AntcedentVarAfter_359"
+			        consequentVarAfter="DBA_SuccedentVarAfter_359"
+			>
+				<Text>Quality(bad) ::: Duration(2 years)</Text>				
+				<IMValue name="a">154.0000000000</IMValue>
+				<IMValue name="b">573.0000000000</IMValue>
+				<IMValue name="c">1089.0000000000</IMValue>
+				<IMValue name="d">4365.0000000000</IMValue>
+				<IMValue name="r">727.0000000000</IMValue>
+				<IMValue name="n">6181.0000000000</IMValue>
+				<IMValue name="Conf">0.2118294360</IMValue>
+				<IMValue name="DConf">0.0848017621</IMValue>
+				<IMValue name="EConf">0.7311114706</IMValue>
+				<IMValue name="Supp">0.0249150623</IMValue>
+				<IMValue name="Cmplt">0.1238938053</IMValue>
+				<IMValue name="AvgDf">0.0533529720</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000001</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">0.2349328008</IMValue>
+				<IMValue name="Chi-Sq">0.5903577876</IMValue>
+				<IMValue name="bMean">0.2126200274</IMValue>
+				<IMValue name="bVAR">0.2126200274</IMValue>
+				<IMValue name="bStDev">0.0151437293</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="154" b="573" c="1089" d="4365"/>
+			</StateAfter>
+			 
+		</Ac4ftRule>
+		<Ac4ftRule 
+			antecedent="DBA_Antecedent_360"
+			consequent="DBA_Succedent_360"
+		>
+			<Text>(Quality(good)  -&gt;  Quality(bad)) ::: (Duration(1 year)  -&gt;  Duration(3 years))</Text>
+	
+			<IMValue imSettingRef="1" name="BASE" sourceMode="Before">1080</IMValue>
+			<IMValue imSettingRef="2" name="BASE" sourceMode="After">159</IMValue>
+
+			<StateBefore 
+				antecedentVarBefore="DBA_AntcedentVarBefore_360"
+			        consequentVarBefore="DBA_SuccedentVarBefore_360"
+			>
+				<Text>Quality(good) ::: Duration(1 year)</Text>				
+				<IMValue name="a">1080.0000000000</IMValue>
+				<IMValue name="b">4374.0000000000</IMValue>
+				<IMValue name="c">101.0000000000</IMValue>
+				<IMValue name="d">626.0000000000</IMValue>
+				<IMValue name="r">5454.0000000000</IMValue>
+				<IMValue name="n">6181.0000000000</IMValue>
+				<IMValue name="Conf">0.1980198020</IMValue>
+				<IMValue name="DConf">0.1944194419</IMValue>
+				<IMValue name="EConf">0.2760071186</IMValue>
+				<IMValue name="Supp">0.1747290083</IMValue>
+				<IMValue name="Cmplt">0.9144792549</IMValue>
+				<IMValue name="AvgDf">0.0363762879</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000001</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">0.0000528561</IMValue>
+				<IMValue name="Chi-Sq">14.4929274133</IMValue>
+				<IMValue name="bMean">0.1981304985</IMValue>
+				<IMValue name="bVAR">0.1981304985</IMValue>
+				<IMValue name="bStDev">0.0053957341</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="1080" b="4374" c="101" d="626"/>
+			</StateBefore>
+			 
+			<StateAfter 				    
+				antecedentVarAfter="DBA_AntcedentVarAfter_360"
+			        consequentVarAfter="DBA_SuccedentVarAfter_360"
+			>
+				<Text>Quality(bad) ::: Duration(3 years)</Text>				
+				<IMValue name="a">159.0000000000</IMValue>
+				<IMValue name="b">568.0000000000</IMValue>
+				<IMValue name="c">1035.0000000000</IMValue>
+				<IMValue name="d">4419.0000000000</IMValue>
+				<IMValue name="r">727.0000000000</IMValue>
+				<IMValue name="n">6181.0000000000</IMValue>
+				<IMValue name="Conf">0.2187070151</IMValue>
+				<IMValue name="DConf">0.0902383655</IMValue>
+				<IMValue name="EConf">0.7406568516</IMValue>
+				<IMValue name="Supp">0.0257239929</IMValue>
+				<IMValue name="Cmplt">0.1331658291</IMValue>
+				<IMValue name="AvgDf">0.1321843053</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000001</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">0.0367249824</IMValue>
+				<IMValue name="Chi-Sq">3.4466942944</IMValue>
+				<IMValue name="bMean">0.2194787380</IMValue>
+				<IMValue name="bVAR">0.2194787380</IMValue>
+				<IMValue name="bStDev">0.0153188854</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="159" b="568" c="1035" d="4419"/>
+			</StateAfter>
+			 
+		</Ac4ftRule>
+		<Ac4ftRule 
+			antecedent="DBA_Antecedent_361"
+			consequent="DBA_Succedent_361"
+		>
+			<Text>(Quality(good)  -&gt;  Quality(bad)) ::: (Duration(1 year)  -&gt;  Duration(4 years))</Text>
+	
+			<IMValue imSettingRef="1" name="BASE" sourceMode="Before">1080</IMValue>
+			<IMValue imSettingRef="2" name="BASE" sourceMode="After">154</IMValue>
+
+			<StateBefore 
+				antecedentVarBefore="DBA_AntcedentVarBefore_361"
+			        consequentVarBefore="DBA_SuccedentVarBefore_361"
+			>
+				<Text>Quality(good) ::: Duration(1 year)</Text>				
+				<IMValue name="a">1080.0000000000</IMValue>
+				<IMValue name="b">4374.0000000000</IMValue>
+				<IMValue name="c">101.0000000000</IMValue>
+				<IMValue name="d">626.0000000000</IMValue>
+				<IMValue name="r">5454.0000000000</IMValue>
+				<IMValue name="n">6181.0000000000</IMValue>
+				<IMValue name="Conf">0.1980198020</IMValue>
+				<IMValue name="DConf">0.1944194419</IMValue>
+				<IMValue name="EConf">0.2760071186</IMValue>
+				<IMValue name="Supp">0.1747290083</IMValue>
+				<IMValue name="Cmplt">0.9144792549</IMValue>
+				<IMValue name="AvgDf">0.0363762879</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000001</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">0.0000528561</IMValue>
+				<IMValue name="Chi-Sq">14.4929274133</IMValue>
+				<IMValue name="bMean">0.1981304985</IMValue>
+				<IMValue name="bVAR">0.1981304985</IMValue>
+				<IMValue name="bStDev">0.0053957341</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="1080" b="4374" c="101" d="626"/>
+			</StateBefore>
+			 
+			<StateAfter 				    
+				antecedentVarAfter="DBA_AntcedentVarAfter_361"
+			        consequentVarAfter="DBA_SuccedentVarAfter_361"
+			>
+				<Text>Quality(bad) ::: Duration(4 years)</Text>				
+				<IMValue name="a">154.0000000000</IMValue>
+				<IMValue name="b">573.0000000000</IMValue>
+				<IMValue name="c">1098.0000000000</IMValue>
+				<IMValue name="d">4356.0000000000</IMValue>
+				<IMValue name="r">727.0000000000</IMValue>
+				<IMValue name="n">6181.0000000000</IMValue>
+				<IMValue name="Conf">0.2118294360</IMValue>
+				<IMValue name="DConf">0.0843835616</IMValue>
+				<IMValue name="EConf">0.7296553956</IMValue>
+				<IMValue name="Supp">0.0249150623</IMValue>
+				<IMValue name="Cmplt">0.1230031949</IMValue>
+				<IMValue name="AvgDf">0.0457809458</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000001</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">0.2683612560</IMValue>
+				<IMValue name="Chi-Sq">0.4386246685</IMValue>
+				<IMValue name="bMean">0.2126200274</IMValue>
+				<IMValue name="bVAR">0.2126200274</IMValue>
+				<IMValue name="bStDev">0.0151437293</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="154" b="573" c="1098" d="4356"/>
+			</StateAfter>
+			 
+		</Ac4ftRule>
+		<Ac4ftRule 
+			antecedent="DBA_Antecedent_362"
+			consequent="DBA_Succedent_362"
+		>
+			<Text>(Quality(good)  -&gt;  Quality(bad)) ::: (Duration(1 year)  -&gt;  Duration(5 years))</Text>
+	
+			<IMValue imSettingRef="1" name="BASE" sourceMode="Before">1080</IMValue>
+			<IMValue imSettingRef="2" name="BASE" sourceMode="After">159</IMValue>
+
+			<StateBefore 
+				antecedentVarBefore="DBA_AntcedentVarBefore_362"
+			        consequentVarBefore="DBA_SuccedentVarBefore_362"
+			>
+				<Text>Quality(good) ::: Duration(1 year)</Text>				
+				<IMValue name="a">1080.0000000000</IMValue>
+				<IMValue name="b">4374.0000000000</IMValue>
+				<IMValue name="c">101.0000000000</IMValue>
+				<IMValue name="d">626.0000000000</IMValue>
+				<IMValue name="r">5454.0000000000</IMValue>
+				<IMValue name="n">6181.0000000000</IMValue>
+				<IMValue name="Conf">0.1980198020</IMValue>
+				<IMValue name="DConf">0.1944194419</IMValue>
+				<IMValue name="EConf">0.2760071186</IMValue>
+				<IMValue name="Supp">0.1747290083</IMValue>
+				<IMValue name="Cmplt">0.9144792549</IMValue>
+				<IMValue name="AvgDf">0.0363762879</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000001</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">0.0000528561</IMValue>
+				<IMValue name="Chi-Sq">14.4929274133</IMValue>
+				<IMValue name="bMean">0.1981304985</IMValue>
+				<IMValue name="bVAR">0.1981304985</IMValue>
+				<IMValue name="bStDev">0.0053957341</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="1080" b="4374" c="101" d="626"/>
+			</StateBefore>
+			 
+			<StateAfter 				    
+				antecedentVarAfter="DBA_AntcedentVarAfter_362"
+			        consequentVarAfter="DBA_SuccedentVarAfter_362"
+			>
+				<Text>Quality(bad) ::: Duration(5 years)</Text>				
+				<IMValue name="a">159.0000000000</IMValue>
+				<IMValue name="b">568.0000000000</IMValue>
+				<IMValue name="c">1152.0000000000</IMValue>
+				<IMValue name="d">4302.0000000000</IMValue>
+				<IMValue name="r">727.0000000000</IMValue>
+				<IMValue name="n">6181.0000000000</IMValue>
+				<IMValue name="Conf">0.2187070151</IMValue>
+				<IMValue name="DConf">0.0846194784</IMValue>
+				<IMValue name="EConf">0.7217278757</IMValue>
+				<IMValue name="Supp">0.0257239929</IMValue>
+				<IMValue name="Cmplt">0.1212814645</IMValue>
+				<IMValue name="AvgDf">0.0311426854</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000001</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">0.3367569556</IMValue>
+				<IMValue name="Chi-Sq">0.2151116184</IMValue>
+				<IMValue name="bMean">0.2194787380</IMValue>
+				<IMValue name="bVAR">0.2194787380</IMValue>
+				<IMValue name="bStDev">0.0153188854</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="159" b="568" c="1152" d="4302"/>
+			</StateAfter>
+			 
+		</Ac4ftRule>
+		<Ac4ftRule 
+			antecedent="DBA_Antecedent_363"
+			consequent="DBA_Succedent_363"
+		>
+			<Text>(Quality(good)  -&gt;  Quality(bad)) ::: (Duration(2 years)  -&gt;  Duration(1 year))</Text>
+	
+			<IMValue imSettingRef="1" name="BASE" sourceMode="Before">1089</IMValue>
+			<IMValue imSettingRef="2" name="BASE" sourceMode="After">101</IMValue>
+
+			<StateBefore 
+				antecedentVarBefore="DBA_AntcedentVarBefore_363"
+			        consequentVarBefore="DBA_SuccedentVarBefore_363"
+			>
+				<Text>Quality(good) ::: Duration(2 years)</Text>				
+				<IMValue name="a">1089.0000000000</IMValue>
+				<IMValue name="b">4365.0000000000</IMValue>
+				<IMValue name="c">154.0000000000</IMValue>
+				<IMValue name="d">573.0000000000</IMValue>
+				<IMValue name="r">5454.0000000000</IMValue>
+				<IMValue name="n">6181.0000000000</IMValue>
+				<IMValue name="Conf">0.1996699670</IMValue>
+				<IMValue name="DConf">0.1941868759</IMValue>
+				<IMValue name="EConf">0.2688885294</IMValue>
+				<IMValue name="Supp">0.1761850833</IMValue>
+				<IMValue name="Cmplt">0.8761061947</IMValue>
+				<IMValue name="AvgDf">-0.0071117731</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000001</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">0.7939182617</IMValue>
+				<IMValue name="Chi-Sq">0.5903577876</IMValue>
+				<IMValue name="bMean">0.1997800587</IMValue>
+				<IMValue name="bVAR">0.1997800587</IMValue>
+				<IMValue name="bStDev">0.0054125731</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="1089" b="4365" c="154" d="573"/>
+			</StateBefore>
+			 
+			<StateAfter 				    
+				antecedentVarAfter="DBA_AntcedentVarAfter_363"
+			        consequentVarAfter="DBA_SuccedentVarAfter_363"
+			>
+				<Text>Quality(bad) ::: Duration(1 year)</Text>				
+				<IMValue name="a">101.0000000000</IMValue>
+				<IMValue name="b">626.0000000000</IMValue>
+				<IMValue name="c">1080.0000000000</IMValue>
+				<IMValue name="d">4374.0000000000</IMValue>
+				<IMValue name="r">727.0000000000</IMValue>
+				<IMValue name="n">6181.0000000000</IMValue>
+				<IMValue name="Conf">0.1389270977</IMValue>
+				<IMValue name="DConf">0.0558937465</IMValue>
+				<IMValue name="EConf">0.7239928814</IMValue>
+				<IMValue name="Supp">0.0163403980</IMValue>
+				<IMValue name="Cmplt">0.0855207451</IMValue>
+				<IMValue name="AvgDf">-0.2728972137</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000001</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">0.9999662703</IMValue>
+				<IMValue name="Chi-Sq">14.4929274133</IMValue>
+				<IMValue name="bMean">0.1399176955</IMValue>
+				<IMValue name="bVAR">0.1399176955</IMValue>
+				<IMValue name="bStDev">0.0128394050</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="101" b="626" c="1080" d="4374"/>
+			</StateAfter>
+			 
+		</Ac4ftRule>
+		<Ac4ftRule 
+			antecedent="DBA_Antecedent_364"
+			consequent="DBA_Succedent_364"
+		>
+			<Text>(Quality(good)  -&gt;  Quality(bad)) ::: (Duration(2 years)  -&gt;  Duration(3 years))</Text>
+	
+			<IMValue imSettingRef="1" name="BASE" sourceMode="Before">1089</IMValue>
+			<IMValue imSettingRef="2" name="BASE" sourceMode="After">159</IMValue>
+
+			<StateBefore 
+				antecedentVarBefore="DBA_AntcedentVarBefore_364"
+			        consequentVarBefore="DBA_SuccedentVarBefore_364"
+			>
+				<Text>Quality(good) ::: Duration(2 years)</Text>				
+				<IMValue name="a">1089.0000000000</IMValue>
+				<IMValue name="b">4365.0000000000</IMValue>
+				<IMValue name="c">154.0000000000</IMValue>
+				<IMValue name="d">573.0000000000</IMValue>
+				<IMValue name="r">5454.0000000000</IMValue>
+				<IMValue name="n">6181.0000000000</IMValue>
+				<IMValue name="Conf">0.1996699670</IMValue>
+				<IMValue name="DConf">0.1941868759</IMValue>
+				<IMValue name="EConf">0.2688885294</IMValue>
+				<IMValue name="Supp">0.1761850833</IMValue>
+				<IMValue name="Cmplt">0.8761061947</IMValue>
+				<IMValue name="AvgDf">-0.0071117731</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000001</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">0.7939182617</IMValue>
+				<IMValue name="Chi-Sq">0.5903577876</IMValue>
+				<IMValue name="bMean">0.1997800587</IMValue>
+				<IMValue name="bVAR">0.1997800587</IMValue>
+				<IMValue name="bStDev">0.0054125731</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="1089" b="4365" c="154" d="573"/>
+			</StateBefore>
+			 
+			<StateAfter 				    
+				antecedentVarAfter="DBA_AntcedentVarAfter_364"
+			        consequentVarAfter="DBA_SuccedentVarAfter_364"
+			>
+				<Text>Quality(bad) ::: Duration(3 years)</Text>				
+				<IMValue name="a">159.0000000000</IMValue>
+				<IMValue name="b">568.0000000000</IMValue>
+				<IMValue name="c">1035.0000000000</IMValue>
+				<IMValue name="d">4419.0000000000</IMValue>
+				<IMValue name="r">727.0000000000</IMValue>
+				<IMValue name="n">6181.0000000000</IMValue>
+				<IMValue name="Conf">0.2187070151</IMValue>
+				<IMValue name="DConf">0.0902383655</IMValue>
+				<IMValue name="EConf">0.7406568516</IMValue>
+				<IMValue name="Supp">0.0257239929</IMValue>
+				<IMValue name="Cmplt">0.1331658291</IMValue>
+				<IMValue name="AvgDf">0.1321843053</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000001</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">0.0367249824</IMValue>
+				<IMValue name="Chi-Sq">3.4466942944</IMValue>
+				<IMValue name="bMean">0.2194787380</IMValue>
+				<IMValue name="bVAR">0.2194787380</IMValue>
+				<IMValue name="bStDev">0.0153188854</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="159" b="568" c="1035" d="4419"/>
+			</StateAfter>
+			 
+		</Ac4ftRule>
+		<Ac4ftRule 
+			antecedent="DBA_Antecedent_365"
+			consequent="DBA_Succedent_365"
+		>
+			<Text>(Quality(good)  -&gt;  Quality(bad)) ::: (Duration(2 years)  -&gt;  Duration(4 years))</Text>
+	
+			<IMValue imSettingRef="1" name="BASE" sourceMode="Before">1089</IMValue>
+			<IMValue imSettingRef="2" name="BASE" sourceMode="After">154</IMValue>
+
+			<StateBefore 
+				antecedentVarBefore="DBA_AntcedentVarBefore_365"
+			        consequentVarBefore="DBA_SuccedentVarBefore_365"
+			>
+				<Text>Quality(good) ::: Duration(2 years)</Text>				
+				<IMValue name="a">1089.0000000000</IMValue>
+				<IMValue name="b">4365.0000000000</IMValue>
+				<IMValue name="c">154.0000000000</IMValue>
+				<IMValue name="d">573.0000000000</IMValue>
+				<IMValue name="r">5454.0000000000</IMValue>
+				<IMValue name="n">6181.0000000000</IMValue>
+				<IMValue name="Conf">0.1996699670</IMValue>
+				<IMValue name="DConf">0.1941868759</IMValue>
+				<IMValue name="EConf">0.2688885294</IMValue>
+				<IMValue name="Supp">0.1761850833</IMValue>
+				<IMValue name="Cmplt">0.8761061947</IMValue>
+				<IMValue name="AvgDf">-0.0071117731</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000001</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">0.7939182617</IMValue>
+				<IMValue name="Chi-Sq">0.5903577876</IMValue>
+				<IMValue name="bMean">0.1997800587</IMValue>
+				<IMValue name="bVAR">0.1997800587</IMValue>
+				<IMValue name="bStDev">0.0054125731</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="1089" b="4365" c="154" d="573"/>
+			</StateBefore>
+			 
+			<StateAfter 				    
+				antecedentVarAfter="DBA_AntcedentVarAfter_365"
+			        consequentVarAfter="DBA_SuccedentVarAfter_365"
+			>
+				<Text>Quality(bad) ::: Duration(4 years)</Text>				
+				<IMValue name="a">154.0000000000</IMValue>
+				<IMValue name="b">573.0000000000</IMValue>
+				<IMValue name="c">1098.0000000000</IMValue>
+				<IMValue name="d">4356.0000000000</IMValue>
+				<IMValue name="r">727.0000000000</IMValue>
+				<IMValue name="n">6181.0000000000</IMValue>
+				<IMValue name="Conf">0.2118294360</IMValue>
+				<IMValue name="DConf">0.0843835616</IMValue>
+				<IMValue name="EConf">0.7296553956</IMValue>
+				<IMValue name="Supp">0.0249150623</IMValue>
+				<IMValue name="Cmplt">0.1230031949</IMValue>
+				<IMValue name="AvgDf">0.0457809458</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000001</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">0.2683612560</IMValue>
+				<IMValue name="Chi-Sq">0.4386246685</IMValue>
+				<IMValue name="bMean">0.2126200274</IMValue>
+				<IMValue name="bVAR">0.2126200274</IMValue>
+				<IMValue name="bStDev">0.0151437293</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="154" b="573" c="1098" d="4356"/>
+			</StateAfter>
+			 
+		</Ac4ftRule>
+		<Ac4ftRule 
+			antecedent="DBA_Antecedent_366"
+			consequent="DBA_Succedent_366"
+		>
+			<Text>(Quality(good)  -&gt;  Quality(bad)) ::: (Duration(2 years)  -&gt;  Duration(5 years))</Text>
+	
+			<IMValue imSettingRef="1" name="BASE" sourceMode="Before">1089</IMValue>
+			<IMValue imSettingRef="2" name="BASE" sourceMode="After">159</IMValue>
+
+			<StateBefore 
+				antecedentVarBefore="DBA_AntcedentVarBefore_366"
+			        consequentVarBefore="DBA_SuccedentVarBefore_366"
+			>
+				<Text>Quality(good) ::: Duration(2 years)</Text>				
+				<IMValue name="a">1089.0000000000</IMValue>
+				<IMValue name="b">4365.0000000000</IMValue>
+				<IMValue name="c">154.0000000000</IMValue>
+				<IMValue name="d">573.0000000000</IMValue>
+				<IMValue name="r">5454.0000000000</IMValue>
+				<IMValue name="n">6181.0000000000</IMValue>
+				<IMValue name="Conf">0.1996699670</IMValue>
+				<IMValue name="DConf">0.1941868759</IMValue>
+				<IMValue name="EConf">0.2688885294</IMValue>
+				<IMValue name="Supp">0.1761850833</IMValue>
+				<IMValue name="Cmplt">0.8761061947</IMValue>
+				<IMValue name="AvgDf">-0.0071117731</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000001</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">0.7939182617</IMValue>
+				<IMValue name="Chi-Sq">0.5903577876</IMValue>
+				<IMValue name="bMean">0.1997800587</IMValue>
+				<IMValue name="bVAR">0.1997800587</IMValue>
+				<IMValue name="bStDev">0.0054125731</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="1089" b="4365" c="154" d="573"/>
+			</StateBefore>
+			 
+			<StateAfter 				    
+				antecedentVarAfter="DBA_AntcedentVarAfter_366"
+			        consequentVarAfter="DBA_SuccedentVarAfter_366"
+			>
+				<Text>Quality(bad) ::: Duration(5 years)</Text>				
+				<IMValue name="a">159.0000000000</IMValue>
+				<IMValue name="b">568.0000000000</IMValue>
+				<IMValue name="c">1152.0000000000</IMValue>
+				<IMValue name="d">4302.0000000000</IMValue>
+				<IMValue name="r">727.0000000000</IMValue>
+				<IMValue name="n">6181.0000000000</IMValue>
+				<IMValue name="Conf">0.2187070151</IMValue>
+				<IMValue name="DConf">0.0846194784</IMValue>
+				<IMValue name="EConf">0.7217278757</IMValue>
+				<IMValue name="Supp">0.0257239929</IMValue>
+				<IMValue name="Cmplt">0.1212814645</IMValue>
+				<IMValue name="AvgDf">0.0311426854</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000001</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">0.3367569556</IMValue>
+				<IMValue name="Chi-Sq">0.2151116184</IMValue>
+				<IMValue name="bMean">0.2194787380</IMValue>
+				<IMValue name="bVAR">0.2194787380</IMValue>
+				<IMValue name="bStDev">0.0153188854</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="159" b="568" c="1152" d="4302"/>
+			</StateAfter>
+			 
+		</Ac4ftRule>
+		<Ac4ftRule 
+			antecedent="DBA_Antecedent_367"
+			consequent="DBA_Succedent_367"
+		>
+			<Text>(Quality(good)  -&gt;  Quality(bad)) ::: (Duration(3 years)  -&gt;  Duration(1 year))</Text>
+	
+			<IMValue imSettingRef="1" name="BASE" sourceMode="Before">1035</IMValue>
+			<IMValue imSettingRef="2" name="BASE" sourceMode="After">101</IMValue>
+
+			<StateBefore 
+				antecedentVarBefore="DBA_AntcedentVarBefore_367"
+			        consequentVarBefore="DBA_SuccedentVarBefore_367"
+			>
+				<Text>Quality(good) ::: Duration(3 years)</Text>				
+				<IMValue name="a">1035.0000000000</IMValue>
+				<IMValue name="b">4419.0000000000</IMValue>
+				<IMValue name="c">159.0000000000</IMValue>
+				<IMValue name="d">568.0000000000</IMValue>
+				<IMValue name="r">5454.0000000000</IMValue>
+				<IMValue name="n">6181.0000000000</IMValue>
+				<IMValue name="Conf">0.1897689769</IMValue>
+				<IMValue name="DConf">0.1843933725</IMValue>
+				<IMValue name="EConf">0.2593431484</IMValue>
+				<IMValue name="Supp">0.1674486329</IMValue>
+				<IMValue name="Cmplt">0.8668341709</IMValue>
+				<IMValue name="AvgDf">-0.0176197268</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000001</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">0.9704448729</IMValue>
+				<IMValue name="Chi-Sq">3.4466942944</IMValue>
+				<IMValue name="bMean">0.1898826979</IMValue>
+				<IMValue name="bVAR">0.1898826979</IMValue>
+				<IMValue name="bStDev">0.0053093294</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="1035" b="4419" c="159" d="568"/>
+			</StateBefore>
+			 
+			<StateAfter 				    
+				antecedentVarAfter="DBA_AntcedentVarAfter_367"
+			        consequentVarAfter="DBA_SuccedentVarAfter_367"
+			>
+				<Text>Quality(bad) ::: Duration(1 year)</Text>				
+				<IMValue name="a">101.0000000000</IMValue>
+				<IMValue name="b">626.0000000000</IMValue>
+				<IMValue name="c">1080.0000000000</IMValue>
+				<IMValue name="d">4374.0000000000</IMValue>
+				<IMValue name="r">727.0000000000</IMValue>
+				<IMValue name="n">6181.0000000000</IMValue>
+				<IMValue name="Conf">0.1389270977</IMValue>
+				<IMValue name="DConf">0.0558937465</IMValue>
+				<IMValue name="EConf">0.7239928814</IMValue>
+				<IMValue name="Supp">0.0163403980</IMValue>
+				<IMValue name="Cmplt">0.0855207451</IMValue>
+				<IMValue name="AvgDf">-0.2728972137</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000001</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">0.9999662703</IMValue>
+				<IMValue name="Chi-Sq">14.4929274133</IMValue>
+				<IMValue name="bMean">0.1399176955</IMValue>
+				<IMValue name="bVAR">0.1399176955</IMValue>
+				<IMValue name="bStDev">0.0128394050</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="101" b="626" c="1080" d="4374"/>
+			</StateAfter>
+			 
+		</Ac4ftRule>
+		<Ac4ftRule 
+			antecedent="DBA_Antecedent_368"
+			consequent="DBA_Succedent_368"
+		>
+			<Text>(Quality(good)  -&gt;  Quality(bad)) ::: (Duration(3 years)  -&gt;  Duration(2 years))</Text>
+	
+			<IMValue imSettingRef="1" name="BASE" sourceMode="Before">1035</IMValue>
+			<IMValue imSettingRef="2" name="BASE" sourceMode="After">154</IMValue>
+
+			<StateBefore 
+				antecedentVarBefore="DBA_AntcedentVarBefore_368"
+			        consequentVarBefore="DBA_SuccedentVarBefore_368"
+			>
+				<Text>Quality(good) ::: Duration(3 years)</Text>				
+				<IMValue name="a">1035.0000000000</IMValue>
+				<IMValue name="b">4419.0000000000</IMValue>
+				<IMValue name="c">159.0000000000</IMValue>
+				<IMValue name="d">568.0000000000</IMValue>
+				<IMValue name="r">5454.0000000000</IMValue>
+				<IMValue name="n">6181.0000000000</IMValue>
+				<IMValue name="Conf">0.1897689769</IMValue>
+				<IMValue name="DConf">0.1843933725</IMValue>
+				<IMValue name="EConf">0.2593431484</IMValue>
+				<IMValue name="Supp">0.1674486329</IMValue>
+				<IMValue name="Cmplt">0.8668341709</IMValue>
+				<IMValue name="AvgDf">-0.0176197268</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000001</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">0.9704448729</IMValue>
+				<IMValue name="Chi-Sq">3.4466942944</IMValue>
+				<IMValue name="bMean">0.1898826979</IMValue>
+				<IMValue name="bVAR">0.1898826979</IMValue>
+				<IMValue name="bStDev">0.0053093294</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="1035" b="4419" c="159" d="568"/>
+			</StateBefore>
+			 
+			<StateAfter 				    
+				antecedentVarAfter="DBA_AntcedentVarAfter_368"
+			        consequentVarAfter="DBA_SuccedentVarAfter_368"
+			>
+				<Text>Quality(bad) ::: Duration(2 years)</Text>				
+				<IMValue name="a">154.0000000000</IMValue>
+				<IMValue name="b">573.0000000000</IMValue>
+				<IMValue name="c">1089.0000000000</IMValue>
+				<IMValue name="d">4365.0000000000</IMValue>
+				<IMValue name="r">727.0000000000</IMValue>
+				<IMValue name="n">6181.0000000000</IMValue>
+				<IMValue name="Conf">0.2118294360</IMValue>
+				<IMValue name="DConf">0.0848017621</IMValue>
+				<IMValue name="EConf">0.7311114706</IMValue>
+				<IMValue name="Supp">0.0249150623</IMValue>
+				<IMValue name="Cmplt">0.1238938053</IMValue>
+				<IMValue name="AvgDf">0.0533529720</IMValue>
+				<IMValue name="LBound">1.0000000000</IMValue>
+				<IMValue name="UBound">0.0000000000</IMValue>
+				<IMValue name="ELBound">1.0000000001</IMValue>
+				<IMValue name="EUBound">0.0000000000</IMValue>
+				<IMValue name="DLBound">1.0000000000</IMValue>
+				<IMValue name="DUBound">0.0000000000</IMValue>
+				<IMValue name="Fisher">0.2349328008</IMValue>
+				<IMValue name="Chi-Sq">0.5903577876</IMValue>
+				<IMValue name="bMean">0.2126200274</IMValue>
+				<IMValue name="bVAR">0.2126200274</IMValue>
+				<IMValue name="bStDev">0.0151437293</IMValue>
+				<IMValue name="P(&gt;=90%)">0.0000000000</IMValue>
+				<IMValue name="P(&gt;=95%)">0.0000000000</IMValue>
+				<FourFtTable a="154" b="573" c="1089" d="4365"/>
+			</StateAfter>
+			 
+		</Ac4ftRule>
+
+	</Ac4ftRules>
+
+</guha:Ac4ftModel>
+</PMML>
