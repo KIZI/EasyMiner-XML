@@ -10,10 +10,11 @@
   <!-- ==========
        Navigation
        ========== -->
+    <!-- these scripts should be included in EasyMinerCenter template
     <script type="text/javascript" src="xml/pmml/js/showhide.js">;</script>
-<!-- xml/pmml/js/graph_url.js reference is redundat, since this file should be included in the Joomla template to allow for graphs embedded into analytical reports with gInclude to work-->
     <script type="text/javascript" src="xml/pmml/js/graph_url.js">;</script>
     <script type="text/javascript" src="xml/pmml/js/ajax.js">;</script>
+    -->
     <div id="navigation">
       <h5>Navigation <span class="folding" onclick="ShowHide('id2495997')">+</span></h5>
       <div id="id2495997">

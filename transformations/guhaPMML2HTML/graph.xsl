@@ -8,7 +8,7 @@
       <xsl:otherwise>Other</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
-  <xsl:param name="imgScript" select="'xml/libraries/phpgraphlib/genBarChart.php'"/>
+  <xsl:param name="imgScript" select="'../../EasyMiner-XML/phpgraphlib/genBarChart.php'"/>
   <xsl:param name="urlSeparator" select="'@@'"/>
   <!-- if set to 1, columns in graphs will be sorted from the highest to the lowest value-->
   <xsl:param name="sortByValue" select="1"/>
