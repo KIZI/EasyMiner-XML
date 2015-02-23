@@ -449,7 +449,26 @@ attribute=<xsl:value-of select="@attribute"/>
 
   <xsl:template match="BBA">
     <xsl:param name="topLevel"/>
-    <xsl:value-of select="Text"/>
+
+    <xsl:choose>
+      <!--If there is no Text node, we have to prepare it from references-->
+      <xsl:when test="./Text">
+        <xsl:value-of select="Text"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates select="." mode="bbaText" />
+      </xsl:otherwise>
+    </xsl:choose>
+
+  </xsl:template>
+
+  <xsl:template match="BBA" mode="bbaText">
+    <xsl:value-of select="./FieldRef/text()" />(<xsl:apply-templates select="./CatRef" mode="bbaText" />)
+  </xsl:template>
+
+  <xsl:template match="CatRef" mode="bbaText">
+    <xsl:if test="position()>1">, </xsl:if>
+    <xsl:value-of select="text()"/>
   </xsl:template>
 
   <xsl:template match="DBA">
