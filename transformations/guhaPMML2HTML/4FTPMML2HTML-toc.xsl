@@ -167,7 +167,7 @@
         <input type="checkbox" checked="checked" onclick="ShowChecked(this,'sect5-rule{position()}')"/>
       </xsl:if>
       <xsl:variable name="ruleClass">
-          <xsl:if test="count(../../Extension[@name='selectedAssociationRules']/AssociationRule[@id=current()/@id])>0" >selectedRuleA</xsl:if>
+          <xsl:if test="./Extension[@name='mark']/@value='interesting'">selectedRuleA</xsl:if>
       </xsl:variable>
       <a href="#sect5-rule{position()}" class="{$ruleClass}" onclick="Show(this,'sect5-rule{position()}')">
         <!-- from 4FTPMML2HTML-sect5 -->

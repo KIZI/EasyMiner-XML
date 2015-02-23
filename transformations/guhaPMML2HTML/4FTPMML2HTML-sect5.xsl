@@ -23,7 +23,7 @@
 
     <xsl:variable name="ruleClass">
         <xsl:choose>
-            <xsl:when test="count(../../Extension[@name='selectedAssociationRules']/AssociationRule[@id=current()/@id])>0">selectedRule</xsl:when>
+            <xsl:when test="./Extension[@name='mark']/@value='interesting'">selectedRule</xsl:when>
             <xsl:otherwise>otherRule</xsl:otherwise>
         </xsl:choose>
     </xsl:variable>
