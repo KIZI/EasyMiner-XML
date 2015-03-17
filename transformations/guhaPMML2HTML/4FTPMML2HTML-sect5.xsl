@@ -333,8 +333,13 @@ attribute=<xsl:value-of select="@attribute"/>
   <!--
   RULE BODY
   -->
+  <xsl:template match="AssociationRule" mode="ruleBody">
+    <xsl:value-of select="./Text" />
+  </xsl:template>
+
   <!-- CFMinerRule with format Attribute / Condition is bellow ... -->
-  <xsl:template match="AssociationRule | SD4ftRule | Ac4ftRule" mode="ruleBody">
+  <!--<xsl:template match="AssociationRule | SD4ftRule | Ac4ftRule" mode="ruleBody">-->
+  <xsl:template match="SD4ftRule | Ac4ftRule" mode="ruleBody">
     <xsl:param name="arrowOnly"/>
     <xsl:variable name="ante" select="@antecedent"/>
     <xsl:variable name="cons" select="@consequent | @succedent"/>
