@@ -1,0 +1,73 @@
+//region mixins
+
+textColor = black
+tableBgColor  = white
+tableBgColor2 = rgb(252,251,255)
+tableColor = textColor
+tableHeadBgColor = #075783
+tableHeadColor = white
+tableTdPadding = 5px 8px
+tableTdBorderColor = rgb(235,235,235)
+
+listTable()
+  background tableBgColor
+  border-spacing 0
+  margin 20px 0
+  th
+    padding tableTdPadding
+    background tableHeadBgColor
+    color tableHeadColor
+    text-align left
+    border 1px solid tableHeadBgColor
+    border-left  none
+    border-top none
+    &:first-child
+      border 1px solid tableHeadBgColor
+  td
+    padding tableTdPadding
+    background tableBgColor
+    color tableColor
+    text-align left
+    border-bottom 1px solid tableTdBorderColor
+    border-right  1px solid tableTdBorderColor
+    border-top none
+    &:first-child
+      border-left 1px solid tableTdBorderColor
+  tr:nth-child(even) td
+    background tableBgColor2
+
+infoTable()
+  background tableBgColor
+  border-spacing 0
+  margin 20px 0
+  th, td
+    padding tableTdPadding
+    background tableBgColor
+    color tableColor
+    text-align left
+    border none
+    font-weight normal
+  td
+    font-weight bold
+
+//endregion
+
+h1
+  color red
+
+
+section
+  margin 20px
+  background yellow
+
+
+table
+  &.graphTable
+    listTable()
+    td.name
+      font-weight bold
+    td.frequency
+      text-align right
+
+  &.fieldBasicInfo
+    infoTable()

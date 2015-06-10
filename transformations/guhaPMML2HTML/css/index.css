@@ -1,0 +1,62 @@
+h1 {
+  color: #f00;
+}
+section {
+  margin: 20px;
+  background: #ff0;
+}
+table.graphTable {
+  background: #fff;
+  border-spacing: 0;
+  margin: 20px 0;
+}
+table.graphTable th {
+  padding: 5px 8px;
+  background: #075783;
+  color: #fff;
+  text-align: left;
+  border: 1px solid #075783;
+  border-left: none;
+  border-top: none;
+}
+table.graphTable th:first-child {
+  border: 1px solid #075783;
+}
+table.graphTable td {
+  padding: 5px 8px;
+  background: #fff;
+  color: #000;
+  text-align: left;
+  border-bottom: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
+  border-top: none;
+}
+table.graphTable td:first-child {
+  border-left: 1px solid #ebebeb;
+}
+table.graphTable tr:nth-child(even) td {
+  background: #fcfbff;
+}
+table.graphTable td.name {
+  font-weight: bold;
+}
+table.graphTable td.frequency {
+  text-align: right;
+}
+table.fieldBasicInfo {
+  background: #fff;
+  border-spacing: 0;
+  margin: 20px 0;
+}
+table.fieldBasicInfo th,
+table.fieldBasicInfo td {
+  padding: 5px 8px;
+  background: #fff;
+  color: #000;
+  text-align: left;
+  border: none;
+  font-weight: normal;
+}
+table.fieldBasicInfo td {
+  font-weight: bold;
+}
