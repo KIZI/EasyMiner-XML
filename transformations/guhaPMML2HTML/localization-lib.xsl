@@ -4,10 +4,6 @@
     extension-element-prefixes="func exsl"
     exclude-result-prefixes="keg">
 
-    <!-- MASTER COPY OF THIS TEMPLATE IS LOCATED AT
-        sewebar-cms/Specifications/XSLLibraries/
-        -->
-
 <!-- When including to other stylesheet,
     se the $LocalizationDictionary variable first
 -->

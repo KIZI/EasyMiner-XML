@@ -36,8 +36,6 @@
         </tr>
       </table>
 
-      <!--TODO vypsat do tabulky počet hodnot v kategorii OTHERS a jejich frekvenci (pro histogram)-->
-
       <table class="graphTable">
         <tr>
           <th scope="col"><xsl:copy-of select="keg:translate('Category',380)"/></th>
@@ -51,6 +49,22 @@
         </tr>
         <!-- table row depends to attribute is derived (MapValues) or not (Discretize) -->
         <xsl:apply-templates select="p:Discretize/p:DiscretizeBin | p:MapValues/p:InlineTable/p:Extension[@name='Frequency']" mode="sect3"/>
+        <!-- frequency of other values -->
+        <xsl:if test="$numOfCategories > $maxCategoriesToList">
+          <tr>
+            <td colspan="2" class="name others"><xsl:copy-of select="keg:translate('Other categories',801)" /> (<xsl:value-of select="($numOfCategories - $maxCategoriesToList)" />)</td>
+            <td class="frequency">
+              <xsl:choose>
+                <xsl:when test="p:MapValues/p:InlineTable">
+                  <xsl:value-of select="sum(p:MapValues/p:InlineTable/p:Extension[@name='Frequency'][position() &gt; $maxCategoriesToList]/@value)" />
+                </xsl:when>
+                <xsl:when test="p:Discretize/p:DiscretizeBin" >
+                  <xsl:value-of select="sum(p:Discretize/p:DiscretizeBin[position() &gt; $maxCategoriesToList]/p:Extension[@name='Frequency' and @extender=../@binValue]/@value)" />
+                </xsl:when>
+              </xsl:choose>
+            </td>
+          </tr>
+        </xsl:if>
       </table>
       <xsl:if test="$numOfCategories > $maxCategoriesToList">
         <p class="warning">

@@ -456,6 +456,10 @@
         <str lang="en">Other</str>
         <str lang="cs">Ostatní</str>
     </Entry>
+    <Entry id="801">
+        <str lang="en">Other categories</str>
+        <str lang="cs">Ostatní kategorie</str>
+    </Entry>
 
     <Entry id="810">
         <str lang="en">Visualization XSLT Version</str>

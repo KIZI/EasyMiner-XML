@@ -1,4 +1,12 @@
+body,
+td {
+  font-family: 'Helvetica Neue', 'Arial', 'sans-serif';
+  font-size: 14px;
+}
 h1 {
+  color: #f00;
+}
+h3 {
   color: #f00;
 }
 section {
