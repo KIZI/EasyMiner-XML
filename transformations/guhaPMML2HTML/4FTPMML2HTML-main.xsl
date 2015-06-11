@@ -10,6 +10,7 @@
   <!-- TODO -->  
     <style>@import url('index.css');</style>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
   <!-- ===============
        Document header
        =============== -->
@@ -96,7 +97,7 @@
        ============================== -->
     <section id="sect3">
       <!--TODO úprava úvodního textu -->
-      <h2><xsl:copy-of select="keg:translate('Created AttributesTask',40)"/></h2>
+      <h2><xsl:copy-of select="keg:translate('Created Attributes',40)"/></h2>
       <p>
         <xsl:copy-of select="keg:translate('Attribute (in the sense of this analysis) is a mapping of a domain to finite set...',80)"/>
       </p>
@@ -120,7 +121,7 @@
 
       <xsl:comment><xsl:value-of select="keg:getContentBlockTag('CreatedAttributes_Contents','','start')"/></xsl:comment>
 
-      <h3><xsl:copy-of select="keg:translate('Content (list of attributes)',90)"/></h3>
+      <h3><xsl:copy-of select="keg:translate('List of created attributes',90)"/></h3>
       <xsl:apply-templates select="p:TransformationDictionary" mode="toc"/>
 
       <xsl:comment><xsl:value-of select="keg:getContentBlockTag('CreatedAttributes_Contents','','end')"/></xsl:comment>

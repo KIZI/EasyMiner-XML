@@ -21,7 +21,7 @@
     </xsl:variable>
     <xsl:variable name="rulePos" select="position()"/>
 
-    <xsl:variable name="ruleClass">
+    <xsl:variable name="ruleClass"><!--TODO Standa třída pro označování zajímavých pravidel-->
         <xsl:choose>
             <xsl:when test="./Extension[@name='mark']/@value='interesting'">selectedRule</xsl:when>
             <xsl:otherwise>otherRule</xsl:otherwise>
@@ -41,28 +41,20 @@
         <xsl:copy-of select="$arText"/>
         <xsl:comment><xsl:value-of select="keg:getContentBlockTag('DiscoveredRule',$arTextWithNumber,'end')"/></xsl:comment>
       </p>
-      <div id="arb{position()}" class="hidden">
-        <xsl:text disable-output-escaping="yes">&lt;!--[CDATA[</xsl:text>
-        <xsl:copy-of select="$query"/>
-        <xsl:text disable-output-escaping="yes">]]--&gt;</xsl:text>
-      </div>
-      <!--
-      <xsl:for-each select="document('queries.xml')/queries/query">
-        <img src="{icon}" onclick="return KbiPostArb({$rulePos}, {source/@id}, {@id}, {xslt/@id});" title="{name}" alt="{name}" />
-      </xsl:for-each>-->
-      <div id="arb_result{position()}" class="hidden">...</div>
+
       <!-- table of values of test criteria (quantifiers) -->
-      <xsl:if test="local-name() != 'CFMinerRule'">
+      <xsl:if test="local-name() != 'CFMinerRule'"><!--TODO check...-->
         <xsl:comment><xsl:value-of select="keg:getContentBlockTag('DiscoveredRule_Quantifiers',$arText,'start')"/></xsl:comment>
         <xsl:apply-templates select="." mode="sect5-qtable">
           <xsl:with-param name="rulePos" select="$rulePos"/>
         </xsl:apply-templates>
         <xsl:comment><xsl:value-of select="keg:getContentBlockTag('DiscoveredRule_Quantifiers',$arText,'end')"/></xsl:comment>
       </xsl:if>
+
       <!-- 4FT table for AssociationRule / 4ftMiner -->
-      <xsl:if test="local-name()='AssociationRule'">
+      <xsl:if test="local-name()='AssociationRule'"><!--TODO Standa...-->
         <!-- 4FT: four field table -->
-        <xsl:copy-of select="keg:translate('Four field contingency table',13)"/>
+        <h4><xsl:copy-of select="keg:translate('Four field contingency table',13)"/></h4>
         <xsl:call-template name="FourFieldTable">
           <xsl:with-param name="a" select="FourFtTable/@a"/>
           <xsl:with-param name="b" select="FourFtTable/@b"/>
@@ -71,8 +63,9 @@
           <xsl:with-param name="arText" select="$arText"/>
         </xsl:call-template>
       </xsl:if>
+
       <!-- 4FT table for SD4ftRule / SD4ftMiner -->
-      <xsl:if test="local-name()='SD4ftRule'">
+      <xsl:if test="local-name()='SD4ftRule'"><!--TODO check...-->
         <!-- 4FT: four field table -->
         <table style="margin: 0 auto;">
           <tbody>
@@ -110,7 +103,7 @@
         </table>
       </xsl:if>
       <!-- 4FT table for Ac4ftRule / SD4ftMiner, Ac4ftMiner -->
-      <xsl:if test="local-name()='Ac4ftRule'">
+      <xsl:if test="local-name()='Ac4ftRule'"><!--TODO check...-->
         <!-- 4FT: four field table -->
         <table style="margin: 0 auto;">
           <tbody>
@@ -148,7 +141,7 @@
         </table>
       </xsl:if>
       <!-- attributes table and graph for CFMiner -->
-      <xsl:if test="local-name()='CFMinerRule'">
+      <xsl:if test="local-name()='CFMinerRule'"><!--TODO check...-->
         <!-- attributes table -->
         <table class="itable" id="sect5-rule{$rulePos}-freqtab">
           <tr>
@@ -269,36 +262,23 @@
     <xsl:param name="c"/>
     <xsl:param name="d"/>
     <xsl:param name="arText"/>
-    <!-- const: row count / 255 -->
-    <xsl:variable name="konst" select="($a+$b+$c+$d) div 255"/>
-    <!-- ca-cd: a-d table cell colors
-      - red = 255
-      - green = extender / const
-      - blue = extender / const
-    -->
-    <xsl:variable name="ca" select="concat('background: rgb(255,',255-round($a div $konst),',',255-round($a div $konst),');')"/>
-    <xsl:variable name="cb" select="concat('background: rgb(255,',255-round($b div $konst),',',255-round($b div $konst),');')"/>
-    <xsl:variable name="cc" select="concat('background: rgb(255,',255-round($c div $konst),',',255-round($c div $konst),');')"/>
-    <xsl:variable name="cd" select="concat('background: rgb(255,',255-round($d div $konst),',',255-round($d div $konst),');')"/>
 
     <xsl:comment><xsl:value-of select="keg:getContentBlockTag('ContingencyTable',$arText,'start')"/></xsl:comment>
-    <table class="itable" summary="Four field table">
+    <table class="fourFtTable">
       <tr>
         <td></td>
-        <td><xsl:copy-of select="keg:translate('Consequent',600)"/></td>
-        <td><xsl:value-of select="$notOperator"/><!-- NOT --><xsl:copy-of select="keg:translate('Consequent',600)"/></td>
+        <th><xsl:copy-of select="keg:translate('Consequent',600)"/></th>
+        <th><xsl:value-of select="$notOperator"/><!-- NOT --><xsl:copy-of select="keg:translate('Consequent',600)"/></th>
       </tr>
       <tr>
-        <td><xsl:copy-of select="keg:translate('Antecedent',610)"/></td>
-        <!-- extender values with calculated background color -->
-        <td style="{$ca}"><xsl:value-of select="$a"/></td>
-        <td style="{$cb}"><xsl:value-of select="$b"/></td>
+        <th><xsl:copy-of select="keg:translate('Antecedent',610)"/></th>
+        <td class="a"><xsl:value-of select="$a"/></td>
+        <td class="b"><xsl:value-of select="$b"/></td>
       </tr>
       <tr>
-        <td><xsl:value-of select="$notOperator"/><!-- NOT --><xsl:copy-of select="keg:translate('Antecedent',610)"/></td>
-        <!-- extender values with calculated background color -->
-        <td style="{$cc}"><xsl:value-of select="$c"/></td>
-        <td style="{$cd}"><xsl:value-of select="$d"/></td>
+        <th><xsl:value-of select="$notOperator"/><!-- NOT --><xsl:copy-of select="keg:translate('Antecedent',610)"/></th>
+        <td class="c"><xsl:value-of select="$c"/></td>
+        <td class="d"><xsl:value-of select="$d"/></td>
       </tr>
     </table>
     <xsl:comment><xsl:value-of select="keg:getContentBlockTag('ContingencyTable',$arText,'end')"/></xsl:comment>

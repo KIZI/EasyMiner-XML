@@ -76,18 +76,8 @@
     <xsl:comment><xsl:value-of select="keg:getContentBlockTag('DerivedFieldDetail',$DerivedFieldName,'start')"/></xsl:comment>
 
     <!-- link name is derived from field name -->
-
     <xsl:variable name="tabs" select="count(/p:PMML/p:DataDictionary/p:DataField)"/>
     <!-- table number depends on previous table count -->
-
-    <!-- TODO remove <br/>
-    <xsl:variable name="histId" select="generate-id()"/>
-    <xsl:variable name="otherCategoryName">
-      <xsl:choose>
-        <xsl:when test="$reportLang = 'cs'">Ostatní</xsl:when>
-        <xsl:otherwise>Other</xsl:otherwise>
-      </xsl:choose>
-    </xsl:variable>-->
     <xsl:comment><xsl:value-of select="keg:getContentBlockTag('DerivedFieldDetail',$DerivedFieldName,'end')"/></xsl:comment>
   </xsl:template>
 

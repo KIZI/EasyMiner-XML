@@ -1,5 +1,5 @@
 //region standalone style
-body, td
+body, td, th
   font-family 'Helvetica Neue', 'Arial', 'sans-serif'
   font-size 14px
 //endregion standalone style
@@ -13,8 +13,9 @@ tableHeadColor = white
 tableTdPadding = 5px 8px
 tableTdBorderColor = rgb(235,235,235)
 
-listTable()
+basicTableWithBorders()
   background tableBgColor
+  color tableColor
   border-spacing 0
   margin 20px 0
   th
@@ -37,6 +38,9 @@ listTable()
     border-top none
     &:first-child
       border-left 1px solid tableTdBorderColor
+
+listTable()
+  basicTableWithBorders()
   tr:nth-child(even) td
     background tableBgColor2
 
@@ -77,3 +81,8 @@ table
 
   &.fieldBasicInfo
     infoTable()
+
+  &.fourFtTable
+    basicTableWithBorders()
+    th, td
+      text-align right

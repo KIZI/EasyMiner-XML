@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
-  xmlns:p="http://www.dmg.org/PMML-4_0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:exsl="http://exslt.org/common" xmlns:func="http://exslt.org/functions"
-  xmlns:keg="http://keg.vse.cz" xmlns:guha="http://keg.vse.cz/ns/GUHA0.1rev1"
-  extension-element-prefixes="func exsl" exclude-result-prefixes="p xsi keg guha">
+                xmlns:p="http://www.dmg.org/PMML-4_0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:exsl="http://exslt.org/common" xmlns:func="http://exslt.org/functions"
+                xmlns:keg="http://keg.vse.cz" xmlns:guha="http://keg.vse.cz/ns/GUHA0.1rev1"
+                extension-element-prefixes="func exsl" exclude-result-prefixes="p xsi keg guha">
   <!-- ============================
        Section 2 - Data description
        ============================ -->
@@ -36,6 +36,7 @@
         </tr>
         <!-- frequency table is shown only if any frequence exists -->
         <xsl:variable name="nullPresent" select="count(p:Value[@value=$NullName])"/>
+        <!-- TODO Standa předělat výpis hodnot... -->
         <xsl:choose>
           <xsl:when test="p:Value">
             <xsl:for-each select="p:Value[@value!=$NullName]">
@@ -60,17 +61,21 @@
       </table>
       <xsl:if test="p:Value[position() &gt; $maxValuesToList and $maxValuesToList]">
         <p class="hot">
-          <xsl:copy-of select="keg:translate('Exceeded',190)"/> maxValuesToList = <xsl:value-of
-            select="$maxValuesToList"/>, <xsl:copy-of select="keg:translate('first',200)"/>
+          <xsl:copy-of select="keg:translate('Exceeded',190)"/>
+          maxValuesToList = <xsl:value-of
+            select="$maxValuesToList"/>,
+          <xsl:copy-of select="keg:translate('first',200)"/>
           <xsl:value-of select="$maxValuesToList"/>
           <xsl:copy-of select="keg:translate('from the total number of',210)"/>
           <xsl:value-of select="count(p:Value)"/>
-          <xsl:copy-of select="keg:translate('rules',290)"/>. </p>
+          <xsl:copy-of select="keg:translate('rules',290)"/>.
+        </p>
       </xsl:if>
       <xsl:apply-templates select="p:Interval" mode="sect2"/>
       <xsl:variable name="suppStat" select="p:Extension[@name='Min' or @name='Max' or @name='Avg']"/>
       <xsl:if test="$suppStat">
-        <strong><xsl:copy-of select="keg:translate('Supplemental statistics',310)"/>:</strong>
+        <strong><xsl:copy-of select="keg:translate('Supplemental statistics',310)"/>:
+        </strong>
         <ul>
           <xsl:apply-templates select="p:Extension" mode="sect2"/>
         </ul>
@@ -83,7 +88,8 @@
 
   <xsl:template match="p:Interval" mode="sect2">
     <p>
-      <strong><xsl:copy-of select="keg:translate('Value range',311)"/>:</strong>
+      <strong><xsl:copy-of select="keg:translate('Value range',311)"/>:
+      </strong>
       <xsl:choose>
         <xsl:when test="@closure='closedOpen' or @closure='closedClosed'">&lt;</xsl:when>
         <xsl:otherwise>(</xsl:otherwise>
@@ -110,7 +116,7 @@
   </xsl:template>
 
   <xsl:template match="p:Extension[@name='Min' or @name='Max' or @name='Avg' or @name='StDev']"
-    mode="sect2">
+                mode="sect2">
     <li>
       <xsl:choose>
         <xsl:when test="@name='Min'">
@@ -126,8 +132,11 @@
           <xsl:copy-of select="keg:translate('StDev',342)"/>
         </xsl:when>
       </xsl:choose>
-      <xsl:copy-of select="keg:translate('value of column',350)"/>: <em><xsl:value-of
-          select="@value"/></em>
+      <xsl:copy-of select="keg:translate('value of column',350)"/>:
+      <em>
+        <xsl:value-of
+            select="@value"/>
+      </em>
     </li>
   </xsl:template>
 

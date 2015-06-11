@@ -1,5 +1,6 @@
 body,
-td {
+td,
+th {
   font-family: 'Helvetica Neue', 'Arial', 'sans-serif';
   font-size: 14px;
 }
@@ -15,6 +16,7 @@ section {
 }
 table.graphTable {
   background: #fff;
+  color: #000;
   border-spacing: 0;
   margin: 20px 0;
 }
@@ -67,4 +69,38 @@ table.fieldBasicInfo td {
 }
 table.fieldBasicInfo td {
   font-weight: bold;
+}
+table.fourFtTable {
+  background: #fff;
+  color: #000;
+  border-spacing: 0;
+  margin: 20px 0;
+}
+table.fourFtTable th {
+  padding: 5px 8px;
+  background: #075783;
+  color: #fff;
+  text-align: left;
+  border: 1px solid #075783;
+  border-left: none;
+  border-top: none;
+}
+table.fourFtTable th:first-child {
+  border: 1px solid #075783;
+}
+table.fourFtTable td {
+  padding: 5px 8px;
+  background: #fff;
+  color: #000;
+  text-align: left;
+  border-bottom: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
+  border-top: none;
+}
+table.fourFtTable td:first-child {
+  border-left: 1px solid #ebebeb;
+}
+table.fourFtTable th,
+table.fourFtTable td {
+  text-align: right;
 }

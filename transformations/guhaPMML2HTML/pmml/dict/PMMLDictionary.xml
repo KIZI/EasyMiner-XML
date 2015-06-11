@@ -68,8 +68,8 @@
         </str>
     </Entry>
     <Entry id="90">
-        <str lang="en">Content (list of attributes)</str>
-        <str lang="cs">Obsah (seznam atributů)</str>
+        <str lang="en">List of created attributes</str>
+        <str lang="cs">Seznam vytvořených atributů</str>
     </Entry>
     <Entry id="100">
         <str lang="en">Number of created attributes</str>
