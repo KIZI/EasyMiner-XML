@@ -36,7 +36,7 @@
         </tr>
       </table>
 
-      <table class="graphTable">
+      <table class="graphTable" id="sect3-graphTable-{$DerivedFieldName}">
         <tr>
           <th scope="col"><xsl:copy-of select="keg:translate('Category',380)"/></th>
           <th scope="col">

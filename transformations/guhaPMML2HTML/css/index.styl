@@ -1,10 +1,15 @@
+@import 'flexbox'
+
 //region standalone style
 body, td, th
   font-family 'Helvetica Neue', 'Arial', 'sans-serif'
   font-size 14px
 //endregion standalone style
 //region mixins
+baseBgColor = white
 textColor = black
+detailsTextColor = gray
+
 tableBgColor  = white
 tableBgColor2 = rgb(252,251,255)
 tableColor = textColor
@@ -18,6 +23,8 @@ basicTableWithBorders()
   color tableColor
   border-spacing 0
   margin 20px 0
+  tr:first-child th
+    border-top 1px solid tableHeadBgColor
   th
     padding tableTdPadding
     background tableHeadBgColor
@@ -28,10 +35,13 @@ basicTableWithBorders()
     border-top none
     &:first-child
       border 1px solid tableHeadBgColor
+    &.empty
+      background tableBgColor
+      &:first-child
+        border-left none
+        border-top  none
   td
     padding tableTdPadding
-    background tableBgColor
-    color tableColor
     text-align left
     border-bottom 1px solid tableTdBorderColor
     border-right  1px solid tableTdBorderColor
@@ -41,7 +51,7 @@ basicTableWithBorders()
 
 listTable()
   basicTableWithBorders()
-  tr:nth-child(even) td
+  tr:nth-child(even)
     background tableBgColor2
 
 infoTable()
@@ -68,7 +78,7 @@ h3
 
 section
   margin 20px
-  background yellow
+  border 2px solid red
 
 
 table
@@ -86,3 +96,97 @@ table
     basicTableWithBorders()
     th, td
       text-align right
+
+  &.imValuesTable
+    listTable()
+    td.value
+      text-align right
+
+collapsableSubsection()
+  padding 20px 20px 10px 40px
+  margin 5px
+  border 1px solid #f0f0f0
+  position relative
+  h3
+    margin 0
+    margin-left -25px
+    padding 0 0 0 25px
+    background url('arrow-down.png') left top no-repeat
+    span.counter
+      float right
+      color detailsTextColor
+      font-style italic
+      font-weight normal
+
+  &.collapsed
+    border 1px solid baseBgColor
+    padding-top 0
+    padding-bottom 0
+    h3
+      background url('arrow-right.png') left top no-repeat
+
+
+section.foundRule
+  collapsableSubsection()
+
+  .ruleDetails
+    flexbox(flex)
+    flex-direction(row)
+    flex-align(baseline)
+    flex-justify(start)
+    flex-wrap(wrap-rewerse)
+
+    div.imValues, div.fourFtTable
+      min-width: 300px
+      padding 20px 20px 20px 0
+      h4
+        margin 0
+        padding 0
+
+  .ruleSimpleDetails
+    color detailsTextColor
+    padding 5px 10px
+    display none
+
+  &.collapsed
+    .ruleDetails
+      display none
+    .ruleSimpleDetails
+      display block
+
+section#sect5
+  .foundRulesCount
+    font-weight bold
+
+  .multiCollapsers
+    margin 5px
+    margin-bottom 15px
+    padding 0
+    font-size 80%
+    a
+      color detailsTextColor
+      display inline-block
+      padding 0 5px
+      border-left 1px solid detailsTextColor
+      text-decoration none
+      &:first-child
+        border-left none
+      &:hover
+        text-decoration underline
+
+percentsGradient(position, startColor, endColor, baseBgColor)
+  background baseBgColor !important
+  background rgba(endColor,(position/100)) !important
+  position=position+"%"
+  //background -moz-linear-gradient(left, startColor 0%, endColor position, baseBgColor position, baseBgColor 100%) !important /* FF3.6+ */
+  //background -webkit-gradient(linear, left top, right top, color-stop(0%,startColor), color-stop(position,endColor), color-stop(position,baseBgColor), color-stop(100%,baseBgColor)) !important /* Chrome,Safari4+ */
+  //background -webkit-linear-gradient(left, startColor 0%,endColor position,baseBgColor position,baseBgColor 100%) !important /* Chrome10+,Safari5.1+ */
+  //background -o-linear-gradient(left,  startColor 0%,endColor position,baseBgColor position,baseBgColor 100%) !important /* Opera 11.10+ */
+  //background -ms-linear-gradient(left, startColor 0%,endColor position,baseBgColor position,baseBgColor 100%) !important /* IE10+ */
+  background linear-gradient(to right, startColor 0%,endColor position,baseBgColor position,baseBgColor 100%) !important  /* W3C */
+
+for j in (0..100)
+  td.bg{j}p
+    percentsGradient(j, #dad5fd, #b4e8d7,transparent)
+
+

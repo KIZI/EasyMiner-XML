@@ -13,12 +13,6 @@
     <xsl:variable name="arText">
       <xsl:apply-templates select="." mode="ruleBody"/>
     </xsl:variable>
-    <xsl:variable name="arDebug">
-      <xsl:apply-templates select="." mode="debug"/>
-    </xsl:variable>
-    <xsl:variable name="query">
-      <xsl:apply-templates select="." mode="createQueryMain"/>
-    </xsl:variable>
     <xsl:variable name="rulePos" select="position()"/>
 
     <xsl:variable name="ruleClass"><!--TODO Standa třída pro označování zajímavých pravidel-->
@@ -28,22 +22,24 @@
         </xsl:choose>
     </xsl:variable>
 
-    <div id="sect5-rule{$rulePos}" class="{$ruleClass}" >
-      <h3 title="{$arDebug}"><xsl:copy-of select="keg:translate('Rule',12)"/> <xsl:value-of select="$rulePos"/></h3>
-      <p class="ruleText">
-        <!-- Rule has format: Antecedent => Consequent
-        -->
+    <section id="sect5-rule{$rulePos}" class="foundRule {$ruleClass}" >
+      <h3><xsl:copy-of select="$arText"/></h3>
+      <div class="ruleDetails">
+      <!--TODO Standa zobrazit vpravo? <xsl:value-of select="$rulePos"/>-->
+      <!-- TODO remove
+        <p class="ruleText">
         <xsl:variable name="arTextWithNumber">
             <xsl:copy-of select="keg:translate('Rule',12)"/> <xsl:value-of select="$rulePos"/><xsl:if test="$ruleClass='selectedRule'"><xsl:text> - </xsl:text><xsl:value-of select="keg:translate('selected rule',14)"/></xsl:if><xsl:text>: </xsl:text><xsl:copy-of select="$arText"/>
         </xsl:variable>
 
         <xsl:comment><xsl:value-of select="keg:getContentBlockTag('DiscoveredRule',$arTextWithNumber,'start')"/></xsl:comment>
         <xsl:copy-of select="$arText"/>
+
         <xsl:comment><xsl:value-of select="keg:getContentBlockTag('DiscoveredRule',$arTextWithNumber,'end')"/></xsl:comment>
-      </p>
+      </p>-->
 
       <!-- table of values of test criteria (quantifiers) -->
-      <xsl:if test="local-name() != 'CFMinerRule'"><!--TODO check...-->
+      <xsl:if test="local-name() != 'CFMinerRule'">
         <xsl:comment><xsl:value-of select="keg:getContentBlockTag('DiscoveredRule_Quantifiers',$arText,'start')"/></xsl:comment>
         <xsl:apply-templates select="." mode="sect5-qtable">
           <xsl:with-param name="rulePos" select="$rulePos"/>
@@ -54,19 +50,21 @@
       <!-- 4FT table for AssociationRule / 4ftMiner -->
       <xsl:if test="local-name()='AssociationRule'"><!--TODO Standa...-->
         <!-- 4FT: four field table -->
-        <h4><xsl:copy-of select="keg:translate('Four field contingency table',13)"/></h4>
-        <xsl:call-template name="FourFieldTable">
-          <xsl:with-param name="a" select="FourFtTable/@a"/>
-          <xsl:with-param name="b" select="FourFtTable/@b"/>
-          <xsl:with-param name="c" select="FourFtTable/@c"/>
-          <xsl:with-param name="d" select="FourFtTable/@d"/>
-          <xsl:with-param name="arText" select="$arText"/>
-        </xsl:call-template>
+        <div class="fourFtTable">
+          <h4><xsl:copy-of select="keg:translate('Four field contingency table',13)"/></h4>
+          <xsl:call-template name="FourFieldTable">
+            <xsl:with-param name="a" select="FourFtTable/@a"/>
+            <xsl:with-param name="b" select="FourFtTable/@b"/>
+            <xsl:with-param name="c" select="FourFtTable/@c"/>
+            <xsl:with-param name="d" select="FourFtTable/@d"/>
+            <xsl:with-param name="arText" select="$arText"/>
+          </xsl:call-template>
+        </div>
       </xsl:if>
 
       <!-- 4FT table for SD4ftRule / SD4ftMiner -->
       <xsl:if test="local-name()='SD4ftRule'"><!--TODO check...-->
-        <!-- 4FT: four field table -->
+        <!-- 4FT: four field table --> <!-- TODO zabalení do DIV.fourFtTable-->
         <table style="margin: 0 auto;">
           <tbody>
             <tr>
@@ -173,7 +171,8 @@
           <xsl:call-template name="drawHistogram"/>
         </div>
       </xsl:if>
-    </div>
+      </div>
+    </section>
   </xsl:template>
 
   <!-- quantifier table -->
@@ -191,21 +190,10 @@
         <xsl:otherwise>2</xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
-    <table class="itable" summary="Values of associated test criteria">
-      <thead>
-        <tr>
-          <th colspan="{$tableColspan}">
-            <input type="checkbox" onclick="ShowChecked(this,'sect5-{$sect}rule{$rulePos}-non-task')"/>
-            <xsl:choose>
-              <xsl:when test="local-name()='AssociationRule' or local-name()='SD4ftRule' or local-name()='Ac4ftRule'">
-                <xsl:copy-of select="keg:translate('Table of values for test criteria', 422)"/>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:copy-of select="keg:translate('Interest measure values', 840)"/>
-              </xsl:otherwise>
-            </xsl:choose>
-          </th>
-        </tr>
+
+    <div class="imValues">
+      <h4><xsl:copy-of select="keg:translate('Interest measure values', 840)"/></h4>
+      <table class="imValuesTable">
         <tr>
           <th><xsl:copy-of select="keg:translate('Interest Measure',590)"/></th>
           <th><xsl:copy-of select="keg:translate('Value',252)"/></th>
@@ -213,45 +201,42 @@
             <th>Source mode</th>
           </xsl:if>
         </tr>
-      </thead>
-      <!-- previously BASE was Support and FUI was Confidence -->
-      <xsl:if test="IMValue[@name='BASE']!=-1 or IMValue[@name='FUI']!=-1">
-        <tbody>
-          <!-- if BASE == -1 then don't include to report; BASE == -1 occurs in Ferda only, LM has always valid value? -->
-          <xsl:if test="IMValue[@name='BASE']!=-1">
-            <tr>
-              <td><xsl:copy-of select="keg:translateInterestMeasure('BASE','TestCriterion', 'pmml', $reportLang)"/></td>
-              <td><xsl:value-of select="format-number(IMValue[@name='BASE'],'0.0000')"/></td>
-            </tr>
-          </xsl:if>
-          <!-- if FUI == -1 then don't include to report -->
-          <xsl:if test="IMValue[@name='FUI']!=-1">
-            <tr>
-              <td><xsl:copy-of select="keg:translateInterestMeasure('FUI','TestCriterion', 'pmml', $reportLang)"/></td>
-              <td><xsl:value-of select="format-number(IMValue[@name='FUI'],'0.0000')"/></td>
-            </tr>
-          </xsl:if>
-        </tbody>
-      </xsl:if>
-      <!-- AssociationRule or SD4ftRule or Ac4ftRule table rows -->
-      <xsl:if test="local-name()='AssociationRule' or local-name()='SD4ftRule' or local-name()='Ac4ftRule'">
-        <tbody id="sect5-rule{$rulePos}-task">
+
+        <!-- previously BASE was Support and FUI was Confidence -->
+        <xsl:if test="IMValue[@name='BASE']!=-1 or IMValue[@name='FUI']!=-1">
+            <!-- if BASE == -1 then don't include to report; BASE == -1 occurs in Ferda only, LM has always valid value? -->
+            <xsl:if test="IMValue[@name='BASE']!=-1">
+              <tr>
+                <td class="name"><xsl:copy-of select="keg:translateInterestMeasure('BASE','TestCriterion', 'pmml', $reportLang)"/></td>
+                <td class="value"><xsl:value-of select="format-number(IMValue[@name='BASE'],'0.0000')"/></td>
+              </tr>
+            </xsl:if>
+            <!-- if FUI == -1 then don't include to report -->
+            <xsl:if test="IMValue[@name='FUI']!=-1">
+              <tr>
+                <td class="name"><xsl:copy-of select="keg:translateInterestMeasure('FUI','TestCriterion', 'pmml', $reportLang)"/></td>
+                <td class="value"><xsl:value-of select="format-number(IMValue[@name='FUI'],'0.0000')"/></td>
+              </tr>
+            </xsl:if>
+        </xsl:if>
+        <!-- AssociationRule or SD4ftRule or Ac4ftRule table rows -->
+        <xsl:if test="local-name()='AssociationRule' or local-name()='SD4ftRule' or local-name()='Ac4ftRule'">
           <!-- other quantifiers from task setting -->
           <xsl:apply-templates select="IMValue[not(@name='BASE') and not(@name='FUI') and @imSettingRef]" mode="sect5"/>
-        </tbody>
-        <tbody class="dim hidden" id="sect5-rule{$rulePos}-non-task">
-          <!-- other quantifiers not from task setting -->
-          <xsl:apply-templates select="IMValue[not(@name='BASE') and not(@name='FUI') and not(@imSettingRef)]" mode="sect5"/>
-        </tbody>
-      </xsl:if>
-      <!-- SD4ftRule/FirstSet or SD4ftRule/SecondSet, Ac4ftRule/StateBefore or Ac4ftRule/StateAfter table rows -->
-      <xsl:if test="local-name()='FirstSet' or local-name()='SecondSet' or local-name()='StateBefore' or local-name()='StateAfter'">
-        <tbody class="dim hidden" id="sect5-{$sect}rule{$rulePos}-non-task">
-          <!-- other quantifiers from task setting -->
-          <xsl:apply-templates select="IMValue[not(@name='BASE') and not(@name='FUI')]" mode="sect5"/>
-        </tbody>
-      </xsl:if>
-    </table>
+          <!--<tbody class="dim hidden" id="sect5-rule{$rulePos}-non-task">
+            <!- - other quantifiers not from task setting - ->
+            <xsl:apply-templates select="IMValue[not(@name='BASE') and not(@name='FUI') and not(@imSettingRef)]" mode="sect5"/>
+          </tbody>-->
+        </xsl:if>
+        <!-- SD4ftRule/FirstSet or SD4ftRule/SecondSet, Ac4ftRule/StateBefore or Ac4ftRule/StateAfter table rows
+        <xsl:if test="local-name()='FirstSet' or local-name()='SecondSet' or local-name()='StateBefore' or local-name()='StateAfter'">
+          <tbody class="dim hidden" id="sect5-{$sect}rule{$rulePos}-non-task">
+            <!- - other quantifiers from task setting - ->
+            <xsl:apply-templates select="IMValue[not(@name='BASE') and not(@name='FUI')]" mode="sect5"/>
+          </tbody>
+        </xsl:if>-->
+      </table>
+    </div>
   </xsl:template>
 
   <!-- fourfield table -->
@@ -266,7 +251,7 @@
     <xsl:comment><xsl:value-of select="keg:getContentBlockTag('ContingencyTable',$arText,'start')"/></xsl:comment>
     <table class="fourFtTable">
       <tr>
-        <td></td>
+        <th class="empty"></th>
         <th><xsl:copy-of select="keg:translate('Consequent',600)"/></th>
         <th><xsl:value-of select="$notOperator"/><!-- NOT --><xsl:copy-of select="keg:translate('Consequent',600)"/></th>
       </tr>
@@ -293,27 +278,11 @@
     </tr>
   </xsl:template>
 
-<!-- Debug: Rule parts overview -->
-  <xsl:template match="AssociationRule | SD4ftRule | Ac4ftRule | CFMinerRule" mode="debug">antecedent=<xsl:value-of select="@antecedent" />
-consequent=<xsl:value-of select="@consequent | @succedent"/>
-condition=<xsl:value-of select="@condition"/>
-
-firstSet=<xsl:value-of select="FirstSet/@set | FirstSet/@FirstSet"/>
-secondSet=<xsl:value-of select="SecondSet/@set | SecondSet/@SecondSet"/>
-
-antecedentVarBefore=<xsl:value-of select="StateBefore/@antecedentVarBefore"/>
-antecedentVarAfter=<xsl:value-of select="StateAfter/@antecedentVarAfter"/>
-
-consequentVarBefore=<xsl:value-of select="StateBefore/@consequentVarBefore"/>
-consequentVarAfter=<xsl:value-of select="StateAfter/@consequentVarAfter"/>
-
-attribute=<xsl:value-of select="@attribute"/>
-  </xsl:template>
-
   <!--
   RULE BODY
   -->
   <xsl:template match="AssociationRule" mode="ruleBody">
+    <!--TODO Standa složení rule body pro výpis, kde nejsou popsané jednotlivé cedenty!-->
     <xsl:value-of select="./Text" />
   </xsl:template>
 
@@ -402,11 +371,11 @@ attribute=<xsl:value-of select="@attribute"/>
   <xsl:template match="IMValue" mode="sect5" priority="1">
     <tr>
       <!-- quantifier name -->
-      <td>
+      <td class="name">
         <xsl:copy-of select="keg:translateInterestMeasure(@name,'TestCriterion', 'pmml', $reportLang)"/>
       </td>
       <!-- quantifier value -->
-      <td><xsl:value-of select="format-number(text(),'0.0000')"/></td>
+      <td class="value"><xsl:value-of select="format-number(text(),'0.0000')"/></td>
       <xsl:if test="@sourceMode">
         <td><xsl:value-of select="@sourceMode"/></td>
       </xsl:if>

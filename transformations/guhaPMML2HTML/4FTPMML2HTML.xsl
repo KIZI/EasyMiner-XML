@@ -34,17 +34,17 @@
 
   <!-- Parametr maxValuesToList omezuje pocet kategorii (hodnot sloupce), ktere mohou byt v 2. oddilu vypsany.
    Pokud pocet kategorii prekroci hodnotu parametru je vypsano varovani. -->
-  <xsl:param name="maxValuesToList" select="50"/>
+  <xsl:param name="maxValuesToList" select="100"/>
 
   <!-- Maximalni pocet vyisovancyh kategorii do tabulek popisujicich transformace vstupnich sloupcu na atributy -->
-  <xsl:param name="maxCategoriesToList" select="50"/>
+  <xsl:param name="maxCategoriesToList" select="100"/>
   <!-- Parametr maxRulesToList omezuje pocet pravidel, ktere mohou byt v vypsany.
       Pokud pocet pravidel prekroci hodnotu parametru je vypsano varovani.
   Hodnoty jsou serazeny podle frekvenci, vypisi se tedy pouze ty nejcastejsi
   -->
-  <xsl:param name="maxRulesToList" select="50"/>  
+  <xsl:param name="maxRulesToList" select="1000"/>
   <!-- maximal number of items to show in graph -->
-  <xsl:param name="maxCategoriesToListInGraphs" select="7"/>
+  <xsl:param name="maxCategoriesToListInGraphs" select="100"/>
   <!-- Parametr contentOnly slouzi k potlaceni generovani hlavicky HTML a elementu html, head a body.
    V pripade, ze je atribut nastaven, vygeneruje se jen obsah elementu body pro pouziti ve slozitejsich dokumentech.
    Pravidla jsou vypisovana na zaklade jejich poradi v PMML souboru

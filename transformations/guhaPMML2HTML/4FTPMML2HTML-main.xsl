@@ -9,8 +9,9 @@
   <xsl:template match="/p:PMML" mode="body">
   <!-- TODO -->  
     <style>@import url('index.css');</style>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="Chart.js-2.0-alpha/Chart.js-2.0-alpha/Chart.js"></script>
   <!-- ===============
        Document header
        =============== -->
@@ -202,7 +203,7 @@
        Section 5 - Discovered ARs
        ========================== -->
     <xsl:comment><xsl:value-of select="keg:getContentBlockTag('DiscoveredARs','','start')"/></xsl:comment>
-    <div id="sect5">
+    <section id="sect5">
       <xsl:choose>
         <xsl:when test="/p:PMML/guha:SD4ftModel">
           <h2><xsl:copy-of select="keg:translate('Discovered Action Rules',910)"/></h2>
@@ -220,23 +221,8 @@
       <p><xsl:copy-of select="keg:translate('Discovered rules relate to the following attributes',110)"/>: <xsl:apply-templates select="p:DataDictionary/p:DataField" mode="sect5" />.</p>
 
       <xsl:comment><xsl:value-of select="keg:getContentBlockTag('NumberOfRulesFound','','start')"/></xsl:comment>
-      <p><xsl:copy-of select="keg:translate('Number of discovered association rules',120)"/>: <xsl:value-of select="guha:AssociationModel/@numberOfRules | guha:SD4ftModel/@numberOfRules | guha:Ac4ftModel/@numberOfRules | guha:CFMinerModel/@numberOfRules"/></p>
+      <p class="foundRulesCount"><xsl:copy-of select="keg:translate('Number of discovered association rules',120)"/>: <xsl:value-of select="guha:AssociationModel/@numberOfRules | guha:SD4ftModel/@numberOfRules | guha:Ac4ftModel/@numberOfRules | guha:CFMinerModel/@numberOfRules"/></p>
       <xsl:comment><xsl:value-of select="keg:getContentBlockTag('NumberOfRulesFound','','end')"/></xsl:comment>
-
-      <xsl:comment><xsl:value-of select="keg:getContentBlockTag('DiscoveredRules_Contents','','start')"/></xsl:comment>
-      <div id="sectDiscoveredArToc">
-        <h3><xsl:copy-of select="keg:translate('Content (list of rules)',130)"/></h3>
-        <xsl:apply-templates select="guha:AssociationModel | guha:SD4ftModel | guha:Ac4ftModel | guha:CFMinerModel" mode="toc">
-          <xsl:with-param name="checkbox" select="1"/>
-        </xsl:apply-templates>
-      </div>
-      <xsl:comment><xsl:value-of select="keg:getContentBlockTag('DiscoveredRules_Contents','','end')"/></xsl:comment>
-
-      <xsl:if test="($maxRulesToList and (count(guha:AssociationModel/AssociationRules/AssociationRule) > $maxRulesToList))">
-        <p style="color:red;">
-          <xsl:copy-of select="keg:translate('Maximum number of discovered rules exceeded! Number of founded rules:',61)"/> <xsl:value-of select="guha:AssociationModel/@numberOfRules | guha:SD4ftModel/@numberOfRules | guha:Ac4ftModel/@numberOfRules | guha:CFMinerModel/@numberOfRules"/>
-        </p>
-      </xsl:if>
 
       <xsl:apply-templates select="guha:AssociationModel/AssociationRules/AssociationRule[position() &lt;= $maxRulesToList or not($maxRulesToList)]" mode="sect5"/>
       <xsl:apply-templates select="guha:SD4ftModel/SD4ftRules/SD4ftRule[position() &lt;= $maxRulesToList or not($maxRulesToList)]" mode="sect5"/>
@@ -248,7 +234,7 @@
           <xsl:copy-of select="keg:translate('Maximum number of discovered rules exceeded! Number of founded rules:',61)"/> <xsl:value-of select="guha:AssociationModel/@numberOfRules | guha:SD4ftModel/@numberOfRules | guha:Ac4ftModel/@numberOfRules | guha:CFMinerModel/@numberOfRules"/>
         </p>
       </xsl:if>
-    </div>
+    </section>
 
     <xsl:comment><xsl:value-of select="keg:getContentBlockTag('DiscoveredARs','','end')"/></xsl:comment>
   </xsl:template>
