@@ -33,6 +33,10 @@
         <str lang="en">Dataset Description</str>
         <str lang="cs">Popis datového souboru</str>
     </Entry>
+    <Entry id="31">
+        <str lang="en">List of data fields</str>
+        <str lang="cs">Seznam sloupců</str>
+    </Entry>
     <Entry id="40">
         <str lang="en">Created Attributes</str>
         <str lang="cs">Vytvořené atributy</str>

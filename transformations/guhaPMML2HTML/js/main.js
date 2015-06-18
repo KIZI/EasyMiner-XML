@@ -14,6 +14,81 @@ var prepareCollapsableSections = function(){
 
   prepareFoundRuleCollapsableDetails();
   $('section#sect5 section.foundRule').addClass('collapsed');
+  prepareAttributesCollapsableDetails();
+  $('section#sect3 section.attribute').addClass('collapsed');
+  prepareDataFieldsCollapsableDetails();
+  $('section#sect2 section.dataField').addClass('collapsed');
+
+  //region připojení akce ke všem odkazům na IDčka, aby při jejich použití došlo k rozbalení příslušné sekce
+  $('a[href^="#"]').each(function(){
+    $(this).click(function(){
+      var href=$(this).attr('href');
+      if (href.match('^#')){
+        var targetElement=$(href);
+        targetElement.removeClass('collapsed');
+        targetElement.parents('section').removeClass('collapsed');
+      }
+    });
+  });
+  //endregion
+};
+
+/**
+ * Funkce pro přípravu detailů o vytvořených atributech
+ */
+var prepareAttributesCollapsableDetails = function(){
+  $('section#sect3 section.attribute').each(function(){
+    var h3 = $(this).find('h3');
+    //příprava jednoduchých detailů nalezeného pravidla, které se zobrazí, pokud je daná sekce sbalená
+    var basicInfoTable = $(this).find('table.fieldBasicInfo');
+    if (basicInfoTable){
+      var attributeDetailsStr="";
+      basicInfoTable.find('tr').each(function(){
+        if ($(this).hasClass('more')){return;}
+        var name = $(this).find('th').text().trim();
+        var value = $(this).find('td').html().trim();
+        if (name!=''){
+          if (attributeDetailsStr!=""){
+            attributeDetailsStr+=", ";
+          }
+          attributeDetailsStr+=name+': '+value;
+        }
+      });
+      h3.after('<div class="simpleDetails">'+attributeDetailsStr+'</div>');
+    }
+  });
+
+  //region odkazy pro hromadné (roz)balení všech detailů
+  var attributesCount=$('section#sect3 .attributesCount');
+  attributesCount.after(prepareMultiCollapsers());
+  //endregion odkazy pro hromadné (roz)balení všech detailů
+};
+
+/**
+ * Funkce pro přípravu detailů o vytvořených atributech
+ */
+var prepareDataFieldsCollapsableDetails = function(){
+  $('section#sect2 section.dataField').each(function(){
+    var h3 = $(this).find('h3');
+    //příprava jednoduchých detailů nalezeného pravidla, které se zobrazí, pokud je daná sekce sbalená
+    var basicInfoTable = $(this).find('table.fieldBasicInfo');
+    if (basicInfoTable){
+      var attributeDetailsStr="";
+      basicInfoTable.find('tr').each(function(){
+        if ($(this).hasClass('more')){return;}
+        var name = $(this).find('th').text().trim();
+        var value = $(this).find('td').html().trim();
+        if (name!=''){
+          if (attributeDetailsStr!=""){
+            attributeDetailsStr+=", ";
+          }
+          attributeDetailsStr+=name+': '+value;
+        }
+      });
+      h3.after('<div class="simpleDetails">'+attributeDetailsStr+'</div>');
+    }
+  });
+
 };
 
 /**
@@ -37,7 +112,7 @@ var prepareFoundRuleCollapsableDetails = function(){
           ruleDetailsStr+=name+': '+value;
         }
       });
-      h3.after('<div class="ruleSimpleDetails">'+ruleDetailsStr+'</div>');
+      h3.after('<div class="simpleDetails">'+ruleDetailsStr+'</div>');
     }
     h3.append('<span class="counter">#'+foundRulesCounter+'</span>');
     foundRulesCounter++;
@@ -45,12 +120,20 @@ var prepareFoundRuleCollapsableDetails = function(){
 
   //region odkazy pro hromadné (roz)balení všech detailů
   var rulesCount=$('section#sect5 .foundRulesCount');
+  rulesCount.after(prepareMultiCollapsers());
+  //endregion odkazy pro hromadné (roz)balení všech detailů
+};
+
+/**
+ * Funkce pro připravení odkazů pro hromadné rozbalování/sbalování
+ * @returns {*|jQuery|HTMLElement}
+ */
+var prepareMultiCollapsers = function(){
   var multiCollapsers=$('<div class="multiCollapsers"></div>');
   var uncollapseAllLink=$('<a href="" class="uncollapse">uncollapse all</a>').click(function(e){e.preventDefault();$('section#sect5 section.foundRule').removeClass('collapsed');});
   var collapseAllLink=$('<a href="" class="collapse">collapse all</a>').click(function(e){e.preventDefault();$('section#sect5 section.foundRule').addClass('collapsed');});
   multiCollapsers.append(uncollapseAllLink, collapseAllLink);
-  rulesCount.after(multiCollapsers);
-  //endregion odkazy pro hromadné (roz)balení všech detailů
+  return multiCollapsers;
 };
 
 /**

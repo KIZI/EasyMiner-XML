@@ -5,7 +5,7 @@ body, td, th
   font-family 'Helvetica Neue', 'Arial', 'sans-serif'
   font-size 14px
 //endregion standalone style
-//region mixins
+/*region mixins*/
 baseBgColor = white
 textColor = black
 detailsTextColor = gray
@@ -54,6 +54,13 @@ listTable()
   tr:nth-child(even)
     background tableBgColor2
 
+graphTable()
+  listTable()
+  td.name
+    font-weight bold
+  td.frequency
+    text-align right
+
 infoTable()
   background tableBgColor
   border-spacing 0
@@ -68,39 +75,21 @@ infoTable()
   td
     font-weight bold
 
-//endregion
+percentsGradient(position, startColor, endColor, baseBgColor)
+  background baseBgColor !important
+  background rgba(endColor,(position/100)) !important
+  position=position+"%"
+  //background -moz-linear-gradient(left, startColor 0%, endColor position, baseBgColor position, baseBgColor 100%) !important /* FF3.6+ */
+  //background -webkit-gradient(linear, left top, right top, color-stop(0%,startColor), color-stop(position,endColor), color-stop(position,baseBgColor), color-stop(100%,baseBgColor)) !important /* Chrome,Safari4+ */
+  //background -webkit-linear-gradient(left, startColor 0%,endColor position,baseBgColor position,baseBgColor 100%) !important /* Chrome10+,Safari5.1+ */
+  //background -o-linear-gradient(left,  startColor 0%,endColor position,baseBgColor position,baseBgColor 100%) !important /* Opera 11.10+ */
+  //background -ms-linear-gradient(left, startColor 0%,endColor position,baseBgColor position,baseBgColor 100%) !important /* IE10+ */
+  background linear-gradient(to right, startColor 0%,endColor position,baseBgColor position,baseBgColor 100%) !important  /* W3C */
 
-h1
-  color red
+for j in (0..100)
+  td.bg{j}p
+    percentsGradient(j, #dad5fd, #b4e8d7,transparent)
 
-h3
-  color red
-
-section
-  margin 20px
-  border 2px solid red
-
-
-table
-  &.graphTable
-    listTable()
-    td.name
-      font-weight bold
-    td.frequency
-      text-align right
-
-  &.fieldBasicInfo
-    infoTable()
-
-  &.fourFtTable
-    basicTableWithBorders()
-    th, td
-      text-align right
-
-  &.imValuesTable
-    listTable()
-    td.value
-      text-align right
 
 collapsableSubsection()
   padding 20px 20px 10px 40px
@@ -118,75 +107,117 @@ collapsableSubsection()
       font-style italic
       font-weight normal
 
+  .simpleDetails
+    color detailsTextColor
+    padding 5px 10px
+    display none
+    a
+      color detailsTextColor
+      text-decoration none
+      &:hover
+        text-decoration underline
+
   &.collapsed
     border 1px solid baseBgColor
     padding-top 0
     padding-bottom 0
     h3
       background url('arrow-right.png') left top no-repeat
-
-
-section.foundRule
-  collapsableSubsection()
-
-  .ruleDetails
-    flexbox(flex)
-    flex-direction(row)
-    flex-align(baseline)
-    flex-justify(start)
-    flex-wrap(wrap-rewerse)
-
-    div.imValues, div.fourFtTable
-      min-width: 300px
-      padding 20px 20px 20px 0
-      h4
-        margin 0
-        padding 0
-
-  .ruleSimpleDetails
-    color detailsTextColor
-    padding 5px 10px
-    display none
-
-  &.collapsed
-    .ruleDetails
+    .details
       display none
-    .ruleSimpleDetails
+    .simpleDetails
       display block
+
+sectionMultiCollapsers()
+  margin 5px
+  margin-bottom 15px
+  padding 0
+  font-size 80%
+  a
+    color detailsTextColor
+    display inline-block
+    padding 0 5px
+    border-left 1px solid detailsTextColor
+    text-decoration none
+    &:first-child
+      border-left none
+    &:hover
+      text-decoration underline
+
+sectionDetailsBlock()
+  min-width 300px
+  padding 20px 20px 20px 0
+  h4
+    margin 0
+    padding 0
+
+/*endregion*/
+
+h1
+  color red
+
+h3
+  color red
+
+section
+  margin 20px
+  border 2px solid red
+
+p.error
+  color red
+
+section#sect2
+section#sect3
+  .attributesCount
+    font-weight bold
+
+  .multiCollapsers
+    sectionMultiCollapsers()
+
+  section.list
+    display none
+    table
+      listTable()
+
+section#sect2 section.dataField
+section#sect3 section.attribute
+    collapsableSubsection()
+    &.collapsed
+      table.fieldBasicInfo
+        display none
+
+    table.fieldBasicInfo
+      infoTable()
+
+    table.graphTable
+      graphTable()
 
 section#sect5
   .foundRulesCount
     font-weight bold
-
   .multiCollapsers
-    margin 5px
-    margin-bottom 15px
-    padding 0
-    font-size 80%
-    a
-      color detailsTextColor
-      display inline-block
-      padding 0 5px
-      border-left 1px solid detailsTextColor
-      text-decoration none
-      &:first-child
-        border-left none
-      &:hover
-        text-decoration underline
+    sectionMultiCollapsers()
 
-percentsGradient(position, startColor, endColor, baseBgColor)
-  background baseBgColor !important
-  background rgba(endColor,(position/100)) !important
-  position=position+"%"
-  //background -moz-linear-gradient(left, startColor 0%, endColor position, baseBgColor position, baseBgColor 100%) !important /* FF3.6+ */
-  //background -webkit-gradient(linear, left top, right top, color-stop(0%,startColor), color-stop(position,endColor), color-stop(position,baseBgColor), color-stop(100%,baseBgColor)) !important /* Chrome,Safari4+ */
-  //background -webkit-linear-gradient(left, startColor 0%,endColor position,baseBgColor position,baseBgColor 100%) !important /* Chrome10+,Safari5.1+ */
-  //background -o-linear-gradient(left,  startColor 0%,endColor position,baseBgColor position,baseBgColor 100%) !important /* Opera 11.10+ */
-  //background -ms-linear-gradient(left, startColor 0%,endColor position,baseBgColor position,baseBgColor 100%) !important /* IE10+ */
-  background linear-gradient(to right, startColor 0%,endColor position,baseBgColor position,baseBgColor 100%) !important  /* W3C */
+  section.foundRule
+    collapsableSubsection()
+    .details
+      flexbox(flex)
+      flex-direction(row)
+      flex-align(baseline)
+      flex-justify(start)
+      flex-wrap(wrap-rewerse)
+      div.imValues, div.fourFtTable
+        sectionDetailsBlock()
 
-for j in (0..100)
-  td.bg{j}p
-    percentsGradient(j, #dad5fd, #b4e8d7,transparent)
+      table.fourFtTable
+        basicTableWithBorders()
+        th, td
+          text-align right
+
+      table.imValuesTable
+        listTable()
+        td.value
+          text-align right
+
 
 

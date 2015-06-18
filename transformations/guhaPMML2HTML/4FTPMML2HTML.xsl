@@ -4,7 +4,7 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:exsl="http://exslt.org/common" xmlns:func="http://exslt.org/functions" xmlns:keg="http://keg.vse.cz" xmlns:guha="http://keg.vse.cz/ns/GUHA0.1rev1"
   extension-element-prefixes="func exsl"
   exclude-result-prefixes="p xsi keg guha">
-  
+
   <xsl:import href="graph.xsl" />
   <xsl:import href="quantifier_transformations.xsl" />
   <xsl:import href="transformPMMLARtoQueryByAssociationRule.xsl" />
@@ -12,7 +12,6 @@
   <xsl:import href="4FTPMML2HTML-main.xsl" />
   <xsl:import href="4FTPMML2HTML-header.xsl" />
   <xsl:import href="4FTPMML2HTML-toc.xsl" />
-  <xsl:import href="4FTPMML2HTML-sect1.xsl" /><!-- Data description   -->
   <xsl:import href="4FTPMML2HTML-sect2.xsl" /><!-- Data description   -->
   <xsl:import href="4FTPMML2HTML-sect3.xsl" /><!-- Created attributes -->
   <xsl:import href="4FTPMML2HTML-sect4.xsl" /><!-- Data Mining Task Setting -->

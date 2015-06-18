@@ -27,7 +27,7 @@
   </xsl:template>
 
   <xsl:template match="p:DataField" mode="odkaz">
-    <a href="#sect2-{@name}" onclick="Show(this,'sect2-{@name}')"><xsl:value-of select="@name"/></a>
+    <a href="#sect2-{@name}" ><xsl:value-of select="@name"/></a>
   </xsl:template>
   <!-- ==============================
        Section 3 - Created Attributes

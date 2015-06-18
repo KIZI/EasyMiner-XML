@@ -55,7 +55,7 @@
   <xsl:template match="TaskSetting" mode="sect4">
     <!-- association rules -->
     <xsl:comment><xsl:value-of select="keg:getContentBlockTag('SoughtRulePattern','','start')"/></xsl:comment>
-    <div class="idiv">
+    <section> <!-- TODO udělat něco s touto sekcí... -->
       <h3>
         <xsl:choose>
           <xsl:when test="/p:PMML/guha:SD4ftModel">
@@ -79,7 +79,7 @@
         <xsl:copy-of select="keg:translate('The data mining task found rules in the following form:',760)"/>
       </p>
       <xsl:call-template name="TaskSettingRulePattern"/>
-    </div>
+    </section>
     <xsl:comment><xsl:value-of select="keg:getContentBlockTag('SoughtRulePattern','','end')"/></xsl:comment>
 
     <!-- basic attributes table -->

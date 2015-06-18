@@ -24,19 +24,7 @@
 
     <section id="sect5-rule{$rulePos}" class="foundRule {$ruleClass}" >
       <h3><xsl:copy-of select="$arText"/></h3>
-      <div class="ruleDetails">
-      <!--TODO Standa zobrazit vpravo? <xsl:value-of select="$rulePos"/>-->
-      <!-- TODO remove
-        <p class="ruleText">
-        <xsl:variable name="arTextWithNumber">
-            <xsl:copy-of select="keg:translate('Rule',12)"/> <xsl:value-of select="$rulePos"/><xsl:if test="$ruleClass='selectedRule'"><xsl:text> - </xsl:text><xsl:value-of select="keg:translate('selected rule',14)"/></xsl:if><xsl:text>: </xsl:text><xsl:copy-of select="$arText"/>
-        </xsl:variable>
-
-        <xsl:comment><xsl:value-of select="keg:getContentBlockTag('DiscoveredRule',$arTextWithNumber,'start')"/></xsl:comment>
-        <xsl:copy-of select="$arText"/>
-
-        <xsl:comment><xsl:value-of select="keg:getContentBlockTag('DiscoveredRule',$arTextWithNumber,'end')"/></xsl:comment>
-      </p>-->
+      <div class="details">
 
       <!-- table of values of test criteria (quantifiers) -->
       <xsl:if test="local-name() != 'CFMinerRule'">

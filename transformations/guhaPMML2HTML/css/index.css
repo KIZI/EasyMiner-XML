@@ -4,262 +4,7 @@ th {
   font-family: 'Helvetica Neue', 'Arial', 'sans-serif';
   font-size: 14px;
 }
-h1 {
-  color: #f00;
-}
-h3 {
-  color: #f00;
-}
-section {
-  margin: 20px;
-  border: 2px solid #f00;
-}
-table.graphTable {
-  background: #fff;
-  color: #000;
-  border-spacing: 0;
-  margin: 20px 0;
-}
-table.graphTable tr:first-child th {
-  border-top: 1px solid #075783;
-}
-table.graphTable th {
-  padding: 5px 8px;
-  background: #075783;
-  color: #fff;
-  text-align: left;
-  border: 1px solid #075783;
-  border-left: none;
-  border-top: none;
-}
-table.graphTable th:first-child {
-  border: 1px solid #075783;
-}
-table.graphTable th.empty {
-  background: #fff;
-}
-table.graphTable th.empty:first-child {
-  border-left: none;
-  border-top: none;
-}
-table.graphTable td {
-  padding: 5px 8px;
-  text-align: left;
-  border-bottom: 1px solid #ebebeb;
-  border-right: 1px solid #ebebeb;
-  border-top: none;
-}
-table.graphTable td:first-child {
-  border-left: 1px solid #ebebeb;
-}
-table.graphTable tr:nth-child(even) {
-  background: #fcfbff;
-}
-table.graphTable td.name {
-  font-weight: bold;
-}
-table.graphTable td.frequency {
-  text-align: right;
-}
-table.fieldBasicInfo {
-  background: #fff;
-  border-spacing: 0;
-  margin: 20px 0;
-}
-table.fieldBasicInfo th,
-table.fieldBasicInfo td {
-  padding: 5px 8px;
-  background: #fff;
-  color: #000;
-  text-align: left;
-  border: none;
-  font-weight: normal;
-}
-table.fieldBasicInfo td {
-  font-weight: bold;
-}
-table.fourFtTable {
-  background: #fff;
-  color: #000;
-  border-spacing: 0;
-  margin: 20px 0;
-}
-table.fourFtTable tr:first-child th {
-  border-top: 1px solid #075783;
-}
-table.fourFtTable th {
-  padding: 5px 8px;
-  background: #075783;
-  color: #fff;
-  text-align: left;
-  border: 1px solid #075783;
-  border-left: none;
-  border-top: none;
-}
-table.fourFtTable th:first-child {
-  border: 1px solid #075783;
-}
-table.fourFtTable th.empty {
-  background: #fff;
-}
-table.fourFtTable th.empty:first-child {
-  border-left: none;
-  border-top: none;
-}
-table.fourFtTable td {
-  padding: 5px 8px;
-  text-align: left;
-  border-bottom: 1px solid #ebebeb;
-  border-right: 1px solid #ebebeb;
-  border-top: none;
-}
-table.fourFtTable td:first-child {
-  border-left: 1px solid #ebebeb;
-}
-table.fourFtTable th,
-table.fourFtTable td {
-  text-align: right;
-}
-table.imValuesTable {
-  background: #fff;
-  color: #000;
-  border-spacing: 0;
-  margin: 20px 0;
-}
-table.imValuesTable tr:first-child th {
-  border-top: 1px solid #075783;
-}
-table.imValuesTable th {
-  padding: 5px 8px;
-  background: #075783;
-  color: #fff;
-  text-align: left;
-  border: 1px solid #075783;
-  border-left: none;
-  border-top: none;
-}
-table.imValuesTable th:first-child {
-  border: 1px solid #075783;
-}
-table.imValuesTable th.empty {
-  background: #fff;
-}
-table.imValuesTable th.empty:first-child {
-  border-left: none;
-  border-top: none;
-}
-table.imValuesTable td {
-  padding: 5px 8px;
-  text-align: left;
-  border-bottom: 1px solid #ebebeb;
-  border-right: 1px solid #ebebeb;
-  border-top: none;
-}
-table.imValuesTable td:first-child {
-  border-left: 1px solid #ebebeb;
-}
-table.imValuesTable tr:nth-child(even) {
-  background: #fcfbff;
-}
-table.imValuesTable td.value {
-  text-align: right;
-}
-section.foundRule {
-  padding: 20px 20px 10px 40px;
-  margin: 5px;
-  border: 1px solid #f0f0f0;
-  position: relative;
-}
-section.foundRule h3 {
-  margin: 0;
-  margin-left: -25px;
-  padding: 0 0 0 25px;
-  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB4klEQVQ4jc2TTUgUYRzGHzxF5wg6xF46uCRhh0UTlj2Uhz6hU1AEsRBIICv2QRFGp5JOfUBYaLGHwkQicw230jwYZhuRZu06us42aas5uzM77+zMzs77zr+bFK3boUM954ff4fmowV+q5v8ABCOd0X3nuung2R460N5Ne1vvUnNLFzW3dNGhtnt0+EyUjlzspfCVAWq98ZI67r+hx2Nzl9cAM/GR/q2+bRRs3IOGQAj19Y3wb9+JWn8dAoEdaGqoQ3CXH6GmWuwO+eHzbUZ0WJLWAFrqxeBQX/SOauiw7RLKrgvOOTjnII9ARAABRIDjcPT0vX8w0Ln/4S8Z5OY/to+9in1mpgnLsuE4DuxSGUJwCCHgkQeA8CSeSi8tJE/9FqK99M6WEhNH019mHWYWUbRsMGbCdR0IweEJgeSc6iamlWPK8w6jYgt6MjY1PTl+QddVMKMAkxkwWRFuuQxmljD8Wrk0339ysmqNWmbqelqaiRt6HszQkc9pcF0Ho2+zoyvS+LWKNf6s4mKCVhflE5qe+17Q8shmV5CSmZqRlePLE7e9PwIAQP3Qu1xgpbBlWbSgrNInmYXl2OlvlbzrLvHryNUh2rDpJjZuuTX7KDy4nq/qlDPPzrfJTyORap5/f6Yfov0LMDmKRNsAAAAASUVORK5CYII=") left top no-repeat;
-}
-section.foundRule h3 span.counter {
-  float: right;
-  color: #808080;
-  font-style: italic;
-  font-weight: normal;
-}
-section.foundRule.collapsed {
-  border: 1px solid #fff;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-section.foundRule.collapsed h3 {
-  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB30lEQVR42mNkoBAwInPWHbjdsHDHrVsbO7yXkWVA7fwT/+XlxRjmrjq39Om961mPdtV+IsmA3Il7/jvbazL8/PmHYcPOG3dPX3oUfWdN6kmiDUhq2/jf3kqD4f9/EO8/w/Xbb37vOPqo7uWtI10vjk/7R9CA8OoV/20tNUF6Gf79/8fw7+9fhs9ffjDsO/V834P7j2Lvbyl+hteAwJKF/63MdYAu+M/wF6j5798/DL9//WL4/fsnw437n99cvf856ebKpM04DfArmPff1FSP4f+//xDNQI1fPn9lePf2PcPz5y8Z7j16/Z+BS3Ly/U35+VgNcM2Y8V9DU4fhz58/DN9//GL4/PkL0IBPDJ8/fWD4+P4dw7dv3/7/5xCZ9GBbRQFOAzS1DcEG/Pz5k+Hrt+9AzR8ZPn14x/D+w9tXHz//SHq8t30rTi945s76b2BgwfDr92+gbUDNX74yfPjwhuHurSs7Xz+5n/DmwooXeAPRp2jOf3NTe4bv338ANX9huPvw5s9LJ49Uvn9wccLXJ6f/E4xG39K5/20tXBjeAP18YP+Wa7dOH4/6cH3LRaITklfZnP+y8ir/t65aOPPtnctF35+e+c5AAKAYYJvfsfDKzr1r3t/YvZmQRqwGkAMAJ5ELIPTev5gAAAAASUVORK5CYII=") left top no-repeat;
-}
-section.foundRule .ruleDetails {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-direction: normal;
-  -moz-box-direction: normal;
-  -webkit-box-orient: horizontal;
-  -moz-box-orient: horizontal;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-align: baseline;
-  -moz-box-align: baseline;
-  -webkit-align-items: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-  -webkit-box-pack: start;
-  -moz-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-flex-wrap: wrap-rewerse;
-  -ms-flex-wrap: wrap-rewerse;
-  flex-wrap: wrap-rewerse;
-}
-section.foundRule .ruleDetails div.imValues,
-section.foundRule .ruleDetails div.fourFtTable {
-  min-width: 300px;
-  padding: 20px 20px 20px 0;
-}
-section.foundRule .ruleDetails div.imValues h4,
-section.foundRule .ruleDetails div.fourFtTable h4 {
-  margin: 0;
-  padding: 0;
-}
-section.foundRule .ruleSimpleDetails {
-  color: #808080;
-  padding: 5px 10px;
-  display: none;
-}
-section.foundRule.collapsed .ruleDetails {
-  display: none;
-}
-section.foundRule.collapsed .ruleSimpleDetails {
-  display: block;
-}
-section#sect5 .foundRulesCount {
-  font-weight: bold;
-}
-section#sect5 .multiCollapsers {
-  margin: 5px;
-  margin-bottom: 15px;
-  padding: 0;
-  font-size: 80%;
-}
-section#sect5 .multiCollapsers a {
-  color: #808080;
-  display: inline-block;
-  padding: 0 5px;
-  border-left: 1px solid #808080;
-  text-decoration: none;
-}
-section#sect5 .multiCollapsers a:first-child {
-  border-left: none;
-}
-section#sect5 .multiCollapsers a:hover {
-  text-decoration: underline;
-}
+/*region mixins*/
 td.bg0p {
   background: transparent !important;
   background: rgba(180,232,215,0) !important;
@@ -764,4 +509,425 @@ td.bg100p {
   background: transparent !important;
   background: #b4e8d7 !important;
   background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 100%, transparent 100%, transparent 100%) !important;
+}
+/*endregion*/
+h1 {
+  color: #f00;
+}
+h3 {
+  color: #f00;
+}
+section {
+  margin: 20px;
+  border: 2px solid #f00;
+}
+p.error {
+  color: #f00;
+}
+section#sect2 .attributesCount,
+section#sect3 .attributesCount {
+  font-weight: bold;
+}
+section#sect2 .multiCollapsers,
+section#sect3 .multiCollapsers {
+  margin: 5px;
+  margin-bottom: 15px;
+  padding: 0;
+  font-size: 80%;
+}
+section#sect2 .multiCollapsers a,
+section#sect3 .multiCollapsers a {
+  color: #808080;
+  display: inline-block;
+  padding: 0 5px;
+  border-left: 1px solid #808080;
+  text-decoration: none;
+}
+section#sect2 .multiCollapsers a:first-child,
+section#sect3 .multiCollapsers a:first-child {
+  border-left: none;
+}
+section#sect2 .multiCollapsers a:hover,
+section#sect3 .multiCollapsers a:hover {
+  text-decoration: underline;
+}
+section#sect2 section.list,
+section#sect3 section.list {
+  display: none;
+}
+section#sect2 section.list table,
+section#sect3 section.list table {
+  background: #fff;
+  color: #000;
+  border-spacing: 0;
+  margin: 20px 0;
+}
+section#sect2 section.list table tr:first-child th,
+section#sect3 section.list table tr:first-child th {
+  border-top: 1px solid #075783;
+}
+section#sect2 section.list table th,
+section#sect3 section.list table th {
+  padding: 5px 8px;
+  background: #075783;
+  color: #fff;
+  text-align: left;
+  border: 1px solid #075783;
+  border-left: none;
+  border-top: none;
+}
+section#sect2 section.list table th:first-child,
+section#sect3 section.list table th:first-child {
+  border: 1px solid #075783;
+}
+section#sect2 section.list table th.empty,
+section#sect3 section.list table th.empty {
+  background: #fff;
+}
+section#sect2 section.list table th.empty:first-child,
+section#sect3 section.list table th.empty:first-child {
+  border-left: none;
+  border-top: none;
+}
+section#sect2 section.list table td,
+section#sect3 section.list table td {
+  padding: 5px 8px;
+  text-align: left;
+  border-bottom: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
+  border-top: none;
+}
+section#sect2 section.list table td:first-child,
+section#sect3 section.list table td:first-child {
+  border-left: 1px solid #ebebeb;
+}
+section#sect2 section.list table tr:nth-child(even),
+section#sect3 section.list table tr:nth-child(even) {
+  background: #fcfbff;
+}
+section#sect2 section.dataField,
+section#sect3 section.attribute {
+  padding: 20px 20px 10px 40px;
+  margin: 5px;
+  border: 1px solid #f0f0f0;
+  position: relative;
+}
+section#sect2 section.dataField h3,
+section#sect3 section.attribute h3 {
+  margin: 0;
+  margin-left: -25px;
+  padding: 0 0 0 25px;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB4klEQVQ4jc2TTUgUYRzGHzxF5wg6xF46uCRhh0UTlj2Uhz6hU1AEsRBIICv2QRFGp5JOfUBYaLGHwkQicw230jwYZhuRZu06us42aas5uzM77+zMzs77zr+bFK3boUM954ff4fmowV+q5v8ABCOd0X3nuung2R460N5Ne1vvUnNLFzW3dNGhtnt0+EyUjlzspfCVAWq98ZI67r+hx2Nzl9cAM/GR/q2+bRRs3IOGQAj19Y3wb9+JWn8dAoEdaGqoQ3CXH6GmWuwO+eHzbUZ0WJLWAFrqxeBQX/SOauiw7RLKrgvOOTjnII9ARAABRIDjcPT0vX8w0Ln/4S8Z5OY/to+9in1mpgnLsuE4DuxSGUJwCCHgkQeA8CSeSi8tJE/9FqK99M6WEhNH019mHWYWUbRsMGbCdR0IweEJgeSc6iamlWPK8w6jYgt6MjY1PTl+QddVMKMAkxkwWRFuuQxmljD8Wrk0339ysmqNWmbqelqaiRt6HszQkc9pcF0Ho2+zoyvS+LWKNf6s4mKCVhflE5qe+17Q8shmV5CSmZqRlePLE7e9PwIAQP3Qu1xgpbBlWbSgrNInmYXl2OlvlbzrLvHryNUh2rDpJjZuuTX7KDy4nq/qlDPPzrfJTyORap5/f6Yfov0LMDmKRNsAAAAASUVORK5CYII=") left top no-repeat;
+}
+section#sect2 section.dataField h3 span.counter,
+section#sect3 section.attribute h3 span.counter {
+  float: right;
+  color: #808080;
+  font-style: italic;
+  font-weight: normal;
+}
+section#sect2 section.dataField .simpleDetails,
+section#sect3 section.attribute .simpleDetails {
+  color: #808080;
+  padding: 5px 10px;
+  display: none;
+}
+section#sect2 section.dataField .simpleDetails a,
+section#sect3 section.attribute .simpleDetails a {
+  color: #808080;
+  text-decoration: none;
+}
+section#sect2 section.dataField .simpleDetails a:hover,
+section#sect3 section.attribute .simpleDetails a:hover {
+  text-decoration: underline;
+}
+section#sect2 section.dataField.collapsed,
+section#sect3 section.attribute.collapsed {
+  border: 1px solid #fff;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+section#sect2 section.dataField.collapsed h3,
+section#sect3 section.attribute.collapsed h3 {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB30lEQVR42mNkoBAwInPWHbjdsHDHrVsbO7yXkWVA7fwT/+XlxRjmrjq39Om961mPdtV+IsmA3Il7/jvbazL8/PmHYcPOG3dPX3oUfWdN6kmiDUhq2/jf3kqD4f9/EO8/w/Xbb37vOPqo7uWtI10vjk/7R9CA8OoV/20tNUF6Gf79/8fw7+9fhs9ffjDsO/V834P7j2Lvbyl+hteAwJKF/63MdYAu+M/wF6j5798/DL9//WL4/fsnw437n99cvf856ebKpM04DfArmPff1FSP4f+//xDNQI1fPn9lePf2PcPz5y8Z7j16/Z+BS3Ly/U35+VgNcM2Y8V9DU4fhz58/DN9//GL4/PkL0IBPDJ8/fWD4+P4dw7dv3/7/5xCZ9GBbRQFOAzS1DcEG/Pz5k+Hrt+9AzR8ZPn14x/D+w9tXHz//SHq8t30rTi945s76b2BgwfDr92+gbUDNX74yfPjwhuHurSs7Xz+5n/DmwooXeAPRp2jOf3NTe4bv338ANX9huPvw5s9LJ49Uvn9wccLXJ6f/E4xG39K5/20tXBjeAP18YP+Wa7dOH4/6cH3LRaITklfZnP+y8ir/t65aOPPtnctF35+e+c5AAKAYYJvfsfDKzr1r3t/YvZmQRqwGkAMAJ5ELIPTev5gAAAAASUVORK5CYII=") left top no-repeat;
+}
+section#sect2 section.dataField.collapsed .details,
+section#sect3 section.attribute.collapsed .details {
+  display: none;
+}
+section#sect2 section.dataField.collapsed .simpleDetails,
+section#sect3 section.attribute.collapsed .simpleDetails {
+  display: block;
+}
+section#sect2 section.dataField.collapsed table.fieldBasicInfo,
+section#sect3 section.attribute.collapsed table.fieldBasicInfo {
+  display: none;
+}
+section#sect2 section.dataField table.fieldBasicInfo,
+section#sect3 section.attribute table.fieldBasicInfo {
+  background: #fff;
+  border-spacing: 0;
+  margin: 20px 0;
+}
+section#sect2 section.dataField table.fieldBasicInfo th,
+section#sect3 section.attribute table.fieldBasicInfo th,
+section#sect2 section.dataField table.fieldBasicInfo td,
+section#sect3 section.attribute table.fieldBasicInfo td {
+  padding: 5px 8px;
+  background: #fff;
+  color: #000;
+  text-align: left;
+  border: none;
+  font-weight: normal;
+}
+section#sect2 section.dataField table.fieldBasicInfo td,
+section#sect3 section.attribute table.fieldBasicInfo td {
+  font-weight: bold;
+}
+section#sect2 section.dataField table.graphTable,
+section#sect3 section.attribute table.graphTable {
+  background: #fff;
+  color: #000;
+  border-spacing: 0;
+  margin: 20px 0;
+}
+section#sect2 section.dataField table.graphTable tr:first-child th,
+section#sect3 section.attribute table.graphTable tr:first-child th {
+  border-top: 1px solid #075783;
+}
+section#sect2 section.dataField table.graphTable th,
+section#sect3 section.attribute table.graphTable th {
+  padding: 5px 8px;
+  background: #075783;
+  color: #fff;
+  text-align: left;
+  border: 1px solid #075783;
+  border-left: none;
+  border-top: none;
+}
+section#sect2 section.dataField table.graphTable th:first-child,
+section#sect3 section.attribute table.graphTable th:first-child {
+  border: 1px solid #075783;
+}
+section#sect2 section.dataField table.graphTable th.empty,
+section#sect3 section.attribute table.graphTable th.empty {
+  background: #fff;
+}
+section#sect2 section.dataField table.graphTable th.empty:first-child,
+section#sect3 section.attribute table.graphTable th.empty:first-child {
+  border-left: none;
+  border-top: none;
+}
+section#sect2 section.dataField table.graphTable td,
+section#sect3 section.attribute table.graphTable td {
+  padding: 5px 8px;
+  text-align: left;
+  border-bottom: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
+  border-top: none;
+}
+section#sect2 section.dataField table.graphTable td:first-child,
+section#sect3 section.attribute table.graphTable td:first-child {
+  border-left: 1px solid #ebebeb;
+}
+section#sect2 section.dataField table.graphTable tr:nth-child(even),
+section#sect3 section.attribute table.graphTable tr:nth-child(even) {
+  background: #fcfbff;
+}
+section#sect2 section.dataField table.graphTable td.name,
+section#sect3 section.attribute table.graphTable td.name {
+  font-weight: bold;
+}
+section#sect2 section.dataField table.graphTable td.frequency,
+section#sect3 section.attribute table.graphTable td.frequency {
+  text-align: right;
+}
+section#sect5 .foundRulesCount {
+  font-weight: bold;
+}
+section#sect5 .multiCollapsers {
+  margin: 5px;
+  margin-bottom: 15px;
+  padding: 0;
+  font-size: 80%;
+}
+section#sect5 .multiCollapsers a {
+  color: #808080;
+  display: inline-block;
+  padding: 0 5px;
+  border-left: 1px solid #808080;
+  text-decoration: none;
+}
+section#sect5 .multiCollapsers a:first-child {
+  border-left: none;
+}
+section#sect5 .multiCollapsers a:hover {
+  text-decoration: underline;
+}
+section#sect5 section.foundRule {
+  padding: 20px 20px 10px 40px;
+  margin: 5px;
+  border: 1px solid #f0f0f0;
+  position: relative;
+}
+section#sect5 section.foundRule h3 {
+  margin: 0;
+  margin-left: -25px;
+  padding: 0 0 0 25px;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB4klEQVQ4jc2TTUgUYRzGHzxF5wg6xF46uCRhh0UTlj2Uhz6hU1AEsRBIICv2QRFGp5JOfUBYaLGHwkQicw230jwYZhuRZu06us42aas5uzM77+zMzs77zr+bFK3boUM954ff4fmowV+q5v8ABCOd0X3nuung2R460N5Ne1vvUnNLFzW3dNGhtnt0+EyUjlzspfCVAWq98ZI67r+hx2Nzl9cAM/GR/q2+bRRs3IOGQAj19Y3wb9+JWn8dAoEdaGqoQ3CXH6GmWuwO+eHzbUZ0WJLWAFrqxeBQX/SOauiw7RLKrgvOOTjnII9ARAABRIDjcPT0vX8w0Ln/4S8Z5OY/to+9in1mpgnLsuE4DuxSGUJwCCHgkQeA8CSeSi8tJE/9FqK99M6WEhNH019mHWYWUbRsMGbCdR0IweEJgeSc6iamlWPK8w6jYgt6MjY1PTl+QddVMKMAkxkwWRFuuQxmljD8Wrk0339ysmqNWmbqelqaiRt6HszQkc9pcF0Ho2+zoyvS+LWKNf6s4mKCVhflE5qe+17Q8shmV5CSmZqRlePLE7e9PwIAQP3Qu1xgpbBlWbSgrNInmYXl2OlvlbzrLvHryNUh2rDpJjZuuTX7KDy4nq/qlDPPzrfJTyORap5/f6Yfov0LMDmKRNsAAAAASUVORK5CYII=") left top no-repeat;
+}
+section#sect5 section.foundRule h3 span.counter {
+  float: right;
+  color: #808080;
+  font-style: italic;
+  font-weight: normal;
+}
+section#sect5 section.foundRule .simpleDetails {
+  color: #808080;
+  padding: 5px 10px;
+  display: none;
+}
+section#sect5 section.foundRule .simpleDetails a {
+  color: #808080;
+  text-decoration: none;
+}
+section#sect5 section.foundRule .simpleDetails a:hover {
+  text-decoration: underline;
+}
+section#sect5 section.foundRule.collapsed {
+  border: 1px solid #fff;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+section#sect5 section.foundRule.collapsed h3 {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB30lEQVR42mNkoBAwInPWHbjdsHDHrVsbO7yXkWVA7fwT/+XlxRjmrjq39Om961mPdtV+IsmA3Il7/jvbazL8/PmHYcPOG3dPX3oUfWdN6kmiDUhq2/jf3kqD4f9/EO8/w/Xbb37vOPqo7uWtI10vjk/7R9CA8OoV/20tNUF6Gf79/8fw7+9fhs9ffjDsO/V834P7j2Lvbyl+hteAwJKF/63MdYAu+M/wF6j5798/DL9//WL4/fsnw437n99cvf856ebKpM04DfArmPff1FSP4f+//xDNQI1fPn9lePf2PcPz5y8Z7j16/Z+BS3Ly/U35+VgNcM2Y8V9DU4fhz58/DN9//GL4/PkL0IBPDJ8/fWD4+P4dw7dv3/7/5xCZ9GBbRQFOAzS1DcEG/Pz5k+Hrt+9AzR8ZPn14x/D+w9tXHz//SHq8t30rTi945s76b2BgwfDr92+gbUDNX74yfPjwhuHurSs7Xz+5n/DmwooXeAPRp2jOf3NTe4bv338ANX9huPvw5s9LJ49Uvn9wccLXJ6f/E4xG39K5/20tXBjeAP18YP+Wa7dOH4/6cH3LRaITklfZnP+y8ir/t65aOPPtnctF35+e+c5AAKAYYJvfsfDKzr1r3t/YvZmQRqwGkAMAJ5ELIPTev5gAAAAASUVORK5CYII=") left top no-repeat;
+}
+section#sect5 section.foundRule.collapsed .details {
+  display: none;
+}
+section#sect5 section.foundRule.collapsed .simpleDetails {
+  display: block;
+}
+section#sect5 section.foundRule .details {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: baseline;
+  -moz-box-align: baseline;
+  -webkit-align-items: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  -webkit-box-pack: start;
+  -moz-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-flex-wrap: wrap-rewerse;
+  -ms-flex-wrap: wrap-rewerse;
+  flex-wrap: wrap-rewerse;
+}
+section#sect5 section.foundRule .details div.imValues,
+section#sect5 section.foundRule .details div.fourFtTable {
+  min-width: 300px;
+  padding: 20px 20px 20px 0;
+}
+section#sect5 section.foundRule .details div.imValues h4,
+section#sect5 section.foundRule .details div.fourFtTable h4 {
+  margin: 0;
+  padding: 0;
+}
+section#sect5 section.foundRule .details table.fourFtTable {
+  background: #fff;
+  color: #000;
+  border-spacing: 0;
+  margin: 20px 0;
+}
+section#sect5 section.foundRule .details table.fourFtTable tr:first-child th {
+  border-top: 1px solid #075783;
+}
+section#sect5 section.foundRule .details table.fourFtTable th {
+  padding: 5px 8px;
+  background: #075783;
+  color: #fff;
+  text-align: left;
+  border: 1px solid #075783;
+  border-left: none;
+  border-top: none;
+}
+section#sect5 section.foundRule .details table.fourFtTable th:first-child {
+  border: 1px solid #075783;
+}
+section#sect5 section.foundRule .details table.fourFtTable th.empty {
+  background: #fff;
+}
+section#sect5 section.foundRule .details table.fourFtTable th.empty:first-child {
+  border-left: none;
+  border-top: none;
+}
+section#sect5 section.foundRule .details table.fourFtTable td {
+  padding: 5px 8px;
+  text-align: left;
+  border-bottom: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
+  border-top: none;
+}
+section#sect5 section.foundRule .details table.fourFtTable td:first-child {
+  border-left: 1px solid #ebebeb;
+}
+section#sect5 section.foundRule .details table.fourFtTable th,
+section#sect5 section.foundRule .details table.fourFtTable td {
+  text-align: right;
+}
+section#sect5 section.foundRule .details table.imValuesTable {
+  background: #fff;
+  color: #000;
+  border-spacing: 0;
+  margin: 20px 0;
+}
+section#sect5 section.foundRule .details table.imValuesTable tr:first-child th {
+  border-top: 1px solid #075783;
+}
+section#sect5 section.foundRule .details table.imValuesTable th {
+  padding: 5px 8px;
+  background: #075783;
+  color: #fff;
+  text-align: left;
+  border: 1px solid #075783;
+  border-left: none;
+  border-top: none;
+}
+section#sect5 section.foundRule .details table.imValuesTable th:first-child {
+  border: 1px solid #075783;
+}
+section#sect5 section.foundRule .details table.imValuesTable th.empty {
+  background: #fff;
+}
+section#sect5 section.foundRule .details table.imValuesTable th.empty:first-child {
+  border-left: none;
+  border-top: none;
+}
+section#sect5 section.foundRule .details table.imValuesTable td {
+  padding: 5px 8px;
+  text-align: left;
+  border-bottom: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
+  border-top: none;
+}
+section#sect5 section.foundRule .details table.imValuesTable td:first-child {
+  border-left: 1px solid #ebebeb;
+}
+section#sect5 section.foundRule .details table.imValuesTable tr:nth-child(even) {
+  background: #fcfbff;
+}
+section#sect5 section.foundRule .details table.imValuesTable td.value {
+  text-align: right;
 }
