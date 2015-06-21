@@ -8,20 +8,13 @@
        Section 1+2 - Data description
        ============================== -->
   <xsl:template match="p:DataDictionary" mode="toc">
-    <xsl:param name="checkbox"/>
     <ol>
-      <xsl:apply-templates select="p:DataField" mode="toc">
-        <xsl:with-param name="checkbox" select="$checkbox" />
-      </xsl:apply-templates>
+      <xsl:apply-templates select="p:DataField" mode="toc" />
     </ol>
   </xsl:template>
 
   <xsl:template match="p:DataField" mode="toc">
-    <xsl:param name="checkbox"/>
     <li>
-      <xsl:if test="$checkbox">
-        <input type="checkbox" checked="checked" onclick="ShowChecked(this,'sect2-{@name}')"/>
-      </xsl:if>
       <xsl:apply-templates select="." mode="odkaz"/>
     </li>
   </xsl:template>
@@ -33,22 +26,18 @@
        Section 3 - Created Attributes
        ============================== -->
   <xsl:template match="p:TransformationDictionary" mode="toc">
-  <xsl:param name="checkbox"/>
   <ol>
-    <xsl:apply-templates select="p:DerivedField" mode="toc">
-      <xsl:with-param name="checkbox" select="$checkbox" />
-    </xsl:apply-templates>
+    <xsl:apply-templates select="p:DerivedField" mode="toc" />
   </ol>
   </xsl:template>
 
   <xsl:template match="p:DerivedField" mode="toc">
-  <xsl:param name="checkbox"/>
-  <li>
-      <xsl:if test="$checkbox">
-        <input type="checkbox" checked="checked" onclick="ShowChecked(this,'#sect3-{p:Discretize/@field | p:MapValues/@outputColumn}')" />
-      </xsl:if>
-      <a href="#sect3-{p:Discretize/@field | p:MapValues/@outputColumn}"><xsl:value-of select="p:Discretize/@field | p:MapValues/@outputColumn"/></a>
+    <li>
+      <xsl:apply-templates select="." mode="odkaz"/>
     </li>
+  </xsl:template>
+  <xsl:template match="p:DerivedField" mode="odkaz">
+    <a href="#sect3-{p:Discretize/@field | p:MapValues/@outputColumn}"><xsl:value-of select="p:Discretize/@field | p:MapValues/@outputColumn"/></a>
   </xsl:template>
 
   <!-- =========================
@@ -65,14 +54,11 @@
        Section 5 - Discovered ARs
        ========================== -->
   <xsl:template match="guha:AssociationModel" mode="toc">
-    <xsl:param name="checkbox"/>
     <xsl:variable name="numberOfRules" select="count(/p:PMML/guha:AssociationModel/AssociationRules/AssociationRule)"/>
     <xsl:choose>
       <xsl:when test="$numberOfRules>0">
         <ol>
-          <xsl:apply-templates select="AssociationRules/AssociationRule[position() &lt;= $maxRulesToList or not($maxRulesToList)]" mode="toc">
-            <xsl:with-param name="checkbox" select="$checkbox"/>
-          </xsl:apply-templates>
+          <xsl:apply-templates select="AssociationRules/AssociationRule[position() &lt;= $maxRulesToList or not($maxRulesToList)]" mode="toc" />
         </ol>
       </xsl:when>
       <xsl:when test="$numberOfRules=0">
@@ -89,14 +75,11 @@
   </xsl:template>
 
   <xsl:template match="guha:SD4ftModel" mode="toc">
-    <xsl:param name="checkbox"/>
     <xsl:variable name="numberOfRules" select="count(/p:PMML/guha:SD4ftModel/SD4ftRules/SD4ftRule)"/>
     <xsl:choose>
       <xsl:when test="$numberOfRules>0">
         <ol>
-          <xsl:apply-templates select="SD4ftRules/SD4ftRule[position() &lt;= $maxRulesToList or not($maxRulesToList)]" mode="toc">
-            <xsl:with-param name="checkbox" select="$checkbox"/>
-          </xsl:apply-templates>
+          <xsl:apply-templates select="SD4ftRules/SD4ftRule[position() &lt;= $maxRulesToList or not($maxRulesToList)]" mode="toc" />
         </ol>
       </xsl:when>
       <xsl:when test="$numberOfRules=0">
@@ -113,14 +96,11 @@
   </xsl:template>
 
   <xsl:template match="guha:Ac4ftModel" mode="toc">
-    <xsl:param name="checkbox"/>
     <xsl:variable name="numberOfRules" select="count(/p:PMML/guha:Ac4ftModel/Ac4ftRules/Ac4ftRule)"/>
     <xsl:choose>
       <xsl:when test="$numberOfRules>0">
         <ol>
-          <xsl:apply-templates select="Ac4ftRules/Ac4ftRule[position() &lt;= $maxRulesToList or not($maxRulesToList)]" mode="toc">
-            <xsl:with-param name="checkbox" select="$checkbox"/>
-          </xsl:apply-templates>
+          <xsl:apply-templates select="Ac4ftRules/Ac4ftRule[position() &lt;= $maxRulesToList or not($maxRulesToList)]" mode="toc" />
         </ol>
       </xsl:when>
       <xsl:when test="$numberOfRules=0">
@@ -137,14 +117,11 @@
   </xsl:template>
 
   <xsl:template match="guha:CFMinerModel" mode="toc">
-    <xsl:param name="checkbox"/>
     <xsl:variable name="numberOfRules" select="count(/p:PMML/guha:CFMinerModel/CFMinerRules/CFMinerRule)"/>
     <xsl:choose>
       <xsl:when test="$numberOfRules>0">
         <ol>
-          <xsl:apply-templates select="CFMinerRules/CFMinerRule[position() &lt;= $maxRulesToList or not($maxRulesToList)]" mode="toc">
-            <xsl:with-param name="checkbox" select="$checkbox"/>
-          </xsl:apply-templates>
+          <xsl:apply-templates select="CFMinerRules/CFMinerRule[position() &lt;= $maxRulesToList or not($maxRulesToList)]" mode="toc" />
         </ol>
       </xsl:when>
       <xsl:when test="$numberOfRules=0">
@@ -161,15 +138,11 @@
   </xsl:template>
 
   <xsl:template match="AssociationRule | SD4ftRule | Ac4ftRule | CFMinerRule" mode="toc">
-    <xsl:param name="checkbox"/>
     <li>
-      <xsl:if test="$checkbox">
-        <input type="checkbox" checked="checked" onclick="ShowChecked(this,'sect5-rule{position()}')"/>
-      </xsl:if>
       <xsl:variable name="ruleClass">
           <xsl:if test="./Extension[@name='mark']/@value='interesting'">selectedRuleA</xsl:if>
       </xsl:variable>
-      <a href="#sect5-rule{position()}" class="{$ruleClass}" onclick="Show(this,'sect5-rule{position()}')">
+      <a href="#sect5-rule{position()}" class="{$ruleClass}" >
         <!-- from 4FTPMML2HTML-sect5 -->
         <xsl:apply-templates select="." mode="ruleBody">
           <xsl:with-param name="arrowOnly" select="1"/>

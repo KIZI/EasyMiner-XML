@@ -11,10 +11,48 @@
     <xsl:apply-templates select="p:DerivedField" mode="sect3"/>
   </xsl:template>
 
+
+
+  <xsl:template match="p:TransformationDictionary" mode="sect3list">
+    <!-- tabulka c.1: available columns description: column name, value count, column type -->
+    <table class="listTable">
+      <xsl:call-template name="keg:ContentBlock" >
+        <xsl:with-param name="contentBlockName">CreatedAttributes_Contents</xsl:with-param>
+        <xsl:with-param name="element" />
+      </xsl:call-template>
+      <tr>
+        <th scope="col"><xsl:copy-of select="keg:translate('Attribute',360)"/></th>
+        <th scope="col"><xsl:copy-of select="keg:translate('Number of categories',362)"/></th>
+        <th scope="col"><xsl:copy-of select="keg:translate('Derived from column',370)"/></th>
+      </tr>
+      <xsl:apply-templates select="p:DerivedField" mode="sect3list"/>
+    </table>
+  </xsl:template>
+
+  <xsl:template match="p:DerivedField" mode="sect3list">
+    <tr>
+      <!-- column name -->
+      <td><xsl:apply-templates select="." mode="odkaz"/></td>
+      <!-- categories count -->
+      <td>
+        <xsl:value-of select="count(p:Discretize/p:DiscretizeBin)+count(p:MapValues/p:InlineTable/p:Extension[@name='Frequency'])"/>
+      </td>
+      <!-- column reference -->
+      <td>
+        <xsl:variable name="sourceDataField" select="p:Discretize/@field | p:MapValues/p:FieldColumnPair/@column"/>
+        <xsl:apply-templates select="/p:PMML/p:DataDictionary/p:DataField[@name=$sourceDataField]" mode="odkaz" />
+      </td>
+    </tr>
+  </xsl:template>
+
   <xsl:template match="p:DerivedField" mode="sect3">
     <xsl:variable name="DerivedFieldName" select="p:Discretize/@field | p:MapValues/@outputColumn"/>
     <xsl:variable name="numOfCategories" select="count(p:Discretize/p:DiscretizeBin)+count(p:MapValues/p:InlineTable/p:Extension[@name='Frequency'])"/>
     <section id="sect3-{$DerivedFieldName}" class="attribute">
+      <xsl:call-template name="keg:ContentBlock" >
+        <xsl:with-param name="contentBlockName">DerivedFieldDetail</xsl:with-param>
+        <xsl:with-param name="element" select="$DerivedFieldName" />
+      </xsl:call-template>
       <h3><xsl:copy-of select="keg:translate('Attribute',360)"/>: <xsl:value-of select="p:Discretize/@field | p:MapValues/@outputColumn"/></h3>
 
       <table class="fieldBasicInfo">
@@ -73,14 +111,7 @@
           </p>
         </xsl:if>
       </div>
-
     </section>
-    <xsl:comment><xsl:value-of select="keg:getContentBlockTag('DerivedFieldDetail',$DerivedFieldName,'start')"/></xsl:comment>
-
-    <!-- link name is derived from field name -->
-    <xsl:variable name="tabs" select="count(/p:PMML/p:DataDictionary/p:DataField)"/>
-    <!-- table number depends on previous table count -->
-    <xsl:comment><xsl:value-of select="keg:getContentBlockTag('DerivedFieldDetail',$DerivedFieldName,'end')"/></xsl:comment>
   </xsl:template>
 
   <!-- table row for non-derived attribute (interval) -->

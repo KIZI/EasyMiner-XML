@@ -23,16 +23,23 @@
     </xsl:variable>
 
     <section id="sect5-rule{$rulePos}" class="foundRule {$ruleClass}" >
+      <xsl:call-template name="keg:ContentBlock" >
+        <xsl:with-param name="contentBlockName">DiscoveredRule</xsl:with-param>
+        <xsl:with-param name="element" select="$arText" />
+      </xsl:call-template>
+
       <h3><xsl:copy-of select="$arText"/></h3>
       <div class="details">
+        <xsl:call-template name="keg:ContentBlock" >
+          <xsl:with-param name="contentBlockName">DiscoveredRule_Details</xsl:with-param>
+          <xsl:with-param name="element" select="$arText" />
+        </xsl:call-template>
 
       <!-- table of values of test criteria (quantifiers) -->
       <xsl:if test="local-name() != 'CFMinerRule'">
-        <xsl:comment><xsl:value-of select="keg:getContentBlockTag('DiscoveredRule_Quantifiers',$arText,'start')"/></xsl:comment>
         <xsl:apply-templates select="." mode="sect5-qtable">
           <xsl:with-param name="rulePos" select="$rulePos"/>
         </xsl:apply-templates>
-        <xsl:comment><xsl:value-of select="keg:getContentBlockTag('DiscoveredRule_Quantifiers',$arText,'end')"/></xsl:comment>
       </xsl:if>
 
       <!-- 4FT table for AssociationRule / 4ftMiner -->
@@ -182,6 +189,7 @@
     <div class="imValues">
       <h4><xsl:copy-of select="keg:translate('Interest measure values', 840)"/></h4>
       <table class="imValuesTable">
+        <!--TODO-->
         <tr>
           <th><xsl:copy-of select="keg:translate('Interest Measure',590)"/></th>
           <th><xsl:copy-of select="keg:translate('Value',252)"/></th>
@@ -236,7 +244,6 @@
     <xsl:param name="d"/>
     <xsl:param name="arText"/>
 
-    <xsl:comment><xsl:value-of select="keg:getContentBlockTag('ContingencyTable',$arText,'start')"/></xsl:comment>
     <table class="fourFtTable">
       <tr>
         <th class="empty"></th>
@@ -254,8 +261,6 @@
         <td class="d"><xsl:value-of select="$d"/></td>
       </tr>
     </table>
-    <xsl:comment><xsl:value-of select="keg:getContentBlockTag('ContingencyTable',$arText,'end')"/></xsl:comment>
-
   </xsl:template>
 
   <!-- cfminer frequencies table -->

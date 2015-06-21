@@ -31,25 +31,30 @@
       </xsl:choose>
     </p>
     <p><xsl:copy-of select="keg:translate('The report contains firstly describes the data, then provides information about the created attributes, that is how the data was discretized. Afterwards the document provides the task setting and finally the patterns (association rules) found.',640)"/></p>
-    <!-- task metadata -->
-    <xsl:comment><xsl:value-of select="keg:getContentBlockTag('TaskMetadata','','start')"/></xsl:comment>
-    <div id="sectMeta">
-      <xsl:apply-templates select="p:Header"/>
-    </div>
 
-    <xsl:comment><xsl:value-of select="keg:getContentBlockTag('TaskMetadata','','end')"/></xsl:comment>
+    <!-- task metadata -->
+    <section id="meta"><!--TODO přesun do patičky-->
+      <xsl:call-template name="keg:ContentBlock" >
+        <xsl:with-param name="contentBlockName">TaskMetadata</xsl:with-param>
+        <xsl:with-param name="element" />
+      </xsl:call-template>
+      <xsl:apply-templates select="p:Header"/>
+    </section>
+
   <!-- =================
        Table of contents
        ================= -->
-    <xsl:comment><xsl:value-of select="keg:getContentBlockTag('ListOfContents','','start')"/></xsl:comment>
     <!-- uses: 4FTPMML2HTML-toc -->
     <div id="sectTOC" style="background:red;"><!--TODO-->
+      <xsl:call-template name="keg:ContentBlock" >
+        <xsl:with-param name="contentBlockName">ListOfContents</xsl:with-param>
+        <xsl:with-param name="element" />
+      </xsl:call-template>
+
     <h2><xsl:copy-of select="keg:translate('Content',11)"/></h2>
     <ol type="I">
       <li><a href="#sect2"><xsl:copy-of select="keg:translate('Dataset Description',30)"/></a>
-        <xsl:apply-templates select="p:DataDictionary" mode="toc">
-          <xsl:with-param name="checkbox" select="0"/>
-        </xsl:apply-templates>
+        <xsl:apply-templates select="p:DataDictionary" mode="toc" />
       </li>
       <li><a href="#sect3"><xsl:copy-of select="keg:translate('Created Attributes',40)"/></a>
         <xsl:apply-templates select="p:TransformationDictionary" mode="toc"/></li>
@@ -74,19 +79,23 @@
       </li>
     </ol>
     </div>
-
-    <xsl:comment><xsl:value-of select="keg:getContentBlockTag('ListOfContents','','end')"/></xsl:comment>
   <!-- ==============================
        Section 1+2 - Data description
        ============================== -->
-    <xsl:comment><xsl:value-of select="keg:getContentBlockTag('DataDescription','','start')"/></xsl:comment>
-
-
     <section id="sect2">
+      <xsl:call-template name="keg:ContentBlock" >
+        <xsl:with-param name="contentBlockName">DataDescription</xsl:with-param>
+        <xsl:with-param name="element" />
+      </xsl:call-template>
+
       <h2><xsl:copy-of select="keg:translate('Dataset Description',30)"/></h2>
       <p><xsl:copy-of select="keg:translate('This section contains detailed description of the data.  Below, all the columns used in the analysis are listed and for each column, the frequency analysis is attached. ',650)"/></p>
 
       <section class="list">
+        <xsl:call-template name="keg:ContentBlock" >
+          <xsl:with-param name="contentBlockName">ColumnList</xsl:with-param>
+          <xsl:with-param name="element" />
+        </xsl:call-template>
         <h3><xsl:copy-of select="keg:translate('List of data fields',31)"/></h3>
         <xsl:apply-templates select="p:DataDictionary" mode="sect2list" />
       </section>
@@ -94,11 +103,15 @@
       <xsl:apply-templates select="p:DataDictionary" mode="sect2" />
     </section>
 
-    <xsl:comment><xsl:value-of select="keg:getContentBlockTag('DataDescription','','end')"/></xsl:comment>
   <!-- ==============================
        Section 3 - Created Attributes
        ============================== -->
     <section id="sect3">
+      <xsl:call-template name="keg:ContentBlock" >
+        <xsl:with-param name="contentBlockName">CreatedAttributes</xsl:with-param>
+        <xsl:with-param name="element" />
+      </xsl:call-template>
+
       <!--TODO úprava úvodního textu -->
       <h2><xsl:copy-of select="keg:translate('Created Attributes',40)"/></h2>
       <p>
@@ -120,23 +133,25 @@
         </li>
       </ul>
 
-      <xsl:comment><xsl:value-of select="keg:getContentBlockTag('CreatedAttributes','','start')"/></xsl:comment>
-
-      <xsl:comment><xsl:value-of select="keg:getContentBlockTag('CreatedAttributes_Contents','','start')"/></xsl:comment>
-
-      <xsl:comment><xsl:value-of select="keg:getContentBlockTag('CreatedAttributes_Contents','','end')"/></xsl:comment>
 
       <p class="attributesCount"><xsl:copy-of select="keg:translate('Number of created attributes',100)"/>: <strong><xsl:value-of select="count(p:TransformationDictionary/p:DerivedField)"/></strong></p>
-      <xsl:apply-templates select="p:TransformationDictionary" mode="sect3"/>
 
-      <xsl:comment><xsl:value-of select="keg:getContentBlockTag('CreatedAttributes','','end')"/></xsl:comment>
+      <section class="list">
+        <h3><xsl:copy-of select="keg:translate('List of data fields',31)"/></h3>
+        <xsl:apply-templates select="p:TransformationDictionary" mode="sect3list" />
+      </section>
+
+      <xsl:apply-templates select="p:TransformationDictionary" mode="sect3"/>
     </section>
   <!-- =========================
        Section 4 - Task settings
        ========================= -->
-    <xsl:comment><xsl:value-of select="keg:getContentBlockTag('DMTaskSetting','','start')"/></xsl:comment>
+    <section id="sect4" >
+      <xsl:call-template name="keg:ContentBlock" >
+        <xsl:with-param name="contentBlockName">DMTaskSetting</xsl:with-param>
+        <xsl:with-param name="element" />
+      </xsl:call-template>
 
-    <section id="sect4">
       <h2><xsl:copy-of select="keg:translate('Data Mining Task Setting',50)"/></h2>
       <xsl:choose>
           <!-- SD4ftModel -->
@@ -196,13 +211,15 @@
       </xsl:choose>
       <xsl:apply-templates select="guha:AssociationModel | guha:SD4ftModel | guha:Ac4ftModel | guha:CFMinerModel" mode="sect4"/>
     </section>
-
-    <xsl:comment><xsl:value-of select="keg:getContentBlockTag('DMTaskSetting','','end')"/></xsl:comment>
   <!-- ==========================
        Section 5 - Discovered ARs
        ========================== -->
-    <xsl:comment><xsl:value-of select="keg:getContentBlockTag('DiscoveredARs','','start')"/></xsl:comment>
     <section id="sect5">
+      <xsl:call-template name="keg:ContentBlock" >
+        <xsl:with-param name="contentBlockName">DiscoveredARs</xsl:with-param>
+        <xsl:with-param name="element" />
+      </xsl:call-template>
+
       <xsl:choose>
         <xsl:when test="/p:PMML/guha:SD4ftModel">
           <h2><xsl:copy-of select="keg:translate('Discovered Action Rules',910)"/></h2>
@@ -219,9 +236,13 @@
       </xsl:choose>
       <p><xsl:copy-of select="keg:translate('Discovered rules relate to the following attributes',110)"/>: <xsl:apply-templates select="p:DataDictionary/p:DataField" mode="sect5" />.</p>
 
-      <xsl:comment><xsl:value-of select="keg:getContentBlockTag('NumberOfRulesFound','','start')"/></xsl:comment>
-      <p class="foundRulesCount"><xsl:copy-of select="keg:translate('Number of discovered association rules',120)"/>: <xsl:value-of select="guha:AssociationModel/@numberOfRules | guha:SD4ftModel/@numberOfRules | guha:Ac4ftModel/@numberOfRules | guha:CFMinerModel/@numberOfRules"/></p>
-      <xsl:comment><xsl:value-of select="keg:getContentBlockTag('NumberOfRulesFound','','end')"/></xsl:comment>
+      <p class="foundRulesCount">
+        <xsl:call-template name="keg:ContentBlock" >
+          <xsl:with-param name="contentBlockName">NumberOfRulesFound</xsl:with-param>
+          <xsl:with-param name="element" />
+        </xsl:call-template>
+        <xsl:copy-of select="keg:translate('Number of discovered association rules',120)"/>: <xsl:value-of select="guha:AssociationModel/@numberOfRules | guha:SD4ftModel/@numberOfRules | guha:Ac4ftModel/@numberOfRules | guha:CFMinerModel/@numberOfRules"/>
+      </p>
 
       <xsl:apply-templates select="guha:AssociationModel/AssociationRules/AssociationRule[position() &lt;= $maxRulesToList or not($maxRulesToList)]" mode="sect5"/>
       <xsl:apply-templates select="guha:SD4ftModel/SD4ftRules/SD4ftRule[position() &lt;= $maxRulesToList or not($maxRulesToList)]" mode="sect5"/>
@@ -235,6 +256,5 @@
       </xsl:if>
     </section>
 
-    <xsl:comment><xsl:value-of select="keg:getContentBlockTag('DiscoveredARs','','end')"/></xsl:comment>
   </xsl:template>
 </xsl:stylesheet>

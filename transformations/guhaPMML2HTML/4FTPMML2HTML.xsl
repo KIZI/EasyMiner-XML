@@ -7,7 +7,6 @@
 
   <xsl:import href="graph.xsl" />
   <xsl:import href="quantifier_transformations.xsl" />
-  <xsl:import href="transformPMMLARtoQueryByAssociationRule.xsl" />
   
   <xsl:import href="4FTPMML2HTML-main.xsl" />
   <xsl:import href="4FTPMML2HTML-header.xsl" />
@@ -25,17 +24,13 @@
 
   <!-- exsl umoznuje zpracovani parametru s nodeset obsahem pomoci funkce node-set(param). Neni to treba v XSLT 2.0, ale nas transformacni PHP engine XSLT 2.0 nepodporuje-->
 
-  <!-- pro HTML validni dokument je potreba doplnit k <xsl:output/> atribut
-   doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN"
-   v pripade generovani v rezimu contentOnly je naopak tento atribut naobtiz
-  -->
   <xsl:output method="html" encoding="UTF-8"/>
 
   <!-- Parametr maxValuesToList omezuje pocet kategorii (hodnot sloupce), ktere mohou byt v 2. oddilu vypsany.
    Pokud pocet kategorii prekroci hodnotu parametru je vypsano varovani. -->
   <xsl:param name="maxValuesToList" select="100"/>
 
-  <!-- Maximalni pocet vyisovancyh kategorii do tabulek popisujicich transformace vstupnich sloupcu na atributy -->
+  <!-- Maximalni pocet vypisovanych kategorii do tabulek popisujicich transformace vstupnich sloupcu na atributy -->
   <xsl:param name="maxCategoriesToList" select="100"/>
   <!-- Parametr maxRulesToList omezuje pocet pravidel, ktere mohou byt v vypsany.
       Pokud pocet pravidel prekroci hodnotu parametru je vypsano varovani.
@@ -86,11 +81,11 @@
         <xsl:apply-templates select="/p:PMML" mode="body"/>
       </xsl:when>
       <xsl:otherwise>
+        <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
         <html>
           <head>
             <!--TODO připojení stylů a skriptů-->
             <title><xsl:value-of select="/p:PMML/guha:AssociationModel/@modelName | /p:PMML/guha:SD4ftModel/@modelName | /p:PMML/guha:Ac4ftModel/@modelName | /p:PMML/guha:CFMinerModel/@modelName"/> - <xsl:copy-of select="keg:translate('Description of Data Mining Task',10)"/></title>
-            <link rel="stylesheet" type="text/css" href="design.css"/>
           </head>
           <body>
             <!-- uses: 4FTPMML2HTML-main -->

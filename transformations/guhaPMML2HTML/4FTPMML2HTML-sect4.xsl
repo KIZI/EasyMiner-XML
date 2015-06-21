@@ -8,12 +8,16 @@
        Data Mining Task Setting
        ======================== -->
   <xsl:template match="guha:AssociationModel | guha:SD4ftModel | guha:Ac4ftModel | guha:CFMinerModel" mode="sect4">
-    <div class="idiv">
+    <section>
+      <xsl:call-template name="keg:ContentBlock" >
+        <xsl:with-param name="contentBlockName">QuantifiersUsed</xsl:with-param>
+        <xsl:with-param name="element" />
+      </xsl:call-template>
+
       <p><xsl:copy-of select="keg:translate('Task name',150)"/>: <xsl:value-of select="@modelName"/></p>
       <!-- Used quantifier table -->
       <!-- table number depends on previous table count -->
       <xsl:variable name="tabs" select="count(/p:PMML/p:DataDictionary/p:DataField)+count(/p:PMML/p:TransformationDictionary/p:DerivedField)"/>
-      <xsl:comment><xsl:value-of select="keg:getContentBlockTag('QuantifiersUsed','','start')"/></xsl:comment>
 
       <table class="itable" summary="Table {$tabs+2}: quantifiers used">
         <tr><th colspan="7"><xsl:copy-of select="keg:translate('Interest Measures used',420)"/></th></tr>
@@ -29,8 +33,7 @@
         <xsl:apply-templates select="TaskSetting/InterestMeasureSetting/InterestMeasureThreshold" mode="sect4"/>
       </table>
       <xsl:copy-of select="keg:translate('Note: GUHA quantifiers Founded Implication and Base are listed as confidence and support',450)"/>
-      <xsl:comment><xsl:value-of select="keg:getContentBlockTag('QuantifiersUsed','','end')"/></xsl:comment>
-    </div>
+    </section>
     <!-- association rules + detailed list of basic and derived association attributes -->
     <xsl:apply-templates select="TaskSetting" mode="sect4"/>
   </xsl:template>
@@ -54,8 +57,12 @@
   <!-- association rules + detailed list of basic and derived association attributes -->
   <xsl:template match="TaskSetting" mode="sect4">
     <!-- association rules -->
-    <xsl:comment><xsl:value-of select="keg:getContentBlockTag('SoughtRulePattern','','start')"/></xsl:comment>
     <section> <!-- TODO udělat něco s touto sekcí... -->
+      <xsl:call-template name="keg:ContentBlock" >
+        <xsl:with-param name="contentBlockName">SoughtRulePattern</xsl:with-param>
+        <xsl:with-param name="element" />
+      </xsl:call-template>
+
       <h3>
         <xsl:choose>
           <xsl:when test="/p:PMML/guha:SD4ftModel">
@@ -80,11 +87,14 @@
       </p>
       <xsl:call-template name="TaskSettingRulePattern"/>
     </section>
-    <xsl:comment><xsl:value-of select="keg:getContentBlockTag('SoughtRulePattern','','end')"/></xsl:comment>
 
     <!-- basic attributes table -->
-    <xsl:comment><xsl:value-of select="keg:getContentBlockTag('BasicBooleanAttributes','','start')"/></xsl:comment>
-    <div class="idiv">
+    <section>
+      <xsl:call-template name="keg:ContentBlock" >
+        <xsl:with-param name="contentBlockName">BasicBooleanAttributes</xsl:with-param>
+        <xsl:with-param name="element" />
+      </xsl:call-template>
+      <!--TODO-->
       <table class="itable" summary="Table of basic Boolean attributes">
         <tr>
           <th colspan="6"><xsl:copy-of select="keg:translate('Detailed list of basic Boolean attributes',470)"/></th>
@@ -95,12 +105,16 @@
         <!-- table row -->
         <xsl:apply-templates select="BBASettings/BBASetting" mode="sect4"/>
       </table>
-    </div>
-    <xsl:comment><xsl:value-of select="keg:getContentBlockTag('BasicBooleanAttributes','','end')"/></xsl:comment>
+    </section>
 
     <!-- derived attributes table -->
-    <xsl:comment><xsl:value-of select="keg:getContentBlockTag('DerivedBooleanAttributes','','start')"/></xsl:comment>
-    <div class="idiv">
+    <section>
+      <xsl:call-template name="keg:ContentBlock" >
+        <xsl:with-param name="contentBlockName">DerivedBooleanAttributes</xsl:with-param>
+        <xsl:with-param name="element" />
+      </xsl:call-template>
+
+      <!--TODO-->
       <table class="itable" summary="Table of Derived Boolean attributes">
         <tr>
           <th colspan="6"><xsl:copy-of select="keg:translate('Detailed list of derived Boolean attributes',530)"/></th>
@@ -111,8 +125,7 @@
         <!-- table row -->
         <xsl:apply-templates select="DBASettings/DBASetting" mode="sect4"/>
       </table>
-    </div>
-    <xsl:comment><xsl:value-of select="keg:getContentBlockTag('DerivedBooleanAttributes','','end')"/></xsl:comment>
+    </section>
   </xsl:template>
 
   <xsl:template name="TaskSettingRulePattern">

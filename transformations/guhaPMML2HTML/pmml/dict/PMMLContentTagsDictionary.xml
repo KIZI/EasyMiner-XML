@@ -151,6 +151,14 @@
     </Entry>
 
     <Entry>
+      <name>DiscoveredRule_Details</name>
+      <type>Table</type> <!-- Type 'element' not used at the moment -->
+      <IDbase>DiscoveredRule_Details</IDbase>
+      <Level>1</Level>
+      <Title lang="cs"> - hodnoty testových kritérií</Title>
+    </Entry>
+
+    <Entry>
         <name>DiscoveredRule_Quantifiers</name>
         <type>Table</type> <!-- Type 'element' not used at the moment -->
         <IDbase>DiscoveredRule_Quantifiers</IDbase>

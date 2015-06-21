@@ -11,11 +11,9 @@
     <!-- When including to other stylesheet,
         se the $ContentTagsDictionary variable first
     -->
-    
-  
-    
+
     <!-- Funkce generujici tagy pro markovani obsahu -->
-    <func:function name="keg:getContentBlockID">                            
+    <func:function name="keg:getContentBlockID">
         <xsl:param name="contentBlockName"/>
         <!-- parametr element je  volitelný a používá se pro odlišení vícero bloků stejného typu (např. atributů)-->
         <xsl:param name="element"/>
@@ -44,36 +42,29 @@
             </xsl:otherwise>
         </xsl:choose>                              
     </func:function>
-    
-    <!-- Nemuze generovat primo komentar, protoze EXSLT funkce zrejme komentare ve vystupu nepredavaji -->
-    <func:function name="keg:getContentBlockTag">
-        <xsl:param name="contentBlockName"/>
-        <xsl:param name="element"/>
-        <xsl:param name="tagType"/> <!--stard, end -->
-        <xsl:variable name="BlockID" select="keg:getContentBlockID($contentBlockName, $element)"/>
-        <xsl:choose>
-            <xsl:when test="$tagType='start'">     
-                <!-- Title will contain the element parametr only if this is allowed for this entity type - the @append attribute exists-->
-                <xsl:variable name="Title">
-                    <xsl:choose>
-                        <xsl:when test="exsl:node-set($ContentTagsDictionary)/ContentTagsDictionary/Entry[name=$contentBlockName]/Title/@append=1">
-                            <xsl:value-of select="concat(exsl:node-set($ContentTagsDictionary)/ContentTagsDictionary/Entry[name=$contentBlockName]/Title,$element)"/>                          
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:value-of select="exsl:node-set($ContentTagsDictionary)/ContentTagsDictionary/Entry[name=$contentBlockName]/Title"/>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                </xsl:variable>                                                 
-                <xsl:variable name="Level" select="exsl:node-set($ContentTagsDictionary)/ContentTagsDictionary/Entry[name=$contentBlockName]/Level"/>                                
-                <func:result> gInclude{"level":"<xsl:value-of select="$Level"/>","title":"<xsl:value-of select="$Title"/>","id":"<xsl:value-of select="$BlockID"/>"} </func:result>        
-            </xsl:when>
-            <xsl:when test="$tagType='end'">
-                <func:result> gInclude{"id":"<xsl:value-of select="$BlockID"/>"} </func:result>        
-            </xsl:when>
-            <xsl:otherwise>
-                <func:result/>
-            </xsl:otherwise>            
-            
-        </xsl:choose>        
-    </func:function>
+
+  <xsl:template name="keg:ContentBlock">
+    <xsl:param name="contentBlockName"/>
+    <xsl:param name="element"/>
+
+    <xsl:variable name="BlockID" />
+    <!-- Title will contain the element parametr only if this is allowed for this entity type - the @append attribute exists-->
+    <xsl:attribute name="data-ginclude-title">
+      <xsl:choose>
+        <xsl:when test="exsl:node-set($ContentTagsDictionary)/ContentTagsDictionary/Entry[name=$contentBlockName]/Title/@append=1">
+          <xsl:value-of select="concat(exsl:node-set($ContentTagsDictionary)/ContentTagsDictionary/Entry[name=$contentBlockName]/Title,$element)"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="exsl:node-set($ContentTagsDictionary)/ContentTagsDictionary/Entry[name=$contentBlockName]/Title"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:attribute>
+    <xsl:attribute name="data-ginclude-level">
+      <xsl:value-of select="exsl:node-set($ContentTagsDictionary)/ContentTagsDictionary/Entry[name=$contentBlockName]/Level"/>
+    </xsl:attribute>
+    <xsl:attribute name="data-ginclude-id">
+      <xsl:value-of select="keg:getContentBlockID($contentBlockName, $element)" />
+    </xsl:attribute>
+  </xsl:template>
+
 </xsl:stylesheet>

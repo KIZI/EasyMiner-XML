@@ -12,12 +12,13 @@
   </xsl:template>
 
   <xsl:template match="p:DataField" mode="sect2">
-    <xsl:comment>
-      <xsl:value-of select="keg:getContentBlockTag('ColumnDetail',@name,'start')"/>
-    </xsl:comment>
-    <xsl:variable name="cat" select="count(p:Value)"/>
     <!-- link name is derived from column name -->
     <section id="sect2-{@name}" class="dataField">
+      <xsl:call-template name="keg:ContentBlock" >
+        <xsl:with-param name="contentBlockName">ColumnDetail</xsl:with-param>
+        <xsl:with-param name="element" select="@name"/>
+      </xsl:call-template>
+
       <h3><xsl:copy-of select="keg:translate('Column',251)"/>: <xsl:value-of select="@name"/></h3>
       <!-- basic info about data field-->
       <xsl:variable name="valueCount" select="count(p:Value)"/>
@@ -105,9 +106,6 @@
 
       </div>
     </section>
-    <xsl:comment>
-      <xsl:value-of select="keg:getContentBlockTag('ColumnDetail',@name,'end')"/>
-    </xsl:comment>
   </xsl:template>
 
   <xsl:template match="p:Interval" mode="sect2">
@@ -161,9 +159,12 @@
   </xsl:template>
 
   <xsl:template match="p:DataDictionary" mode="sect2list">
-    <xsl:comment><xsl:value-of select="keg:getContentBlockTag('ColumnList','','start')"/></xsl:comment>
     <!-- tabulka c.1: available columns description: column name, value count, column type -->
     <table>
+      <xsl:call-template name="keg:ContentBlock" >
+        <xsl:with-param name="contentBlockName">ColumnList</xsl:with-param>
+        <xsl:with-param name="element" />
+      </xsl:call-template>
       <tr>
         <th scope="col"><xsl:copy-of select="keg:translate('Column name',250)"/></th>
         <th scope="col"><xsl:copy-of select="keg:translate('Number of diffrent values',260)"/></th>
@@ -171,10 +172,9 @@
       </tr>
       <xsl:apply-templates select="p:DataField" mode="sect2list"/>
     </table>
-    <xsl:comment><xsl:value-of select="keg:getContentBlockTag('ColumnList','','end')"/></xsl:comment>
+
     <!-- dataFieldCount is sum of first column frequencies -->
     <xsl:variable name="dataFieldCount" select="sum(p:DataField[1]/p:Value/p:Extension[@name='Frequency']/@value)"/>
-    <xsl:comment><xsl:value-of select="keg:getContentBlockTag('RecordCount','','start')"/></xsl:comment>
     <xsl:copy-of select="keg:translate('Number of records',280)"/>:
     <xsl:choose>
       <xsl:when test="$dataFieldCount">
@@ -184,7 +184,6 @@
         <xsl:value-of select="$notAvailable"/>
       </xsl:otherwise>
     </xsl:choose>
-    <xsl:comment><xsl:value-of select="keg:getContentBlockTag('RecordCount','','end')"/></xsl:comment>
   </xsl:template>
 
   <xsl:template match="p:DataField" mode="sect2list">
