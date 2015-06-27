@@ -1,23 +1,7 @@
 @import 'flexbox'
+@import 'config'
 
-//region standalone style
-body, td, th
-  font-family 'Helvetica Neue', 'Arial', 'sans-serif'
-  font-size 14px
-//endregion standalone style
 /*region mixins*/
-baseBgColor = white
-textColor = black
-detailsTextColor = gray
-
-tableBgColor  = white
-tableBgColor2 = rgb(252,251,255)
-tableColor = textColor
-tableHeadBgColor = #075783
-tableHeadColor = white
-tableTdPadding = 5px 8px
-tableTdBorderColor = rgb(235,235,235)
-
 basicTableWithBorders()
   background tableBgColor
   color tableColor
@@ -88,19 +72,21 @@ percentsGradient(position, startColor, endColor, baseBgColor)
 
 for j in (0..100)
   td.bg{j}p
-    percentsGradient(j, #dad5fd, #b4e8d7,transparent)
+    percentsGradient(j, tableGraphColorLeft, tableGraphColorRight, transparent)
 
 
 collapsableSubsection()
   padding 20px 20px 10px 40px
-  margin 5px
-  border 1px solid #f0f0f0
+  margin 2px 5px
+  border 1px solid subSectionBorderColor
   position relative
   h3
     margin 0
     margin-left -25px
     padding 0 0 0 25px
-    background url('arrow-down.png') left top no-repeat
+    background url('arrow-down.png') left 3px no-repeat
+    &.clickable
+      cursor pointer
     span.counter
       float right
       color detailsTextColor
@@ -119,10 +105,12 @@ collapsableSubsection()
 
   &.collapsed
     border 1px solid baseBgColor
-    padding-top 0
+    padding-top 5px
     padding-bottom 0
+    &:hover
+      border 1px solid subSectionBorderColor
     h3
-      background url('arrow-right.png') left top no-repeat
+      background url('arrow-right.png') left 3px no-repeat
     .details
       display none
     .simpleDetails
@@ -153,18 +141,8 @@ sectionDetailsBlock()
 
 /*endregion*/
 
-h1
-  color red
-
-h3
-  color red
-
-section
-  margin 20px
-  border 2px solid red
-
 p.error
-  color red
+  color errorTextColor
 
 section#sect2
 section#sect3

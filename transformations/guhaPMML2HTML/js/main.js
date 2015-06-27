@@ -10,7 +10,7 @@ var prepareCollapsableSections = function(){
   sectionH3s.click(function(){
     $(this).parent('section').toggleClass('collapsed');
   });
-  sectionH3s.css('cursor','pointer');
+  sectionH3s.addClass('clickable');
 
   prepareFoundRuleCollapsableDetails();
   $('section#sect5 section.foundRule').addClass('collapsed');

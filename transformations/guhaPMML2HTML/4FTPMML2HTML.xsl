@@ -43,7 +43,7 @@
    V pripade, ze je atribut nastaven, vygeneruje se jen obsah elementu body pro pouziti ve slozitejsich dokumentech.
    Pravidla jsou vypisovana na zaklade jejich poradi v PMML souboru
   -->
-  <xsl:param name="contentOnly" select="1"/>
+  <xsl:param name="contentOnly" select="0"/>
   <!-- Parametry pro nastaveni znaku nebo retezce znaku reprezentujiciho logicke operatory -->
   <!-- vychozi nastaveni:
   NOT   = '&#x00AC;'
@@ -75,7 +75,8 @@
 <!-- ===========================================
      Transformation root - everyting begins here
      =========================================== -->
-  <xsl:template match="/p:PMML">
+  <xsl:template match="/">
+  <!--<xsl:template match="/p:PMML">-->
     <xsl:choose>
       <xsl:when test="$contentOnly">
         <xsl:apply-templates select="/p:PMML" mode="body"/>
@@ -92,9 +93,9 @@
             <xsl:apply-templates select="/p:PMML" mode="body"/>
           </body>
         </html>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
 
 <!-- Tomas Kliegr, 2009, klit01@vse.cz -->
 <!-- Vojtech Jirkovsky, 2008, 2010, jirkovoj@fit.cvut.cz -->

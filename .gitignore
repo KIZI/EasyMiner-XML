@@ -225,3 +225,6 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+transformations/guhaPMML2HTML/css/config.css
+transformations/guhaPMML2HTML/css/flexbox.css

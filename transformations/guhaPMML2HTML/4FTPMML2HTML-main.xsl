@@ -8,9 +8,13 @@
 
   <xsl:template match="/p:PMML" mode="body">
   <!-- TODO -->  
-    <style>@import url('index.css');</style>
+    <style>
+      @import url('index.css');
+      @import url('page.css');
+    </style>
     <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="page.js"></script>
     <script type="text/javascript" src="Chart.js-2.0-alpha/Chart.js-2.0-alpha/Chart.js"></script>
   <!-- ===============
        Document header
@@ -45,40 +49,35 @@
        Table of contents
        ================= -->
     <!-- uses: 4FTPMML2HTML-toc -->
-    <div id="sectTOC" style="background:red;"><!--TODO-->
-      <xsl:call-template name="keg:ContentBlock" >
-        <xsl:with-param name="contentBlockName">ListOfContents</xsl:with-param>
-        <xsl:with-param name="element" />
-      </xsl:call-template>
-
-    <h2><xsl:copy-of select="keg:translate('Content',11)"/></h2>
-    <ol type="I">
-      <li><a href="#sect2"><xsl:copy-of select="keg:translate('Dataset Description',30)"/></a>
-        <xsl:apply-templates select="p:DataDictionary" mode="toc" />
-      </li>
-      <li><a href="#sect3"><xsl:copy-of select="keg:translate('Created Attributes',40)"/></a>
-        <xsl:apply-templates select="p:TransformationDictionary" mode="toc"/></li>
-      <li><a href="#sect4"><xsl:copy-of select="keg:translate('Data Mining Task Setting',50)"/></a>
-        <div class="dim"><xsl:apply-templates select="guha:AssociationModel/TaskSetting" mode="toc"/></div>
-      </li>
-      <li>
-        <a href="#sect5">
-          <xsl:choose>
-            <xsl:when test="/p:PMML/guha:SD4ftModel">
-              <xsl:copy-of select="keg:translate('Discovered Action Rules',910)"/>
-            </xsl:when>
-            <xsl:when test="/p:PMML/guha:Ac4ftModel">
-              <xsl:copy-of select="keg:translate('Discovered pairs of Association Rules',990)"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:copy-of select="keg:translate('Discovered Association Rules',60)"/>
-            </xsl:otherwise>
-          </xsl:choose>
-        </a>
-        <xsl:apply-templates select="guha:AssociationModel | guha:SD4ftModel | guha:Ac4ftModel | guha:CFMinerModel" mode="toc"/>
-      </li>
-    </ol>
-    </div>
+    <section id="navigation">
+      <h2><xsl:copy-of select="keg:translate('Content',11)"/></h2>
+      <ol>
+        <li>
+          <a href="#sect2"><xsl:copy-of select="keg:translate('Dataset Description',30)"/></a>
+        </li>
+        <li>
+          <a href="#sect3"><xsl:copy-of select="keg:translate('Created Attributes',40)"/></a>
+        </li>
+        <li>
+          <a href="#sect4"><xsl:copy-of select="keg:translate('Data Mining Task Setting',50)"/></a>
+        </li>
+        <li>
+          <a href="#sect5">
+            <xsl:choose>
+              <xsl:when test="/p:PMML/guha:SD4ftModel">
+                <xsl:copy-of select="keg:translate('Discovered Action Rules',910)"/>
+              </xsl:when>
+              <xsl:when test="/p:PMML/guha:Ac4ftModel">
+                <xsl:copy-of select="keg:translate('Discovered pairs of Association Rules',990)"/>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:copy-of select="keg:translate('Discovered Association Rules',60)"/>
+              </xsl:otherwise>
+            </xsl:choose>
+          </a>
+        </li>
+      </ol>
+    </section>
   <!-- ==============================
        Section 1+2 - Data description
        ============================== -->

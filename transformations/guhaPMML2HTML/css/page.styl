@@ -1,0 +1,70 @@
+@import 'config'
+
+*
+  font-family 'Helvetica Neue', Helvetica, Arial, sans-serif
+  font-size 14px
+  color textColor
+
+html
+  background pageBgColor
+
+body
+  width 80%
+  padding 20px
+  margin 20px auto
+  background baseBgColor
+  box-shadow bodyBoxShadow
+  & > section
+    margin 10px 0
+    padding 10px 0 20px 0
+    border-bottom 1px solid pageBgColor
+    &:last-of-type
+    &:first-of-type
+      border-bottom none
+
+a
+  text-decoration linkDecoration
+  color linkColor
+  &:hover
+    text-decoration underline
+    color linkHoverColor
+
+h1
+  h1()
+
+h2
+  h2()
+  padding 0
+  margin 0 0 23px 0
+
+h3
+  h3()
+  &.clickable
+    cursor pointer
+    &:hover
+      text-decoration linkHoverDecoration
+      color linkHoverColor
+
+section#navigation
+  position relative
+  top 0
+  right 0
+  &.onTop
+    position fixed
+    top 5px
+    right 5px
+    margin 0
+    padding 15px
+    border 1px solid pageBgColor
+    background baseBgColor
+    box-shadow bodyBoxShadow
+    z-index 100
+    h2
+      font-size 16px
+      margin 0
+      padding 0
+    ol
+      margin 5px
+      padding 5px 0 0 15px
+      li
+        padding-bottom 3px
