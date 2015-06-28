@@ -41,7 +41,8 @@
    Pravidla jsou vypisovana na zaklade jejich poradi v PMML souboru
   -->
   <xsl:param name="contentOnly" select="false()"/>
-  <xsl:param name="basePath" select="'.'"/>
+  <!--<xsl:param name="basePath" select="'.'"/>-->
+  <xsl:param name="basePath" select="'./guhaPMML2HTML'"/>
   <xsl:param name="loadJquery" select="true()"/>
   <!-- Parametry pro nastaveni znaku nebo retezce znaku reprezentujiciho logicke operatory -->
   <!-- vychozi nastaveni:

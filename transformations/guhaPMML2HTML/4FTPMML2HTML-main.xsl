@@ -14,14 +14,14 @@
         @import url('<xsl:value-of select="$basePath"/>/css/page.css');
       </xsl:if>
     </style>
-    <xsl:if test="not($loadJquery)">
+    <xsl:if test="$loadJquery">
       <script type="text/javascript" src="{$basePath}/js/jquery-1.11.3.min.js"></script>
     </xsl:if>
     <xsl:if test="not($contentOnly)">
       <script type="text/javascript" src="{$basePath}/js/page.js"></script>
     </xsl:if>
     <script type="text/javascript" src="{$basePath}/js/main.js"></script>
-    <script type="text/javascript" src="{$basePath}/chart.js/Chart.js"></script>
+    <script type="text/javascript" src="{$basePath}/js/chart.js/Chart.js"></script>
   </xsl:template>
 
   <xsl:template match="/p:PMML" mode="body">

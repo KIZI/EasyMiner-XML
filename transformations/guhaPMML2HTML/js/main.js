@@ -242,7 +242,8 @@ var generateGraphForGraphTable = function(id){
   };
 
   var ctx = document.getElementById(id+"-graph").getContext("2d");
-  new Chart(ctx).Bar({
+  new Chart(ctx,{
+    type: 'bar',
     data: barChartData,
     options: {
       responsive: false
