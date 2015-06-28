@@ -1,4 +1,3 @@
-@import 'flexbox'
 @import 'config'
 
 /*region mixins*/
@@ -144,50 +143,39 @@ sectionDetailsBlock()
 p.error
   color errorTextColor
 
-header
+div.header
   table.metadata
     infoTable()
 
-section#sect2
-section#sect3
+div#sect2
+div#sect3
   .attributesCount
     font-weight bold
 
   .multiCollapsers
     sectionMultiCollapsers()
 
-  section.list
+  div.list
     display none
     table
       listTable()
 
-section#sect2 section.dataField
-section#sect3 section.attribute
-    collapsableSubsection()
-    &.collapsed
-      table.fieldBasicInfo
-        display none
-
+div#sect2 div.dataField
+div#sect3 div.attribute
+  collapsableSubsection()
+  &.collapsed
     table.fieldBasicInfo
-      infoTable()
+      display none
 
-    .details
-      flexbox(flex)
-      flex-direction(row)
-      flex-align(flex-start)
-      flex-justify(stretch)
-      flex-wrap(wrap)
+  table.fieldBasicInfo
+    infoTable()
 
-      table.graphTable
-        graphTable()
-        width 40%
+  .details
+    table.graphTable
+      graphTable()
+      min-width 40%
 
-      canvas
-        margin 20px
-        width 55%
-        height 400px
-
-section#sect4
+div#sect4
   #sect4-imValues
     collapsableSubsection()
     table
@@ -205,7 +193,7 @@ section#sect4
     collapsableSubsection()
     #sect4-rulesPattern
       font-weight bold
-    section.cedentsDetails
+    div.cedentsDetails
       table
         listTable()
         width 100%
@@ -218,27 +206,24 @@ section#sect4
     &.collapsed
       padding 20px 20px 10px 40px
       border 1px solid subSectionBorderColor
-      section.cedentsDetails, p
+      div.cedentsDetails, p
         display none
       p#sect4-rulesPattern
         display block
 
-section#sect5
+div#sect5
   .foundRulesCount
     font-weight bold
   .multiCollapsers
     sectionMultiCollapsers()
 
-  section.foundRule
+  div.foundRule
     collapsableSubsection()
     .details
-      flexbox(flex)
-      flex-direction(row)
-      flex-align(baseline)
-      flex-justify(start)
-      flex-wrap(wrap-rewerse)
+      overflow auto
       div.imValues, div.fourFtTable
         sectionDetailsBlock()
+        float left
 
       table.fourFtTable
         basicTableWithBorders()
