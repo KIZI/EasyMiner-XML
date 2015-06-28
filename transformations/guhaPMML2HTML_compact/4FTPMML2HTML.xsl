@@ -13,8 +13,6 @@
   <!-- maximal number of items to show in graph -->
   <xsl:param name="maxCategoriesToListInGraphs" select="100"/>
 
-  <!--<xsl:output method="xml" encoding="UTF-8"/>-->
-
   <xsl:output method="xml" encoding="utf-8"/>
 
   <!-- Parametr contentOnly slouzi k potlaceni generovani hlavicky HTML a elementu html, head a body. V pripade, ze je atribut nastaven, vygeneruje se jen obsah elementu body pro pouziti ve slozitejsich dokumentech. Pravidla jsou vypisovana na zaklade jejich poradi v PMML souboru. -->
