@@ -415,7 +415,6 @@
 
   <xsl:template match="BBA">
     <xsl:param name="topLevel"/>
-    bba
     <xsl:choose>
       <!--If there is no Text node, we have to prepare it from references-->
       <xsl:when test="./Text">
