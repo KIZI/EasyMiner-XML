@@ -43,7 +43,7 @@
       </xsl:if>
 
       <!-- 4FT table for AssociationRule / 4ftMiner -->
-      <xsl:if test="local-name()='AssociationRule'"><!--TODO Standa...-->
+      <xsl:if test="local-name()='AssociationRule'">
         <!-- 4FT: four field table -->
         <div class="fourFtTable">
           <h4><xsl:copy-of select="keg:translate('Four field contingency table',13)"/></h4>
@@ -189,7 +189,6 @@
     <div class="imValues">
       <h4><xsl:copy-of select="keg:translate('Interest measure values', 840)"/></h4>
       <table class="imValuesTable">
-        <!--TODO-->
         <tr>
           <th><xsl:copy-of select="keg:translate('Interest Measure',590)"/></th>
           <th><xsl:copy-of select="keg:translate('Value',252)"/></th>
@@ -276,7 +275,27 @@
   -->
   <xsl:template match="AssociationRule" mode="ruleBody">
     <!--TODO Standa složení rule body pro výpis, kde nejsou popsané jednotlivé cedenty!-->
-    <xsl:value-of select="./Text" />
+    <xsl:choose>
+      <xsl:when test="@antecedent">
+        <xsl:apply-templates select="../DBA[@id=current()/@antecedent] | ../DBA[@id=current()/@antecedent]">
+          <xsl:with-param name="topLevel" select="1" />
+        </xsl:apply-templates>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:text>*</xsl:text>
+      </xsl:otherwise>
+    </xsl:choose>
+    <xsl:value-of select="$implyOperator" />
+    <xsl:apply-templates select="../DBA[@id=current()/@consequent] | ../DBA[@id=current()/@consequent]">
+      <xsl:with-param name="topLevel" select="'1'" />
+    </xsl:apply-templates>
+    <xsl:if test="@condition">
+      <xsl:text> / </xsl:text>
+      <xsl:apply-templates select="../DBA[@id=current()/@condition] | ../DBA[@id=current()/@condition]">
+        <xsl:with-param name="topLevel" select="'1'" />
+      </xsl:apply-templates>
+    </xsl:if>
+    <!--<xsl:value-of select="./Text" />-->
   </xsl:template>
 
   <!-- CFMinerRule with format Attribute / Condition is bellow ... -->
@@ -396,7 +415,7 @@
 
   <xsl:template match="BBA">
     <xsl:param name="topLevel"/>
-
+    bba
     <xsl:choose>
       <!--If there is no Text node, we have to prepare it from references-->
       <xsl:when test="./Text">
@@ -425,16 +444,23 @@
       <xsl:when test="@connective='Negation'">
         <xsl:value-of select="$notOperator"/><xsl:apply-templates select="BARef"/>
       </xsl:when>
-      <xsl:when test="$topLevel='1' or count(BARef) =1">
-        <xsl:apply-templates select="BARef"/>
+      <xsl:when test="count(BARef)=1">
+        <xsl:apply-templates select="BARef" >
+          <xsl:with-param name="topLevel" select="$topLevel" />
+        </xsl:apply-templates>
+      </xsl:when>
+      <xsl:when test="$topLevel='1'">
+        <xsl:apply-templates select="BARef" />
       </xsl:when>
       <xsl:otherwise>
+        <xsl:value-of select="$topLevel"/>
         (<xsl:apply-templates select="BARef"/>)
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
 
   <xsl:template match="BARef">
+    <xsl:param name="topLevel"/>
     <xsl:variable name="ref" select="text()"/>
     <!-- items are delimited by concective AND or OR -->
     <xsl:if test="position() > 1">
@@ -444,7 +470,9 @@
         </xsl:choose>
     </xsl:if>
     <!-- item refers (by ref) to other BBA or DBA - RECURSION -->
-    <xsl:apply-templates select="../../BBA[@id=$ref] | ../../DBA[@id=$ref]"/>
+    <xsl:apply-templates select="../../BBA[@id=$ref] | ../../DBA[@id=$ref]">
+      <xsl:with-param name="topLevel" select="$topLevel"/>
+    </xsl:apply-templates>
   </xsl:template>
 
   <xsl:template match="p:DataField" mode="sect5">

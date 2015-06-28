@@ -54,7 +54,7 @@
   <xsl:param name="notOperator" select="' &#x00AC;'"/>
   <xsl:param name="andOperator" select="' &amp; '"/> <!-- &#x02227; -->
   <xsl:param name="orOperator" select="' &#x02228; '"/>
-  <xsl:param name="implyOperator" select="' &#x021D2; '"/>
+  <xsl:param name="implyOperator" select="' &#8594; '"/>
   <xsl:param name="notAvailable" select="'NA'"/>
   <xsl:param name="reportLang" select="'cs'"/>
   <!-- Polozky Support a Confidence jsou systemove, pouzivaji se pro preklad nazvu povinnych PMML atributu -->
