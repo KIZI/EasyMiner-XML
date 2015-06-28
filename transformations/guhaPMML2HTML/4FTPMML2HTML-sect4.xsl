@@ -8,19 +8,18 @@
        Data Mining Task Setting
        ======================== -->
   <xsl:template match="guha:AssociationModel | guha:SD4ftModel | guha:Ac4ftModel | guha:CFMinerModel" mode="sect4">
-    <section>
+    <section id="sect4-imValues">
       <xsl:call-template name="keg:ContentBlock" >
         <xsl:with-param name="contentBlockName">QuantifiersUsed</xsl:with-param>
         <xsl:with-param name="element" />
       </xsl:call-template>
 
-      <p><xsl:copy-of select="keg:translate('Task name',150)"/>: <xsl:value-of select="@modelName"/></p>
       <!-- Used quantifier table -->
       <!-- table number depends on previous table count -->
       <xsl:variable name="tabs" select="count(/p:PMML/p:DataDictionary/p:DataField)+count(/p:PMML/p:TransformationDictionary/p:DerivedField)"/>
 
-      <table class="itable" summary="Table {$tabs+2}: quantifiers used">
-        <tr><th colspan="7"><xsl:copy-of select="keg:translate('Interest Measures used',420)"/></th></tr>
+      <h3><xsl:copy-of select="keg:translate('Interest Measures used',420)"/></h3>
+      <table>
         <tr>
           <th><xsl:copy-of select="keg:translate('Interest Measure',590)"/></th>
           <th><xsl:copy-of select="keg:translate('Minimum value',430)"/></th>
@@ -32,8 +31,11 @@
         </tr>
         <xsl:apply-templates select="TaskSetting/InterestMeasureSetting/InterestMeasureThreshold" mode="sect4"/>
       </table>
-      <xsl:copy-of select="keg:translate('Note: GUHA quantifiers Founded Implication and Base are listed as confidence and support',450)"/>
+      <p class="legend">
+        <xsl:copy-of select="keg:translate('Note: GUHA quantifiers Founded Implication and Base are listed as confidence and support',450)"/>
+      </p>
     </section>
+
     <!-- association rules + detailed list of basic and derived association attributes -->
     <xsl:apply-templates select="TaskSetting" mode="sect4"/>
   </xsl:template>
@@ -42,7 +44,7 @@
   <!-- even if more specific rule is first, priority attribute is needed -->
   <xsl:template match="InterestMeasureThreshold" mode="sect4" priority="1">
     <tr>
-      <td><xsl:copy-of select="keg:translateInterestMeasure(InterestMeasure | Formula/@name,'InterestMeasure', 'pmml', $reportLang)"/></td>
+      <td class="name"><xsl:copy-of select="keg:translateInterestMeasure(InterestMeasure | Formula/@name,'InterestMeasure', 'pmml', $reportLang)"/></td>
         <!-- SignificanceLevel is used for static quantifiers, Threshold is used otherwise -->
         <!-- quantifiers using SignificanceLevel and Threshold together -->
       <td><xsl:value-of select="Threshold"/></td>
@@ -57,7 +59,7 @@
   <!-- association rules + detailed list of basic and derived association attributes -->
   <xsl:template match="TaskSetting" mode="sect4">
     <!-- association rules -->
-    <section> <!-- TODO udělat něco s touto sekcí... -->
+    <section id="sect4-cedents">
       <xsl:call-template name="keg:ContentBlock" >
         <xsl:with-param name="contentBlockName">SoughtRulePattern</xsl:with-param>
         <xsl:with-param name="element" />
@@ -77,54 +79,51 @@
         </xsl:choose>
       </h3>
       <p>
+        <xsl:copy-of select="keg:translate('The data mining task found rules in the following form:',760)"/>
+      </p>
+      <p id="sect4-rulesPattern"><xsl:call-template name="TaskSettingRulePattern"/></p>
+
+      <p>
         <xsl:copy-of select="keg:translate('The basic building blocks of the task setting is the basic Boolean attributes setting...',770)"/>
       </p>
       <p>
         <xsl:copy-of select="keg:translate('Derived Boolean attributes are recursive structures built upon the basic Boolean attributes...',780)"/>
       </p>
-      <p>
-        <xsl:copy-of select="keg:translate('The data mining task found rules in the following form:',760)"/>
-      </p>
-      <xsl:call-template name="TaskSettingRulePattern"/>
-    </section>
 
-    <!-- basic attributes table -->
-    <section>
-      <xsl:call-template name="keg:ContentBlock" >
-        <xsl:with-param name="contentBlockName">BasicBooleanAttributes</xsl:with-param>
-        <xsl:with-param name="element" />
-      </xsl:call-template>
-      <!--TODO-->
-      <table class="itable" summary="Table of basic Boolean attributes">
-        <tr>
-          <th colspan="6"><xsl:copy-of select="keg:translate('Detailed list of basic Boolean attributes',470)"/></th>
-        </tr>
-        <tr>
-          <th>ID</th><th><xsl:copy-of select="keg:translate('Name',480)"/></th><th><xsl:copy-of select="keg:translate('Based on attibute',490)"/></th><th><xsl:copy-of select="keg:translate('Coefficient',500)"/></th><th><xsl:copy-of select="keg:translate('Minimal length',510)"/></th><th><xsl:copy-of select="keg:translate('Maximal length',520)"/></th>
-        </tr>
-        <!-- table row -->
-        <xsl:apply-templates select="BBASettings/BBASetting" mode="sect4"/>
-      </table>
-    </section>
+      <!-- basic attributes table -->
+      <section class="cedentsDetails">
+        <xsl:call-template name="keg:ContentBlock" >
+          <xsl:with-param name="contentBlockName">BasicBooleanAttributes</xsl:with-param>
+          <xsl:with-param name="element" />
+        </xsl:call-template>
+        <!--TODO-->
+        <h4><xsl:copy-of select="keg:translate('Detailed list of basic Boolean attributes',470)"/></h4>
+        <table>
+          <tr>
+            <th class="id">ID</th><th><xsl:copy-of select="keg:translate('Name',480)"/></th><th><xsl:copy-of select="keg:translate('Based on attibute',490)"/></th><th><xsl:copy-of select="keg:translate('Coefficient',500)"/></th><th><xsl:copy-of select="keg:translate('Minimal length',510)"/></th><th><xsl:copy-of select="keg:translate('Maximal length',520)"/></th>
+          </tr>
+          <!-- table row -->
+          <xsl:apply-templates select="BBASettings/BBASetting" mode="sect4"/>
+        </table>
+      </section>
 
-    <!-- derived attributes table -->
-    <section>
-      <xsl:call-template name="keg:ContentBlock" >
-        <xsl:with-param name="contentBlockName">DerivedBooleanAttributes</xsl:with-param>
-        <xsl:with-param name="element" />
-      </xsl:call-template>
+      <!-- derived attributes table -->
+      <section class="cedentsDetails">
+        <xsl:call-template name="keg:ContentBlock" >
+          <xsl:with-param name="contentBlockName">DerivedBooleanAttributes</xsl:with-param>
+          <xsl:with-param name="element" />
+        </xsl:call-template>
 
-      <!--TODO-->
-      <table class="itable" summary="Table of Derived Boolean attributes">
-        <tr>
-          <th colspan="6"><xsl:copy-of select="keg:translate('Detailed list of derived Boolean attributes',530)"/></th>
-        </tr>
-        <tr>
-          <th>ID</th><th><xsl:copy-of select="keg:translate('Name',480)"/></th><th><xsl:copy-of select="keg:translate('Attribute elements',550)"/></th><th><xsl:copy-of select="keg:translate('Type',540)"/></th><th><xsl:copy-of select="keg:translate('Minimal length',510)"/></th><th><xsl:copy-of select="keg:translate('Maximal length',520)"/></th>
-        </tr>
-        <!-- table row -->
-        <xsl:apply-templates select="DBASettings/DBASetting" mode="sect4"/>
-      </table>
+        <h4><xsl:copy-of select="keg:translate('Detailed list of derived Boolean attributes',530)"/></h4>
+        <table>
+          <tr>
+            <th class="id">ID</th><th><xsl:copy-of select="keg:translate('Name',480)"/></th><th><xsl:copy-of select="keg:translate('Attribute elements',550)"/></th><th><xsl:copy-of select="keg:translate('Type',540)"/></th><th><xsl:copy-of select="keg:translate('Minimal length',510)"/></th><th><xsl:copy-of select="keg:translate('Maximal length',520)"/></th>
+          </tr>
+          <!-- table row -->
+          <xsl:apply-templates select="DBASettings/DBASetting" mode="sect4"/>
+        </table>
+      </section>
+
     </section>
   </xsl:template>
 
@@ -240,7 +239,7 @@
   <xsl:template match="BBASetting" mode="sect4">
     <tr>
       <xsl:variable name="id" select="@id"/>
-      <td><span id="sect4-attribute-{$id}"><xsl:value-of select="$id"/></span></td>
+      <td class="id"><span id="sect4-attribute-{$id}"><xsl:value-of select="$id"/></span></td>
       <td><xsl:value-of select="Name"/></td>
       <!-- based on attribut -->
       <td><xsl:value-of select="FieldRef"/></td>
@@ -254,7 +253,7 @@
   <xsl:template match="DBASetting" mode="sect4">
     <tr>
       <xsl:variable name="id" select="@id"/>
-      <td><xsl:value-of select="$id"/></td>
+      <td class="id"><xsl:value-of select="$id"/></td>
       <td><xsl:value-of select="Name"/></td>
       <!-- attribute components -->
       <td>

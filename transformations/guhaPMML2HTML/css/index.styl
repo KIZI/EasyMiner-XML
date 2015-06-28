@@ -144,6 +144,10 @@ sectionDetailsBlock()
 p.error
   color errorTextColor
 
+header
+  table.metadata
+    infoTable()
+
 section#sect2
 section#sect3
   .attributesCount
@@ -167,8 +171,57 @@ section#sect3 section.attribute
     table.fieldBasicInfo
       infoTable()
 
-    table.graphTable
-      graphTable()
+    .details
+      flexbox(flex)
+      flex-direction(row)
+      flex-align(flex-start)
+      flex-justify(stretch)
+      flex-wrap(wrap)
+
+      table.graphTable
+        graphTable()
+        width 40%
+
+      canvas
+        margin 20px
+        width 55%
+        height 400px
+
+section#sect4
+  #sect4-imValues
+    collapsableSubsection()
+    table
+      listTable()
+      width 100%
+      td.name
+        font-weight bold
+    &.collapsed
+      padding 20px 20px 10px 40px
+      border 1px solid subSectionBorderColor
+      table, p
+        display none
+
+  #sect4-cedents
+    collapsableSubsection()
+    #sect4-rulesPattern
+      font-weight bold
+    section.cedentsDetails
+      table
+        listTable()
+        width 100%
+        .id
+          display none
+          &:first-child + th
+            border-left 1px solid tableHeadBgColor
+          &:first-child + td
+            border-left 1px solid tableTdBorderColor
+    &.collapsed
+      padding 20px 20px 10px 40px
+      border 1px solid subSectionBorderColor
+      section.cedentsDetails, p
+        display none
+      p#sect4-rulesPattern
+        display block
 
 section#sect5
   .foundRulesCount
@@ -196,6 +249,3 @@ section#sect5
         listTable()
         td.value
           text-align right
-
-
-

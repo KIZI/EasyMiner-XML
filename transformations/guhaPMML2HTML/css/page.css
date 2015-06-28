@@ -18,8 +18,7 @@ body > section {
   padding: 10px 0 20px 0;
   border-bottom: 1px solid #2d83be;
 }
-body > section:last-of-type,
-body > section:first-of-type {
+body > section:last-of-type {
   border-bottom: none;
 }
 a {
@@ -60,6 +59,9 @@ section#navigation {
   position: relative;
   top: 0;
   right: 0;
+}
+section#navigation ol li {
+  padding-bottom: 3px;
 }
 section#navigation.onTop {
   position: fixed;

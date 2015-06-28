@@ -262,7 +262,6 @@
         <str lang="cs">není použito</str>
     </Entry>
     <Entry id="450">
-        <Visualization>box</Visualization>
         <str lang="en">Note: GUHA quantifiers Founded Implication and Base are listed as confidence and support</str>
         <str lang="cs">Poznámka: GUHA kvantifikátory Fundovaná implikace a Base jsou uvedeny v Tabulce jako spolehlivost a podpora.</str>
     </Entry>
@@ -338,13 +337,6 @@
     <Entry id="630">
         <str lang="en">Histogram of most frequent categories</str>
         <str lang="cs">Histogram nejčastějších kategorií</str>
-    </Entry>
-    <Entry id="640">
-        <Visualization>box</Visualization>
-        <str lang="en">The report firstly describes the data, then provides information about
-            the created attributes, that is how the data was discretized. Afterwards the document
-            provides the task setting and finally the patterns (association rules) found. </str>
-        <str lang="cs">Cílem této strojově vygenerované zprávy je zdokumentovat úlohu dobývání znalostí z databází. Tuto zprávu needitujte.</str>
     </Entry>
     <Entry id="650">
         <str lang="en">This section contains detailed description of the data.  Below, all the

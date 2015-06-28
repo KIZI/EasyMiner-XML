@@ -508,6 +508,23 @@ td.bg100p {
 p.error {
   color: #f00;
 }
+header table.metadata {
+  background: #fff;
+  border-spacing: 0;
+  margin: 20px 0;
+}
+header table.metadata th,
+header table.metadata td {
+  padding: 5px 8px;
+  background: #fff;
+  color: #434343;
+  text-align: left;
+  border: none;
+  font-weight: normal;
+}
+header table.metadata td {
+  font-weight: bold;
+}
 section#sect2 .attributesCount,
 section#sect3 .attributesCount {
   font-weight: bold;
@@ -676,19 +693,43 @@ section#sect2 section.dataField table.fieldBasicInfo td,
 section#sect3 section.attribute table.fieldBasicInfo td {
   font-weight: bold;
 }
-section#sect2 section.dataField table.graphTable,
-section#sect3 section.attribute table.graphTable {
+section#sect2 section.dataField .details,
+section#sect3 section.attribute .details {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: flex-start;
+  -moz-box-align: flex-start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+section#sect2 section.dataField .details table.graphTable,
+section#sect3 section.attribute .details table.graphTable {
   background: #fff;
   color: #434343;
   border-spacing: 0;
   margin: 20px 0;
+  width: 40%;
 }
-section#sect2 section.dataField table.graphTable tr:first-child th,
-section#sect3 section.attribute table.graphTable tr:first-child th {
+section#sect2 section.dataField .details table.graphTable tr:first-child th,
+section#sect3 section.attribute .details table.graphTable tr:first-child th {
   border-top: 1px solid #075783;
 }
-section#sect2 section.dataField table.graphTable th,
-section#sect3 section.attribute table.graphTable th {
+section#sect2 section.dataField .details table.graphTable th,
+section#sect3 section.attribute .details table.graphTable th {
   padding: 5px 8px;
   background: #075783;
   color: #fff;
@@ -697,42 +738,266 @@ section#sect3 section.attribute table.graphTable th {
   border-left: none;
   border-top: none;
 }
-section#sect2 section.dataField table.graphTable th:first-child,
-section#sect3 section.attribute table.graphTable th:first-child {
+section#sect2 section.dataField .details table.graphTable th:first-child,
+section#sect3 section.attribute .details table.graphTable th:first-child {
   border: 1px solid #075783;
 }
-section#sect2 section.dataField table.graphTable th.empty,
-section#sect3 section.attribute table.graphTable th.empty {
+section#sect2 section.dataField .details table.graphTable th.empty,
+section#sect3 section.attribute .details table.graphTable th.empty {
   background: #fff;
 }
-section#sect2 section.dataField table.graphTable th.empty:first-child,
-section#sect3 section.attribute table.graphTable th.empty:first-child {
+section#sect2 section.dataField .details table.graphTable th.empty:first-child,
+section#sect3 section.attribute .details table.graphTable th.empty:first-child {
   border-left: none;
   border-top: none;
 }
-section#sect2 section.dataField table.graphTable td,
-section#sect3 section.attribute table.graphTable td {
+section#sect2 section.dataField .details table.graphTable td,
+section#sect3 section.attribute .details table.graphTable td {
   padding: 5px 8px;
   text-align: left;
   border-bottom: 1px solid #ebebeb;
   border-right: 1px solid #ebebeb;
   border-top: none;
 }
-section#sect2 section.dataField table.graphTable td:first-child,
-section#sect3 section.attribute table.graphTable td:first-child {
+section#sect2 section.dataField .details table.graphTable td:first-child,
+section#sect3 section.attribute .details table.graphTable td:first-child {
   border-left: 1px solid #ebebeb;
 }
-section#sect2 section.dataField table.graphTable tr:nth-child(even),
-section#sect3 section.attribute table.graphTable tr:nth-child(even) {
+section#sect2 section.dataField .details table.graphTable tr:nth-child(even),
+section#sect3 section.attribute .details table.graphTable tr:nth-child(even) {
   background: #fcfbff;
 }
-section#sect2 section.dataField table.graphTable td.name,
-section#sect3 section.attribute table.graphTable td.name {
+section#sect2 section.dataField .details table.graphTable td.name,
+section#sect3 section.attribute .details table.graphTable td.name {
   font-weight: bold;
 }
-section#sect2 section.dataField table.graphTable td.frequency,
-section#sect3 section.attribute table.graphTable td.frequency {
+section#sect2 section.dataField .details table.graphTable td.frequency,
+section#sect3 section.attribute .details table.graphTable td.frequency {
   text-align: right;
+}
+section#sect2 section.dataField .details canvas,
+section#sect3 section.attribute .details canvas {
+  margin: 20px;
+  width: 55%;
+  height: 400px;
+}
+section#sect4 #sect4-imValues {
+  padding: 20px 20px 10px 40px;
+  margin: 2px 5px;
+  border: 1px solid #f0f0f0;
+  position: relative;
+}
+section#sect4 #sect4-imValues h3 {
+  margin: 0;
+  margin-left: -25px;
+  padding: 0 0 0 25px;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB4klEQVQ4jc2TTUgUYRzGHzxF5wg6xF46uCRhh0UTlj2Uhz6hU1AEsRBIICv2QRFGp5JOfUBYaLGHwkQicw230jwYZhuRZu06us42aas5uzM77+zMzs77zr+bFK3boUM954ff4fmowV+q5v8ABCOd0X3nuung2R460N5Ne1vvUnNLFzW3dNGhtnt0+EyUjlzspfCVAWq98ZI67r+hx2Nzl9cAM/GR/q2+bRRs3IOGQAj19Y3wb9+JWn8dAoEdaGqoQ3CXH6GmWuwO+eHzbUZ0WJLWAFrqxeBQX/SOauiw7RLKrgvOOTjnII9ARAABRIDjcPT0vX8w0Ln/4S8Z5OY/to+9in1mpgnLsuE4DuxSGUJwCCHgkQeA8CSeSi8tJE/9FqK99M6WEhNH019mHWYWUbRsMGbCdR0IweEJgeSc6iamlWPK8w6jYgt6MjY1PTl+QddVMKMAkxkwWRFuuQxmljD8Wrk0339ysmqNWmbqelqaiRt6HszQkc9pcF0Ho2+zoyvS+LWKNf6s4mKCVhflE5qe+17Q8shmV5CSmZqRlePLE7e9PwIAQP3Qu1xgpbBlWbSgrNInmYXl2OlvlbzrLvHryNUh2rDpJjZuuTX7KDy4nq/qlDPPzrfJTyORap5/f6Yfov0LMDmKRNsAAAAASUVORK5CYII=") left 3px no-repeat;
+}
+section#sect4 #sect4-imValues h3.clickable {
+  cursor: pointer;
+}
+section#sect4 #sect4-imValues h3 span.counter {
+  float: right;
+  color: #808080;
+  font-style: italic;
+  font-weight: normal;
+}
+section#sect4 #sect4-imValues .simpleDetails {
+  color: #808080;
+  padding: 5px 10px;
+  display: none;
+}
+section#sect4 #sect4-imValues .simpleDetails a {
+  color: #808080;
+  text-decoration: none;
+}
+section#sect4 #sect4-imValues .simpleDetails a:hover {
+  text-decoration: underline;
+}
+section#sect4 #sect4-imValues.collapsed {
+  border: 1px solid #fff;
+  padding-top: 5px;
+  padding-bottom: 0;
+}
+section#sect4 #sect4-imValues.collapsed:hover {
+  border: 1px solid #f0f0f0;
+}
+section#sect4 #sect4-imValues.collapsed h3 {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB30lEQVR42mNkoBAwInPWHbjdsHDHrVsbO7yXkWVA7fwT/+XlxRjmrjq39Om961mPdtV+IsmA3Il7/jvbazL8/PmHYcPOG3dPX3oUfWdN6kmiDUhq2/jf3kqD4f9/EO8/w/Xbb37vOPqo7uWtI10vjk/7R9CA8OoV/20tNUF6Gf79/8fw7+9fhs9ffjDsO/V834P7j2Lvbyl+hteAwJKF/63MdYAu+M/wF6j5798/DL9//WL4/fsnw437n99cvf856ebKpM04DfArmPff1FSP4f+//xDNQI1fPn9lePf2PcPz5y8Z7j16/Z+BS3Ly/U35+VgNcM2Y8V9DU4fhz58/DN9//GL4/PkL0IBPDJ8/fWD4+P4dw7dv3/7/5xCZ9GBbRQFOAzS1DcEG/Pz5k+Hrt+9AzR8ZPn14x/D+w9tXHz//SHq8t30rTi945s76b2BgwfDr92+gbUDNX74yfPjwhuHurSs7Xz+5n/DmwooXeAPRp2jOf3NTe4bv338ANX9huPvw5s9LJ49Uvn9wccLXJ6f/E4xG39K5/20tXBjeAP18YP+Wa7dOH4/6cH3LRaITklfZnP+y8ir/t65aOPPtnctF35+e+c5AAKAYYJvfsfDKzr1r3t/YvZmQRqwGkAMAJ5ELIPTev5gAAAAASUVORK5CYII=") left 3px no-repeat;
+}
+section#sect4 #sect4-imValues.collapsed .details {
+  display: none;
+}
+section#sect4 #sect4-imValues.collapsed .simpleDetails {
+  display: block;
+}
+section#sect4 #sect4-imValues table {
+  background: #fff;
+  color: #434343;
+  border-spacing: 0;
+  margin: 20px 0;
+  width: 100%;
+}
+section#sect4 #sect4-imValues table tr:first-child th {
+  border-top: 1px solid #075783;
+}
+section#sect4 #sect4-imValues table th {
+  padding: 5px 8px;
+  background: #075783;
+  color: #fff;
+  text-align: left;
+  border: 1px solid #075783;
+  border-left: none;
+  border-top: none;
+}
+section#sect4 #sect4-imValues table th:first-child {
+  border: 1px solid #075783;
+}
+section#sect4 #sect4-imValues table th.empty {
+  background: #fff;
+}
+section#sect4 #sect4-imValues table th.empty:first-child {
+  border-left: none;
+  border-top: none;
+}
+section#sect4 #sect4-imValues table td {
+  padding: 5px 8px;
+  text-align: left;
+  border-bottom: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
+  border-top: none;
+}
+section#sect4 #sect4-imValues table td:first-child {
+  border-left: 1px solid #ebebeb;
+}
+section#sect4 #sect4-imValues table tr:nth-child(even) {
+  background: #fcfbff;
+}
+section#sect4 #sect4-imValues table td.name {
+  font-weight: bold;
+}
+section#sect4 #sect4-imValues.collapsed {
+  padding: 20px 20px 10px 40px;
+  border: 1px solid #f0f0f0;
+}
+section#sect4 #sect4-imValues.collapsed table,
+section#sect4 #sect4-imValues.collapsed p {
+  display: none;
+}
+section#sect4 #sect4-cedents {
+  padding: 20px 20px 10px 40px;
+  margin: 2px 5px;
+  border: 1px solid #f0f0f0;
+  position: relative;
+}
+section#sect4 #sect4-cedents h3 {
+  margin: 0;
+  margin-left: -25px;
+  padding: 0 0 0 25px;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB4klEQVQ4jc2TTUgUYRzGHzxF5wg6xF46uCRhh0UTlj2Uhz6hU1AEsRBIICv2QRFGp5JOfUBYaLGHwkQicw230jwYZhuRZu06us42aas5uzM77+zMzs77zr+bFK3boUM954ff4fmowV+q5v8ABCOd0X3nuung2R460N5Ne1vvUnNLFzW3dNGhtnt0+EyUjlzspfCVAWq98ZI67r+hx2Nzl9cAM/GR/q2+bRRs3IOGQAj19Y3wb9+JWn8dAoEdaGqoQ3CXH6GmWuwO+eHzbUZ0WJLWAFrqxeBQX/SOauiw7RLKrgvOOTjnII9ARAABRIDjcPT0vX8w0Ln/4S8Z5OY/to+9in1mpgnLsuE4DuxSGUJwCCHgkQeA8CSeSi8tJE/9FqK99M6WEhNH019mHWYWUbRsMGbCdR0IweEJgeSc6iamlWPK8w6jYgt6MjY1PTl+QddVMKMAkxkwWRFuuQxmljD8Wrk0339ysmqNWmbqelqaiRt6HszQkc9pcF0Ho2+zoyvS+LWKNf6s4mKCVhflE5qe+17Q8shmV5CSmZqRlePLE7e9PwIAQP3Qu1xgpbBlWbSgrNInmYXl2OlvlbzrLvHryNUh2rDpJjZuuTX7KDy4nq/qlDPPzrfJTyORap5/f6Yfov0LMDmKRNsAAAAASUVORK5CYII=") left 3px no-repeat;
+}
+section#sect4 #sect4-cedents h3.clickable {
+  cursor: pointer;
+}
+section#sect4 #sect4-cedents h3 span.counter {
+  float: right;
+  color: #808080;
+  font-style: italic;
+  font-weight: normal;
+}
+section#sect4 #sect4-cedents .simpleDetails {
+  color: #808080;
+  padding: 5px 10px;
+  display: none;
+}
+section#sect4 #sect4-cedents .simpleDetails a {
+  color: #808080;
+  text-decoration: none;
+}
+section#sect4 #sect4-cedents .simpleDetails a:hover {
+  text-decoration: underline;
+}
+section#sect4 #sect4-cedents.collapsed {
+  border: 1px solid #fff;
+  padding-top: 5px;
+  padding-bottom: 0;
+}
+section#sect4 #sect4-cedents.collapsed:hover {
+  border: 1px solid #f0f0f0;
+}
+section#sect4 #sect4-cedents.collapsed h3 {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB30lEQVR42mNkoBAwInPWHbjdsHDHrVsbO7yXkWVA7fwT/+XlxRjmrjq39Om961mPdtV+IsmA3Il7/jvbazL8/PmHYcPOG3dPX3oUfWdN6kmiDUhq2/jf3kqD4f9/EO8/w/Xbb37vOPqo7uWtI10vjk/7R9CA8OoV/20tNUF6Gf79/8fw7+9fhs9ffjDsO/V834P7j2Lvbyl+hteAwJKF/63MdYAu+M/wF6j5798/DL9//WL4/fsnw437n99cvf856ebKpM04DfArmPff1FSP4f+//xDNQI1fPn9lePf2PcPz5y8Z7j16/Z+BS3Ly/U35+VgNcM2Y8V9DU4fhz58/DN9//GL4/PkL0IBPDJ8/fWD4+P4dw7dv3/7/5xCZ9GBbRQFOAzS1DcEG/Pz5k+Hrt+9AzR8ZPn14x/D+w9tXHz//SHq8t30rTi945s76b2BgwfDr92+gbUDNX74yfPjwhuHurSs7Xz+5n/DmwooXeAPRp2jOf3NTe4bv338ANX9huPvw5s9LJ49Uvn9wccLXJ6f/E4xG39K5/20tXBjeAP18YP+Wa7dOH4/6cH3LRaITklfZnP+y8ir/t65aOPPtnctF35+e+c5AAKAYYJvfsfDKzr1r3t/YvZmQRqwGkAMAJ5ELIPTev5gAAAAASUVORK5CYII=") left 3px no-repeat;
+}
+section#sect4 #sect4-cedents.collapsed .details {
+  display: none;
+}
+section#sect4 #sect4-cedents.collapsed .simpleDetails {
+  display: block;
+}
+section#sect4 #sect4-cedents #sect4-rulesPattern {
+  font-weight: bold;
+}
+section#sect4 #sect4-cedents section.cedentsDetails table {
+  background: #fff;
+  color: #434343;
+  border-spacing: 0;
+  margin: 20px 0;
+  width: 100%;
+}
+section#sect4 #sect4-cedents section.cedentsDetails table tr:first-child th {
+  border-top: 1px solid #075783;
+}
+section#sect4 #sect4-cedents section.cedentsDetails table th {
+  padding: 5px 8px;
+  background: #075783;
+  color: #fff;
+  text-align: left;
+  border: 1px solid #075783;
+  border-left: none;
+  border-top: none;
+}
+section#sect4 #sect4-cedents section.cedentsDetails table th:first-child {
+  border: 1px solid #075783;
+}
+section#sect4 #sect4-cedents section.cedentsDetails table th.empty {
+  background: #fff;
+}
+section#sect4 #sect4-cedents section.cedentsDetails table th.empty:first-child {
+  border-left: none;
+  border-top: none;
+}
+section#sect4 #sect4-cedents section.cedentsDetails table td {
+  padding: 5px 8px;
+  text-align: left;
+  border-bottom: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
+  border-top: none;
+}
+section#sect4 #sect4-cedents section.cedentsDetails table td:first-child {
+  border-left: 1px solid #ebebeb;
+}
+section#sect4 #sect4-cedents section.cedentsDetails table tr:nth-child(even) {
+  background: #fcfbff;
+}
+section#sect4 #sect4-cedents section.cedentsDetails table .id {
+  display: none;
+}
+section#sect4 #sect4-cedents section.cedentsDetails table .id:first-child + th {
+  border-left: 1px solid #075783;
+}
+section#sect4 #sect4-cedents section.cedentsDetails table .id:first-child + td {
+  border-left: 1px solid #ebebeb;
+}
+section#sect4 #sect4-cedents.collapsed {
+  padding: 20px 20px 10px 40px;
+  border: 1px solid #f0f0f0;
+}
+section#sect4 #sect4-cedents.collapsed section.cedentsDetails,
+section#sect4 #sect4-cedents.collapsed p {
+  display: none;
+}
+section#sect4 #sect4-cedents.collapsed p#sect4-rulesPattern {
+  display: block;
 }
 section#sect5 .foundRulesCount {
   font-weight: bold;

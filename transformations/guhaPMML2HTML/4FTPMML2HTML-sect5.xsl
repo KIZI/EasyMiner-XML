@@ -449,7 +449,13 @@
 
   <xsl:template match="p:DataField" mode="sect5">
     <xsl:if test="position()>1">, </xsl:if>
-    <xsl:value-of select="@name"/>
+    <a href="#sect2-{@name}"><xsl:value-of select="@name"/></a>
+  </xsl:template>
+
+  <xsl:template match="p:DerivedField" mode="sect5">
+    <xsl:if test="position()>1">, </xsl:if>
+    <xsl:variable name="DerivedFieldName" select="p:Discretize/@field | p:MapValues/@outputColumn"/>
+    <a href="#sect3-{$DerivedFieldName}"><xsl:value-of select="$DerivedFieldName"/></a>
   </xsl:template>
 
 </xsl:stylesheet>

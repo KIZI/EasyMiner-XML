@@ -20,7 +20,6 @@
   
   <!-- POZOR NA XSL INCLUDE/IMPORT -->
   <!-- Zrejme z duvodu nejakeho bugu ve verzi PHP5 na webhosting.vse.cz nefunguje spravne xsl:include - jako base se nebere adresar ve kterem je includujici styl, ale root virtualniho web serveru -->
-  <xsl:variable name="thisFileVersion">0.4</xsl:variable>
 
   <!-- exsl umoznuje zpracovani parametru s nodeset obsahem pomoci funkce node-set(param). Neni to treba v XSLT 2.0, ale nas transformacni PHP engine XSLT 2.0 nepodporuje-->
 

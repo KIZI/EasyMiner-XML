@@ -20,30 +20,31 @@
        Document header
        =============== -->
        <!-- uses: 4FTPMML2HTML-header -->
-    <h1><xsl:copy-of select="keg:translate('Description of Data Mining Task', 10)"/><!-- „<xsl:value-of select="/p:PMML/guha:AssociationModel/@modelName | /p:PMML/guha:SD4ftModel/@modelName | /p:PMML/guha:Ac4ftModel/@modelName | /p:PMML/guha:CFMinerModel/@modelName"/>“--></h1>
-    <p>
-      <xsl:choose>
-        <xsl:when test="/p:PMML/guha:SD4ftModel">
-          <xsl:copy-of select="keg:translate('This document contains automatically generated report on a data mining task.',930)"/>
-        </xsl:when>
-        <xsl:when test="/p:PMML/guha:Ac4ftModel">
-          <xsl:copy-of select="keg:translate('This document contains automatically generated report on a data mining task.',850)"/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:copy-of select="keg:translate('This document contains automatically generated report on a data mining task.',20)"/>
-        </xsl:otherwise>
-      </xsl:choose>
-    </p>
-    <p><xsl:copy-of select="keg:translate('The report contains firstly describes the data, then provides information about the created attributes, that is how the data was discretized. Afterwards the document provides the task setting and finally the patterns (association rules) found.',640)"/></p>
+    <header>
+      <xsl:if test="not($contentOnly)">
+        <h1><xsl:copy-of select="keg:translate('Description of Data Mining Task', 10)"/><!-- „<xsl:value-of select="/p:PMML/guha:AssociationModel/@modelName | /p:PMML/guha:SD4ftModel/@modelName | /p:PMML/guha:Ac4ftModel/@modelName | /p:PMML/guha:CFMinerModel/@modelName"/>“--></h1>
+      </xsl:if>
 
-    <!-- task metadata -->
-    <section id="meta"><!--TODO přesun do patičky-->
-      <xsl:call-template name="keg:ContentBlock" >
-        <xsl:with-param name="contentBlockName">TaskMetadata</xsl:with-param>
-        <xsl:with-param name="element" />
-      </xsl:call-template>
-      <xsl:apply-templates select="p:Header"/>
-    </section>
+      <p>
+        <!-- task metadata -->
+        <section id="meta">
+          <xsl:apply-templates select="p:Header"/>
+        </section>
+      </p>
+      <p>
+        <xsl:choose>
+          <xsl:when test="/p:PMML/guha:SD4ftModel">
+            <xsl:copy-of select="keg:translate('This document contains automatically generated report on a data mining task.',930)"/>
+          </xsl:when>
+          <xsl:when test="/p:PMML/guha:Ac4ftModel">
+            <xsl:copy-of select="keg:translate('This document contains automatically generated report on a data mining task.',850)"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:copy-of select="keg:translate('This document contains automatically generated report on a data mining task.',20)"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </p>
+    </header>
 
   <!-- =================
        Table of contents
@@ -128,7 +129,7 @@
         </li>
         <li>
           <xsl:copy-of select="keg:translate('Frequency analysis – histogram of the intervals or enumerations of the attribute. The histograms are ordered by the highest frequent values. If the attribute contains more categories than ',690)"/>
-          45<xsl:copy-of select="keg:translate(', the remaining categories are grouped into the “Other” column in the histogram.',700)"/>
+          <xsl:value-of select="$maxCategoriesToList" /><xsl:copy-of select="keg:translate(', the remaining categories are grouped into the “Other” column in the histogram.',700)"/>
         </li>
       </ul>
 
@@ -233,7 +234,7 @@
           <p><xsl:copy-of select="keg:translate('Below, all the discovered patterns (association rules) are listed. Each association rule contains name, values of the interest measure (quantifier) and a four-fold contingency table. The following paragraph complies with the PMML standard and shows, which attributes occur in the discovered association rules. Also, number of discovered rules is stated.',790)"/></p>
         </xsl:otherwise>
       </xsl:choose>
-      <p><xsl:copy-of select="keg:translate('Discovered rules relate to the following attributes',110)"/>: <xsl:apply-templates select="p:DataDictionary/p:DataField" mode="sect5" />.</p>
+      <p><xsl:copy-of select="keg:translate('Discovered rules relate to the following attributes',110)"/>: <xsl:apply-templates select="p:TransformationDictionary/p:DerivedField" mode="sect5" />.</p>
 
       <p class="foundRulesCount">
         <xsl:call-template name="keg:ContentBlock" >

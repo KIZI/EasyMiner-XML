@@ -16,6 +16,8 @@ var prepareCollapsableSections = function(){
   $('section#sect5 section.foundRule').addClass('collapsed');
   prepareAttributesCollapsableDetails();
   $('section#sect3 section.attribute').addClass('collapsed');
+  prepareCedentsCollapsableDetails();
+  $('section#sect4 section#sect4-cedents').addClass('collapsed');
   prepareDataFieldsCollapsableDetails();
   $('section#sect2 section.dataField').addClass('collapsed');
 
@@ -64,6 +66,30 @@ var prepareAttributesCollapsableDetails = function(){
   //endregion odkazy pro hromadné (roz)balení všech detailů
 };
 
+
+/**
+ * Funkce pro přípravu detailů o zadání pravidla
+ */
+var prepareCedentsCollapsableDetails = function(){
+  $('section#sect4 section#sect4-imValues').each(function(){
+    var h3 = $(this).find('h3');
+    var detailsStr="";
+    //příprava jednoduchých detailů nalezeného pravidla, které se zobrazí, pokud je daná sekce sbalená
+    $(this).find("td.name").each(function(){
+      var str=$(this).text();
+      if (str!=""){
+        if (detailsStr!=""){
+          detailsStr+=", ";
+        }
+        detailsStr+=str.trim();
+      }
+    });
+
+    h3.after('<div class="simpleDetails">'+detailsStr+'</div>');
+  });
+
+};
+
 /**
  * Funkce pro přípravu detailů o vytvořených atributech
  */
@@ -90,6 +116,7 @@ var prepareDataFieldsCollapsableDetails = function(){
   });
 
 };
+
 
 /**
  * Funkce pro přípravu detailů o nalezených pravidlech
@@ -158,11 +185,11 @@ var prepareFourFtTables = function () {
 };
 
 var prepareGraphTables = function(){
+  //TODO add check for canvas support
   $('table.graphTable').each(function(){
     generateTdGraphsForGraphTable($(this));
     generateGraphForGraphTable($(this).attr('id'));
   });
-  //TODO zvážit, jestli to negenerovat zvlášť po kliknutí na odkaz...
 };
 
 var generateTdGraphsForGraphTable = function(table){
@@ -208,7 +235,7 @@ var generateGraphForGraphTable = function(id){
     datasets: [
       {
         label: "label",
-        backgroundColor: "rgba(220,220,220,0.5)",
+        backgroundColor: "rgba(220,220,255,1)",
         data: dataArr
       }
     ]
