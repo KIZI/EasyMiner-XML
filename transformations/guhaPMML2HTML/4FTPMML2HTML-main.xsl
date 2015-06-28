@@ -6,16 +6,25 @@
   extension-element-prefixes="func exsl date"
   exclude-result-prefixes="p xsi keg guha">
 
-  <xsl:template match="/p:PMML" mode="body">
-  <!-- TODO -->  
+  <xsl:template name="resources">
+    <xsl:param name="loadJquery" select="true()" />
     <style>
-      @import url('index.css');
-      @import url('page.css');
+      @import url('<xsl:value-of select="$basePath"/>/css/main.css');
+      <xsl:if test="not($contentOnly)">
+        @import url('<xsl:value-of select="$basePath"/>/css/page.css');
+      </xsl:if>
     </style>
-    <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="main.js"></script>
-    <script type="text/javascript" src="page.js"></script>
-    <script type="text/javascript" src="Chart.js-2.0-alpha/Chart.js-2.0-alpha/Chart.js"></script>
+    <xsl:if test="not($loadJquery)">
+      <script type="text/javascript" src="{$basePath}/js/jquery-1.11.3.min.js"></script>
+    </xsl:if>
+    <xsl:if test="not($contentOnly)">
+      <script type="text/javascript" src="{$basePath}/js/page.js"></script>
+    </xsl:if>
+    <script type="text/javascript" src="{$basePath}/js/main.js"></script>
+    <script type="text/javascript" src="{$basePath}/chart.js/Chart.js"></script>
+  </xsl:template>
+
+  <xsl:template match="/p:PMML" mode="body">
   <!-- ===============
        Document header
        =============== -->
@@ -25,12 +34,11 @@
         <h1><xsl:copy-of select="keg:translate('Description of Data Mining Task', 10)"/><!-- „<xsl:value-of select="/p:PMML/guha:AssociationModel/@modelName | /p:PMML/guha:SD4ftModel/@modelName | /p:PMML/guha:Ac4ftModel/@modelName | /p:PMML/guha:CFMinerModel/@modelName"/>“--></h1>
       </xsl:if>
 
-      <p>
-        <!-- task metadata -->
-        <section id="meta">
-          <xsl:apply-templates select="p:Header"/>
-        </section>
-      </p>
+      <!-- task metadata -->
+      <section id="meta">
+        <xsl:apply-templates select="p:Header"/>
+      </section>
+
       <p>
         <xsl:choose>
           <xsl:when test="/p:PMML/guha:SD4ftModel">

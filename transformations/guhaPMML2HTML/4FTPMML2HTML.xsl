@@ -15,9 +15,7 @@
   <xsl:import href="4FTPMML2HTML-sect3.xsl" /><!-- Created attributes -->
   <xsl:import href="4FTPMML2HTML-sect4.xsl" /><!-- Data Mining Task Setting -->
   <xsl:import href="4FTPMML2HTML-sect5.xsl" /><!-- Discovered ARs -->
-  
-  
-  
+
   <!-- POZOR NA XSL INCLUDE/IMPORT -->
   <!-- Zrejme z duvodu nejakeho bugu ve verzi PHP5 na webhosting.vse.cz nefunguje spravne xsl:include - jako base se nebere adresar ve kterem je includujici styl, ale root virtualniho web serveru -->
 
@@ -42,7 +40,9 @@
    V pripade, ze je atribut nastaven, vygeneruje se jen obsah elementu body pro pouziti ve slozitejsich dokumentech.
    Pravidla jsou vypisovana na zaklade jejich poradi v PMML souboru
   -->
-  <xsl:param name="contentOnly" select="0"/>
+  <xsl:param name="contentOnly" select="false()"/>
+  <xsl:param name="basePath" select="'.'"/>
+  <xsl:param name="loadJquery" select="true()"/>
   <!-- Parametry pro nastaveni znaku nebo retezce znaku reprezentujiciho logicke operatory -->
   <!-- vychozi nastaveni:
   NOT   = '&#x00AC;'
@@ -78,13 +78,14 @@
   <!--<xsl:template match="/p:PMML">-->
     <xsl:choose>
       <xsl:when test="$contentOnly">
+        <xsl:call-template name="resources" />
         <xsl:apply-templates select="/p:PMML" mode="body"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
         <html>
           <head>
-            <!--TODO připojení stylů a skriptů-->
+            <xsl:call-template name="resources" />
             <title><xsl:value-of select="/p:PMML/guha:AssociationModel/@modelName | /p:PMML/guha:SD4ftModel/@modelName | /p:PMML/guha:Ac4ftModel/@modelName | /p:PMML/guha:CFMinerModel/@modelName"/> - <xsl:copy-of select="keg:translate('Description of Data Mining Task',10)"/></title>
           </head>
           <body>
