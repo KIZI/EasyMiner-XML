@@ -226,7 +226,7 @@ var generateTdGraphsForGraphTable = function(table){
 var generateGraphForGraphTable = function(id){
   var table = $('#'+id);
   table.after('<canvas id="'+id+'-graph"></canvas>');
-
+console.log(id+'-graph');
   var labelsArr = [];
   var dataArr = [];
 

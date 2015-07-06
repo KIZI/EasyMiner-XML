@@ -71,7 +71,7 @@
         <xsl:variable name="nullPresent" select="count(p:Value[@value=$NullName])"/>
         <xsl:choose>
           <xsl:when test="p:Value">
-            <table class="graphTable">
+            <table class="graphTable" id="sect2-graphTable-{@name}">
               <tr>
                 <th>
                   <xsl:copy-of select="keg:translate('Value',252)"/>

@@ -84,14 +84,18 @@
     <!--<xsl:template match="/p:PMML">-->
     <xsl:choose>
       <xsl:when test="$contentOnly">
-        <xsl:call-template name="resources"/>
+        <xsl:call-template name="resources">
+          <xsl:with-param name="loadJquery" select="$loadJquery"/>
+        </xsl:call-template>
         <xsl:apply-templates select="/p:PMML" mode="body"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
         <html>
           <head>
-            <xsl:call-template name="resources"/>
+            <xsl:call-template name="resources">
+              <xsl:with-param name="loadJquery" select="$loadJquery"/>
+            </xsl:call-template>
             <title>
               <xsl:value-of
                   select="/p:PMML/guha:AssociationModel/@modelName | /p:PMML/guha:SD4ftModel/@modelName | /p:PMML/guha:Ac4ftModel/@modelName | /p:PMML/guha:CFMinerModel/@modelName"/>

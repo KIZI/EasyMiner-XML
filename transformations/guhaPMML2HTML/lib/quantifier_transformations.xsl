@@ -9,7 +9,7 @@
   <!-- Obsahuje slovnik mer zajimavosti - nazvy pouzite v ruznych systemech Ferda, LISp-Miner a mapuje je na jeden spolecny nazev pomoci obsazene funkce -->
   <!-- TODO??? Z duvodu vyuziti funkce keg:translateInterestMeasure i v jinem stylu je tato funkce umistena v  InterestMeasureDictionary.xsl a ne zde-->
   <xsl:variable name="InterestMeasureDictionary"
-                select="document('pmml/dict/GUHAQuantifier-InterestMeasureDictionary.xml')"/>
+                select="document('../dict/GUHAQuantifier-InterestMeasureDictionary.xml')"/>
 
   <xsl:param name="roundTo" select="1000"/>
   <xsl:variable name="basePresent" select="
