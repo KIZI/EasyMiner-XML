@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
-  xmlns:p="http://www.dmg.org/PMML-4_0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:exsl="http://exslt.org/common" xmlns:func="http://exslt.org/functions" xmlns:keg="http://keg.vse.cz" xmlns:guha="http://keg.vse.cz/ns/GUHA0.1rev1"
-  extension-element-prefixes="func exsl"
-  exclude-result-prefixes="p xsi keg guha">
+                xmlns:p="http://www.dmg.org/PMML-4_0"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:exsl="http://exslt.org/common"
+                xmlns:func="http://exslt.org/functions" xmlns:keg="http://keg.vse.cz"
+                xmlns:guha="http://keg.vse.cz/ns/GUHA0.1rev1"
+                extension-element-prefixes="func exsl"
+                exclude-result-prefixes="p xsi keg guha">
 
   <!-- MASTER COPY OF THIS TEMPLATE IS LOCATED AT https://github.com/KIZI/EasyMiner-XML -->
 
-  <xsl:import href="lib/quantifier_transformations.xsl" />
-  
-  <xsl:import href="4FTPMML2HTML-main.xsl" />
-  <xsl:import href="4FTPMML2HTML-header.xsl" />
-  <xsl:import href="4FTPMML2HTML-toc.xsl" />
-  <xsl:import href="4FTPMML2HTML-sect2.xsl" /><!-- Data description   -->
-  <xsl:import href="4FTPMML2HTML-sect3.xsl" /><!-- Created attributes -->
-  <xsl:import href="4FTPMML2HTML-sect4.xsl" /><!-- Data Mining Task Setting -->
-  <xsl:import href="4FTPMML2HTML-sect5.xsl" /><!-- Discovered ARs -->
+  <xsl:import href="lib/quantifier_transformations.xsl"/>
+
+  <xsl:import href="4FTPMML2HTML-main.xsl"/>
+  <xsl:import href="4FTPMML2HTML-header.xsl"/>
+  <xsl:import href="4FTPMML2HTML-toc.xsl"/>
+  <xsl:import href="4FTPMML2HTML-sect2.xsl"/>
+  <!-- Data description   -->
+  <xsl:import href="4FTPMML2HTML-sect3.xsl"/>
+  <!-- Created attributes -->
+  <xsl:import href="4FTPMML2HTML-sect4.xsl"/>
+  <!-- Data Mining Task Setting -->
+  <xsl:import href="4FTPMML2HTML-sect5.xsl"/>
+  <!-- Discovered ARs -->
 
   <!-- POZOR NA XSL INCLUDE/IMPORT -->
   <!-- Zrejme z duvodu nejakeho bugu ve verzi PHP5 na webhosting.vse.cz nefunguje spravne xsl:include - jako base se nebere adresar ve kterem je includujici styl, ale root virtualniho web serveru -->
@@ -54,7 +60,8 @@
   -->
   <xsl:param name="NullName" select="'Null'"/>
   <xsl:param name="notOperator" select="' &#x00AC;'"/>
-  <xsl:param name="andOperator" select="' &amp; '"/> <!-- &#x02227; -->
+  <xsl:param name="andOperator" select="' &amp; '"/>
+  <!-- &#x02227; -->
   <xsl:param name="orOperator" select="' &#x02228; '"/>
   <xsl:param name="implyOperator" select="' &#8594; '"/>
   <xsl:param name="notAvailable" select="'NA'"/>
@@ -70,33 +77,38 @@
   <xsl:include href="lib/gincludesupport-lib.xsl"/>
   <xsl:include href="lib/localization-lib.xsl"/>
 
-<!-- ===========================================
-     Transformation root - everyting begins here
-     =========================================== -->
+  <!-- ===========================================
+       Transformation root - everyting begins here
+       =========================================== -->
   <xsl:template match="/">
-  <!--<xsl:template match="/p:PMML">-->
+    <!--<xsl:template match="/p:PMML">-->
     <xsl:choose>
       <xsl:when test="$contentOnly">
-        <xsl:call-template name="resources" />
+        <xsl:call-template name="resources"/>
         <xsl:apply-templates select="/p:PMML" mode="body"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
         <html>
           <head>
-            <xsl:call-template name="resources" />
-            <title><xsl:value-of select="/p:PMML/guha:AssociationModel/@modelName | /p:PMML/guha:SD4ftModel/@modelName | /p:PMML/guha:Ac4ftModel/@modelName | /p:PMML/guha:CFMinerModel/@modelName"/> - <xsl:copy-of select="keg:translate('Description of Data Mining Task',10)"/></title>
+            <xsl:call-template name="resources"/>
+            <title>
+              <xsl:value-of
+                  select="/p:PMML/guha:AssociationModel/@modelName | /p:PMML/guha:SD4ftModel/@modelName | /p:PMML/guha:Ac4ftModel/@modelName | /p:PMML/guha:CFMinerModel/@modelName"/>
+              -
+              <xsl:copy-of select="keg:translate('Description of Data Mining Task',10)"/>
+            </title>
           </head>
           <body>
             <!-- uses: 4FTPMML2HTML-main -->
             <xsl:apply-templates select="/p:PMML" mode="body"/>
           </body>
         </html>
-    </xsl:otherwise>
-  </xsl:choose>
-</xsl:template>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
 
-<!-- Tomas Kliegr, 2009, klit01@vse.cz -->
-<!-- Vojtech Jirkovsky, 2008, 2010, jirkovoj@fit.cvut.cz -->
-<!-- Stanislav Vojir, 2015, stanislav.vojir@vse.cz -->
+  <!-- Tomas Kliegr, 2009, klit01@vse.cz -->
+  <!-- Vojtech Jirkovsky, 2008, 2010, jirkovoj@fit.cvut.cz -->
+  <!-- Stanislav Vojir, 2015, stanislav.vojir@vse.cz -->
 </xsl:stylesheet>
