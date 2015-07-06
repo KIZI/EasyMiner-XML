@@ -610,7 +610,7 @@
         <xsl:text>Dataset Description</xsl:text>
       </h2>
       <p>
-        <xsl:text>This section contains detailed description of the data.  Below, all the columns used in the analysis are listed and for each column, the frequency analysis is attached.</xsl:text>
+        <xsl:text>This section contains detailed description of the original data set. Below, all the columns used in the analysis are listed and for each column, the frequency analysis is attached. These data columns has been used for derivation of </xsl:text><a href="#sect3"><xsl:text>attributes used in this data mining task</xsl:text></a>.
       </p>
 
       <div class="section list">
@@ -953,12 +953,12 @@
 
   <xsl:template match="p:Interval" mode="sect2">
     <xsl:choose>
-      <xsl:when test="@closure='closedOpen' or @closure='closedClosed'">&lt;</xsl:when>
+      <xsl:when test="@closure='closedOpen' or @closure='closedClosed'">[</xsl:when>
       <xsl:otherwise>(</xsl:otherwise>
     </xsl:choose>
     <xsl:value-of select="@leftMargin"/>;<xsl:value-of select="@rightMargin"/>
     <xsl:choose>
-      <xsl:when test="@closure='closedClosed' or @closure='openClosed'">&gt;</xsl:when>
+      <xsl:when test="@closure='closedClosed' or @closure='openClosed'">]</xsl:when>
       <xsl:otherwise>)</xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -1223,12 +1223,12 @@
                 <xsl:otherwise>
                   <xsl:choose>
                     <xsl:when test="@closure = 'openClosed' or @closure = 'openOpen'">(</xsl:when>
-                    <xsl:otherwise>&lt;</xsl:otherwise>
+                    <xsl:otherwise>[</xsl:otherwise>
                   </xsl:choose>
                   <xsl:value-of select="@leftMargin"/>;<xsl:value-of select="@rightMargin"/>
                   <xsl:choose>
                     <xsl:when test="@closure = 'closedClosed' or @closure = 'closedOpen'">)</xsl:when>
-                    <xsl:otherwise>&gt;</xsl:otherwise>
+                    <xsl:otherwise>]</xsl:otherwise>
                   </xsl:choose>
                 </xsl:otherwise>
               </xsl:choose>
