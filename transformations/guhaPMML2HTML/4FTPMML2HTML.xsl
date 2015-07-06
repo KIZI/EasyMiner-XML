@@ -5,8 +5,9 @@
   extension-element-prefixes="func exsl"
   exclude-result-prefixes="p xsi keg guha">
 
-  <xsl:import href="graph.xsl" />
-  <xsl:import href="quantifier_transformations.xsl" />
+  <!-- MASTER COPY OF THIS TEMPLATE IS LOCATED AT https://github.com/KIZI/EasyMiner-XML -->
+
+  <xsl:import href="lib/quantifier_transformations.xsl" />
   
   <xsl:import href="4FTPMML2HTML-main.xsl" />
   <xsl:import href="4FTPMML2HTML-header.xsl" />
@@ -60,17 +61,14 @@
   <xsl:param name="reportLang" select="'cs'"/>
   <!-- Polozky Support a Confidence jsou systemove, pouzivaji se pro preklad nazvu povinnych PMML atributu -->
 
-  <!-- MASTER COPY OF INCLUDED TEMPLATES IS LOCATED AT
-      sewebar-cms/Specifications/XSLLibraries/
-  -->
-
   <!-- Obsahuje slovnik pojmu generovanych xslt transformaci v ruznych jazycich-->
-  <xsl:variable name="LocalizationDictionary" select="document('pmml/dict/PMMLDictionary.xml')"/>
+  <xsl:variable name="LocalizationDictionary" select="document('dict/LocalizationDictionary.xml')"/>
 
   <!-- Obsahuje lokalizaci znacek vkladanych pro gInclude (nadpisy pro fragmenty dokumentu)-->
-  <xsl:variable name="ContentTagsDictionary" select="document('pmml/dict/PMMLContentTagsDictionary.xml')"/>
+  <xsl:variable name="ContentTagsDictionary" select="document('dict/PMMLContentTagsDictionary.xml')"/>
 
-  <xsl:include href="includes.xsl"/>
+  <xsl:include href="lib/gincludesupport-lib.xsl"/>
+  <xsl:include href="lib/localization-lib.xsl"/>
 
 <!-- ===========================================
      Transformation root - everyting begins here

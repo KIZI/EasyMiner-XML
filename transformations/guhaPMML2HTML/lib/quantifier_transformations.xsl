@@ -94,9 +94,11 @@
         </xsl:when>
         <xsl:otherwise>
           <span title="{$quantifierName}">
-            <xsl:copy-of select="' '"/>
+            <xsl:text> </xsl:text>
+            <!--<xsl:copy-of select="' '"/>-->
             <xsl:copy-of select="$Symbol"/>
-            <xsl:copy-of select="' '"/>
+            <xsl:text> </xsl:text>
+            <!--<xsl:copy-of select="' '"/>-->
             <xsl:if test="not($Symbol)">?</xsl:if>
           </span>
           <xsl:if test="last() > position() and ($numberOfQuantifiers - $basePresent) > 1">

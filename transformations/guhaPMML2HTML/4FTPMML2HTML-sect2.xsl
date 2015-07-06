@@ -57,7 +57,6 @@
 
           <!-- frequency table is shown only if any frequence exists -->
           <xsl:variable name="nullPresent" select="count(p:Value[@value=$NullName])"/>
-          <!-- TODO Standa předělat výpis hodnot... -->
           <xsl:choose>
             <xsl:when test="p:Value">
               <table class="graphTable">

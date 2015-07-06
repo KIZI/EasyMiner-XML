@@ -120,7 +120,6 @@
         <xsl:with-param name="element" />
       </xsl:call-template>
 
-      <!--TODO úprava úvodního textu -->
       <h2><xsl:copy-of select="keg:translate('Created Attributes',40)"/></h2>
       <p>
         <xsl:copy-of select="keg:translate('Attribute (in the sense of this analysis) is a mapping of a domain to finite set...',80)"/>

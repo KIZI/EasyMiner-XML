@@ -96,7 +96,6 @@
           <xsl:with-param name="contentBlockName">BasicBooleanAttributes</xsl:with-param>
           <xsl:with-param name="element" />
         </xsl:call-template>
-        <!--TODO-->
         <h4><xsl:copy-of select="keg:translate('Detailed list of basic Boolean attributes',470)"/></h4>
         <table>
           <tr>

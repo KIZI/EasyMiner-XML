@@ -172,6 +172,10 @@
         <str lang="en">No detail given for this column</str>
         <str lang="cs">Pro tento sloupec nejsou data</str>
     </Entry>
+  <Entry id="255">
+    <str lang="en">Source mode</str>
+    <str lang="cs">Source mode</str><!--TODO localize-->
+  </Entry>
     <Entry id="260">
         <str lang="en">Number of different values</str>
         <str lang="cs">Počet různých hodnot</str>
@@ -260,6 +264,39 @@
         <str lang="en">Table of values for test criteria</str>
         <str lang="cs">Tabulka hodnot testových kritérií</str>
     </Entry>
+
+  <Entry id="422">
+    <str lang="en">First set four field quantifier</str>
+    <str lang="cs">First set four field quantifier</str><!--TODO localize-->
+  </Entry>
+  <Entry id="423">
+    <str lang="en">First set four field contingency table</str>
+    <str lang="cs">First set four field contingency table</str><!--TODO localize-->
+  </Entry>
+  <Entry id="424">
+    <str lang="en">Second set four field quantifier</str>
+    <str lang="cs">Second set four field quantifier</str><!--TODO localize-->
+  </Entry>
+  <Entry id="425">
+    <str lang="en">Second set four field contingency table</str>
+    <str lang="cs">Second set four field contingency table</str><!--TODO localize-->
+  </Entry>
+  <Entry id="426">
+    <str lang="en">State before four field quantifier</str>
+    <str lang="cs">State before four field quantifier</str><!--TODO localize-->
+  </Entry>
+  <Entry id="427">
+    <str lang="en">State before four field contingency table</str>
+    <str lang="cs">State before four field contingency table</str><!--TODO localize-->
+  </Entry>
+  <Entry id="428">
+    <str lang="en">State after four field quantifier</str>
+    <str lang="cs">State after four field quantifier</str><!--TODO localize-->
+  </Entry>
+  <Entry id="429">
+    <str lang="en">State after four field contingency table</str>
+    <str lang="cs">State after four field contingency table</str><!--TODO localize-->
+  </Entry>
 
     <Entry id="430">
         <str lang="en">Minimum value</str>

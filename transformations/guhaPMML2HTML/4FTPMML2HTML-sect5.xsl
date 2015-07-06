@@ -15,7 +15,7 @@
     </xsl:variable>
     <xsl:variable name="rulePos" select="position()"/>
 
-    <xsl:variable name="ruleClass"><!--TODO Standa třída pro označování zajímavých pravidel-->
+    <xsl:variable name="ruleClass">
         <xsl:choose>
             <xsl:when test="./Extension[@name='mark']/@value='interesting'">selectedRule</xsl:when>
             <xsl:otherwise>otherRule</xsl:otherwise>
@@ -58,17 +58,17 @@
       </xsl:if>
 
       <!-- 4FT table for SD4ftRule / SD4ftMiner -->
-      <xsl:if test="local-name()='SD4ftRule'"><!--TODO check...-->
+      <xsl:if test="local-name()='SD4ftRule'"><!--TODO repair...-->
         <!-- 4FT: four field table --> <!-- TODO zabalení do DIV.fourFtTable-->
         <table style="margin: 0 auto;">
           <tbody>
             <tr>
               <td>
-                First set four field quantifier
+                <xsl:copy-of select="keg:translate('First set four field quantifier',422)"/>
                 <xsl:apply-templates select="FirstSet" mode="sect5-qtable">
                   <xsl:with-param name="rulePos" select="$rulePos"/>
                 </xsl:apply-templates>
-                First set four field contingency table
+                <xsl:copy-of select="keg:translate('First set four field contingency table',423)"/>
                 <xsl:call-template name="FourFieldTable">
                   <xsl:with-param name="a" select="FirstSet/FourFtTable/@a"/>
                   <xsl:with-param name="b" select="FirstSet/FourFtTable/@b"/>
@@ -78,11 +78,11 @@
                 </xsl:call-template>
               </td>
               <td>
-                Second set four field quantifier
+                <xsl:copy-of select="keg:translate('Second set four field quantifier',424)"/>
                 <xsl:apply-templates select="SecondSet" mode="sect5-qtable">
                   <xsl:with-param name="rulePos" select="$rulePos"/>
                 </xsl:apply-templates>
-                Second set four field contingency table
+                <xsl:copy-of select="keg:translate('Second set four field contingency table',425)"/>
                 <xsl:call-template name="FourFieldTable">
                   <xsl:with-param name="a" select="SecondSet/FourFtTable/@a"/>
                   <xsl:with-param name="b" select="SecondSet/FourFtTable/@b"/>
@@ -96,17 +96,17 @@
         </table>
       </xsl:if>
       <!-- 4FT table for Ac4ftRule / SD4ftMiner, Ac4ftMiner -->
-      <xsl:if test="local-name()='Ac4ftRule'"><!--TODO check...-->
+      <xsl:if test="local-name()='Ac4ftRule'"><!--TODO repair...-->
         <!-- 4FT: four field table -->
         <table style="margin: 0 auto;">
           <tbody>
             <tr>
               <td>
-                State before four field quantifier
+                <xsl:copy-of select="keg:translate('State before four field quantifier',426)"/>
                 <xsl:apply-templates select="StateBefore" mode="sect5-qtable">
                   <xsl:with-param name="rulePos" select="$rulePos"/>
                 </xsl:apply-templates>
-                State before four field contingency table
+                <xsl:copy-of select="keg:translate('State before four field contingency table',427)"/>
                 <xsl:call-template name="FourFieldTable">
                   <xsl:with-param name="a" select="StateBefore/FourFtTable/@a"/>
                   <xsl:with-param name="b" select="StateBefore/FourFtTable/@b"/>
@@ -116,11 +116,11 @@
                 </xsl:call-template>
               </td>
               <td>
-                State after four field quantifier
+                <xsl:copy-of select="keg:translate('State after four field quantifier',428)"/>
                 <xsl:apply-templates select="StateAfter" mode="sect5-qtable">
                   <xsl:with-param name="rulePos" select="$rulePos"/>
                 </xsl:apply-templates>
-                State after four field contingency table
+                <xsl:copy-of select="keg:translate('State after four field contingency table',429)"/>
                 <xsl:call-template name="FourFieldTable">
                   <xsl:with-param name="a" select="StateAfter/FourFtTable/@a"/>
                   <xsl:with-param name="b" select="StateAfter/FourFtTable/@b"/>
@@ -134,37 +134,18 @@
         </table>
       </xsl:if>
       <!-- attributes table and graph for CFMiner -->
-      <xsl:if test="local-name()='CFMinerRule'"><!--TODO check...-->
+      <xsl:if test="local-name()='CFMinerRule'"><!--TODO repair...-->
         <!-- attributes table -->
         <table class="itable" id="sect5-rule{$rulePos}-freqtab">
           <tr>
-            <th>Kategorie</th>
-            <th>Frekvence</th>
+            <th><xsl:copy-of select="keg:translate('Category',380)"/></th>
+            <th><xsl:copy-of select="keg:translate('Frequency',253)"/></th>
           </tr>
           <xsl:apply-templates select="Frequencies/Frequency" />
         </table>
         <!-- graph -->
         <xsl:variable name="histId" select="$rulePos + 1000"/>
         <xsl:variable name="numOfCategories" select="count(Frequencies/Frequency)"/>
-        <div class="graphUI noprint">
-          <label for="cbg{$histId}">Graph:
-          <input id="cbg{$histId}" type="checkbox" onclick="ShowChecked(this,'hist{$histId}')" checked="checked"/>
-          </label>
-          <label for="cbo{$histId}"><xsl:value-of select="$otherCategoryName"/>:
-          <input id="cbo{$histId}" type="checkbox" onclick="GraphUrlOther(this,'{$histId}','{$otherCategoryName}')" checked="checked"/>
-          </label>
-          <label for="from{$histId}">From:
-          <input type="button" onclick="GraphUrlFrom('{$histId}',-1,{$numOfCategories})" value="-"/>
-          <input id="from{$histId}" type="text" onblur="GraphUrlFrom('{$histId}',0,{$numOfCategories})" value="0"/>
-          <input type="button" onclick="GraphUrlFrom('{$histId}',+1,{$numOfCategories})" value="+"/>
-          </label>
-          <label for="num{$histId}">Columns:
-          <input id="num{$histId}" type="text" onblur="GraphUrlNum('{$histId}')" value="{$maxCategoriesToListInGraphs}"/>
-          </label>
-        </div>
-        <div id="hist{$histId}">
-          <xsl:call-template name="drawHistogram"/>
-        </div>
       </xsl:if>
       </div>
     </section>
@@ -193,7 +174,7 @@
           <th><xsl:copy-of select="keg:translate('Interest Measure',590)"/></th>
           <th><xsl:copy-of select="keg:translate('Value',252)"/></th>
           <xsl:if test="IMValue[@sourceMode]">
-            <th>Source mode</th>
+            <th><xsl:copy-of select="keg:translate('Source mode',255)"/></th>
           </xsl:if>
         </tr>
 
@@ -274,7 +255,6 @@
   RULE BODY
   -->
   <xsl:template match="AssociationRule" mode="ruleBody">
-    <!--TODO Standa složení rule body pro výpis, kde nejsou popsané jednotlivé cedenty!-->
     <xsl:choose>
       <xsl:when test="@antecedent">
         <xsl:apply-templates select="../DBA[@id=current()/@antecedent] | ../DBA[@id=current()/@antecedent]">
