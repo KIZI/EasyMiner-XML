@@ -1,0 +1,1196 @@
+/*region mixins*/
+td.bg0p {
+  background: transparent !important;
+  background: rgba(180,232,215,0) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 0%, transparent 0%, transparent 100%) !important;
+}
+td.bg1p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.01) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 1%, transparent 1%, transparent 100%) !important;
+}
+td.bg2p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.02) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 2%, transparent 2%, transparent 100%) !important;
+}
+td.bg3p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.03) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 3%, transparent 3%, transparent 100%) !important;
+}
+td.bg4p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.04) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 4%, transparent 4%, transparent 100%) !important;
+}
+td.bg5p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.05) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 5%, transparent 5%, transparent 100%) !important;
+}
+td.bg6p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.06) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 6%, transparent 6%, transparent 100%) !important;
+}
+td.bg7p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.07) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 7%, transparent 7%, transparent 100%) !important;
+}
+td.bg8p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.08) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 8%, transparent 8%, transparent 100%) !important;
+}
+td.bg9p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.09) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 9%, transparent 9%, transparent 100%) !important;
+}
+td.bg10p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.1) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 10%, transparent 10%, transparent 100%) !important;
+}
+td.bg11p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.11) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 11%, transparent 11%, transparent 100%) !important;
+}
+td.bg12p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.12) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 12%, transparent 12%, transparent 100%) !important;
+}
+td.bg13p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.13) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 13%, transparent 13%, transparent 100%) !important;
+}
+td.bg14p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.14) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 14%, transparent 14%, transparent 100%) !important;
+}
+td.bg15p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.15) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 15%, transparent 15%, transparent 100%) !important;
+}
+td.bg16p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.16) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 16%, transparent 16%, transparent 100%) !important;
+}
+td.bg17p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.17) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 17%, transparent 17%, transparent 100%) !important;
+}
+td.bg18p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.18) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 18%, transparent 18%, transparent 100%) !important;
+}
+td.bg19p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.19) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 19%, transparent 19%, transparent 100%) !important;
+}
+td.bg20p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.2) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 20%, transparent 20%, transparent 100%) !important;
+}
+td.bg21p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.21) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 21%, transparent 21%, transparent 100%) !important;
+}
+td.bg22p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.22) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 22%, transparent 22%, transparent 100%) !important;
+}
+td.bg23p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.23) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 23%, transparent 23%, transparent 100%) !important;
+}
+td.bg24p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.24) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 24%, transparent 24%, transparent 100%) !important;
+}
+td.bg25p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.25) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 25%, transparent 25%, transparent 100%) !important;
+}
+td.bg26p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.26) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 26%, transparent 26%, transparent 100%) !important;
+}
+td.bg27p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.27) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 27%, transparent 27%, transparent 100%) !important;
+}
+td.bg28p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.28) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 28%, transparent 28%, transparent 100%) !important;
+}
+td.bg29p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.29) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 29%, transparent 29%, transparent 100%) !important;
+}
+td.bg30p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.3) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 30%, transparent 30%, transparent 100%) !important;
+}
+td.bg31p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.31) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 31%, transparent 31%, transparent 100%) !important;
+}
+td.bg32p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.32) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 32%, transparent 32%, transparent 100%) !important;
+}
+td.bg33p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.33) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 33%, transparent 33%, transparent 100%) !important;
+}
+td.bg34p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.34) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 34%, transparent 34%, transparent 100%) !important;
+}
+td.bg35p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.35) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 35%, transparent 35%, transparent 100%) !important;
+}
+td.bg36p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.36) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 36%, transparent 36%, transparent 100%) !important;
+}
+td.bg37p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.37) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 37%, transparent 37%, transparent 100%) !important;
+}
+td.bg38p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.38) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 38%, transparent 38%, transparent 100%) !important;
+}
+td.bg39p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.39) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 39%, transparent 39%, transparent 100%) !important;
+}
+td.bg40p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.4) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 40%, transparent 40%, transparent 100%) !important;
+}
+td.bg41p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.41) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 41%, transparent 41%, transparent 100%) !important;
+}
+td.bg42p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.42) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 42%, transparent 42%, transparent 100%) !important;
+}
+td.bg43p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.43) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 43%, transparent 43%, transparent 100%) !important;
+}
+td.bg44p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.44) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 44%, transparent 44%, transparent 100%) !important;
+}
+td.bg45p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.45) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 45%, transparent 45%, transparent 100%) !important;
+}
+td.bg46p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.46) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 46%, transparent 46%, transparent 100%) !important;
+}
+td.bg47p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.47) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 47%, transparent 47%, transparent 100%) !important;
+}
+td.bg48p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.48) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 48%, transparent 48%, transparent 100%) !important;
+}
+td.bg49p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.49) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 49%, transparent 49%, transparent 100%) !important;
+}
+td.bg50p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.5) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 50%, transparent 50%, transparent 100%) !important;
+}
+td.bg51p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.51) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 51%, transparent 51%, transparent 100%) !important;
+}
+td.bg52p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.52) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 52%, transparent 52%, transparent 100%) !important;
+}
+td.bg53p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.53) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 53%, transparent 53%, transparent 100%) !important;
+}
+td.bg54p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.54) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 54%, transparent 54%, transparent 100%) !important;
+}
+td.bg55p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.55) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 55%, transparent 55%, transparent 100%) !important;
+}
+td.bg56p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.56) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 56%, transparent 56%, transparent 100%) !important;
+}
+td.bg57p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.57) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 57%, transparent 57%, transparent 100%) !important;
+}
+td.bg58p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.58) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 58%, transparent 58%, transparent 100%) !important;
+}
+td.bg59p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.59) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 59%, transparent 59%, transparent 100%) !important;
+}
+td.bg60p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.6) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 60%, transparent 60%, transparent 100%) !important;
+}
+td.bg61p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.61) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 61%, transparent 61%, transparent 100%) !important;
+}
+td.bg62p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.62) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 62%, transparent 62%, transparent 100%) !important;
+}
+td.bg63p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.63) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 63%, transparent 63%, transparent 100%) !important;
+}
+td.bg64p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.64) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 64%, transparent 64%, transparent 100%) !important;
+}
+td.bg65p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.65) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 65%, transparent 65%, transparent 100%) !important;
+}
+td.bg66p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.66) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 66%, transparent 66%, transparent 100%) !important;
+}
+td.bg67p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.67) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 67%, transparent 67%, transparent 100%) !important;
+}
+td.bg68p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.68) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 68%, transparent 68%, transparent 100%) !important;
+}
+td.bg69p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.69) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 69%, transparent 69%, transparent 100%) !important;
+}
+td.bg70p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.7) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 70%, transparent 70%, transparent 100%) !important;
+}
+td.bg71p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.71) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 71%, transparent 71%, transparent 100%) !important;
+}
+td.bg72p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.72) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 72%, transparent 72%, transparent 100%) !important;
+}
+td.bg73p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.73) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 73%, transparent 73%, transparent 100%) !important;
+}
+td.bg74p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.74) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 74%, transparent 74%, transparent 100%) !important;
+}
+td.bg75p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.75) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 75%, transparent 75%, transparent 100%) !important;
+}
+td.bg76p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.76) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 76%, transparent 76%, transparent 100%) !important;
+}
+td.bg77p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.77) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 77%, transparent 77%, transparent 100%) !important;
+}
+td.bg78p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.78) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 78%, transparent 78%, transparent 100%) !important;
+}
+td.bg79p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.79) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 79%, transparent 79%, transparent 100%) !important;
+}
+td.bg80p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.8) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 80%, transparent 80%, transparent 100%) !important;
+}
+td.bg81p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.81) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 81%, transparent 81%, transparent 100%) !important;
+}
+td.bg82p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.82) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 82%, transparent 82%, transparent 100%) !important;
+}
+td.bg83p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.83) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 83%, transparent 83%, transparent 100%) !important;
+}
+td.bg84p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.84) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 84%, transparent 84%, transparent 100%) !important;
+}
+td.bg85p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.85) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 85%, transparent 85%, transparent 100%) !important;
+}
+td.bg86p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.86) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 86%, transparent 86%, transparent 100%) !important;
+}
+td.bg87p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.87) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 87%, transparent 87%, transparent 100%) !important;
+}
+td.bg88p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.88) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 88%, transparent 88%, transparent 100%) !important;
+}
+td.bg89p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.89) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 89%, transparent 89%, transparent 100%) !important;
+}
+td.bg90p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.9) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 90%, transparent 90%, transparent 100%) !important;
+}
+td.bg91p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.91) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 91%, transparent 91%, transparent 100%) !important;
+}
+td.bg92p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.92) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 92%, transparent 92%, transparent 100%) !important;
+}
+td.bg93p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.93) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 93%, transparent 93%, transparent 100%) !important;
+}
+td.bg94p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.94) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 94%, transparent 94%, transparent 100%) !important;
+}
+td.bg95p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.95) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 95%, transparent 95%, transparent 100%) !important;
+}
+td.bg96p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.96) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 96%, transparent 96%, transparent 100%) !important;
+}
+td.bg97p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.97) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 97%, transparent 97%, transparent 100%) !important;
+}
+td.bg98p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.98) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 98%, transparent 98%, transparent 100%) !important;
+}
+td.bg99p {
+  background: transparent !important;
+  background: rgba(180,232,215,0.99) !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 99%, transparent 99%, transparent 100%) !important;
+}
+td.bg100p {
+  background: transparent !important;
+  background: #b4e8d7 !important;
+  background: linear-gradient(to right, #dad5fd 0%, #b4e8d7 100%, transparent 100%, transparent 100%) !important;
+}
+/*endregion*/
+p.error {
+  color: #f00;
+}
+header table.metadata {
+  background: #fff;
+  border-spacing: 0;
+  margin: 20px 0;
+}
+header table.metadata th,
+header table.metadata td {
+  padding: 5px 8px;
+  background: #fff;
+  color: #434343;
+  text-align: left;
+  border: none;
+  font-weight: normal;
+}
+header table.metadata td {
+  font-weight: bold;
+}
+section#sect2 .attributesCount,
+section#sect3 .attributesCount {
+  font-weight: bold;
+}
+section#sect2 .multiCollapsers,
+section#sect3 .multiCollapsers {
+  margin: 5px;
+  margin-bottom: 15px;
+  padding: 0;
+  font-size: 80%;
+}
+section#sect2 .multiCollapsers a,
+section#sect3 .multiCollapsers a {
+  color: #808080;
+  display: inline-block;
+  padding: 0 5px;
+  border-left: 1px solid #808080;
+  text-decoration: none;
+}
+section#sect2 .multiCollapsers a:first-child,
+section#sect3 .multiCollapsers a:first-child {
+  border-left: none;
+}
+section#sect2 .multiCollapsers a:hover,
+section#sect3 .multiCollapsers a:hover {
+  text-decoration: underline;
+}
+section#sect2 section.list,
+section#sect3 section.list {
+  display: none;
+}
+section#sect2 section.list table,
+section#sect3 section.list table {
+  background: #fff;
+  color: #434343;
+  border-spacing: 0;
+  margin: 20px 0;
+}
+section#sect2 section.list table tr:first-child th,
+section#sect3 section.list table tr:first-child th {
+  border-top: 1px solid #075783;
+}
+section#sect2 section.list table th,
+section#sect3 section.list table th {
+  padding: 5px 8px;
+  background: #075783;
+  color: #fff;
+  text-align: left;
+  border: 1px solid #075783;
+  border-left: none;
+  border-top: none;
+}
+section#sect2 section.list table th:first-child,
+section#sect3 section.list table th:first-child {
+  border: 1px solid #075783;
+}
+section#sect2 section.list table th.empty,
+section#sect3 section.list table th.empty {
+  background: #fff;
+}
+section#sect2 section.list table th.empty:first-child,
+section#sect3 section.list table th.empty:first-child {
+  border-left: none;
+  border-top: none;
+}
+section#sect2 section.list table td,
+section#sect3 section.list table td {
+  padding: 5px 8px;
+  text-align: left;
+  border-bottom: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
+  border-top: none;
+}
+section#sect2 section.list table td:first-child,
+section#sect3 section.list table td:first-child {
+  border-left: 1px solid #ebebeb;
+}
+section#sect2 section.list table tr:nth-child(even),
+section#sect3 section.list table tr:nth-child(even) {
+  background: #fcfbff;
+}
+section#sect2 section.dataField,
+section#sect3 section.attribute {
+  padding: 20px 20px 10px 40px;
+  margin: 2px 5px;
+  border: 1px solid #f0f0f0;
+  position: relative;
+}
+section#sect2 section.dataField h3,
+section#sect3 section.attribute h3 {
+  margin: 0;
+  margin-left: -25px;
+  padding: 0 0 0 25px;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB4klEQVQ4jc2TTUgUYRzGHzxF5wg6xF46uCRhh0UTlj2Uhz6hU1AEsRBIICv2QRFGp5JOfUBYaLGHwkQicw230jwYZhuRZu06us42aas5uzM77+zMzs77zr+bFK3boUM954ff4fmowV+q5v8ABCOd0X3nuung2R460N5Ne1vvUnNLFzW3dNGhtnt0+EyUjlzspfCVAWq98ZI67r+hx2Nzl9cAM/GR/q2+bRRs3IOGQAj19Y3wb9+JWn8dAoEdaGqoQ3CXH6GmWuwO+eHzbUZ0WJLWAFrqxeBQX/SOauiw7RLKrgvOOTjnII9ARAABRIDjcPT0vX8w0Ln/4S8Z5OY/to+9in1mpgnLsuE4DuxSGUJwCCHgkQeA8CSeSi8tJE/9FqK99M6WEhNH019mHWYWUbRsMGbCdR0IweEJgeSc6iamlWPK8w6jYgt6MjY1PTl+QddVMKMAkxkwWRFuuQxmljD8Wrk0339ysmqNWmbqelqaiRt6HszQkc9pcF0Ho2+zoyvS+LWKNf6s4mKCVhflE5qe+17Q8shmV5CSmZqRlePLE7e9PwIAQP3Qu1xgpbBlWbSgrNInmYXl2OlvlbzrLvHryNUh2rDpJjZuuTX7KDy4nq/qlDPPzrfJTyORap5/f6Yfov0LMDmKRNsAAAAASUVORK5CYII=") left 3px no-repeat;
+}
+section#sect2 section.dataField h3.clickable,
+section#sect3 section.attribute h3.clickable {
+  cursor: pointer;
+}
+section#sect2 section.dataField h3 span.counter,
+section#sect3 section.attribute h3 span.counter {
+  float: right;
+  color: #808080;
+  font-style: italic;
+  font-weight: normal;
+}
+section#sect2 section.dataField .simpleDetails,
+section#sect3 section.attribute .simpleDetails {
+  color: #808080;
+  padding: 5px 10px;
+  display: none;
+}
+section#sect2 section.dataField .simpleDetails a,
+section#sect3 section.attribute .simpleDetails a {
+  color: #808080;
+  text-decoration: none;
+}
+section#sect2 section.dataField .simpleDetails a:hover,
+section#sect3 section.attribute .simpleDetails a:hover {
+  text-decoration: underline;
+}
+section#sect2 section.dataField.collapsed,
+section#sect3 section.attribute.collapsed {
+  border: 1px solid #fff;
+  padding-top: 5px;
+  padding-bottom: 0;
+}
+section#sect2 section.dataField.collapsed:hover,
+section#sect3 section.attribute.collapsed:hover {
+  border: 1px solid #f0f0f0;
+}
+section#sect2 section.dataField.collapsed h3,
+section#sect3 section.attribute.collapsed h3 {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB30lEQVR42mNkoBAwInPWHbjdsHDHrVsbO7yXkWVA7fwT/+XlxRjmrjq39Om961mPdtV+IsmA3Il7/jvbazL8/PmHYcPOG3dPX3oUfWdN6kmiDUhq2/jf3kqD4f9/EO8/w/Xbb37vOPqo7uWtI10vjk/7R9CA8OoV/20tNUF6Gf79/8fw7+9fhs9ffjDsO/V834P7j2Lvbyl+hteAwJKF/63MdYAu+M/wF6j5798/DL9//WL4/fsnw437n99cvf856ebKpM04DfArmPff1FSP4f+//xDNQI1fPn9lePf2PcPz5y8Z7j16/Z+BS3Ly/U35+VgNcM2Y8V9DU4fhz58/DN9//GL4/PkL0IBPDJ8/fWD4+P4dw7dv3/7/5xCZ9GBbRQFOAzS1DcEG/Pz5k+Hrt+9AzR8ZPn14x/D+w9tXHz//SHq8t30rTi945s76b2BgwfDr92+gbUDNX74yfPjwhuHurSs7Xz+5n/DmwooXeAPRp2jOf3NTe4bv338ANX9huPvw5s9LJ49Uvn9wccLXJ6f/E4xG39K5/20tXBjeAP18YP+Wa7dOH4/6cH3LRaITklfZnP+y8ir/t65aOPPtnctF35+e+c5AAKAYYJvfsfDKzr1r3t/YvZmQRqwGkAMAJ5ELIPTev5gAAAAASUVORK5CYII=") left 3px no-repeat;
+}
+section#sect2 section.dataField.collapsed .details,
+section#sect3 section.attribute.collapsed .details {
+  display: none;
+}
+section#sect2 section.dataField.collapsed .simpleDetails,
+section#sect3 section.attribute.collapsed .simpleDetails {
+  display: block;
+}
+section#sect2 section.dataField.collapsed table.fieldBasicInfo,
+section#sect3 section.attribute.collapsed table.fieldBasicInfo {
+  display: none;
+}
+section#sect2 section.dataField table.fieldBasicInfo,
+section#sect3 section.attribute table.fieldBasicInfo {
+  background: #fff;
+  border-spacing: 0;
+  margin: 20px 0;
+}
+section#sect2 section.dataField table.fieldBasicInfo th,
+section#sect3 section.attribute table.fieldBasicInfo th,
+section#sect2 section.dataField table.fieldBasicInfo td,
+section#sect3 section.attribute table.fieldBasicInfo td {
+  padding: 5px 8px;
+  background: #fff;
+  color: #434343;
+  text-align: left;
+  border: none;
+  font-weight: normal;
+}
+section#sect2 section.dataField table.fieldBasicInfo td,
+section#sect3 section.attribute table.fieldBasicInfo td {
+  font-weight: bold;
+}
+section#sect2 section.dataField .details,
+section#sect3 section.attribute .details {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: flex-start;
+  -moz-box-align: flex-start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+section#sect2 section.dataField .details table.graphTable,
+section#sect3 section.attribute .details table.graphTable {
+  background: #fff;
+  color: #434343;
+  border-spacing: 0;
+  margin: 20px 0;
+  width: 40%;
+}
+section#sect2 section.dataField .details table.graphTable tr:first-child th,
+section#sect3 section.attribute .details table.graphTable tr:first-child th {
+  border-top: 1px solid #075783;
+}
+section#sect2 section.dataField .details table.graphTable th,
+section#sect3 section.attribute .details table.graphTable th {
+  padding: 5px 8px;
+  background: #075783;
+  color: #fff;
+  text-align: left;
+  border: 1px solid #075783;
+  border-left: none;
+  border-top: none;
+}
+section#sect2 section.dataField .details table.graphTable th:first-child,
+section#sect3 section.attribute .details table.graphTable th:first-child {
+  border: 1px solid #075783;
+}
+section#sect2 section.dataField .details table.graphTable th.empty,
+section#sect3 section.attribute .details table.graphTable th.empty {
+  background: #fff;
+}
+section#sect2 section.dataField .details table.graphTable th.empty:first-child,
+section#sect3 section.attribute .details table.graphTable th.empty:first-child {
+  border-left: none;
+  border-top: none;
+}
+section#sect2 section.dataField .details table.graphTable td,
+section#sect3 section.attribute .details table.graphTable td {
+  padding: 5px 8px;
+  text-align: left;
+  border-bottom: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
+  border-top: none;
+}
+section#sect2 section.dataField .details table.graphTable td:first-child,
+section#sect3 section.attribute .details table.graphTable td:first-child {
+  border-left: 1px solid #ebebeb;
+}
+section#sect2 section.dataField .details table.graphTable tr:nth-child(even),
+section#sect3 section.attribute .details table.graphTable tr:nth-child(even) {
+  background: #fcfbff;
+}
+section#sect2 section.dataField .details table.graphTable td.name,
+section#sect3 section.attribute .details table.graphTable td.name {
+  font-weight: bold;
+}
+section#sect2 section.dataField .details table.graphTable td.frequency,
+section#sect3 section.attribute .details table.graphTable td.frequency {
+  text-align: right;
+}
+section#sect2 section.dataField .details canvas,
+section#sect3 section.attribute .details canvas {
+  margin: 20px;
+  width: 55%;
+  height: 400px;
+}
+section#sect4 #sect4-imValues {
+  padding: 20px 20px 10px 40px;
+  margin: 2px 5px;
+  border: 1px solid #f0f0f0;
+  position: relative;
+}
+section#sect4 #sect4-imValues h3 {
+  margin: 0;
+  margin-left: -25px;
+  padding: 0 0 0 25px;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB4klEQVQ4jc2TTUgUYRzGHzxF5wg6xF46uCRhh0UTlj2Uhz6hU1AEsRBIICv2QRFGp5JOfUBYaLGHwkQicw230jwYZhuRZu06us42aas5uzM77+zMzs77zr+bFK3boUM954ff4fmowV+q5v8ABCOd0X3nuung2R460N5Ne1vvUnNLFzW3dNGhtnt0+EyUjlzspfCVAWq98ZI67r+hx2Nzl9cAM/GR/q2+bRRs3IOGQAj19Y3wb9+JWn8dAoEdaGqoQ3CXH6GmWuwO+eHzbUZ0WJLWAFrqxeBQX/SOauiw7RLKrgvOOTjnII9ARAABRIDjcPT0vX8w0Ln/4S8Z5OY/to+9in1mpgnLsuE4DuxSGUJwCCHgkQeA8CSeSi8tJE/9FqK99M6WEhNH019mHWYWUbRsMGbCdR0IweEJgeSc6iamlWPK8w6jYgt6MjY1PTl+QddVMKMAkxkwWRFuuQxmljD8Wrk0339ysmqNWmbqelqaiRt6HszQkc9pcF0Ho2+zoyvS+LWKNf6s4mKCVhflE5qe+17Q8shmV5CSmZqRlePLE7e9PwIAQP3Qu1xgpbBlWbSgrNInmYXl2OlvlbzrLvHryNUh2rDpJjZuuTX7KDy4nq/qlDPPzrfJTyORap5/f6Yfov0LMDmKRNsAAAAASUVORK5CYII=") left 3px no-repeat;
+}
+section#sect4 #sect4-imValues h3.clickable {
+  cursor: pointer;
+}
+section#sect4 #sect4-imValues h3 span.counter {
+  float: right;
+  color: #808080;
+  font-style: italic;
+  font-weight: normal;
+}
+section#sect4 #sect4-imValues .simpleDetails {
+  color: #808080;
+  padding: 5px 10px;
+  display: none;
+}
+section#sect4 #sect4-imValues .simpleDetails a {
+  color: #808080;
+  text-decoration: none;
+}
+section#sect4 #sect4-imValues .simpleDetails a:hover {
+  text-decoration: underline;
+}
+section#sect4 #sect4-imValues.collapsed {
+  border: 1px solid #fff;
+  padding-top: 5px;
+  padding-bottom: 0;
+}
+section#sect4 #sect4-imValues.collapsed:hover {
+  border: 1px solid #f0f0f0;
+}
+section#sect4 #sect4-imValues.collapsed h3 {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB30lEQVR42mNkoBAwInPWHbjdsHDHrVsbO7yXkWVA7fwT/+XlxRjmrjq39Om961mPdtV+IsmA3Il7/jvbazL8/PmHYcPOG3dPX3oUfWdN6kmiDUhq2/jf3kqD4f9/EO8/w/Xbb37vOPqo7uWtI10vjk/7R9CA8OoV/20tNUF6Gf79/8fw7+9fhs9ffjDsO/V834P7j2Lvbyl+hteAwJKF/63MdYAu+M/wF6j5798/DL9//WL4/fsnw437n99cvf856ebKpM04DfArmPff1FSP4f+//xDNQI1fPn9lePf2PcPz5y8Z7j16/Z+BS3Ly/U35+VgNcM2Y8V9DU4fhz58/DN9//GL4/PkL0IBPDJ8/fWD4+P4dw7dv3/7/5xCZ9GBbRQFOAzS1DcEG/Pz5k+Hrt+9AzR8ZPn14x/D+w9tXHz//SHq8t30rTi945s76b2BgwfDr92+gbUDNX74yfPjwhuHurSs7Xz+5n/DmwooXeAPRp2jOf3NTe4bv338ANX9huPvw5s9LJ49Uvn9wccLXJ6f/E4xG39K5/20tXBjeAP18YP+Wa7dOH4/6cH3LRaITklfZnP+y8ir/t65aOPPtnctF35+e+c5AAKAYYJvfsfDKzr1r3t/YvZmQRqwGkAMAJ5ELIPTev5gAAAAASUVORK5CYII=") left 3px no-repeat;
+}
+section#sect4 #sect4-imValues.collapsed .details {
+  display: none;
+}
+section#sect4 #sect4-imValues.collapsed .simpleDetails {
+  display: block;
+}
+section#sect4 #sect4-imValues table {
+  background: #fff;
+  color: #434343;
+  border-spacing: 0;
+  margin: 20px 0;
+  width: 100%;
+}
+section#sect4 #sect4-imValues table tr:first-child th {
+  border-top: 1px solid #075783;
+}
+section#sect4 #sect4-imValues table th {
+  padding: 5px 8px;
+  background: #075783;
+  color: #fff;
+  text-align: left;
+  border: 1px solid #075783;
+  border-left: none;
+  border-top: none;
+}
+section#sect4 #sect4-imValues table th:first-child {
+  border: 1px solid #075783;
+}
+section#sect4 #sect4-imValues table th.empty {
+  background: #fff;
+}
+section#sect4 #sect4-imValues table th.empty:first-child {
+  border-left: none;
+  border-top: none;
+}
+section#sect4 #sect4-imValues table td {
+  padding: 5px 8px;
+  text-align: left;
+  border-bottom: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
+  border-top: none;
+}
+section#sect4 #sect4-imValues table td:first-child {
+  border-left: 1px solid #ebebeb;
+}
+section#sect4 #sect4-imValues table tr:nth-child(even) {
+  background: #fcfbff;
+}
+section#sect4 #sect4-imValues table td.name {
+  font-weight: bold;
+}
+section#sect4 #sect4-imValues.collapsed {
+  padding: 20px 20px 10px 40px;
+  border: 1px solid #f0f0f0;
+}
+section#sect4 #sect4-imValues.collapsed table,
+section#sect4 #sect4-imValues.collapsed p {
+  display: none;
+}
+section#sect4 #sect4-cedents {
+  padding: 20px 20px 10px 40px;
+  margin: 2px 5px;
+  border: 1px solid #f0f0f0;
+  position: relative;
+}
+section#sect4 #sect4-cedents h3 {
+  margin: 0;
+  margin-left: -25px;
+  padding: 0 0 0 25px;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB4klEQVQ4jc2TTUgUYRzGHzxF5wg6xF46uCRhh0UTlj2Uhz6hU1AEsRBIICv2QRFGp5JOfUBYaLGHwkQicw230jwYZhuRZu06us42aas5uzM77+zMzs77zr+bFK3boUM954ff4fmowV+q5v8ABCOd0X3nuung2R460N5Ne1vvUnNLFzW3dNGhtnt0+EyUjlzspfCVAWq98ZI67r+hx2Nzl9cAM/GR/q2+bRRs3IOGQAj19Y3wb9+JWn8dAoEdaGqoQ3CXH6GmWuwO+eHzbUZ0WJLWAFrqxeBQX/SOauiw7RLKrgvOOTjnII9ARAABRIDjcPT0vX8w0Ln/4S8Z5OY/to+9in1mpgnLsuE4DuxSGUJwCCHgkQeA8CSeSi8tJE/9FqK99M6WEhNH019mHWYWUbRsMGbCdR0IweEJgeSc6iamlWPK8w6jYgt6MjY1PTl+QddVMKMAkxkwWRFuuQxmljD8Wrk0339ysmqNWmbqelqaiRt6HszQkc9pcF0Ho2+zoyvS+LWKNf6s4mKCVhflE5qe+17Q8shmV5CSmZqRlePLE7e9PwIAQP3Qu1xgpbBlWbSgrNInmYXl2OlvlbzrLvHryNUh2rDpJjZuuTX7KDy4nq/qlDPPzrfJTyORap5/f6Yfov0LMDmKRNsAAAAASUVORK5CYII=") left 3px no-repeat;
+}
+section#sect4 #sect4-cedents h3.clickable {
+  cursor: pointer;
+}
+section#sect4 #sect4-cedents h3 span.counter {
+  float: right;
+  color: #808080;
+  font-style: italic;
+  font-weight: normal;
+}
+section#sect4 #sect4-cedents .simpleDetails {
+  color: #808080;
+  padding: 5px 10px;
+  display: none;
+}
+section#sect4 #sect4-cedents .simpleDetails a {
+  color: #808080;
+  text-decoration: none;
+}
+section#sect4 #sect4-cedents .simpleDetails a:hover {
+  text-decoration: underline;
+}
+section#sect4 #sect4-cedents.collapsed {
+  border: 1px solid #fff;
+  padding-top: 5px;
+  padding-bottom: 0;
+}
+section#sect4 #sect4-cedents.collapsed:hover {
+  border: 1px solid #f0f0f0;
+}
+section#sect4 #sect4-cedents.collapsed h3 {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB30lEQVR42mNkoBAwInPWHbjdsHDHrVsbO7yXkWVA7fwT/+XlxRjmrjq39Om961mPdtV+IsmA3Il7/jvbazL8/PmHYcPOG3dPX3oUfWdN6kmiDUhq2/jf3kqD4f9/EO8/w/Xbb37vOPqo7uWtI10vjk/7R9CA8OoV/20tNUF6Gf79/8fw7+9fhs9ffjDsO/V834P7j2Lvbyl+hteAwJKF/63MdYAu+M/wF6j5798/DL9//WL4/fsnw437n99cvf856ebKpM04DfArmPff1FSP4f+//xDNQI1fPn9lePf2PcPz5y8Z7j16/Z+BS3Ly/U35+VgNcM2Y8V9DU4fhz58/DN9//GL4/PkL0IBPDJ8/fWD4+P4dw7dv3/7/5xCZ9GBbRQFOAzS1DcEG/Pz5k+Hrt+9AzR8ZPn14x/D+w9tXHz//SHq8t30rTi945s76b2BgwfDr92+gbUDNX74yfPjwhuHurSs7Xz+5n/DmwooXeAPRp2jOf3NTe4bv338ANX9huPvw5s9LJ49Uvn9wccLXJ6f/E4xG39K5/20tXBjeAP18YP+Wa7dOH4/6cH3LRaITklfZnP+y8ir/t65aOPPtnctF35+e+c5AAKAYYJvfsfDKzr1r3t/YvZmQRqwGkAMAJ5ELIPTev5gAAAAASUVORK5CYII=") left 3px no-repeat;
+}
+section#sect4 #sect4-cedents.collapsed .details {
+  display: none;
+}
+section#sect4 #sect4-cedents.collapsed .simpleDetails {
+  display: block;
+}
+section#sect4 #sect4-cedents #sect4-rulesPattern {
+  font-weight: bold;
+}
+section#sect4 #sect4-cedents section.cedentsDetails table {
+  background: #fff;
+  color: #434343;
+  border-spacing: 0;
+  margin: 20px 0;
+  width: 100%;
+}
+section#sect4 #sect4-cedents section.cedentsDetails table tr:first-child th {
+  border-top: 1px solid #075783;
+}
+section#sect4 #sect4-cedents section.cedentsDetails table th {
+  padding: 5px 8px;
+  background: #075783;
+  color: #fff;
+  text-align: left;
+  border: 1px solid #075783;
+  border-left: none;
+  border-top: none;
+}
+section#sect4 #sect4-cedents section.cedentsDetails table th:first-child {
+  border: 1px solid #075783;
+}
+section#sect4 #sect4-cedents section.cedentsDetails table th.empty {
+  background: #fff;
+}
+section#sect4 #sect4-cedents section.cedentsDetails table th.empty:first-child {
+  border-left: none;
+  border-top: none;
+}
+section#sect4 #sect4-cedents section.cedentsDetails table td {
+  padding: 5px 8px;
+  text-align: left;
+  border-bottom: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
+  border-top: none;
+}
+section#sect4 #sect4-cedents section.cedentsDetails table td:first-child {
+  border-left: 1px solid #ebebeb;
+}
+section#sect4 #sect4-cedents section.cedentsDetails table tr:nth-child(even) {
+  background: #fcfbff;
+}
+section#sect4 #sect4-cedents section.cedentsDetails table .id {
+  display: none;
+}
+section#sect4 #sect4-cedents section.cedentsDetails table .id:first-child + th {
+  border-left: 1px solid #075783;
+}
+section#sect4 #sect4-cedents section.cedentsDetails table .id:first-child + td {
+  border-left: 1px solid #ebebeb;
+}
+section#sect4 #sect4-cedents.collapsed {
+  padding: 20px 20px 10px 40px;
+  border: 1px solid #f0f0f0;
+}
+section#sect4 #sect4-cedents.collapsed section.cedentsDetails,
+section#sect4 #sect4-cedents.collapsed p {
+  display: none;
+}
+section#sect4 #sect4-cedents.collapsed p#sect4-rulesPattern {
+  display: block;
+}
+section#sect5 .foundRulesCount {
+  font-weight: bold;
+}
+section#sect5 .multiCollapsers {
+  margin: 5px;
+  margin-bottom: 15px;
+  padding: 0;
+  font-size: 80%;
+}
+section#sect5 .multiCollapsers a {
+  color: #808080;
+  display: inline-block;
+  padding: 0 5px;
+  border-left: 1px solid #808080;
+  text-decoration: none;
+}
+section#sect5 .multiCollapsers a:first-child {
+  border-left: none;
+}
+section#sect5 .multiCollapsers a:hover {
+  text-decoration: underline;
+}
+section#sect5 section.foundRule {
+  padding: 20px 20px 10px 40px;
+  margin: 2px 5px;
+  border: 1px solid #f0f0f0;
+  position: relative;
+}
+section#sect5 section.foundRule h3 {
+  margin: 0;
+  margin-left: -25px;
+  padding: 0 0 0 25px;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB4klEQVQ4jc2TTUgUYRzGHzxF5wg6xF46uCRhh0UTlj2Uhz6hU1AEsRBIICv2QRFGp5JOfUBYaLGHwkQicw230jwYZhuRZu06us42aas5uzM77+zMzs77zr+bFK3boUM954ff4fmowV+q5v8ABCOd0X3nuung2R460N5Ne1vvUnNLFzW3dNGhtnt0+EyUjlzspfCVAWq98ZI67r+hx2Nzl9cAM/GR/q2+bRRs3IOGQAj19Y3wb9+JWn8dAoEdaGqoQ3CXH6GmWuwO+eHzbUZ0WJLWAFrqxeBQX/SOauiw7RLKrgvOOTjnII9ARAABRIDjcPT0vX8w0Ln/4S8Z5OY/to+9in1mpgnLsuE4DuxSGUJwCCHgkQeA8CSeSi8tJE/9FqK99M6WEhNH019mHWYWUbRsMGbCdR0IweEJgeSc6iamlWPK8w6jYgt6MjY1PTl+QddVMKMAkxkwWRFuuQxmljD8Wrk0339ysmqNWmbqelqaiRt6HszQkc9pcF0Ho2+zoyvS+LWKNf6s4mKCVhflE5qe+17Q8shmV5CSmZqRlePLE7e9PwIAQP3Qu1xgpbBlWbSgrNInmYXl2OlvlbzrLvHryNUh2rDpJjZuuTX7KDy4nq/qlDPPzrfJTyORap5/f6Yfov0LMDmKRNsAAAAASUVORK5CYII=") left 3px no-repeat;
+}
+section#sect5 section.foundRule h3.clickable {
+  cursor: pointer;
+}
+section#sect5 section.foundRule h3 span.counter {
+  float: right;
+  color: #808080;
+  font-style: italic;
+  font-weight: normal;
+}
+section#sect5 section.foundRule .simpleDetails {
+  color: #808080;
+  padding: 5px 10px;
+  display: none;
+}
+section#sect5 section.foundRule .simpleDetails a {
+  color: #808080;
+  text-decoration: none;
+}
+section#sect5 section.foundRule .simpleDetails a:hover {
+  text-decoration: underline;
+}
+section#sect5 section.foundRule.collapsed {
+  border: 1px solid #fff;
+  padding-top: 5px;
+  padding-bottom: 0;
+}
+section#sect5 section.foundRule.collapsed:hover {
+  border: 1px solid #f0f0f0;
+}
+section#sect5 section.foundRule.collapsed h3 {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB30lEQVR42mNkoBAwInPWHbjdsHDHrVsbO7yXkWVA7fwT/+XlxRjmrjq39Om961mPdtV+IsmA3Il7/jvbazL8/PmHYcPOG3dPX3oUfWdN6kmiDUhq2/jf3kqD4f9/EO8/w/Xbb37vOPqo7uWtI10vjk/7R9CA8OoV/20tNUF6Gf79/8fw7+9fhs9ffjDsO/V834P7j2Lvbyl+hteAwJKF/63MdYAu+M/wF6j5798/DL9//WL4/fsnw437n99cvf856ebKpM04DfArmPff1FSP4f+//xDNQI1fPn9lePf2PcPz5y8Z7j16/Z+BS3Ly/U35+VgNcM2Y8V9DU4fhz58/DN9//GL4/PkL0IBPDJ8/fWD4+P4dw7dv3/7/5xCZ9GBbRQFOAzS1DcEG/Pz5k+Hrt+9AzR8ZPn14x/D+w9tXHz//SHq8t30rTi945s76b2BgwfDr92+gbUDNX74yfPjwhuHurSs7Xz+5n/DmwooXeAPRp2jOf3NTe4bv338ANX9huPvw5s9LJ49Uvn9wccLXJ6f/E4xG39K5/20tXBjeAP18YP+Wa7dOH4/6cH3LRaITklfZnP+y8ir/t65aOPPtnctF35+e+c5AAKAYYJvfsfDKzr1r3t/YvZmQRqwGkAMAJ5ELIPTev5gAAAAASUVORK5CYII=") left 3px no-repeat;
+}
+section#sect5 section.foundRule.collapsed .details {
+  display: none;
+}
+section#sect5 section.foundRule.collapsed .simpleDetails {
+  display: block;
+}
+section#sect5 section.foundRule .details {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: baseline;
+  -moz-box-align: baseline;
+  -webkit-align-items: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  -webkit-box-pack: start;
+  -moz-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-flex-wrap: wrap-rewerse;
+  -ms-flex-wrap: wrap-rewerse;
+  flex-wrap: wrap-rewerse;
+}
+section#sect5 section.foundRule .details div.imValues,
+section#sect5 section.foundRule .details div.fourFtTable {
+  min-width: 300px;
+  padding: 20px 20px 20px 0;
+}
+section#sect5 section.foundRule .details div.imValues h4,
+section#sect5 section.foundRule .details div.fourFtTable h4 {
+  margin: 0;
+  padding: 0;
+}
+section#sect5 section.foundRule .details table.fourFtTable {
+  background: #fff;
+  color: #434343;
+  border-spacing: 0;
+  margin: 20px 0;
+}
+section#sect5 section.foundRule .details table.fourFtTable tr:first-child th {
+  border-top: 1px solid #075783;
+}
+section#sect5 section.foundRule .details table.fourFtTable th {
+  padding: 5px 8px;
+  background: #075783;
+  color: #fff;
+  text-align: left;
+  border: 1px solid #075783;
+  border-left: none;
+  border-top: none;
+}
+section#sect5 section.foundRule .details table.fourFtTable th:first-child {
+  border: 1px solid #075783;
+}
+section#sect5 section.foundRule .details table.fourFtTable th.empty {
+  background: #fff;
+}
+section#sect5 section.foundRule .details table.fourFtTable th.empty:first-child {
+  border-left: none;
+  border-top: none;
+}
+section#sect5 section.foundRule .details table.fourFtTable td {
+  padding: 5px 8px;
+  text-align: left;
+  border-bottom: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
+  border-top: none;
+}
+section#sect5 section.foundRule .details table.fourFtTable td:first-child {
+  border-left: 1px solid #ebebeb;
+}
+section#sect5 section.foundRule .details table.fourFtTable th,
+section#sect5 section.foundRule .details table.fourFtTable td {
+  text-align: right;
+}
+section#sect5 section.foundRule .details table.imValuesTable {
+  background: #fff;
+  color: #434343;
+  border-spacing: 0;
+  margin: 20px 0;
+}
+section#sect5 section.foundRule .details table.imValuesTable tr:first-child th {
+  border-top: 1px solid #075783;
+}
+section#sect5 section.foundRule .details table.imValuesTable th {
+  padding: 5px 8px;
+  background: #075783;
+  color: #fff;
+  text-align: left;
+  border: 1px solid #075783;
+  border-left: none;
+  border-top: none;
+}
+section#sect5 section.foundRule .details table.imValuesTable th:first-child {
+  border: 1px solid #075783;
+}
+section#sect5 section.foundRule .details table.imValuesTable th.empty {
+  background: #fff;
+}
+section#sect5 section.foundRule .details table.imValuesTable th.empty:first-child {
+  border-left: none;
+  border-top: none;
+}
+section#sect5 section.foundRule .details table.imValuesTable td {
+  padding: 5px 8px;
+  text-align: left;
+  border-bottom: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
+  border-top: none;
+}
+section#sect5 section.foundRule .details table.imValuesTable td:first-child {
+  border-left: 1px solid #ebebeb;
+}
+section#sect5 section.foundRule .details table.imValuesTable tr:nth-child(even) {
+  background: #fcfbff;
+}
+section#sect5 section.foundRule .details table.imValuesTable td.value {
+  text-align: right;
+}

@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dictionary dictionaryVersion="0.1">
+  <Entry id="1"><!--left closure of interval-->
+    <str lang="en">[</str>
+    <str lang="cs">&lt;</str>
+  </Entry>
+  <Entry id="2"><!--right closure of interval-->
+    <str lang="en">]</str>
+    <str lang="cs">&gt;</str>
+  </Entry>
+  <Entry id="10">
+    <str lang="en">Description of Data Mining Task</str>
+    <str lang="cs">Popis běhu DM úlohy</str>
+  </Entry>
+  <Entry id="11">
+    <str lang="en">Content</str>
+    <str lang="cs">Obsah</str>
+  </Entry>
+  <Entry id="12">
+    <str lang="en">Rule</str>
+    <str lang="cs">Pravidlo</str>
+  </Entry>
+  <Entry id="13">
+    <str lang="en">Four field contingency table</str>
+    <str lang="cs">Čtyřpolní tabulka</str>
+  </Entry>
+  <Entry id="14">
+    <str lang="en">selected rule</str>
+    <str lang="cs">vybrané pravidlo</str>
+  </Entry>
+
+  <Entry id="20">
+    <str lang="en">This document contains automatically generated report of a data mining task. It is a task that
+      finds association rules between Boolean characteristics of groups of attributes.
+      The algorithm used is not the most well known APRIORI algorithm, we use the ASSOC procedure
+      of the GUHA method instead. The report has been automatically generated from the PMML
+      format for storage of association rules.
+    </str>
+    <str lang="cs">Tento dokument obsahuje automaticky vytvořený popis běhu úlohy dolování znalostí z databází. Cílem
+      úlohy bylo nalézt asociační pravidla mezi booleovskými charakteristikami skupin atributů. Použita byla procedura
+      ASSOC metody GUHA. Tento dokument byl automaticky vygenerován na základě PMML specifikace vytvořené programem pro
+      dolování asociačních pravidel.
+    </str>
+  </Entry>
+  <Entry id="30">
+    <str lang="en">Dataset Description</str>
+    <str lang="cs">Popis datového souboru</str>
+  </Entry>
+  <Entry id="31">
+    <str lang="en">List of data fields</str>
+    <str lang="cs">Seznam sloupců</str>
+  </Entry>
+  <Entry id="40">
+    <str lang="en">Created Attributes</str>
+    <str lang="cs">Vytvořené atributy</str>
+  </Entry>
+  <Entry id="50">
+    <str lang="en">Data Mining Task Setting</str>
+    <str lang="cs">Zadání DM úlohy</str>
+  </Entry>
+  <Entry id="60">
+    <str lang="en">Discovered Association Rules</str>
+    <str lang="cs">Nalezená asociační pravidla</str>
+  </Entry>
+  <Entry id="61">
+    <str lang="en">Maximum number of discovered rules exceeded! Number of founded rules:</str>
+    <str lang="cs">Byl překročen maximální počet nalezených pravidel! Celkem nalezeno pravidel:</str>
+  </Entry>
+  <Entry id="70">
+    <str lang="en">Frequency analysis - columns</str>
+    <str lang="cs">Frekvenční analýza sloupců</str>
+  </Entry>
+  <Entry id="80">
+    <str lang="en">
+      Attribute (in the sense of this analysis) is a mapping of a domain to finite set
+      of categories. These can be either enumerations, intervals or combination of them.
+      Enumerations usually make sense with categorical domains, which means that the
+      values of the domain cannot be ordered. Example of a categorical domain is sex of
+      person. On the other hand, intervals usually make sense with continuous domains,
+      which means one can tell how far apart two values of the domain are. Example of a
+      continuous domain is age of a person.
+    </str>
+    <str lang="cs">
+
+    </str>
+  </Entry>
+  <Entry id="90">
+    <str lang="en">List of created attributes</str>
+    <str lang="cs">Seznam vytvořených atributů</str>
+  </Entry>
+  <Entry id="100">
+    <str lang="en">Number of created attributes</str>
+    <str lang="cs">Počet vytvořených atributů</str>
+  </Entry>
+  <Entry id="110">
+    <str lang="en">Discovered association rules relate to the following attributes</str>
+    <str lang="cs">Nalezená pravidla se vztahují na následující atributy</str>
+  </Entry>
+  <Entry id="120">
+    <str lang="en">Number of discovered association rules</str>
+    <str lang="cs">Počet nalezených pravidel</str>
+  </Entry>
+  <Entry id="130">
+    <str lang="en">Content (list of rules)</str>
+    <str lang="cs">Obsah (seznam pravidel)</str>
+  </Entry>
+  <Entry id="140">
+    <str lang="en">Task Metadata</str>
+    <str lang="cs">Metadata úlohy</str>
+  </Entry>
+  <Entry id="150">
+    <str lang="en">Task ID</str>
+    <str lang="cs">ID úlohy</str>
+  </Entry>
+  <Entry id="160">
+    <str lang="en">Software used</str>
+    <str lang="cs">Použitý software</str>
+  </Entry>
+  <Entry id="170">
+    <str lang="en">Version</str>
+    <str lang="cs">Verze</str>
+  </Entry>
+  <Entry id="180">
+    <str lang="en">Author</str>
+    <str lang="cs">Autor</str>
+  </Entry>
+  <Entry id="190">
+    <str lang="en">Exceeded</str>
+    <str lang="cs">Překročeno</str>
+  </Entry>
+  <Entry id="191">
+    <str lang="en">No rules found</str>
+    <str lang="cs">Žádná pravidla nenalezena</str>
+  </Entry>
+
+  <Entry id="200">
+    <str lang="en">first</str>
+    <str lang="cs">bylo vypsáno prvních</str>
+  </Entry>
+  <Entry id="210">
+    <str lang="en">from the total number of</str>
+    <str lang="cs">z celkového počtu</str>
+  </Entry>
+  <Entry id="220">
+    <str lang="en">rules</str>
+    <str lang="cs">pravidel</str>
+  </Entry>
+  <Entry id="221">
+    <str lang="en">No restriction</str>
+    <str lang="cs">Bez omezení</str>
+  </Entry>
+  <Entry id="230">
+    <str lang="en">first</str>
+    <str lang="cs">bylo vypsáno prvních</str>
+  </Entry>
+  <Entry id="240">
+    <str lang="en">Available columns</str>
+    <str lang="cs">Dostupné sloupce</str>
+  </Entry>
+  <Entry id="250">
+    <str lang="en">Column name</str>
+    <str lang="cs">Jméno sloupce</str>
+  </Entry>
+  <Entry id="251">
+    <str lang="en">Column</str>
+    <str lang="cs">Sloupec</str>
+  </Entry>
+  <Entry id="252">
+    <str lang="en">Value</str>
+    <str lang="cs">Hodnota</str>
+  </Entry>
+  <Entry id="253">
+    <str lang="en">Frequency</str>
+    <str lang="cs">Frekvence</str>
+  </Entry>
+  <Entry id="254">
+    <str lang="en">No detail given for this column</str>
+    <str lang="cs">Pro tento sloupec nejsou data</str>
+  </Entry>
+  <Entry id="255">
+    <str lang="en">Source mode</str>
+    <str lang="cs">Source mode</str>
+    <!--TODO localize-->
+  </Entry>
+  <Entry id="260">
+    <str lang="en">Number of different values</str>
+    <str lang="cs">Počet různých hodnot</str>
+  </Entry>
+  <Entry id="270">
+    <str lang="en">Type</str>
+    <str lang="cs">Typ</str>
+  </Entry>
+  <Entry id="280">
+    <str lang="en">Number of records</str>
+    <str lang="cs">Počet záznamů v tabulce</str>
+  </Entry>
+  <Entry id="290">
+    <str lang="en">values</str>
+    <str lang="cs">hodnot</str>
+  </Entry>
+  <Entry id="300">
+    <str lang="en">Number of records</str>
+    <str lang="cs">Počet záznamů v tabulce</str>
+  </Entry>
+  <Entry id="310">
+    <str lang="en">Supplemental statistics</str>
+    <str lang="cs">Další statistiky</str>
+  </Entry>
+  <Entry id="310">
+    <str lang="en">Value range</str>
+    <str lang="cs">Rozsah hodnot</str>
+  </Entry>
+  <Entry id="320">
+    <str lang="en">Minimum value</str>
+    <str lang="cs">Minimální hodnota</str>
+  </Entry>
+  <Entry id="330">
+    <str lang="en">Maximum value</str>
+    <str lang="cs">Maximální hodnota</str>
+  </Entry>
+  <Entry id="340">
+    <str lang="en">Average value</str>
+    <str lang="cs">Průměrná hodnota</str>
+  </Entry>
+  <Entry id="340">
+    <str lang="en">Standard deviation</str>
+    <str lang="cs">Průměrná odchylka</str>
+  </Entry>
+  <Entry id="350">
+    <str lang="en">of the column</str>
+    <str lang="cs">sloupce</str>
+  </Entry>
+  <Entry id="360">
+    <str lang="en">Attribute</str>
+    <str lang="cs">Atribut</str>
+  </Entry>
+  <Entry id="361">
+    <str lang="en">Attribute type</str>
+    <str lang="cs">Typ atributu</str>
+  </Entry>
+  <Entry id="362">
+    <str lang="en">Number of categories</str>
+    <str lang="cs">Počet kategorií</str>
+  </Entry>
+  <Entry id="370">
+    <str lang="en">Derived from column</str>
+    <str lang="cs">Odvozen ze sloupce</str>
+  </Entry>
+  <Entry id="380">
+    <str lang="en">Category</str>
+    <str lang="cs">Kategorie</str>
+  </Entry>
+  <Entry id="390">
+    <str lang="en">Interval</str>
+    <str lang="cs">Interval</str>
+  </Entry>
+  <Entry id="400">
+    <str lang="en">Enumeration</str>
+    <str lang="cs">Výčet hodnot</str>
+  </Entry>
+  <Entry id="410">
+    <str lang="en">derived from column</str>
+    <str lang="cs">Column</str>
+  </Entry>
+  <Entry id="420">
+    <str lang="en">Interest measures used</str>
+    <str lang="cs">Použité míry zajímavosti</str>
+  </Entry>
+  <Entry id="421">
+    <str lang="en">Table of values for test criteria</str>
+    <str lang="cs">Tabulka hodnot testových kritérií</str>
+  </Entry>
+
+  <Entry id="422">
+    <str lang="en">First set four field quantifier</str>
+    <str lang="cs">First set four field quantifier</str>
+    <!--TODO localize-->
+  </Entry>
+  <Entry id="423">
+    <str lang="en">First set four field contingency table</str>
+    <str lang="cs">First set four field contingency table</str>
+    <!--TODO localize-->
+  </Entry>
+  <Entry id="424">
+    <str lang="en">Second set four field quantifier</str>
+    <str lang="cs">Second set four field quantifier</str>
+    <!--TODO localize-->
+  </Entry>
+  <Entry id="425">
+    <str lang="en">Second set four field contingency table</str>
+    <str lang="cs">Second set four field contingency table</str>
+    <!--TODO localize-->
+  </Entry>
+  <Entry id="426">
+    <str lang="en">State before four field quantifier</str>
+    <str lang="cs">State before four field quantifier</str>
+    <!--TODO localize-->
+  </Entry>
+  <Entry id="427">
+    <str lang="en">State before four field contingency table</str>
+    <str lang="cs">State before four field contingency table</str>
+    <!--TODO localize-->
+  </Entry>
+  <Entry id="428">
+    <str lang="en">State after four field quantifier</str>
+    <str lang="cs">State after four field quantifier</str>
+    <!--TODO localize-->
+  </Entry>
+  <Entry id="429">
+    <str lang="en">State after four field contingency table</str>
+    <str lang="cs">State after four field contingency table</str>
+    <!--TODO localize-->
+  </Entry>
+
+  <Entry id="430">
+    <str lang="en">Minimum value</str>
+    <str lang="cs">Minimální hodnota</str>
+  </Entry>
+  <Entry id="440">
+    <str lang="en">not used</str>
+    <str lang="cs">není použito</str>
+  </Entry>
+  <Entry id="450">
+    <str lang="en">Note: GUHA quantifiers Founded Implication and Base are listed as confidence and support</str>
+    <str lang="cs">Poznámka: GUHA kvantifikátory Fundovaná implikace a Base jsou uvedeny v Tabulce jako spolehlivost a
+      podpora.
+    </str>
+  </Entry>
+  <Entry id="460">
+    <str lang="en">Sought type of association rules</str>
+    <str lang="cs">Tvar hledaných asociačních pravidel</str>
+  </Entry>
+  <Entry id="470">
+    <str lang="en">Detailed list of basic Boolean attributes settings</str>
+    <str lang="cs">Detailní výpis nastavení základních Booleovských atributů</str>
+  </Entry>
+  <Entry id="480">
+    <str lang="en">Name</str>
+    <str lang="cs">Jméno</str>
+  </Entry>
+
+  <Entry id="490">
+    <str lang="en">Based on attibute</str>
+    <str lang="cs">Založeno na atributu</str>
+  </Entry>
+  <Entry id="500">
+    <str lang="en">Coefficient</str>
+    <str lang="cs">Koeficient</str>
+  </Entry>
+  <Entry id="510">
+    <str lang="en">Minimal length</str>
+    <str lang="cs">Minimální délka</str>
+  </Entry>
+  <Entry id="520">
+    <str lang="en">Maximal length</str>
+    <str lang="cs">Maximální délka</str>
+  </Entry>
+  <Entry id="530">
+    <str lang="en">Detailed list of derived Boolean attributes settings</str>
+    <str lang="cs">Detailní výpis nastavení odvozených Booleovských atributů</str>
+  </Entry>
+  <Entry id="540">
+    <str lang="en">Type</str>
+    <str lang="cs">Typ</str>
+  </Entry>
+  <Entry id="550">
+    <str lang="en">Attribute elements</str>
+    <str lang="cs">Složky atributu</str>
+  </Entry>
+  <Entry id="560">
+    <str lang="en">Connjunction</str>
+    <str lang="cs">Konjunkce</str>
+  </Entry>
+  <Entry id="570">
+    <str lang="en">Disjunction</str>
+    <str lang="cs">Disjunkce</str>
+  </Entry>
+  <Entry id="580">
+    <str lang="en">Table of values for measures of interestingness</str>
+    <str lang="cs">Tabulka hodnot měr zajímavosti</str>
+  </Entry>
+  <Entry id="590">
+    <str lang="en">Interest Measure</str>
+    <str lang="cs">Míra zajímavosti</str>
+  </Entry>
+  <Entry id="600">
+    <str lang="en">Consequent</str>
+    <str lang="cs">Konsekvent</str>
+  </Entry>
+  <Entry id="610">
+    <str lang="en">Antecedent</str>
+    <str lang="cs">Antecedent</str>
+  </Entry>
+  <Entry id="620">
+    <str lang="en">Jméno</str>
+    <str lang="cs">Name</str>
+  </Entry>
+  <Entry id="630">
+    <str lang="en">Histogram of most frequent categories</str>
+    <str lang="cs">Histogram nejčastějších kategorií</str>
+  </Entry>
+  <Entry id="650">
+    <str lang="en">This section contains detailed description of the data. Below, all the
+      columns used in the analysis are listed and for each column, the frequency analysis
+      is attached.
+    </str>
+    <str lang="cs">Tato sekce obsahuje detailní popis dat. Jsou zde zobrazeny všechny
+      sloupce použité v analýze spolu s frekvenční analýzou pro tyto sloupce.
+    </str>
+  </Entry>
+  <Entry id="660">
+    <str lang="en">This part of the analytical report lists all the created attributes and
+      their characteristics:
+    </str>
+    <str lang="cs">Tato část analytické zprávy zobrazuje vytvořené atributy a jejich
+      charakteristiky.
+    </str>
+  </Entry>
+  <Entry id="670">
+    <str lang="en">Column from which the attribute was derived</str>
+    <str lang="cs">Sloupec, ze kterého je atribut vytvořen</str>
+  </Entry>
+  <Entry id="680">
+    <str lang="en">Attribute type (categorical, ordinal, continuous)</str>
+    <str lang="cs">Typ atributu (categorical, ordinal, continuous)</str>
+  </Entry>
+  <Entry id="690">
+    <str lang="en">Frequency analysis – histogram of the intervals or enumerations of the
+      attribute. The histograms are ordered by the highest frequent values. If the
+      attribute contains more categories than
+    </str>
+    <str lang="cs">Frekvenční analýza - histogram intervalů nebo enumerací atributu.
+      Histogramy jsou setříděné podle nejvíce frekventovaných hodnot. Pokud obsahuje
+      atribut více kategorií než
+    </str>
+  </Entry>
+  <Entry id="700">
+    <str lang="en">, the remaining categories are grouped into the “Other” column in the histogram.</str>
+    <str lang="cs">, zbývající kategorie jsou sloučeny do sloupce "Other" v histogramu.</str>
+  </Entry>
+  <Entry id="710">
+    <str lang="en">This part of the analytical report describes the ASSOC procedure setting.
+      The setting consists of
+    </str>
+    <str lang="cs">Tato část analytické zprávy popisuje zadání procedury ASSOC. Ta se zkládá z</str>
+  </Entry>
+  <Entry id="720">
+    <str lang="en">Set of quantifiers as interest measures for the output association rules</str>
+    <str lang="cs">Množiny kvantifikátorů, které slouží jako míry zajímavosti výstupních asociačních pravidel</str>
+  </Entry>
+  <Entry id="730">
+    <str lang="en">Set of Derived Boolean attribute settings for the antecedent</str>
+    <str lang="cs">Množiny nastavení odvozených Booleovských atributů pro antecedent</str>
+  </Entry>
+  <Entry id="740">
+    <str lang="en">Set of Derived Boolean attribute settings for the consequent</str>
+    <str lang="cs">Množiny nastavení odvozených Booleovských atributů pro konsekvent</str>
+  </Entry>
+  <Entry id="750">
+    <str lang="en">Below, all the interest measures for the output association rules are
+      stated. The table contains name of the quantifier (interest measure) and also
+      minimal values of the quantifier threshold(s).
+    </str>
+    <str lang="cs">V následující tabulce jsou zahrnuty všechny míry zajímavosti pro
+      výstupní asociační pravidla. Tabulka obsahuje jméno kvantifikátoru (míry zajímavosti)
+      a také minimální hodnoty pro prahy kvantifikátoru.
+    </str>
+  </Entry>
+  <Entry id="760">
+    <str lang="en">The data mining task found rules in the following form:</str>
+    <str lang="cs">Data miningová úloha hledala pravidla v této formě:</str>
+  </Entry>
+  <Entry id="770">
+    <str lang="en">The basic building blocks of the task setting is the basic Boolean
+      attributes setting. Basic Boolean attribute setting is a way of construction of
+      basic Boolean attributes (roughly corresponding to items in the apriori algorithm).
+      They are constructed from the set of categories of an attributes. The table below
+      describes the way of construction. Name of the basic Boolean attribute is given by
+      the data mining software and may vary. The column Based on attribute says what the
+      underlying attribute for the basic Boolean attribute is. The column coefficient
+      describes what subsets of the set of categories of the attribute should be taken
+      (the possible values are subsets, intervals, cyclic intervals, cuts, left cuts,
+      right cuts). The last columns state the minimal and maximal length of the basic
+      Boolean attribute.
+    </str>
+    <str lang="cs">Základní stavební bloky zadání úlohy jsou zadání základních Booleovských
+      atributů. Zadání základního Booleovského atributu je způsob konstrukce základních
+      Booleovských atributů (zhruba odpovídá itemům v algoritmu apriori). Zadání jsou
+      konstruovány z množiny kategorií atributu. Následující tabulka popisuje způsob
+      konstrukce. Jméno základního Booleovského atributu je dáno data miningovým
+      softwarem a může být proto různé pro různý software. Sloupec "Based on attribute"
+      určuje, ze kterého atributu by základní Booleovský atribut vytvořen. Sloupec "coefficeint"
+      určuje, které podmnožiny množiny katgorií atributu jsou konstruovány (možné hodnoty jsou
+      subsets, intervals, cyclic intervals, cuts, left cuts, right cuts). Poslední sloupce
+      určují minimální a maximální délku základního Booleovského atributu.
+    </str>
+  </Entry>
+  <Entry id="780">
+    <str lang="en">Derived Boolean attributes are recursive structures built upon the basic
+      Boolean attributes. Conjunction, disjunction and negation of basic Boolean attribute
+      form a derived Boolean attribute. Conjunction, disjunction and negation of derived
+      Boolean attribute form again a derived Boolean attribute.
+    </str>
+    <str lang="cs">Odvozený Booleovský atribut je rekurzivní struktura postavená na základních
+      Booleovských atributech. Konjunkce, disjunkce a negace základního Booleovského atributu
+      je odvozený Booleovský atribut. Konjunkce, disjunkce a negace odvozeného Booleovského
+      atributu je také odvozený Booleovský atribut.
+    </str>
+  </Entry>
+  <Entry id="790">
+    <str lang="en">Below, all the discovered patterns (association rules) are listed. Each
+      association rule contains name, values of the interest measure (quantifier) and a four-fold
+      contingency table. The following paragraph complies with the PMML standard and shows, which
+      attributes occur in the discovered association rules. Also, number of discovered rules is
+      stated.
+    </str>
+    <str lang="cs">V seznamu jsou vypsána všechna nalezená asociační pravidla.
+      Každé asociační pravidlo obsahuje jméno, hodnoty měr zajímavosti (hodnoty kvantifikátorů)
+      a čtyřpolní kontingenční tabulku. Následující odstavec určuje kvůli kompatibilitě
+      s PMML standardem atributy, které se vyskytují v nalezených asociačních pravidlech. Poté
+      je uveden počet nalezených pravidel.
+    </str>
+  </Entry>
+
+  <Entry id="800">
+    <str lang="en">Other</str>
+    <str lang="cs">Ostatní</str>
+  </Entry>
+  <Entry id="801">
+    <str lang="en">Other categories</str>
+    <str lang="cs">Ostatní kategorie</str>
+  </Entry>
+
+  <Entry id="810">
+    <str lang="en">Visualization XSLT Version</str>
+    <str lang="cs">Verze vizualizační XSLT šablony</str>
+  </Entry>
+  <Entry id="820">
+    <str lang="en">Normalization XSLT Version</str>
+    <str lang="cs">Verze normalizační XSLT šablony</str>
+  </Entry>
+  <Entry id="830">
+    <str lang="en">Normalization Dictionary Version</str>
+    <str lang="cs">Verze normalizačního slovníku</str>
+  </Entry>
+  <Entry id="835">
+    <str lang="en">Export template version</str>
+    <str lang="cs">Verze exportní šablony</str>
+  </Entry>
+  <Entry id="840">
+    <str lang="en">Interest measure values</str>
+    <str lang="cs">Tabulka hodnot měr zajímavosti</str>
+  </Entry>
+
+  <Entry id="850">
+    <str lang="en">This document contains automatically generated report of a data mining task. It is a task that
+      finds action rules between Boolean characteristics of groups of attributes.
+      The algorithm used is not the most well known APRIORI algorithm, we use the Ac4ft-Miner procedure
+      of the GUHA method instead. The report has been automatically generated from the PMML
+      format for storage of association rules.
+    </str>
+    <str lang="cs">Tento dokument obsahuje automaticky vytvořený popis běhu úlohy dolování znalostí z databází. Cílem
+      úlohy bylo nalézt akční pravidla mezi booleovskými charakteristikami skupin atributů. Použita byla procedura
+      Ac4ft-Miner metody GUHA. Tento dokument byl automaticky vygenerován na základě PMML specifikace vytvořené
+      programem pro dolování asociačních pravidel.
+    </str>
+  </Entry>
+  <Entry id="860">
+    <str lang="en">Set of quantifiers as interest measures for the output action rules</str>
+    <str lang="cs">Množiny kvantifikátorů, které slouží jako míry zajímavosti výstupních akčních pravidel</str>
+  </Entry>
+  <Entry id="870">
+    <str lang="en">Set of Derived Boolean attribute settings for the antecedent stable part and antecedent variable
+      part
+    </str>
+    <str lang="cs">Množiny nastavení odvozených Booleovských atributů pro stabilní a variabilní složku antecedentu</str>
+  </Entry>
+  <Entry id="880">
+    <str lang="en">Set of Derived Boolean attribute settings for the consequent stable part and consequent variable
+      part
+    </str>
+    <str lang="cs">Množiny nastavení odvozených Booleovských atributů pro stabilní a variabilní složku konsekventu</str>
+  </Entry>
+  <Entry id="890">
+    <str lang="en">Below, all the interest measures for the output action rules are
+      stated. The table contains name of the quantifier (interest measure) and also
+      minimal values of the quantifier threshold(s).
+    </str>
+    <str lang="cs">V následující tabulce jsou zahrnuty všechny míry zajímavosti pro
+      výstupní akční pravidla. Tabulka obsahuje jméno kvantifikátoru (míry zajímavosti)
+      a také minimální hodnoty pro prahy kvantifikátoru.
+    </str>
+  </Entry>
+  <Entry id="900">
+    <str lang="en">Sought type of action rules</str>
+    <str lang="cs">Tvar hledaných akčních pravidel</str>
+  </Entry>
+  <Entry id="910">
+    <str lang="en">Discovered Action Rules</str>
+    <str lang="cs">Nalezená akční pravidla</str>
+  </Entry>
+  <Entry id="920">
+    <str lang="en">Below, all the discovered patterns (action rules) are listed. Each
+      association rule contains name, values of the interest measure (quantifier) and a four-fold
+      contingency table for the initial and the final state. The following paragraph complies with the PMML standard and
+      shows, which
+      attributes occur in the discovered action rules. Also, number of discovered rules is
+      stated.
+    </str>
+    <str lang="cs">V seznamu jsou vypsány všechna nalezená asociační pravidla.
+      Každé akční pravidlo obsahuje jméno, hodnoty měr zajímavosti (hodnoty kvantifikátorů)
+      a čtyřpolní kontingenční tabulku pro stav před a stav po provedené změně. Následující odstavec určuje kvůli
+      kompatibilitě
+      s PMML standardem atributy, které se vyskytují v nalezených akčních pravidlech. Poté
+      je uveden počet nalezených pravidel.
+    </str>
+  </Entry>
+  <Entry id="930">
+    <str lang="en">This document contains automatically generated report of a data mining task. It is a task that
+      finds such association rules between Boolean characteristics of groups of attributes, which significantly differs
+      in their interest measures between two sets defined by Boolean attributes.
+      The algorithm used is not the most well known APRIORI algorithm, we use the SD4ft-Miner procedure
+      of the GUHA method instead. The report has been automatically generated from the PMML
+      format for storage of association rules.
+    </str>
+    <str lang="cs">Tento dokument obsahuje automaticky vytvořený popis běhu úlohy dolování znalostí z databází. Cílem
+      úlohy bylo nalézt taková asociační pravidla mezi booleovskými charakteristikami skupin atributů, která se významně
+      liší svojí mírou zajímavosti u dvou podskupin daných dvojicí boolovských atributů. Použita byla procedura
+      SD4ft-Miner metody GUHA. Tento dokument byl automaticky vygenerován na základě PMML specifikace vytvořené
+      programem pro dolování asociačních pravidel.
+    </str>
+  </Entry>
+  <Entry id="940">
+    <str lang="en">Set of quantifiers as interest measures for the output pairs of association rules</str>
+    <str lang="cs">Množiny kvantifikátorů, které slouží jako míry zajímavosti výstupních dvojic asociačních pravidel
+    </str>
+  </Entry>
+  <Entry id="950">
+    <str lang="en">Set of Derived Boolean attribute settings for the definition of the first set</str>
+    <str lang="cs">Množiny nastavení odvozených Booleovských atributů pro definici první množiny</str>
+  </Entry>
+  <Entry id="960">
+    <str lang="en">Set of Derived Boolean attribute settings for the definition of the second set</str>
+    <str lang="cs">Množiny nastavení odvozených Booleovských atributů pro definici druhé množiny</str>
+  </Entry>
+  <Entry id="970">
+    <str lang="en">Below, all the interest measures for the output pairs of association rules are
+      stated. The table contains name of the quantifier (interest measure) and also
+      minimal values of the quantifier threshold(s).
+    </str>
+    <str lang="cs">V následující tabulce jsou zahrnuty všechny míry zajímavosti pro
+      výstupní dvojice asociačních pravidel. Tabulka obsahuje jméno kvantifikátoru (míry zajímavosti)
+      a také minimální hodnoty pro prahy kvantifikátoru.
+    </str>
+  </Entry>
+  <Entry id="980">
+    <str lang="en">Sought type of pairs of association rules</str>
+    <str lang="cs">Tvar hledaných dvojic asociačních pravidel</str>
+  </Entry>
+  <Entry id="990">
+    <str lang="en">Discovered pairs of Association Rules</str>
+    <str lang="cs">Nalezená dvojice asociačních pravidel</str>
+  </Entry>
+  <Entry id="1000">
+    <str lang="en">Below, all the discovered patterns (pairs of association rules) are listed. Each
+      pair of association rules contains name, values of the interest measure (quantifier) and a four-fold
+      contingency table for each of the rules. The following paragraph complies with the PMML standard and shows, which
+      attributes occur in the discovered association rules. Also, number of discovered rules is
+      stated.
+    </str>
+    <str lang="cs">V seznamu jsou vypsány všechny nalezené dvojice asociačních pravidel.
+      Každá dvojice asociačních pravidel obsahuje jméno, hodnoty měr zajímavosti (hodnoty kvantifikátorů)
+      a čtyřpolní kontingenční tabulku pro obě pravidla. Následující odstavec určuje kvůli kompatibilitě
+      s PMML standardem atributy, které se vyskytují v nalezených asociačních pravidlech. Poté
+      je uveden počet nalezených pravidel.
+    </str>
+  </Entry>
+  <Entry id="1010">
+    <str lang="en">This part of the analytical report describes the SD4ft procedure setting.
+      The setting consists of
+    </str>
+    <str lang="cs">Tato část analytické zprávy popisuje zadání procedury SD4ft. Ta se zkládá z</str>
+  </Entry>
+  <Entry id="1020">
+    <str lang="en">This part of the analytical report describes the Ac4ft procedure setting.
+      The setting consists of
+    </str>
+    <str lang="cs">Tato část analytické zprávy popisuje zadání procedury Ac4ft. Ta se zkládá z</str>
+  </Entry>
+</Dictionary>

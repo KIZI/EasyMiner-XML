@@ -3,6 +3,11 @@
 #################
 .idea
 
+#################
+## Oxygen XML editor
+#################
+*.xpr
+
 
 #################
 ## Eclipse
@@ -13,7 +18,6 @@
 .metadata
 bin/
 tmp/
-*.tmp
 *.bak
 *.swp
 *~.nib
@@ -81,7 +85,6 @@ build/
 *.vssscc
 .builds
 *.pidb
-*.log
 *.scc
 
 # Visual C++ cache files
@@ -220,3 +223,7 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+transformations/guhaPMML2HTML/css/config.css
+transformations/guhaPMML2HTML/css/flexbox.css
+transformations/guhaPMML2HTML_compact/css/config.css
