@@ -13,7 +13,7 @@
     <xsl:param name="navigationCSS" select="true()"/>
     <style>
       @import url('<xsl:value-of select="$basePath"/>/css/main.css');
-      <xsl:if test="not($navigationCSS)">
+      <xsl:if test="$navigationCSS">
         @import url('<xsl:value-of select="$basePath"/>/css/navigation.css');
       </xsl:if>
       <xsl:if test="not($contentOnly)">
