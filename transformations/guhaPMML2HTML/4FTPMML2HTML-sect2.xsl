@@ -110,12 +110,12 @@
 
   <xsl:template match="p:Interval" mode="sect2">
     <xsl:choose>
-      <xsl:when test="@closure='closedOpen' or @closure='closedClosed'">&lt;</xsl:when>
+      <xsl:when test="@closure='closedOpen' or @closure='closedClosed'"><xsl:copy-of select="keg:translate('[',1)"/></xsl:when>
       <xsl:otherwise>(</xsl:otherwise>
     </xsl:choose>
     <xsl:value-of select="@leftMargin"/>;<xsl:value-of select="@rightMargin"/>
     <xsl:choose>
-      <xsl:when test="@closure='closedClosed' or @closure='openClosed'">&gt;</xsl:when>
+      <xsl:when test="@closure='closedClosed' or @closure='openClosed'"><xsl:copy-of select="keg:translate(']',2)"/></xsl:when>
       <xsl:otherwise>)</xsl:otherwise>
     </xsl:choose>
   </xsl:template>

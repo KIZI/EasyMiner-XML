@@ -136,12 +136,12 @@
                 <xsl:otherwise>
                   <xsl:choose>
                     <xsl:when test="@closure = 'openClosed' or @closure = 'openOpen'">(</xsl:when>
-                    <xsl:otherwise>&lt;</xsl:otherwise>
+                    <xsl:otherwise><xsl:copy-of select="keg:translate('[',1)"/></xsl:otherwise>
                   </xsl:choose>
                   <xsl:value-of select="@leftMargin"/>;<xsl:value-of select="@rightMargin"/>
                   <xsl:choose>
                     <xsl:when test="@closure = 'closedClosed' or @closure = 'closedOpen'">)</xsl:when>
-                    <xsl:otherwise>&gt;</xsl:otherwise>
+                    <xsl:otherwise><xsl:copy-of select="keg:translate(']',2)"/></xsl:otherwise>
                   </xsl:choose>
                 </xsl:otherwise>
               </xsl:choose>

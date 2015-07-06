@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Dictionary dictionaryVersion="0.1">
+    <Entry id="1"><!--left closure of interval-->
+      <str lang="en">[</str>
+      <str lang="cs">&lt;</str>
+    </Entry>
+    <Entry id="2"><!--right closure of interval-->
+      <str lang="en">]</str>
+      <str lang="cs">&gt;</str>
+    </Entry>
     <Entry id="10">
         <str lang="en">Description of Data Mining Task</str>
         <str lang="cs">Popis běhu DM úlohy</str>
