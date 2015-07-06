@@ -4,6 +4,17 @@ $(document).ready(function(){
   prepareCollapsableSections();
 });
 
+/**
+ * Konfigurace barev použitých pro grafy
+ * @type {{fillColor: string, strokeColor: string, highlightFill: string, highlightStroke: string}}
+ */
+var graphColorsConfig = {
+  fillColor : "rgba(49,78,100,0.5)",
+  strokeColor : "rgba(49,78,100,0.8)",
+  highlightFill: "rgba(220,220,255,0.75)",
+  highlightStroke: "rgba(220,220,255,1)"
+};
+
 
 var prepareCollapsableSections = function(){
   var sectionH3s = $('section h3');
@@ -185,7 +196,6 @@ var prepareFourFtTables = function () {
 };
 
 var prepareGraphTables = function(){
-  //TODO add check for canvas support
   $('table.graphTable').each(function(){
     generateTdGraphsForGraphTable($(this));
     generateGraphForGraphTable($(this).attr('id'));
@@ -222,7 +232,11 @@ var generateGraphForGraphTable = function(id){
 
   table.find('tr').each(function(){
     //zpracujeme všechny jednotlivé řádky
-    var name = $(this).find('.name').text();
+    var nameTd = $(this).find('.name');
+    if (nameTd.hasClass('others')){
+      return;
+    }
+    var name = nameTd.text();
     if (!name){return;}
     var frequency = $(this).find('.frequency').text();
     if (!frequency){return;}
@@ -234,20 +248,28 @@ var generateGraphForGraphTable = function(id){
     labels: labelsArr,
     datasets: [
       {
-        label: "label",
-        backgroundColor: "rgba(220,220,255,1)",
+        fillColor : graphColorsConfig.fillColor,
+        strokeColor : graphColorsConfig.strokeColor,
+        highlightFill: graphColorsConfig.highlightFill,
+        highlightStroke: graphColorsConfig.highlightStroke,
         data: dataArr
       }
     ]
   };
 
   var ctx = document.getElementById(id+"-graph").getContext("2d");
-  new Chart(ctx,{
-    type: 'bar',
-    data: barChartData,
-    options: {
-      responsive: false
+  new Chart(ctx).Bar(
+    barChartData,{
+      responsive: false,
+      animation: false,
+      showScale: true,
+      scaleShowLabels: true,
+      scaleBeginAtZero: true,
+      barValueSpacing: 0,
+      scaleShowVerticalLines: false,
+      barStrokeWidth : 1,
+      maintainAspectRatio: false
     }
-  });
+  );
 
 };
