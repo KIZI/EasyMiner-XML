@@ -41,8 +41,8 @@
     </li>
   </xsl:template>
   <xsl:template match="p:DerivedField" mode="odkaz">
-    <a href="#sect3-{p:Discretize/@field | p:MapValues/@outputColumn}">
-      <xsl:value-of select="p:Discretize/@field | p:MapValues/@outputColumn"/>
+    <a href="#sect3-{@name}">
+      <xsl:value-of select="@name"/>
     </a>
   </xsl:template>
 

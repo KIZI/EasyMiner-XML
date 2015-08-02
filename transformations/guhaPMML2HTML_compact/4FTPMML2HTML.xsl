@@ -99,8 +99,8 @@
     </li>
   </xsl:template>
   <xsl:template match="p:DerivedField" mode="odkaz">
-    <a href="#sect3-{p:Discretize/@field | p:MapValues/@outputColumn}">
-      <xsl:value-of select="p:Discretize/@field | p:MapValues/@outputColumn"/>
+    <a href="#sect3-{@name}">
+      <xsl:value-of select="@name"/>
     </a>
   </xsl:template>
 
@@ -1093,14 +1093,14 @@
       </td>
       <!-- column reference -->
       <td>
-        <xsl:variable name="sourceDataField" select="p:Discretize/@field | p:MapValues/p:FieldColumnPair/@column"/>
+        <xsl:variable name="sourceDataField" select="p:Discretize/@field | p:MapValues/p:FieldColumnPair/@field"/>
         <xsl:apply-templates select="/p:PMML/p:DataDictionary/p:DataField[@name=$sourceDataField]" mode="odkaz"/>
       </td>
     </tr>
   </xsl:template>
 
   <xsl:template match="p:DerivedField" mode="sect3">
-    <xsl:variable name="DerivedFieldName" select="p:Discretize/@field | p:MapValues/@outputColumn"/>
+    <xsl:variable name="DerivedFieldName" select="@name"/>
     <xsl:variable name="numOfCategories"
                   select="count(p:Discretize/p:DiscretizeBin)+count(p:MapValues/p:InlineTable/p:Extension[@name='Frequency'])"/>
     <div class="section attribute" id="sect3-{$DerivedFieldName}">
@@ -1116,7 +1116,7 @@
           </th>
           <!-- DataField mode=odkaz is in 4FTPMML2HTML-toc.xsl -->
           <td>
-            <xsl:variable name="sourceDataField" select="p:Discretize/@field | p:MapValues/p:FieldColumnPair/@column"/>
+            <xsl:variable name="sourceDataField" select="p:Discretize/@field | p:MapValues/p:FieldColumnPair/@field"/>
             <xsl:apply-templates select="/p:PMML/p:DataDictionary/p:DataField[@name=$sourceDataField]" mode="odkaz"/>
           </td>
         </tr>
@@ -2092,7 +2092,7 @@
   </xsl:template>
 
   <xsl:template match="CatRef" mode="bbaText">
-    <xsl:if test="position()>1">,</xsl:if>
+    <xsl:if test="position()>1">, </xsl:if>
     <xsl:value-of select="text()"/>
   </xsl:template>
 
@@ -2150,7 +2150,7 @@
 
   <xsl:template match="p:DerivedField" mode="sect5">
     <xsl:if test="position()>1">,</xsl:if>
-    <xsl:variable name="DerivedFieldName" select="p:Discretize/@field | p:MapValues/@outputColumn"/>
+    <xsl:variable name="DerivedFieldName" select="@name"/>
     <a href="#sect3-{$DerivedFieldName}">
       <xsl:value-of select="$DerivedFieldName"/>
     </a>

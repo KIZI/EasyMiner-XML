@@ -49,14 +49,14 @@
       </td>
       <!-- column reference -->
       <td>
-        <xsl:variable name="sourceDataField" select="p:Discretize/@field | p:MapValues/p:FieldColumnPair/@column"/>
+        <xsl:variable name="sourceDataField" select="p:Discretize/@field | p:MapValues/p:FieldColumnPair/@field"/>
         <xsl:apply-templates select="/p:PMML/p:DataDictionary/p:DataField[@name=$sourceDataField]" mode="odkaz"/>
       </td>
     </tr>
   </xsl:template>
 
   <xsl:template match="p:DerivedField" mode="sect3">
-    <xsl:variable name="DerivedFieldName" select="p:Discretize/@field | p:MapValues/@outputColumn"/>
+    <xsl:variable name="DerivedFieldName" select="@name"/>
     <xsl:variable name="numOfCategories"
                   select="count(p:Discretize/p:DiscretizeBin)+count(p:MapValues/p:InlineTable/p:Extension[@name='Frequency'])"/>
     <section id="sect3-{$DerivedFieldName}" class="attribute">
@@ -65,17 +65,17 @@
         <xsl:with-param name="element" select="$DerivedFieldName"/>
       </xsl:call-template>
       <h3><xsl:copy-of select="keg:translate('Attribute',360)"/>:
-        <xsl:value-of select="p:Discretize/@field | p:MapValues/@outputColumn"/>
+        <xsl:value-of select="./@name"/>
       </h3>
 
       <table class="fieldBasicInfo">
         <tr>
           <th scope="row">
-            <xsl:copy-of select="keg:translate('derived from column',370)"/>
+            <xsl:copy-of select="keg:translate('Derived from column',370)"/>
           </th>
           <!-- DataField mode=odkaz is in 4FTPMML2HTML-toc.xsl -->
           <td>
-            <xsl:variable name="sourceDataField" select="p:Discretize/@field | p:MapValues/p:FieldColumnPair/@column"/>
+            <xsl:variable name="sourceDataField" select="p:Discretize/@field | p:MapValues/p:FieldColumnPair/@field"/>
             <xsl:apply-templates select="/p:PMML/p:DataDictionary/p:DataField[@name=$sourceDataField]" mode="odkaz"/>
           </td>
         </tr>
