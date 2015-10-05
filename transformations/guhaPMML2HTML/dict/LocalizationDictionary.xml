@@ -30,16 +30,10 @@
   </Entry>
 
   <Entry id="20">
-    <str lang="en">This document contains automatically generated report of a data mining task. It is a task that
-      finds association rules between Boolean characteristics of groups of attributes.
-      The algorithm used is not the most well known APRIORI algorithm, we use the ASSOC procedure
-      of the GUHA method instead. The report has been automatically generated from the PMML
-      format for storage of association rules.
+    <str lang="en">This document contains automatically generated report of a data mining task. It is a task that finds association rules between Boolean characteristics of groups of attributes.
+      The report has been automatically generated from the PMML export.
     </str>
-    <str lang="cs">Tento dokument obsahuje automaticky vytvořený popis běhu úlohy dolování znalostí z databází. Cílem
-      úlohy bylo nalézt asociační pravidla mezi booleovskými charakteristikami skupin atributů. Použita byla procedura
-      ASSOC metody GUHA. Tento dokument byl automaticky vygenerován na základě PMML specifikace vytvořené programem pro
-      dolování asociačních pravidel.
+    <str lang="cs">Tento dokument obsahuje automaticky vytvořený popis běhu úlohy hledání asociačních pravidel vytvořený na základě PMML exportu.
     </str>
   </Entry>
   <Entry id="30">
@@ -439,14 +433,16 @@
     <str lang="cs">, zbývající kategorie jsou sloučeny do sloupce "Other" v histogramu.</str>
   </Entry>
   <Entry id="710">
-    <str lang="en">This part of the analytical report describes the ASSOC procedure setting.
+    <str lang="en">This part of the analytical report describes the setting of the data mining task.
       The setting consists of
     </str>
-    <str lang="cs">Tato část analytické zprávy popisuje zadání procedury ASSOC. Ta se zkládá z</str>
+    <str lang="cs">Tato část analytické zprávy popisuje zadání data miningové úlohy. Ta se zkládá z</str>
   </Entry>
   <Entry id="720">
-    <str lang="en">Set of quantifiers as interest measures for the output association rules</str>
-    <str lang="cs">Množiny kvantifikátorů, které slouží jako míry zajímavosti výstupních asociačních pravidel</str>
+    <!--<str lang="en">Set of quantifiers as interest measures for the output association rules</str>
+    <str lang="cs">Množiny kvantifikátorů, které slouží jako míry zajímavosti výstupních asociačních pravidel</str>-->
+    <str lang="en">Requested threshold values of the used interest meassures (quantifiers)</str>
+    <str lang="cs">Omezení na hodnoty měr zajímavosti (kvantifikátorů)</str>
   </Entry>
   <Entry id="730">
     <str lang="en">Set of Derived Boolean attribute settings for the antecedent</str>
@@ -458,13 +454,10 @@
   </Entry>
   <Entry id="750">
     <str lang="en">Below, all the interest measures for the output association rules are
-      stated. The table contains name of the quantifier (interest measure) and also
-      minimal values of the quantifier threshold(s).
+      stated.
     </str>
     <str lang="cs">V následující tabulce jsou zahrnuty všechny míry zajímavosti pro
-      výstupní asociační pravidla. Tabulka obsahuje jméno kvantifikátoru (míry zajímavosti)
-      a také minimální hodnoty pro prahy kvantifikátoru.
-    </str>
+      výstupní asociační pravidla.
   </Entry>
   <Entry id="760">
     <str lang="en">The data mining task found rules in the following form:</str>
@@ -510,15 +503,11 @@
   <Entry id="790">
     <str lang="en">Below, all the discovered patterns (association rules) are listed. Each
       association rule contains name, values of the interest measure (quantifier) and a four-fold
-      contingency table. The following paragraph complies with the PMML standard and shows, which
-      attributes occur in the discovered association rules. Also, number of discovered rules is
-      stated.
+      contingency table.
     </str>
     <str lang="cs">V seznamu jsou vypsána všechna nalezená asociační pravidla.
       Každé asociační pravidlo obsahuje jméno, hodnoty měr zajímavosti (hodnoty kvantifikátorů)
-      a čtyřpolní kontingenční tabulku. Následující odstavec určuje kvůli kompatibilitě
-      s PMML standardem atributy, které se vyskytují v nalezených asociačních pravidlech. Poté
-      je uveden počet nalezených pravidel.
+      a čtyřpolní kontingenční tabulku.
     </str>
   </Entry>
 

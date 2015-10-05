@@ -853,7 +853,7 @@
     <div class="section dataField" id="sect2-{@name}">
 
       <h3>
-        <xsl:text>Column</xsl:text>
+        <xsl:text>Column: </xsl:text>
         <xsl:value-of select="@name"/>
       </h3>
       <!-- basic info about data field-->
@@ -1105,8 +1105,8 @@
                   select="count(p:Discretize/p:DiscretizeBin)+count(p:MapValues/p:InlineTable/p:Extension[@name='Frequency'])"/>
     <div class="section attribute" id="sect3-{$DerivedFieldName}">
       <h3>
-        <xsl:text>Attribute:</xsl:text>
-        <xsl:value-of select="p:Discretize/@field | p:MapValues/@outputColumn"/>
+        <xsl:text>Attribute: </xsl:text>
+        <xsl:value-of select="@name"/>
       </h3>
 
       <table class="fieldBasicInfo">
@@ -1314,9 +1314,6 @@
         </tr>
         <xsl:apply-templates select="TaskSetting/InterestMeasureSetting/InterestMeasureThreshold" mode="sect4"/>
       </table>
-      <p class="legend">
-        <xsl:text>Note: GUHA quantifiers Founded Implication and Base are listed as confidence and support</xsl:text>
-      </p>
     </div>
 
     <!-- association rules + detailed list of basic and derived association attributes -->
@@ -1328,7 +1325,14 @@
   <xsl:template match="InterestMeasureThreshold" mode="sect4" priority="1">
     <tr>
       <td class="name">
-        <xsl:value-of select="InterestMeasure | Formula/@name"/>
+        <xsl:choose>
+          <xsl:when test="Extension[@name='LongName']"><!--TODO-->
+            <xsl:value-of select="Extension[@name='LongName']"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="InterestMeasure | Formula/@name"/>
+          </xsl:otherwise>
+        </xsl:choose>
       </td>
       <!-- SignificanceLevel is used for static quantifiers, Threshold is used otherwise -->
       <!-- quantifiers using SignificanceLevel and Threshold together -->
@@ -2100,10 +2104,11 @@
     <xsl:param name="topLevel"/>
     <!-- item can be preceded by NOT operator -->
     <xsl:choose>
+      <!--TODO
       <xsl:when test="@connective='Negation'">
-        <xsl:value-of select="$notOperator"/>
+        <xsl:value-of select="$notOperator"/>x
         <xsl:apply-templates select="BARef"/>
-      </xsl:when>
+      </xsl:when>-->
       <xsl:when test="count(BARef)=1">
         <xsl:apply-templates select="BARef">
           <xsl:with-param name="topLevel" select="$topLevel"/>

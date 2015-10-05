@@ -40,10 +40,11 @@
         </tr>
         <xsl:apply-templates select="TaskSetting/InterestMeasureSetting/InterestMeasureThreshold" mode="sect4"/>
       </table>
+      <!--
       <p class="legend">
         <xsl:copy-of
             select="keg:translate('Note: GUHA quantifiers Founded Implication and Base are listed as confidence and support',450)"/>
-      </p>
+      </p>-->
     </section>
 
     <!-- association rules + detailed list of basic and derived association attributes -->
