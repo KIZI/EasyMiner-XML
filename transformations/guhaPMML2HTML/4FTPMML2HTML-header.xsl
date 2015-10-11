@@ -28,6 +28,9 @@
         </th>
         <td>
           <xsl:value-of select="p:Application/@name"/>
+          <xsl:if test="p:Extension[@name='subsystem']">
+            <xsl:text> - </xsl:text><xsl:value-of select="p:Extension[@name='subsystem']/@value"/>
+          </xsl:if>
           <xsl:if test="p:Application/@version">
             (<xsl:value-of select="p:Application/@version"/>)
           </xsl:if>
