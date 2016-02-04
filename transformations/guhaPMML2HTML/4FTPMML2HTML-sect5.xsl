@@ -212,16 +212,38 @@
             </tr>
           </xsl:if>
           <!-- if FUI == -1 then don't include to report -->
-          <xsl:if test="IMValue[@name='FUI']!=-1">
-            <tr>
-              <td class="name">
-                <xsl:copy-of select="keg:translateInterestMeasure('FUI','TestCriterion', 'pmml', $reportLang)"/>
-              </td>
-              <td class="value">
-                <xsl:value-of select="format-number(IMValue[@name='FUI'],'0.0000')"/>
-              </td>
-            </tr>
-          </xsl:if>
+          <xsl:choose>
+            <xsl:when test="IMValue[@name='CONF']!=-1">
+              <tr>
+                <td class="name">
+                  <xsl:copy-of select="keg:translateInterestMeasure('CONF','TestCriterion', 'pmml', $reportLang)"/>
+                </td>
+                <td class="value">
+                  <xsl:value-of select="format-number(IMValue[@name='CONF'],'0.0000')"/>
+                </td>
+              </tr>
+            </xsl:when>
+            <xsl:when test="IMValue[@name='FUI']!=-1">
+              <tr>
+                <td class="name">
+                  <xsl:copy-of select="keg:translateInterestMeasure('CONF','TestCriterion', 'pmml', $reportLang)"/>
+                </td>
+                <td class="value">
+                  <xsl:value-of select="format-number(IMValue[@name='FUI'],'0.0000')"/>
+                </td>
+              </tr>
+            </xsl:when>
+            <xsl:when test="IMValue[@name='PIM']!=-1">
+              <tr>
+                <td class="name">
+                  <xsl:copy-of select="keg:translateInterestMeasure('PIM','TestCriterion', 'pmml', $reportLang)"/>
+                </td>
+                <td class="value">
+                  <xsl:value-of select="format-number(IMValue[@name='PIM'],'0.0000')"/>
+                </td>
+              </tr>
+            </xsl:when>
+          </xsl:choose>
         </xsl:if>
         <!-- AssociationRule or SD4ftRule or Ac4ftRule table rows -->
         <xsl:if test="local-name()='AssociationRule' or local-name()='SD4ftRule' or local-name()='Ac4ftRule'">

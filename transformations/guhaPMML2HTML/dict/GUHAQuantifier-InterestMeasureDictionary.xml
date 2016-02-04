@@ -81,8 +81,9 @@
 
 
   <InterestMeasure>
-    <str lang="MasterName">FUI</str>
-    <str lang="pmml" software="LISp-Miner">FUI</str>
+    <str lang="MasterName">CONF</str>
+    <str lang="pmml" software="LISp-Miner">PIM</str>
+    <str lang="pmml" software="EasyMiner">CONF</str>
     <str lang="pmml" software="Ferda">Confidence</str>
     <str lang="en">Confidence</str>
     <str lang="cs">Spolehlivost</str>
@@ -96,8 +97,9 @@
         <CompareType>Greater than</CompareType>
         <Threshold>Yes</Threshold>
         <SignificanceLevel>No</SignificanceLevel>
-        <str lang="MasterName">FUI</str>
-        <str lang="pmml" software="LISp-Miner">FUI</str>
+        <str lang="MasterName">CONF</str>
+        <str lang="pmml" software="LISp-Miner">PIM</str>
+        <str lang="pmml" software="EasyMiner">CONF</str>
         <str lang="pmml" software="Ferda">Confidence</str>
         <str lang="en">Confidence</str>
         <str lang="cs">Spolehlivost</str>
