@@ -188,7 +188,7 @@
                   </xsl:choose>
                   <xsl:value-of select="@leftMargin"/>;<xsl:value-of select="@rightMargin"/>
                   <xsl:choose>
-                    <xsl:when test="@closure = 'closedClosed' or @closure = 'closedOpen'">)</xsl:when>
+                    <xsl:when test="@closure = 'openOpen' or @closure = 'closedOpen'">)</xsl:when>
                     <xsl:otherwise>
                       <xsl:copy-of select="keg:translate(']',2)"/>
                     </xsl:otherwise>
