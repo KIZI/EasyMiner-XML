@@ -13,7 +13,7 @@
     <xsl:param name="contentBlockName"/>
     <!-- parametr element je  volitelný a používá se pro odlišení vícero bloků stejného typu (např. atributů)-->
     <xsl:param name="element"/>
-    <!-- gInclude{"level":"0","title":"Název zobrazovaný ve výběru","id":"IDčko"} -->
+
     <xsl:variable name="BaseblockID"
                   select="exsl:node-set($ContentTagsDictionary)/ContentTagsDictionary/Entry[name=$contentBlockName]/IDbase"></xsl:variable>
     <xsl:choose>
@@ -46,7 +46,7 @@
 
     <xsl:variable name="BlockID"/>
     <!-- Title will contain the element parametr only if this is allowed for this entity type - the @append attribute exists-->
-    <xsl:attribute name="data-ginclude-title">
+    <xsl:attribute name="data-easyminer-block-title">
       <xsl:choose>
         <xsl:when
             test="exsl:node-set($ContentTagsDictionary)/ContentTagsDictionary/Entry[name=$contentBlockName]/Title/@append=1">
@@ -59,11 +59,11 @@
         </xsl:otherwise>
       </xsl:choose>
     </xsl:attribute>
-    <xsl:attribute name="data-ginclude-level">
+    <xsl:attribute name="data-easyminer-block-level">
       <xsl:value-of
           select="exsl:node-set($ContentTagsDictionary)/ContentTagsDictionary/Entry[name=$contentBlockName]/Level"/>
     </xsl:attribute>
-    <xsl:attribute name="data-ginclude-id">
+    <xsl:attribute name="data-easyminer-block-id">
       <xsl:value-of select="keg:getContentBlockID($contentBlockName, $element)"/>
     </xsl:attribute>
   </xsl:template>

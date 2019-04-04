@@ -74,8 +74,8 @@
     </xsl:template>
 
     <xsl:template match="p:AssociationModel">
-        <section id="sect5" data-ginclude-id="DiscoveredARs" data-ginclude-level="0"
-                 data-ginclude-title="{keg:translate('Founded association rules')}">
+        <section id="sect5" data-easyminer-block-id="DiscoveredARs" data-easyminer-block-level="0"
+                 data-easyminer-block-title="{keg:translate('Founded association rules')}">
             <h2>
                 <xsl:copy-of select="keg:translate('Founded association rules')"/>
             </h2>

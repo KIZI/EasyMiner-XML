@@ -71,10 +71,10 @@
   <!-- Obsahuje slovnik pojmu generovanych xslt transformaci v ruznych jazycich-->
   <xsl:variable name="LocalizationDictionary" select="document('dict/LocalizationDictionary.xml')"/>
 
-  <!-- Obsahuje lokalizaci znacek vkladanych pro gInclude (nadpisy pro fragmenty dokumentu)-->
+  <!-- Obsahuje lokalizaci znacek vkladanych pro easyminer-block (nadpisy pro fragmenty dokumentu)-->
   <xsl:variable name="ContentTagsDictionary" select="document('dict/PMMLContentTagsDictionary.xml')"/>
 
-  <xsl:include href="lib/gincludesupport-lib.xsl"/>
+  <xsl:include href="lib/easyminer-block-support-lib.xsl"/>
   <xsl:include href="lib/localization-lib.xsl"/>
 
   <!-- ===========================================
